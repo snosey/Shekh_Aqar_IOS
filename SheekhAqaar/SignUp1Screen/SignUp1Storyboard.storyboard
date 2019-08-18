@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Up1VC-->
+        <scene sceneID="g3Q-0e-mgB">
+            <objects>
+                <viewController storyboardIdentifier="SignUp1VC" id="YWI-eZ-Gct" customClass="SignUp1VC" customModule="SheekhAqaar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yG2-wZ-cof">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg" translatesAutoresizingMaskIntoConstraints="NO" id="cgG-5k-EQr">
+                                <rect key="frame" x="0.0" y="-1" width="414" height="898"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_icon" translatesAutoresizingMaskIntoConstraints="NO" id="TnS-Ms-Zcq">
+                                <rect key="frame" x="83" y="74" width="248" height="122.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yOL-Rl-8HV" firstAttribute="trailing" secondItem="cgG-5k-EQr" secondAttribute="trailing" id="4Ow-YD-KMb"/>
+                            <constraint firstItem="cgG-5k-EQr" firstAttribute="leading" secondItem="yOL-Rl-8HV" secondAttribute="leading" id="D6x-J4-75I"/>
+                            <constraint firstItem="TnS-Ms-Zcq" firstAttribute="centerX" secondItem="yOL-Rl-8HV" secondAttribute="centerX" id="UKt-NB-4OF"/>
+                            <constraint firstItem="TnS-Ms-Zcq" firstAttribute="width" secondItem="yOL-Rl-8HV" secondAttribute="width" multiplier="0.6" id="VB0-cr-wte"/>
+                            <constraint firstItem="TnS-Ms-Zcq" firstAttribute="top" secondItem="yOL-Rl-8HV" secondAttribute="top" constant="30" id="bLa-YW-usD"/>
+                            <constraint firstItem="cgG-5k-EQr" firstAttribute="top" secondItem="yOL-Rl-8HV" secondAttribute="top" constant="-45" id="iYE-WE-btO"/>
+                            <constraint firstItem="yOL-Rl-8HV" firstAttribute="bottom" secondItem="cgG-5k-EQr" secondAttribute="bottom" constant="-35" id="quX-dD-9R8"/>
+                            <constraint firstItem="TnS-Ms-Zcq" firstAttribute="height" secondItem="yOL-Rl-8HV" secondAttribute="height" multiplier="0.15" id="zfb-Dy-wLX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yOL-Rl-8HV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F4b-Y2-tUw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30" y="84"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="main_bg" width="450" height="800"/>
+        <image name="splash_icon" width="596" height="468"/>
+    </resources>
+</document>

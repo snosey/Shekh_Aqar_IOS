@@ -2,6 +2,28 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>TheSans-Bold.otf</string>
+		<string>TheSans-Plain.otf</string>
+	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need to access your Photo Library</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Sheekh Aqaar needs to access your location.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Sheekh Aqaar needs to access your location.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Sheekh Aqaar needs to access your location.</string>
+	<key>NSCameraUsageDescription - 2</key>
+	<string>Need Photo Library access</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need to access your camera</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

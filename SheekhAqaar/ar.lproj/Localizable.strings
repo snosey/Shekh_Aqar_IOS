@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  SheekhAqaar
+
+  Created by Hesham Donia on 8/18/19.
+  Copyright © 2019 Hesham Donia. All rights reserved.
+*/
+"phoneNumber" = "رقم الجوال";
+"login" = "دخول";
+"registerAsCompany" = "تسجيل حساب شركة";
+"enterPhoneField" = "من فضلك أدخل رقم الجوال";
+"enterValidPhoneNumber" = "من فضلك أدخل رقم جوال صحيح";

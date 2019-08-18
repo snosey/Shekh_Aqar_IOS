@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
+import AlamofireNetworkActivityIndicator
+import Localize_Swift
+import Material
+import SwiftyUserDefaults
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    public static var instance: AppDelegate!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        AppDelegate.instance = self
+        NetworkActivityIndicatorManager.shared.isEnabled = true
+        NetworkActivityIndicatorManager.shared.startDelay = 0.2
+        NetworkActivityIndicatorManager.shared.completionDelay = 0.5
+        
+        IQKeyboardManager.shared.enable = true
+        
+        let appStarter = ApplicationStarter()
+        appStarter.startApplication(window: window)
         return true
     }
 
