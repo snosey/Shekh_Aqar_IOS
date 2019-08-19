@@ -10,3 +10,13 @@
 "registerAsCompany" = "تسجيل حساب شركة";
 "enterPhoneField" = "من فضلك أدخل رقم الجوال";
 "enterValidPhoneNumber" = "من فضلك أدخل رقم جوال صحيح";
+"username" = "اسم المستخدم";
+"continue" = "متابعة";
+"photoGallery" = "معرض الصور";
+"camera" = "الكاميرا";
+"chooseMediaTitle" = "اختر مصدر الصوره";
+"chooseMediaMessage" = "من فضلك اختر مصدر الصوره";
+"enterUsernameField" = "من فضلك ادخل اسم المستخدم";
+"enterAvatar" = "من فضلك اختر صورتك الشخصيه";
+"skip" = "تخطي";
+"back" = "رجوع";

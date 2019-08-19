@@ -18,6 +18,7 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var countryCodeLabel: UILabel!
     @IBOutlet weak var loginButton: LocalizedButton!
     @IBOutlet weak var registerAsCompany: LocalizedLabel!
+    @IBOutlet weak var skipLabel: LocalizedLabel!
     
     var code: String = "966"
     
@@ -29,21 +30,22 @@ class SignUpVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        countryCodeView.addTapGesture { (_) in
-            self.showCountryList()
+        countryCodeView.addTapGesture { [weak self] (_) in
+            self?.showCountryList()
+        }
+        
+        skipLabel.addTapGesture { [weak self] (_) in
+            // go to home screen
         }
         
         loginButton.backgroundColor = UIColor.AppColors.start
         
-        registerAsCompany.addTapGesture { (_) in
+        registerAsCompany.addTapGesture { [weak self] (_) in
             // go to register company screen
         }
         
-        let text = registerAsCompany.text
-        let textRange = NSRange(location: 0, length: (text?.count)!)
-        let attributedText = NSMutableAttributedString(string: text!)
-        attributedText.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: textRange)
-        registerAsCompany.attributedText = attributedText
+        UiHelpers.makeLabelUnderlined(label: skipLabel)
+        UiHelpers.makeLabelUnderlined(label: registerAsCompany)
         
 //        let gradientBG = GradientBG()
 //        gradientBG.view = loginButton
@@ -70,7 +72,7 @@ class SignUpVC: BaseVC {
     @IBAction func loginClicked(_ sender: Any) {
         if let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty {
             if phoneNumber.isNumber() {
-                
+                navigator.navigateToSignUp1(phoneNumber: phoneNumber)
             } else {
                 self.view.makeToast("enterValidPhoneNumber".localized())
             }

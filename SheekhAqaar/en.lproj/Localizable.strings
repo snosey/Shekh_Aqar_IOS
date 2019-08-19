@@ -10,3 +10,13 @@
 "registerAsCompany" = "Register as company";
 "enterPhoneField" = "Please enter phone number";
 "enterValidPhoneNumber" = "Please enter valid phone number";
+"username" = "Username";
+"continue" = "Continue";
+"photoGallery" = "Photo gallery";
+"camera" = "Camera";
+"chooseMediaTitle" = "Choose media source";
+"chooseMediaMessage" = "Which media source do you choose?";
+"enterUsernameField" = "Please enter username";
+"enterAvatar" = "Please choose your avatar";
+"skip" = "Skip";
+"back" = "Back";

@@ -121,13 +121,26 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="registerAsCompany"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuT-7O-FeG" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="425" width="414" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.80000000000000004" green="0.65490196079999996" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="skip"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Gbi-YV-JAc" firstAttribute="top" secondItem="7wI-a7-UEt" secondAttribute="bottom" multiplier="1.5" id="6P2-jT-Kfh"/>
                             <constraint firstItem="e6t-Ff-H1m" firstAttribute="leading" secondItem="ktV-hw-Bne" secondAttribute="leading" id="Eai-06-Bsw"/>
+                            <constraint firstItem="QuT-7O-FeG" firstAttribute="leading" secondItem="UYq-v4-UQP" secondAttribute="leading" id="ErV-0I-uTU"/>
+                            <constraint firstItem="QuT-7O-FeG" firstAttribute="top" secondItem="ryo-Y5-bRz" secondAttribute="bottom" constant="16" id="G4L-a3-5iN"/>
+                            <constraint firstItem="QuT-7O-FeG" firstAttribute="trailing" secondItem="UYq-v4-UQP" secondAttribute="trailing" id="GHX-SY-ROB"/>
                             <constraint firstItem="ryo-Y5-bRz" firstAttribute="leading" secondItem="Gbi-YV-JAc" secondAttribute="leading" id="KY8-Ie-8WF"/>
                             <constraint firstItem="7wI-a7-UEt" firstAttribute="centerX" secondItem="ktV-hw-Bne" secondAttribute="centerX" id="Oce-gD-rSH"/>
+                            <constraint firstItem="QuT-7O-FeG" firstAttribute="height" secondItem="ryo-Y5-bRz" secondAttribute="height" id="PpN-8t-za2"/>
                             <constraint firstItem="ktV-hw-Bne" firstAttribute="trailing" secondItem="UYq-v4-UQP" secondAttribute="trailing" id="Q1d-mb-lwL"/>
                             <constraint firstItem="UYq-v4-UQP" firstAttribute="leading" secondItem="ktV-hw-Bne" secondAttribute="leading" id="USE-w4-khH"/>
                             <constraint firstItem="e6t-Ff-H1m" firstAttribute="top" secondItem="ktV-hw-Bne" secondAttribute="top" constant="-50" id="aP2-tY-lGE"/>
@@ -153,6 +166,7 @@
                         <outlet property="loginButton" destination="ryo-Y5-bRz" id="uMP-H7-d8P"/>
                         <outlet property="phoneNumberTextField" destination="37P-IP-HlB" id="gbJ-xn-z4e"/>
                         <outlet property="registerAsCompany" destination="UYq-v4-UQP" id="iNh-1D-rVW"/>
+                        <outlet property="skipLabel" destination="QuT-7O-FeG" id="lD6-ml-Lnh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GoU-Mb-9G6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

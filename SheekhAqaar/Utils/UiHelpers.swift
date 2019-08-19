@@ -178,6 +178,14 @@ class UiHelpers {
         formatter.dateFormat = dateFormat
         return formatter.string(from: date)
     }
+    
+    class func makeLabelUnderlined(label: UILabel) {
+        let text = label.text
+        let textRange = NSRange(location: 0, length: (text?.count)!)
+        let attributedText = NSMutableAttributedString(string: text!)
+        attributedText.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: textRange)
+        label.attributedText = attributedText
+    }
 }
 
 public enum LengthRelation: Int {
