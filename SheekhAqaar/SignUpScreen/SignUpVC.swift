@@ -38,7 +38,7 @@ class SignUpVC: BaseVC {
             // go to home screen
         }
         
-        loginButton.backgroundColor = UIColor.AppColors.start
+//        loginButton.backgroundColor = UIColor.AppColors.start
         
         registerAsCompany.addTapGesture { [weak self] (_) in
             // go to register company screen
@@ -47,9 +47,7 @@ class SignUpVC: BaseVC {
         UiHelpers.makeLabelUnderlined(label: skipLabel)
         UiHelpers.makeLabelUnderlined(label: registerAsCompany)
         
-//        let gradientBG = GradientBG()
-//        gradientBG.view = loginButton
-//        gradientBG.createGradientLayer()
+        GradientBG.createGradientLayer(view: loginButton, cornerRaduis: 8, maskToBounds: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

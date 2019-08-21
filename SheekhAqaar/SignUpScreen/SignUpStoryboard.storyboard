@@ -98,7 +98,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryo-Y5-bRz" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
-                                <rect key="frame" x="62" y="368" width="290" height="41"/>
+                                <rect key="frame" x="62" y="368" width="290" height="32.5"/>
                                 <state key="normal" title="دخول">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -115,16 +115,16 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYq-v4-UQP" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="841" width="414" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.80000000000000004" green="0.65490196078431373" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.93333333333333335" green="0.87058823529411766" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="registerAsCompany"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuT-7O-FeG" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="425" width="414" height="41"/>
+                                <rect key="frame" x="0.0" y="416.5" width="414" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.80000000000000004" green="0.65490196079999996" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.93333333333333335" green="0.87058823529411766" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="skip"/>
@@ -140,12 +140,12 @@
                             <constraint firstItem="QuT-7O-FeG" firstAttribute="trailing" secondItem="UYq-v4-UQP" secondAttribute="trailing" id="GHX-SY-ROB"/>
                             <constraint firstItem="ryo-Y5-bRz" firstAttribute="leading" secondItem="Gbi-YV-JAc" secondAttribute="leading" id="KY8-Ie-8WF"/>
                             <constraint firstItem="7wI-a7-UEt" firstAttribute="centerX" secondItem="ktV-hw-Bne" secondAttribute="centerX" id="Oce-gD-rSH"/>
+                            <constraint firstItem="ryo-Y5-bRz" firstAttribute="height" secondItem="ktV-hw-Bne" secondAttribute="height" multiplier="0.04" id="PcH-er-ehF"/>
                             <constraint firstItem="QuT-7O-FeG" firstAttribute="height" secondItem="ryo-Y5-bRz" secondAttribute="height" id="PpN-8t-za2"/>
                             <constraint firstItem="ktV-hw-Bne" firstAttribute="trailing" secondItem="UYq-v4-UQP" secondAttribute="trailing" id="Q1d-mb-lwL"/>
                             <constraint firstItem="UYq-v4-UQP" firstAttribute="leading" secondItem="ktV-hw-Bne" secondAttribute="leading" id="USE-w4-khH"/>
                             <constraint firstItem="e6t-Ff-H1m" firstAttribute="top" secondItem="ktV-hw-Bne" secondAttribute="top" constant="-50" id="aP2-tY-lGE"/>
                             <constraint firstItem="ktV-hw-Bne" firstAttribute="trailing" secondItem="e6t-Ff-H1m" secondAttribute="trailing" id="b3r-O7-AUn"/>
-                            <constraint firstItem="ryo-Y5-bRz" firstAttribute="height" secondItem="Gbi-YV-JAc" secondAttribute="height" id="d2Z-N5-keQ"/>
                             <constraint firstItem="ryo-Y5-bRz" firstAttribute="top" secondItem="Gbi-YV-JAc" secondAttribute="bottom" constant="32" id="fHZ-bW-DJG"/>
                             <constraint firstItem="Gbi-YV-JAc" firstAttribute="centerX" secondItem="ktV-hw-Bne" secondAttribute="centerX" id="jbS-02-TT3"/>
                             <constraint firstItem="ryo-Y5-bRz" firstAttribute="trailing" secondItem="Gbi-YV-JAc" secondAttribute="trailing" id="k6c-Aa-DnX"/>

@@ -23,8 +23,9 @@ extension UIColor {
         static let yellow = UIColor(hexString: "#FAC900")!
         static let offWhite = UIColor(hexString: "#FAEBD7")
         static let alphaBlack = UIColor(hexString: "#000000")?.withAlphaComponent(0.8)
-         static let start = UIColor(hexString: "#CCA744")!
-         static let end = UIColor(hexString: "#E2D892")!
+        static let start = UIColor(hexString: "#fceca3")!
+        static let center = UIColor(hexString: "#fbe05e")!
+        static let end = UIColor(hexString: "#d8a43c")!
         
         // start CCA744
         // end E2D892

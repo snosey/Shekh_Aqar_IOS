@@ -65,8 +65,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0o-gT-zy4" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
-                                <rect key="frame" x="149.5" y="431.5" width="115" height="49"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.65490196079999996" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="149.5" y="431.5" width="115" height="41"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -83,7 +83,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RK-Ek-aUt" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="841" width="414" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.80000000000000004" green="0.65490196079999996" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.93333333333333335" green="0.87058823529411766" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="back"/>
@@ -96,6 +96,7 @@
                             <constraint firstItem="0qi-Eh-Pgf" firstAttribute="bottom" secondItem="LpM-LD-nIZ" secondAttribute="bottom" constant="8" id="64P-Mc-Jzt"/>
                             <constraint firstItem="LpM-LD-nIZ" firstAttribute="centerX" secondItem="yOL-Rl-8HV" secondAttribute="centerX" id="6vM-ia-z7T"/>
                             <constraint firstItem="yOL-Rl-8HV" firstAttribute="trailing" secondItem="4RK-Ek-aUt" secondAttribute="trailing" id="7Ln-Vy-Ozf"/>
+                            <constraint firstItem="B0o-gT-zy4" firstAttribute="height" secondItem="yOL-Rl-8HV" secondAttribute="height" multiplier="0.05" id="BxE-Hm-cVU"/>
                             <constraint firstItem="cgG-5k-EQr" firstAttribute="leading" secondItem="yOL-Rl-8HV" secondAttribute="leading" id="D6x-J4-75I"/>
                             <constraint firstItem="9pU-92-de9" firstAttribute="top" secondItem="LpM-LD-nIZ" secondAttribute="bottom" constant="16" id="DPn-Qu-jjU"/>
                             <constraint firstItem="9pU-92-de9" firstAttribute="height" secondItem="yOL-Rl-8HV" secondAttribute="height" multiplier="0.06" id="DU1-E1-Kug"/>
@@ -114,7 +115,6 @@
                             <constraint firstItem="yOL-Rl-8HV" firstAttribute="bottom" secondItem="4RK-Ek-aUt" secondAttribute="bottom" id="hnE-t2-MgB"/>
                             <constraint firstItem="cgG-5k-EQr" firstAttribute="top" secondItem="yOL-Rl-8HV" secondAttribute="top" constant="-45" id="iYE-WE-btO"/>
                             <constraint firstItem="0qi-Eh-Pgf" firstAttribute="leading" secondItem="LpM-LD-nIZ" secondAttribute="leading" id="j9B-xg-COE"/>
-                            <constraint firstItem="B0o-gT-zy4" firstAttribute="height" secondItem="9pU-92-de9" secondAttribute="height" id="on1-PI-M1n"/>
                             <constraint firstItem="yOL-Rl-8HV" firstAttribute="bottom" secondItem="cgG-5k-EQr" secondAttribute="bottom" constant="-35" id="quX-dD-9R8"/>
                             <constraint firstItem="9pU-92-de9" firstAttribute="width" secondItem="yOL-Rl-8HV" secondAttribute="width" multiplier="0.7" id="r6P-fu-s8R"/>
                             <constraint firstItem="LpM-LD-nIZ" firstAttribute="height" secondItem="yOL-Rl-8HV" secondAttribute="height" multiplier="0.14" id="thr-ix-Z5b"/>
@@ -125,6 +125,7 @@
                     <connections>
                         <outlet property="backLabel" destination="4RK-Ek-aUt" id="hjM-qz-bPB"/>
                         <outlet property="changeAvatarImageView" destination="0qi-Eh-Pgf" id="aFy-pi-4YH"/>
+                        <outlet property="continueButton" destination="B0o-gT-zy4" id="wBh-37-OHu"/>
                         <outlet property="userAvatarImageView" destination="LpM-LD-nIZ" id="1ER-EL-JZC"/>
                         <outlet property="usernameTextfield" destination="sQ3-fL-iFc" id="4va-1g-zcL"/>
                     </connections>

@@ -11,33 +11,14 @@ import UIKit
 
 class GradientBG {
     
-    var gradientLayer:CAGradientLayer!
-    var view: UIView!
-    
-    func createGradientLayer() {
-        
-        let colorTop = UIColor.AppColors.start
-        let colorBottom = UIColor.AppColors.end
-        
-        gradientLayer = CAGradientLayer()
-        
-        gradientLayer.frame = self.view.bounds
-        
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        self.view.layer.addSublayer(gradientLayer)
+    public class func createGradientLayer(view: UIView, cornerRaduis: CGFloat, maskToBounds: Bool) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.AppColors.start.cgColor, UIColor.AppColors.center.cgColor, UIColor.AppColors.end.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        view.layer.addSublayer(gradientLayer)
+        view.layer.masksToBounds = maskToBounds
+        view.layer.cornerRadius = cornerRaduis
     }
-    
-//    init() {
-//        let colorTop = UIColor.AppColors.start
-//        let colorBottom = UIColor.AppColors.end
-//
-//        self.gl = CAGradientLayer()
-//        self.gl.colors = [colorTop, colorBottom]
-//        self.gl.locations = [0.0, 1.0]
-//        self.gl.startPoint = CGPoint(x: 0.0, y: 1.0)
-//        self.gl.endPoint = CGPoint(x: 1.0, y: 1.0)
-//    }
 }

@@ -79,6 +79,7 @@
 		E82474D523083D1A00211FDB /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474D423083D1A00211FDB /* SideMenuVC.swift */; };
 		E82474D723083D3700211FDB /* SideMenuLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474D623083D3700211FDB /* SideMenuLayout.swift */; };
 		E82474D923083D5800211FDB /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474D823083D5800211FDB /* SideMenuCell.swift */; };
+		E87A9009230B365D0020BAA2 /* RegisterCompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A9008230B365D0020BAA2 /* RegisterCompanyCell.swift */; };
 		E89340E72308265E00F37DCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89340E62308265E00F37DCE /* AppDelegate.swift */; };
 		E89340E92308265F00F37DCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89340E82308265F00F37DCE /* ViewController.swift */; };
 		E89340EC2308265F00F37DCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89340EA2308265F00F37DCE /* Main.storyboard */; };
@@ -198,6 +199,7 @@
 		E82474D423083D1A00211FDB /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		E82474D623083D3700211FDB /* SideMenuLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLayout.swift; sourceTree = "<group>"; };
 		E82474D823083D5800211FDB /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
+		E87A9008230B365D0020BAA2 /* RegisterCompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompanyCell.swift; sourceTree = "<group>"; };
 		E89340E32308265E00F37DCE /* SheekhAqaar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SheekhAqaar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89340E62308265E00F37DCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E89340E82308265F00F37DCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 			children = (
 				E89CBB1B2309B8EA000B6BB7 /* RegisterCompanyVC.swift */,
 				E89CBB1D2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard */,
+				E87A9008230B365D0020BAA2 /* RegisterCompanyCell.swift */,
 			);
 			path = RegisterCompanyScreen;
 			sourceTree = "<group>";
@@ -770,6 +773,7 @@
 				E824749B2308278800211FDB /* URLExtensions.swift in Sources */,
 				E82474C223083A1300211FDB /* UIDevice+extensions.swift in Sources */,
 				E824748A2308278800211FDB /* BlockWebView.swift in Sources */,
+				E87A9009230B365D0020BAA2 /* RegisterCompanyCell.swift in Sources */,
 				E824748F2308278800211FDB /* DictionaryExtensions.swift in Sources */,
 				E824749A2308278800211FDB /* UISliderExtensions.swift in Sources */,
 				E82474C823083A9C00211FDB /* UiHelpers.swift in Sources */,

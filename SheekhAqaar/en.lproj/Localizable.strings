@@ -20,3 +20,8 @@
 "enterAvatar" = "Please choose your avatar";
 "skip" = "Skip";
 "back" = "Back";
+"enterCode" = "Please enter verification code sent to your mobile";
+"confirm" = "Confirm";
+"resendCode" = "Resend code";
+"companyOwnerData" = "Company owner data";
+"companyData" = "Company data";

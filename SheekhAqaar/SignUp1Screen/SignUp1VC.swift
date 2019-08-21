@@ -21,6 +21,7 @@ class SignUp1VC: BaseVC {
     @IBOutlet weak var changeAvatarImageView: UIImageView!
     @IBOutlet weak var usernameTextfield: LocalizedTextField!
     @IBOutlet weak var backLabel: LocalizedLabel!
+    @IBOutlet weak var continueButton: LocalizedButton!
     
     let imagePicker = UIImagePickerController()
     var phoneNumber: String!
@@ -52,12 +53,15 @@ class SignUp1VC: BaseVC {
         backLabel.addTapGesture { [weak self] (_) in
             self?.navigationController?.popViewController(animated: true)
         }
+        
+        GradientBG.createGradientLayer(view: continueButton, cornerRaduis: 8, maskToBounds: true)
     }
 
     @IBAction func continueClicked(_ sender: Any) {
         if let username = usernameTextfield.text, !username.isEmpty {
             if imageChoosen {
                 // go to phone verification
+                navigator.navigateToPhoneVerification(phoneNumber: phoneNumber)
             } else {
                 self.view.makeToast("enterAvatar".localized())
             }
