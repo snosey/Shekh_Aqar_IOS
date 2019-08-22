@@ -90,13 +90,13 @@ class UiHelpers {
             
         case .VIEW_WIDTH:
             if let view = relativeView {
-                return view.size.width * (percentage / 100)
+                return view.frame.size.width * (percentage / 100)
             }
             return 0
             
         case .VIEW_HEIGHT:
             if let view = relativeView {
-                return view.size.height * (percentage / 100)
+                return view.frame.size.height * (percentage / 100)
             }
             return 0
         }

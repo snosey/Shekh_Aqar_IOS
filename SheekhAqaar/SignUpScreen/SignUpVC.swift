@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import CountryPickerView
 import MICountryPicker
 
 class SignUpVC: BaseVC {
@@ -31,30 +30,34 @@ class SignUpVC: BaseVC {
         super.viewDidLoad()
         
         countryCodeView.addTapGesture { [weak self] (_) in
-            self?.showCountryList()
+            self?.showCountriesList()
         }
         
         skipLabel.addTapGesture { [weak self] (_) in
             // go to home screen
+            self?.navigator.navigateToHome()
         }
         
 //        loginButton.backgroundColor = UIColor.AppColors.start
         
         registerAsCompany.addTapGesture { [weak self] (_) in
             // go to register company screen
+            self?.navigator.navigateToRegisterAsCompany()
         }
         
         UiHelpers.makeLabelUnderlined(label: skipLabel)
         UiHelpers.makeLabelUnderlined(label: registerAsCompany)
         
         GradientBG.createGradientLayer(view: loginButton, cornerRaduis: 8, maskToBounds: true)
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    func showCountryList() {
+    func showCountriesList() {
         
         let picker = MICountryPicker()
         navigationController?.pushViewController(picker, animated: true)

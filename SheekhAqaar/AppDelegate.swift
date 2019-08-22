@@ -12,6 +12,7 @@ import AlamofireNetworkActivityIndicator
 import Localize_Swift
 import Material
 import SwiftyUserDefaults
+import DropDown
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkActivityIndicatorManager.shared.completionDelay = 0.5
         
         IQKeyboardManager.shared.enable = true
-        
+        DropDown.startListeningToKeyboard()
+
         let appStarter = ApplicationStarter()
         appStarter.startApplication(window: window)
         return true

@@ -79,6 +79,9 @@
 		E82474D523083D1A00211FDB /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474D423083D1A00211FDB /* SideMenuVC.swift */; };
 		E82474D723083D3700211FDB /* SideMenuLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474D623083D3700211FDB /* SideMenuLayout.swift */; };
 		E82474D923083D5800211FDB /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474D823083D5800211FDB /* SideMenuCell.swift */; };
+		E86FA0D9230EABBA005A88D2 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FA0D8230EABBA005A88D2 /* DataType.swift */; };
+		E86FA0DB230EABE5005A88D2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FA0DA230EABE5005A88D2 /* Country.swift */; };
+		E86FA0DD230EABEE005A88D2 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FA0DC230EABEE005A88D2 /* Region.swift */; };
 		E87A9009230B365D0020BAA2 /* RegisterCompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A9008230B365D0020BAA2 /* RegisterCompanyCell.swift */; };
 		E89340E72308265E00F37DCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89340E62308265E00F37DCE /* AppDelegate.swift */; };
 		E89340E92308265F00F37DCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89340E82308265F00F37DCE /* ViewController.swift */; };
@@ -199,6 +202,9 @@
 		E82474D423083D1A00211FDB /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		E82474D623083D3700211FDB /* SideMenuLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLayout.swift; sourceTree = "<group>"; };
 		E82474D823083D5800211FDB /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
+		E86FA0D8230EABBA005A88D2 /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
+		E86FA0DA230EABE5005A88D2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		E86FA0DC230EABEE005A88D2 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		E87A9008230B365D0020BAA2 /* RegisterCompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompanyCell.swift; sourceTree = "<group>"; };
 		E89340E32308265E00F37DCE /* SheekhAqaar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SheekhAqaar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89340E62308265E00F37DCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -376,6 +382,16 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		E86FA0D7230EAB11005A88D2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E86FA0D8230EABBA005A88D2 /* DataType.swift */,
+				E86FA0DA230EABE5005A88D2 /* Country.swift */,
+				E86FA0DC230EABEE005A88D2 /* Region.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E89340DA2308265E00F37DCE = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +428,7 @@
 				E89CBAED23097A9E000B6BB7 /* HomeScreen */,
 				E82474D323083D1000211FDB /* SideMenu */,
 				E82474B82308393F00211FDB /* Utils */,
+				E86FA0D7230EAB11005A88D2 /* Models */,
 				E89CBB0023097F30000B6BB7 /* Fonts */,
 				E89340EA2308265F00F37DCE /* Main.storyboard */,
 				E89340ED2308265F00F37DCE /* Assets.xcassets */,
@@ -772,6 +789,7 @@
 				E82474A72308278800211FDB /* UIWindowExtensions.swift in Sources */,
 				E824749B2308278800211FDB /* URLExtensions.swift in Sources */,
 				E82474C223083A1300211FDB /* UIDevice+extensions.swift in Sources */,
+				E86FA0D9230EABBA005A88D2 /* DataType.swift in Sources */,
 				E824748A2308278800211FDB /* BlockWebView.swift in Sources */,
 				E87A9009230B365D0020BAA2 /* RegisterCompanyCell.swift in Sources */,
 				E824748F2308278800211FDB /* DictionaryExtensions.swift in Sources */,
@@ -801,6 +819,7 @@
 				E82474972308278800211FDB /* BoolExtensions.swift in Sources */,
 				E82474A02308278800211FDB /* UIViewExtensions.swift in Sources */,
 				E82474A52308278800211FDB /* NSDictionaryExtensions.swift in Sources */,
+				E86FA0DD230EABEE005A88D2 /* Region.swift in Sources */,
 				E82474A22308278800211FDB /* CharacterExtensions.swift in Sources */,
 				E82474BC2308398F00211FDB /* CommonConstants.swift in Sources */,
 				E82474952308278800211FDB /* BlockButton.swift in Sources */,
@@ -813,6 +832,7 @@
 				E82474BA2308396800211FDB /* Colors.swift in Sources */,
 				E82474CA23083BFC00211FDB /* Injector.swift in Sources */,
 				E82474C0230839EB00211FDB /* Singleton.swift in Sources */,
+				E86FA0DB230EABE5005A88D2 /* Country.swift in Sources */,
 				E82474B52308278800211FDB /* UIFontExtensions.swift in Sources */,
 				E82474942308278800211FDB /* UIStoryboardExtensions.swift in Sources */,
 				E82474982308278800211FDB /* EZSwiftFunctions.swift in Sources */,

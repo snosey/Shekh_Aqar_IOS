@@ -30,4 +30,18 @@ public class Navigator {
             self.navigationController.pushViewController(vc, animated: true)
         }
     }
+    
+    public func navigateToRegisterAsCompany() {
+        weak var vc = RegisterCompanyVC.buildVC()
+        if let vc = vc {
+            self.navigationController.pushViewController(vc, animated: true)
+        }
+    }
+    
+    public func navigateToHome() {
+        weak var vc = HomeVC.buildVC()
+        if let vc = vc {
+            self.navigationController.pushViewController(vc, animated: true)
+        }
+    }
 }

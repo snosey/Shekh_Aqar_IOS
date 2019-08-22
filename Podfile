@@ -24,8 +24,9 @@ target 'SheekhAqaar' do
   pod 'GooglePlaces', '3.0.2'
   pod 'IQKeyboardManagerSwift', '6.2.0'
   pod 'MICountryPicker', :git => 'https://github.com/mustafaibrahim989/MICountryPicker.git', :branch => 'master'
-  
-  
+  pod 'Moya-Gloss', '3.0.0'
+  pod 'DropDown', '2.3.2'
+
   
   target 'SheekhAqaarTests' do
     inherit! :search_paths
