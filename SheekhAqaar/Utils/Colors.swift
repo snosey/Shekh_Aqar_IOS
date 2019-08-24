@@ -26,6 +26,8 @@ extension UIColor {
         static let start = UIColor(hexString: "#fceca3")!
         static let center = UIColor(hexString: "#fbe05e")!
         static let end = UIColor(hexString: "#d8a43c")!
+        static let textColor = UIColor(hexString: "#eede71")!
+        
         
         // start CCA744
         // end E2D892

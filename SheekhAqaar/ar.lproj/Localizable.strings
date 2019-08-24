@@ -45,3 +45,5 @@
 "enterDetailedAddress" = "من فضلك أدخل العنوان بالتفصيل";
 "enterCompanyPhoneNumber" = "من فضلك أدخل رقم جوال الشركة";
 "enterTraditionalnumber" = "من فضلك أدخل الرقم التجاري الخاص بالشركة";
+"showImages" = "  عرض الصور  ";
+"showMap" = "  عرض الخريطة  ";

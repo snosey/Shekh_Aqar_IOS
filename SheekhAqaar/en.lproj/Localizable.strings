@@ -45,3 +45,5 @@
 "enterDetailedAddress" = "Please enter detailed address";
 "enterCompanyPhoneNumber" = "Please enter company phone number";
 "enterTraditionalnumber" = "Please enter company traditional number";
+"showImages" = "  Show images  ";
+"showMap" = "  Show map  ";

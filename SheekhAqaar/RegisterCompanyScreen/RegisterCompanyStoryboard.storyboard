@@ -50,7 +50,7 @@
                                                             <rect key="frame" x="127" y="16" width="119" height="119"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_circle" translatesAutoresizingMaskIntoConstraints="NO" id="fO7-Vz-oGI">
-                                                            <rect key="frame" x="127" y="95" width="40.000000000000014" height="40.000000000000014"/>
+                                                            <rect key="frame" x="127" y="95" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="Ov9-vq-NBR"/>
                                                                 <constraint firstAttribute="width" constant="40" id="w0h-S7-kgZ"/>
@@ -189,7 +189,7 @@
                                                             <rect key="frame" x="139" y="8" width="95" height="95"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_circle" translatesAutoresizingMaskIntoConstraints="NO" id="xTN-sD-5Zr">
-                                                            <rect key="frame" x="131" y="71" width="40.000000000000014" height="40.000000000000014"/>
+                                                            <rect key="frame" x="131" y="71" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="jBa-mM-Xnq"/>
                                                                 <constraint firstAttribute="width" constant="40" id="wAT-1R-xPb"/>

@@ -105,6 +105,10 @@
 		E89CBB1A2309B8D7000B6BB7 /* PhoneVerificationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89CBB192309B8D7000B6BB7 /* PhoneVerificationStoryboard.storyboard */; };
 		E89CBB1C2309B8EA000B6BB7 /* RegisterCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CBB1B2309B8EA000B6BB7 /* RegisterCompanyVC.swift */; };
 		E89CBB1E2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89CBB1D2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard */; };
+		E8DAFE872311853F00C2F005 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE862311853F00C2F005 /* CompanyCell.swift */; };
+		E8DAFE892311855400C2F005 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE882311855400C2F005 /* CategoryCell.swift */; };
+		E8DAFE8B2311859E00C2F005 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE8A2311859E00C2F005 /* Company.swift */; };
+		E8DAFE8D231185A600C2F005 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE8C231185A600C2F005 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +239,10 @@
 		E89CBB192309B8D7000B6BB7 /* PhoneVerificationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhoneVerificationStoryboard.storyboard; sourceTree = "<group>"; };
 		E89CBB1B2309B8EA000B6BB7 /* RegisterCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompanyVC.swift; sourceTree = "<group>"; };
 		E89CBB1D2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterCompanyStoryboard.storyboard; sourceTree = "<group>"; };
+		E8DAFE862311853F00C2F005 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
+		E8DAFE882311855400C2F005 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		E8DAFE8A2311859E00C2F005 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		E8DAFE8C231185A600C2F005 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		ED4B22E181EC1FC845445EAE /* Pods-SheekhAqaarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheekhAqaarUITests.debug.xcconfig"; path = "Target Support Files/Pods-SheekhAqaarUITests/Pods-SheekhAqaarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -388,6 +396,8 @@
 				E86FA0D8230EABBA005A88D2 /* DataType.swift */,
 				E86FA0DA230EABE5005A88D2 /* Country.swift */,
 				E86FA0DC230EABEE005A88D2 /* Region.swift */,
+				E8DAFE8A2311859E00C2F005 /* Company.swift */,
+				E8DAFE8C231185A600C2F005 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -472,6 +482,8 @@
 			children = (
 				E89CBAEE23097AD1000B6BB7 /* HomeVC.swift */,
 				E89CBAF223097AFE000B6BB7 /* HomeStoryboard.storyboard */,
+				E8DAFE882311855400C2F005 /* CategoryCell.swift */,
+				E8DAFE862311853F00C2F005 /* CompanyCell.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -793,6 +805,7 @@
 				E824748A2308278800211FDB /* BlockWebView.swift in Sources */,
 				E87A9009230B365D0020BAA2 /* RegisterCompanyCell.swift in Sources */,
 				E824748F2308278800211FDB /* DictionaryExtensions.swift in Sources */,
+				E8DAFE892311855400C2F005 /* CategoryCell.swift in Sources */,
 				E824749A2308278800211FDB /* UISliderExtensions.swift in Sources */,
 				E82474C823083A9C00211FDB /* UiHelpers.swift in Sources */,
 				E82474882308278800211FDB /* ArrayExtensions.swift in Sources */,
@@ -852,10 +865,13 @@
 				E82474A42308278800211FDB /* FloatingPointExtensions.swift in Sources */,
 				E824749E2308278800211FDB /* CollectionsExtension.swift in Sources */,
 				E824748E2308278800211FDB /* UITextViewExtensions.swift in Sources */,
+				E8DAFE872311853F00C2F005 /* CompanyCell.swift in Sources */,
+				E8DAFE8B2311859E00C2F005 /* Company.swift in Sources */,
 				E82474932308278800211FDB /* StringExtensions.swift in Sources */,
 				E82474C423083A3500211FDB /* FontUtils.swift in Sources */,
 				E82474A92308278800211FDB /* DateExtensions.swift in Sources */,
 				E82474D923083D5800211FDB /* SideMenuCell.swift in Sources */,
+				E8DAFE8D231185A600C2F005 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
