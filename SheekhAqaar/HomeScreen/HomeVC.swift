@@ -62,6 +62,8 @@ class HomeVC: BaseVC {
             
             self?.tableView.isHidden = true
             self?.googleMapView.isHidden = false
+            
+            self?.showCompaniesOnMap()
         }
         
         showImagesButton.addTapGesture { [weak self] (_) in
@@ -83,11 +85,15 @@ class HomeVC: BaseVC {
         
         createFakeCategories()
         
+        createFakeCompanies()
+        
         collectionView1.reloadData()
         collectionView2.reloadData()
         collectionView3.reloadData()
         
         getCurrentLocation()
+        
+        showCompaniesOnMap()
     }
     
     func getCurrentLocation() {
@@ -99,7 +105,7 @@ class HomeVC: BaseVC {
     }
     
     func createMapView(latitude: Double, longitude: Double) {
-        let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude), zoom: 17)
+        let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude), zoom: 12)
         googleMapView.camera = camera
         googleMapView.animate(to: camera)
 //        googleMapView.delegate = self
@@ -107,6 +113,16 @@ class HomeVC: BaseVC {
         googleMapView.settings.myLocationButton = true
         
     }
+    
+    func showCompaniesOnMap() {
+        googleMapView.clear()
+        for company in companies {
+            UiHelpers.addMarker(sourceView: self.view, latitude: company.latitude, longitude: company.longitude, title: company.nameEn, adsNumber: company.numberOfAds, mapView: googleMapView)
+        }
+        
+    }
+    
+    
     
     private func createFakeCategories() {
         let category1 = Category(id: 1, nameEn: "Category 1", nameAr: "مثمن عقاري", key: "cat1")
@@ -118,8 +134,8 @@ class HomeVC: BaseVC {
         categories1.append(category1)
         categories1.append(category2)
         categories1.append(category3)
-//        categories1.append(category4)
-//        categories1.append(category5)
+        categories1.append(category4)
+        categories1.append(category5)
         
         categories2.append(category1)
         categories2.append(category2)
@@ -132,6 +148,12 @@ class HomeVC: BaseVC {
         categories3.append(category3)
         categories3.append(category4)
         categories3.append(category5)
+    }
+    
+    private func createFakeCompanies() {
+        let company1 = Company(id: 1, nameEn: "Company 1", nameAr: "Copany 1", addressEn: "Address 1", addressAr: "Address 1", phoneNumber: "01119993362", latitude: 30.5999552, longitude: 32.2936338, numberOfAds: 10, imageUrl: "https://www.w3schools.com/html/pic_trulli.jpg", colorCode: "#ff00ff")
+        
+        companies.append(company1)
     }
     
     private func changeArrows() {
@@ -303,7 +325,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return companies.count
+        return 0//companies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

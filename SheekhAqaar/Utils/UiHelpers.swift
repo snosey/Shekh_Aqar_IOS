@@ -13,53 +13,83 @@ import NVActivityIndicatorView
 import SystemConfiguration
 import SideMenu
 import Localize_Swift
+import GoogleMaps
 
 class UiHelpers {
 
-    class func makeMarkerView(sourceView: UIView) -> UIView {
+    class func makeMarkerView(sourceView: UIView, companyName: String, adsNumber: Int, companyColorCode: String) -> UIView {
         
         let topView = UIView()
-        let centerView = UIView()
-        let bottomView = UIView()
+        let bottomImageView = UIImageView(image: UIImage(named: "marker_bottom"))
+        
+        let companyNameLabel = UILabel()
+        companyNameLabel.backgroundColor = .clear
+        companyNameLabel.text = companyName
+        companyNameLabel.textAlignment = .center
+        companyNameLabel.textColor = .black
+        companyNameLabel.fontSize = 10
+        
+        let adsNumberLabel = UILabel()
+        adsNumberLabel.backgroundColor = .clear
+        adsNumberLabel.text = "\("adsNumber".localized()) \(adsNumber)"
+        adsNumberLabel.textAlignment = .center
+        adsNumberLabel.textColor = .black
+        adsNumberLabel.fontSize = 10
         
         let sourceView = UIView(superView: sourceView, padding: 0)
         sourceView.backgroundColor = .clear
         
-        sourceView.addSubviews([topView, centerView, bottomView])
-        sourceView.size.width = UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH, relativeView: nil, percentage: 7)
-        sourceView.size.height = UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 4.25)
-//
-//
-//        topView.clipsToBounds = true
-//        topView.layer.cornerRadius = UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 3)/2
-//        topView.backgroundColor = UIColor(hexString: "#BF1E7E")
-//
-//        centerView.backgroundColor = UIColor(hexString: "#BF1E7E")
-//
-//        bottomView.clipsToBounds = true
-//        bottomView.layer.cornerRadius = UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 1)/2
-//        bottomView.backgroundColor = UIColor(hexString: "#BF1E7E")
-//
-//        topView.snp.makeConstraints { (maker) in
-//            maker.top.equalTo(sourceView)
-//            maker.centerX.equalTo(sourceView)
-//            maker.width.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 3))
-//        }
-//
-//        centerView.snp.makeConstraints { (maker) in
-//            maker.centerX.equalTo(sourceView)
-//            maker.width.equalTo(1)
-//            maker.top.equalTo(topView.snp.bottom)
-//            maker.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 0.25))
-//        }
-//
-//        bottomView.snp.makeConstraints { (maker) in
-//            maker.top.equalTo(centerView.snp.bottom)
-//            maker.centerX.equalTo(sourceView)
-//            maker.width.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 1))
-//        }
-//
+        sourceView.addSubviews([topView, bottomImageView, companyNameLabel, adsNumberLabel])
+        sourceView.size.width = UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH, relativeView: nil, percentage: 22)
+        sourceView.size.height = UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 10)
+
+
+        topView.clipsToBounds = true
+        topView.layer.cornerRadius = 8
+        topView.backgroundColor = UIColor(hexString: companyColorCode)
+        
+        topView.addSubview(companyNameLabel)
+        
+        bottomImageView.addSubview(adsNumberLabel)
+        
+        topView.snp.makeConstraints { (maker) in
+            maker.top.equalTo(sourceView)
+            maker.centerX.equalTo(sourceView)
+            maker.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5))
+            maker.width.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH, relativeView: nil, percentage: 21))
+        }
+        
+        companyNameLabel.snp.makeConstraints { (maker) in
+            maker.top.equalTo(topView)
+            maker.centerX.equalTo(topView)
+            maker.height.equalTo(topView)
+            maker.width.equalTo(topView)
+        }
+
+        bottomImageView.snp.makeConstraints { (maker) in
+            maker.top.equalTo(topView.snp.bottom).offset(-8)
+            maker.centerX.equalTo(sourceView)
+            maker.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5))
+            maker.width.equalTo(sourceView)
+        }
+        
+        adsNumberLabel.snp.makeConstraints { (maker) in
+            maker.top.equalTo(bottomImageView).offset(-8)
+            maker.centerX.equalTo(sourceView)
+            maker.height.equalTo(bottomImageView)
+            maker.width.equalTo(bottomImageView)
+        }
+        
+        sourceView.bringSubviewToFront(bottomImageView)
         return sourceView
+    }
+    
+    class func addMarker(sourceView: UIView, latitude: Double, longitude: Double, title: String, adsNumber: Int, mapView: GMSMapView) {
+        let locationMarker = GMSMarker()
+        locationMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        locationMarker.title = title
+        locationMarker.iconView = UiHelpers.makeMarkerView(sourceView: sourceView, companyName: title, adsNumber: adsNumber, companyColorCode: "#ff00ff")
+        locationMarker.map = mapView
     }
     
     class func showLoader() {

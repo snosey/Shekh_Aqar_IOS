@@ -41,31 +41,43 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0eh-3b-A7C">
-                                <rect key="frame" x="83" y="277.5" width="248" height="57"/>
+                                <rect key="frame" x="41.5" y="277.5" width="331" height="57"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="jEX-n1-IEt">
-                                        <rect key="frame" x="0.0" y="0.0" width="248" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="56"/>
                                         <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ygL-at-3WI">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="56"/>
+                                                <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="37"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AhN-8p-AWQ">
+                                                <rect key="frame" x="59" y="0.0" width="35.5" height="56"/>
+                                                <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="37"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u8z-GH-QDb">
-                                                <rect key="frame" x="0.0" y="0.0" width="44" height="56"/>
+                                                <rect key="frame" x="118.5" y="0.0" width="35" height="56"/>
                                                 <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="37"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EQV-cc-INc">
-                                                <rect key="frame" x="68" y="0.0" width="44" height="56"/>
+                                                <rect key="frame" x="177.5" y="0.0" width="35" height="56"/>
                                                 <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="37"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzP-fQ-gVe">
-                                                <rect key="frame" x="136" y="0.0" width="44" height="56"/>
+                                                <rect key="frame" x="236.5" y="0.0" width="35.5" height="56"/>
                                                 <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="37"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qrB-3f-wEb">
-                                                <rect key="frame" x="204" y="0.0" width="44" height="56"/>
+                                                <rect key="frame" x="296" y="0.0" width="35" height="56"/>
                                                 <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="37"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -73,22 +85,30 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Kaq-4V-T6T">
-                                        <rect key="frame" x="0.0" y="56" width="248" height="1"/>
+                                        <rect key="frame" x="0.0" y="56" width="331" height="1"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxN-YN-pcz">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="1"/>
+                                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAN-ti-3Bv">
+                                                <rect key="frame" x="59" y="0.0" width="35.5" height="1"/>
+                                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bF3-2S-0LK">
-                                                <rect key="frame" x="0.0" y="0.0" width="44" height="1"/>
+                                                <rect key="frame" x="118.5" y="0.0" width="35" height="1"/>
                                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQ0-LP-G3V">
-                                                <rect key="frame" x="68" y="0.0" width="44" height="1"/>
+                                                <rect key="frame" x="177.5" y="0.0" width="35" height="1"/>
                                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWx-Cj-Gxl">
-                                                <rect key="frame" x="136" y="0.0" width="44" height="1"/>
+                                                <rect key="frame" x="236.5" y="0.0" width="35.5" height="1"/>
                                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PA6-8n-Klp">
-                                                <rect key="frame" x="204" y="0.0" width="44" height="1"/>
+                                                <rect key="frame" x="296" y="0.0" width="35" height="1"/>
                                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             </view>
                                         </subviews>
@@ -146,7 +166,7 @@
                             <constraint firstItem="h4w-4O-nLQ" firstAttribute="centerX" secondItem="l97-Pq-Y20" secondAttribute="centerX" id="Obz-XI-xG4"/>
                             <constraint firstItem="l97-Pq-Y20" firstAttribute="trailing" secondItem="Izb-Hd-eV2" secondAttribute="trailing" id="OzC-GJ-907"/>
                             <constraint firstItem="cRa-Uk-9HY" firstAttribute="height" secondItem="l97-Pq-Y20" secondAttribute="height" multiplier="0.05" id="Uyr-JO-ngC"/>
-                            <constraint firstItem="0eh-3b-A7C" firstAttribute="width" secondItem="l97-Pq-Y20" secondAttribute="width" multiplier="0.6" id="bQ6-CV-u3R"/>
+                            <constraint firstItem="0eh-3b-A7C" firstAttribute="width" secondItem="l97-Pq-Y20" secondAttribute="width" multiplier="0.8" id="bQ6-CV-u3R"/>
                             <constraint firstItem="cRa-Uk-9HY" firstAttribute="centerX" secondItem="l97-Pq-Y20" secondAttribute="centerX" id="cBV-kW-ins"/>
                             <constraint firstItem="Cd2-s9-CqS" firstAttribute="top" secondItem="h4w-4O-nLQ" secondAttribute="bottom" constant="24" id="fGZ-xv-62p"/>
                             <constraint firstItem="Czf-uK-lzo" firstAttribute="top" secondItem="l97-Pq-Y20" secondAttribute="top" constant="-45" id="fOh-fz-lz7"/>
@@ -171,6 +191,8 @@
                         <outlet property="digit2" destination="zzP-fQ-gVe" id="4Ex-zQ-ROz"/>
                         <outlet property="digit3" destination="EQV-cc-INc" id="9J0-az-Pqj"/>
                         <outlet property="digit4" destination="u8z-GH-QDb" id="NRb-9k-G3q"/>
+                        <outlet property="digit5" destination="AhN-8p-AWQ" id="IAM-af-1SK"/>
+                        <outlet property="digit6" destination="ygL-at-3WI" id="Blp-Cl-Gc6"/>
                         <outlet property="resendCodeLabel" destination="u3A-KH-5F1" id="ndA-Zu-6C9"/>
                     </connections>
                 </viewController>

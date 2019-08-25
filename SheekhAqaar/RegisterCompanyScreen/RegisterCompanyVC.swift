@@ -25,6 +25,8 @@ class RegisterCompanyVC: BaseVC {
     let imagePicker = UIImagePickerController()
     var isUserChangingAvatar: Bool?
     var countries = [Country]()
+    var companyServices = [CompanyService]()
+    var selectedServices = [CompanyService]()
     var selectedCountry: Country?
     var selectedRegion: Region?
     var userCountryCode = "+966"
@@ -36,6 +38,13 @@ class RegisterCompanyVC: BaseVC {
         companyDataTableView.dataSource = weakSelf
         companyDataTableView.delegate = weakSelf
         
+        createFakeCountriesAndRegions()
+        createFakeServices()
+        
+        
+    }
+    
+    func createFakeCountriesAndRegions() {
         let country1 = Country(id: 1, nameEn: "Country 1", nameAr: "الدولة ١", regions: [Region(id: 1, nameEn: "Region 1.1", nameAr: "المنطقة ١.١"), Region(id: 1, nameEn: "Region 1.2", nameAr: "المنطقة ١.٢"), Region(id: 1, nameEn: "Region 1.3", nameAr: "المنطقة ١.٣"), Region(id: 1, nameEn: "Region 1.4", nameAr: "المنطقة ١.٤")])
         
         let country2 = Country(id: 2, nameEn: "Country 2", nameAr: "الدولة ٢", regions: [Region(id: 1, nameEn: "Region 2.1", nameAr: "المنطقة ٢.١"), Region(id: 1, nameEn: "Region 2.2", nameAr: "المنطقة ٢.٢"), Region(id: 1, nameEn: "Region 2.3", nameAr: "المنطقة ٢.٣"), Region(id: 1, nameEn: "Region 2.4", nameAr: "المنطقة ٢.٤")])
@@ -48,6 +57,16 @@ class RegisterCompanyVC: BaseVC {
         countries.append(country2)
         countries.append(country3)
         countries.append(country4)
+    }
+    
+    func createFakeServices() {
+        let service1 = CompanyService(id: 1, nameEn: "Service 1", nameAr: "الخدمة ١", key: "ser1")
+        let service2 = CompanyService(id: 2, nameEn: "Service 2", nameAr: "الخدمة ١", key: "ser1")
+        let service3 = CompanyService(id: 3, nameEn: "Service 3", nameAr: "الخدمة ١", key: "ser1")
+        
+        companyServices.append(service1)
+        companyServices.append(service2)
+        companyServices.append(service3)
     }
 
     func showCountriesList(isUser: Bool) {
@@ -102,7 +121,9 @@ extension RegisterCompanyVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell(withIdentifier: RegisterCompanyCell.identifier, for: indexPath) as? RegisterCompanyCell
         
+        cell.selectionStyle = .none
         cell.delegate = weakSelf
+        cell.services = companyServices
         cell.initializeCell()
         
         return cell
@@ -110,11 +131,19 @@ extension RegisterCompanyVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 120)
+        return UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 145)
     }
 }
 
 extension RegisterCompanyVC: RegisterCompanyCellDelegate {
+    func serviceChecked(checked: Bool, index: Int) {
+        if checked {
+            weakSelf?.selectedServices.append((weakSelf?.companyServices.get(index))!)
+        } else {
+            weakSelf?.selectedServices.remove(at: index)
+        }        
+    }
+    
     func changeUserAvatar() {
         var alert: UIAlertController!
         

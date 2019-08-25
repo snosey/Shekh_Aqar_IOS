@@ -18,6 +18,7 @@ public protocol RegisterCompanyCellDelegate: class {
     func changeRegion()
     func registerClicked()
     func backClicked()
+    func serviceChecked(checked: Bool, index: Int)
 }
 
 class RegisterCompanyCell: UITableViewCell {
@@ -52,11 +53,13 @@ class RegisterCompanyCell: UITableViewCell {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var registerButton: LocalizedButton!
     @IBOutlet weak var backLabel: LocalizedLabel!
+    @IBOutlet weak var companyServicesTableView: UITableView!
     
     var userImageChoosen: Bool = false
     var companyImageChoosen: Bool = false
     
     public var delegate: RegisterCompanyCellDelegate!
+    public var services: [CompanyService]!
     
     public func initializeCell() {
         changeAvatarImageView.addTapGesture { [weak self] (_) in
@@ -98,5 +101,48 @@ class RegisterCompanyCell: UITableViewCell {
         
         companyAvatar.layer.masksToBounds = true
         companyAvatar.layer.cornerRadius = UiHelpers.getLengthAccordingTo(relation: .VIEW_HEIGHT, relativeView: bottomView, percentage: 15) / 2
+        
+        companyServicesTableView.backgroundColor = .clear
+        companyServicesTableView.dataSource = self
+        companyServicesTableView.delegate = self
+        companyServicesTableView.reloadData()
+    }
+}
+
+extension RegisterCompanyCell: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return services.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CompanyServicesCell.identifier, for: indexPath) as! CompanyServicesCell
+        
+        cell.delegate = self
+        cell.service = services.get(indexPath.row)!
+        cell.index = indexPath.row
+        cell.populateData()        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.backgroundColor = .clear
+        label.text = "companyServices".localized()
+        label.textAlignment = .natural
+        label.textColor = .white
+        return label
+    }
+}
+
+extension RegisterCompanyCell: CompanyServicesCellDelegate {
+    func serviceChecked(checked: Bool, index: Int) {
+        self.services.get(index)?.isChecked = checked
+        companyServicesTableView.reloadData()
+        self.delegate.serviceChecked(checked: checked, index: index)
     }
 }
