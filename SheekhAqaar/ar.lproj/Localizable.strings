@@ -45,5 +45,9 @@
 "enterDetailedAddress" = "من فضلك أدخل العنوان بالتفصيل";
 "enterCompanyPhoneNumber" = "من فضلك أدخل رقم جوال الشركة";
 "enterTraditionalnumber" = "من فضلك أدخل الرقم التجاري الخاص بالشركة";
-"showImages" = "  عرض الصور  ";
-"showMap" = "  عرض الخريطة  ";
+"showImages" = "عرض الصور";
+"showMap" = "عرض الخريطة";
+"locationServicesDisabledTitle" = "خدمات الموقع مغلقة";
+"locationServicesDisabledMessage" = "خدمات الموقع مغلقة. من فضلك قم بفتحها لتتمكن من استخدام التطبيق";
+"enable" = "تشغيل";
+"cancel" = "تجاهل";

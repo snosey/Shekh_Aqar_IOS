@@ -8,7 +8,7 @@
 
 import UIKit
 import Localize_Swift
-import MapKit
+import GoogleMaps
 
 class HomeVC: BaseVC {
 
@@ -29,15 +29,17 @@ class HomeVC: BaseVC {
     @IBOutlet weak var right2ImageView: UIImageView!
     @IBOutlet weak var right3ImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var collectionView2: UICollectionView!
     @IBOutlet weak var collectionView3: UICollectionView!
+    @IBOutlet weak var googleMapView: GMSMapView!
     
+    var locationManager = CLLocationManager()
     var categories1 = [Category]()
     var categories2 = [Category]()
     var categories3 = [Category]()
     var companies = [Company]()
+    var alertController: UIAlertController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +61,7 @@ class HomeVC: BaseVC {
             self?.showImagesButton.setTitleColor(UIColor.AppColors.textColor, for: .normal)
             
             self?.tableView.isHidden = true
-            self?.mapView.isHidden = false
+            self?.googleMapView.isHidden = false
         }
         
         showImagesButton.addTapGesture { [weak self] (_) in
@@ -72,7 +74,7 @@ class HomeVC: BaseVC {
             self?.showMapButton.setTitleColor(UIColor.AppColors.textColor, for: .normal)
             
             self?.tableView.isHidden = false
-            self?.mapView.isHidden = true
+            self?.googleMapView.isHidden = true
         }
         
         changeArrows()
@@ -84,6 +86,26 @@ class HomeVC: BaseVC {
         collectionView1.reloadData()
         collectionView2.reloadData()
         collectionView3.reloadData()
+        
+        getCurrentLocation()
+    }
+    
+    func getCurrentLocation() {
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.distanceFilter = 50
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
+    
+    func createMapView(latitude: Double, longitude: Double) {
+        let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude), zoom: 17)
+        googleMapView.camera = camera
+        googleMapView.animate(to: camera)
+//        googleMapView.delegate = self
+        googleMapView.isMyLocationEnabled = true
+        googleMapView.settings.myLocationButton = true
+        
     }
     
     private func createFakeCategories() {
@@ -292,5 +314,54 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 20)
+    }
+}
+
+extension HomeVC: CLLocationManagerDelegate {
+    
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if Singleton.getInstance().currentLocation == nil || (Singleton.getInstance().currentLocation.coordinate.latitude != locations.last!.coordinate.latitude && Singleton.getInstance().currentLocation.coordinate.longitude != locations.last!.coordinate.longitude) {
+            Singleton.getInstance().currentLocation = locations.last!
+            print("Location: \(Singleton.getInstance().currentLocation!)")
+            createMapView(latitude: (Singleton.getInstance().currentLocation?.coordinate.latitude)!, longitude: (Singleton.instance.currentLocation?.coordinate.longitude)!)
+            
+        }
+    }
+    
+    // Handle authorization for the location manager.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted, .notDetermined:
+            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+            break
+            
+        case .denied:
+            print("Location access was restricted.")
+            let enableAction = UIAlertAction(title: "enable".localized(), style: .default) { (_) in
+                UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
+            }
+            
+            let cancelAction = UIAlertAction(title: "cancel".localized(), style: .default) { [weak self] (_) in
+                self?.alertController.dismissVC(completion: nil)
+            }
+            
+            alertController = UiHelpers.createAlertView(title: "locationServicesDisabledTitle".localized(), message: "locationServicesDisabledMessage".localized(), actions: [enableAction, cancelAction])
+            
+            presentVC(alertController)
+            break
+        case .authorizedAlways, .authorizedWhenInUse:
+            break
+        default:
+            break
+        }
+    }
+    
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print("Error: \(error)")
     }
 }

@@ -26,7 +26,7 @@ target 'SheekhAqaar' do
   pod 'MICountryPicker', :git => 'https://github.com/mustafaibrahim989/MICountryPicker.git', :branch => 'master'
   pod 'Moya-Gloss', '3.0.0'
   pod 'DropDown', '2.3.2'
-
+  pod 'Firebase/Auth'
   
   target 'SheekhAqaarTests' do
     inherit! :search_paths

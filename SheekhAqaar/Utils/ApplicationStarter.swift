@@ -11,10 +11,16 @@ import Localize_Swift
 import SwiftyUserDefaults
 import UIKit
 import Material
+import Firebase
+import GoogleMaps
 
 public class ApplicationStarter {
     
     func startApplication(window: UIWindow?) {
+        
+        FirebaseApp.configure()
+        
+        GMSServices.provideAPIKey(CommonConstants.GOOGLE_MAPS_KEY)
         
         switch Localize.currentLanguage() {
         case "ar":

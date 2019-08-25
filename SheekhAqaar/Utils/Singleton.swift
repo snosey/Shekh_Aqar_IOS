@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import CoreLocation
+
 public class Singleton {
     
     static var instance: Singleton!
+    public var currentLocation: CLLocation!
     
     public class func getInstance() -> Singleton {
         if instance ==  nil {

@@ -105,6 +105,7 @@
 		E89CBB1A2309B8D7000B6BB7 /* PhoneVerificationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89CBB192309B8D7000B6BB7 /* PhoneVerificationStoryboard.storyboard */; };
 		E89CBB1C2309B8EA000B6BB7 /* RegisterCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CBB1B2309B8EA000B6BB7 /* RegisterCompanyVC.swift */; };
 		E89CBB1E2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89CBB1D2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard */; };
+		E8BD7F3223129D65003B6829 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8BD7F3123129D65003B6829 /* GoogleService-Info.plist */; };
 		E8DAFE872311853F00C2F005 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE862311853F00C2F005 /* CompanyCell.swift */; };
 		E8DAFE892311855400C2F005 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE882311855400C2F005 /* CategoryCell.swift */; };
 		E8DAFE8B2311859E00C2F005 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE8A2311859E00C2F005 /* Company.swift */; };
@@ -239,6 +240,7 @@
 		E89CBB192309B8D7000B6BB7 /* PhoneVerificationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhoneVerificationStoryboard.storyboard; sourceTree = "<group>"; };
 		E89CBB1B2309B8EA000B6BB7 /* RegisterCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompanyVC.swift; sourceTree = "<group>"; };
 		E89CBB1D2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterCompanyStoryboard.storyboard; sourceTree = "<group>"; };
+		E8BD7F3123129D65003B6829 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8DAFE862311853F00C2F005 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		E8DAFE882311855400C2F005 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E8DAFE8A2311859E00C2F005 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 				E89340EA2308265F00F37DCE /* Main.storyboard */,
 				E89340ED2308265F00F37DCE /* Assets.xcassets */,
 				E89340EF2308265F00F37DCE /* LaunchScreen.storyboard */,
+				E8BD7F3123129D65003B6829 /* GoogleService-Info.plist */,
 				E824744C2308278800211FDB /* EZSwiftExtensions */,
 				E89340F22308265F00F37DCE /* Info.plist */,
 				E89CBB0C2309821B000B6BB7 /* Localizable.strings */,
@@ -661,6 +664,7 @@
 				E89CBB1E2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard in Resources */,
 				E89340EC2308265F00F37DCE /* Main.storyboard in Resources */,
 				E89CBB1A2309B8D7000B6BB7 /* PhoneVerificationStoryboard.storyboard in Resources */,
+				E8BD7F3223129D65003B6829 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1064,10 +1068,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qteam.SheekhAqaar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dinnova.SheekhAqaar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1082,10 +1086,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qteam.SheekhAqaar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dinnova.SheekhAqaar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

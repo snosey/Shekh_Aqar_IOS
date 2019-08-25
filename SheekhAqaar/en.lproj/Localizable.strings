@@ -47,3 +47,7 @@
 "enterTraditionalnumber" = "Please enter company traditional number";
 "showImages" = "  Show images  ";
 "showMap" = "  Show map  ";
+"locationServicesDisabledTitle" = "Location Service Disabled";
+"locationServicesDisabledMessage" = "Location service is disabled. Please enable it to use our features.";
+"enable" = "Enable";
+"cancel" = "Cancel";

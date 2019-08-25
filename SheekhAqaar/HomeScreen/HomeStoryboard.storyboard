@@ -223,9 +223,10 @@
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="5ep-07-ETX">
                                 <rect key="frame" x="385" y="813" width="29" height="49"/>
                             </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jYR-3V-ZWp">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiK-Ff-Bko" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="272" width="414" height="541"/>
-                            </mapView>
+                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p6h-mB-fTQ">
                                 <rect key="frame" x="0.0" y="272" width="414" height="541"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -233,6 +234,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="p6h-mB-fTQ" firstAttribute="leading" secondItem="T7Y-Jj-lGe" secondAttribute="leading" id="0hh-ND-hLs"/>
+                            <constraint firstItem="jiK-Ff-Bko" firstAttribute="trailing" secondItem="p6h-mB-fTQ" secondAttribute="trailing" id="0qC-W5-Fgz"/>
                             <constraint firstItem="T7Y-Jj-lGe" firstAttribute="trailing" secondItem="LEk-XP-VKx" secondAttribute="trailing" id="14C-7r-E29"/>
                             <constraint firstItem="nFc-QX-XQu" firstAttribute="leading" secondItem="bh2-eV-AE8" secondAttribute="trailing" id="3D5-wu-5Yn"/>
                             <constraint firstItem="Qts-g0-DDA" firstAttribute="leading" secondItem="LEk-XP-VKx" secondAttribute="leading" id="3tv-w5-WdR"/>
@@ -251,40 +254,38 @@
                             <constraint firstItem="nFc-QX-XQu" firstAttribute="top" secondItem="bh2-eV-AE8" secondAttribute="top" id="JXv-5N-4xq"/>
                             <constraint firstItem="DYa-f5-UK7" firstAttribute="top" secondItem="jHw-cA-GeX" secondAttribute="top" id="KRV-3V-gvW"/>
                             <constraint firstItem="QSc-tD-J61" firstAttribute="leading" secondItem="T7Y-Jj-lGe" secondAttribute="leading" id="M35-AG-NpC"/>
+                            <constraint firstItem="jiK-Ff-Bko" firstAttribute="leading" secondItem="p6h-mB-fTQ" secondAttribute="leading" id="MPr-MT-rvz"/>
                             <constraint firstItem="nFc-QX-XQu" firstAttribute="bottom" secondItem="bh2-eV-AE8" secondAttribute="bottom" id="Max-Q9-lRq"/>
                             <constraint firstItem="LEk-XP-VKx" firstAttribute="top" secondItem="QSc-tD-J61" secondAttribute="top" id="Ncj-zr-zOR"/>
-                            <constraint firstItem="p6h-mB-fTQ" firstAttribute="leading" secondItem="jYR-3V-ZWp" secondAttribute="leading" id="Nw5-ON-Wzb"/>
                             <constraint firstItem="DYa-f5-UK7" firstAttribute="bottom" secondItem="jHw-cA-GeX" secondAttribute="bottom" id="O18-1S-0he"/>
                             <constraint firstItem="5ep-07-ETX" firstAttribute="bottom" secondItem="jHw-cA-GeX" secondAttribute="bottom" id="QjG-ZX-QXk"/>
                             <constraint firstItem="5ep-07-ETX" firstAttribute="trailing" secondItem="Qts-g0-DDA" secondAttribute="trailing" id="Reb-Vd-Amc"/>
-                            <constraint firstItem="jYR-3V-ZWp" firstAttribute="top" secondItem="nFc-QX-XQu" secondAttribute="bottom" id="TfP-ia-wW8"/>
                             <constraint firstItem="QSc-tD-J61" firstAttribute="width" secondItem="T7Y-Jj-lGe" secondAttribute="width" multiplier="0.07" id="UcG-Sx-ahB"/>
                             <constraint firstItem="Qts-g0-DDA" firstAttribute="bottom" secondItem="bh2-eV-AE8" secondAttribute="bottom" id="Uxn-vx-Ed5"/>
                             <constraint firstItem="bh2-eV-AE8" firstAttribute="trailing" secondItem="QSc-tD-J61" secondAttribute="trailing" id="VOe-WQ-Mh2"/>
                             <constraint firstItem="QSc-tD-J61" firstAttribute="height" secondItem="T7Y-Jj-lGe" secondAttribute="height" multiplier="0.06" id="XIp-wr-3yX"/>
-                            <constraint firstItem="p6h-mB-fTQ" firstAttribute="top" secondItem="jYR-3V-ZWp" secondAttribute="top" id="YeJ-Dq-TVP"/>
+                            <constraint firstItem="jiK-Ff-Bko" firstAttribute="bottom" secondItem="p6h-mB-fTQ" secondAttribute="bottom" id="ZU3-GL-fNT"/>
                             <constraint firstItem="s8a-9f-Udv" firstAttribute="top" secondItem="5HF-Hs-XJa" secondAttribute="bottom" constant="16" id="ZXJ-nu-6WR"/>
                             <constraint firstItem="SA1-T5-gze" firstAttribute="top" secondItem="QSc-tD-J61" secondAttribute="top" id="b8C-Rr-T9x"/>
                             <constraint firstItem="5HF-Hs-XJa" firstAttribute="top" secondItem="T7Y-Jj-lGe" secondAttribute="top" id="cfW-NB-SgJ"/>
-                            <constraint firstItem="p6h-mB-fTQ" firstAttribute="trailing" secondItem="jYR-3V-ZWp" secondAttribute="trailing" id="dKB-Cj-yUk"/>
                             <constraint firstItem="SA1-T5-gze" firstAttribute="bottom" secondItem="QSc-tD-J61" secondAttribute="bottom" id="dNw-Dt-0Na"/>
                             <constraint firstItem="Qts-g0-DDA" firstAttribute="top" secondItem="bh2-eV-AE8" secondAttribute="top" id="eVM-Dg-4f4"/>
+                            <constraint firstItem="T7Y-Jj-lGe" firstAttribute="trailing" secondItem="p6h-mB-fTQ" secondAttribute="trailing" id="ff7-MK-VXG"/>
                             <constraint firstItem="QSc-tD-J61" firstAttribute="top" secondItem="s8a-9f-Udv" secondAttribute="bottom" constant="16" id="gH7-WA-z0y"/>
                             <constraint firstItem="DYa-f5-UK7" firstAttribute="trailing" secondItem="nFc-QX-XQu" secondAttribute="trailing" id="gJU-de-Je4"/>
                             <constraint firstItem="bh2-eV-AE8" firstAttribute="top" secondItem="QSc-tD-J61" secondAttribute="bottom" constant="8" id="gT3-ob-PGC"/>
                             <constraint firstItem="LEk-XP-VKx" firstAttribute="bottom" secondItem="QSc-tD-J61" secondAttribute="bottom" id="hC6-92-Rdt"/>
-                            <constraint firstItem="p6h-mB-fTQ" firstAttribute="bottom" secondItem="jYR-3V-ZWp" secondAttribute="bottom" id="hrH-DZ-xPB"/>
+                            <constraint firstItem="p6h-mB-fTQ" firstAttribute="bottom" secondItem="jHw-cA-GeX" secondAttribute="top" id="iEI-V0-2vZ"/>
+                            <constraint firstItem="p6h-mB-fTQ" firstAttribute="top" secondItem="bh2-eV-AE8" secondAttribute="bottom" id="ieB-cT-clZ"/>
                             <constraint firstItem="DYa-f5-UK7" firstAttribute="leading" secondItem="nFc-QX-XQu" secondAttribute="leading" id="ipu-kE-mnv"/>
                             <constraint firstItem="5HF-Hs-XJa" firstAttribute="height" secondItem="T7Y-Jj-lGe" secondAttribute="height" multiplier="0.06" id="jLe-Qm-64L"/>
                             <constraint firstItem="s8a-9f-Udv" firstAttribute="trailing" secondItem="5HF-Hs-XJa" secondAttribute="trailing" constant="-8" id="k3t-fV-uT9"/>
                             <constraint firstItem="jHw-cA-GeX" firstAttribute="height" secondItem="bh2-eV-AE8" secondAttribute="height" id="nDB-hD-FRa"/>
-                            <constraint firstItem="jYR-3V-ZWp" firstAttribute="leading" secondItem="T7Y-Jj-lGe" secondAttribute="leading" id="oK6-ig-hS6"/>
-                            <constraint firstItem="T7Y-Jj-lGe" firstAttribute="trailing" secondItem="jYR-3V-ZWp" secondAttribute="trailing" id="sDH-Yi-3OF"/>
                             <constraint firstItem="SA1-T5-gze" firstAttribute="leading" secondItem="QSc-tD-J61" secondAttribute="trailing" id="t63-c7-SPf"/>
                             <constraint firstItem="5ep-07-ETX" firstAttribute="height" secondItem="Qts-g0-DDA" secondAttribute="height" id="tMg-yF-rED"/>
                             <constraint firstItem="bh2-eV-AE8" firstAttribute="leading" secondItem="QSc-tD-J61" secondAttribute="leading" id="xES-SU-gOs"/>
+                            <constraint firstItem="jiK-Ff-Bko" firstAttribute="top" secondItem="p6h-mB-fTQ" secondAttribute="top" id="y8z-SD-Yw3"/>
                             <constraint firstItem="T7Y-Jj-lGe" firstAttribute="trailing" secondItem="5HF-Hs-XJa" secondAttribute="trailing" id="ydR-EE-xwb"/>
-                            <constraint firstItem="jYR-3V-ZWp" firstAttribute="bottom" secondItem="DYa-f5-UK7" secondAttribute="top" id="zmL-HN-Frq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T7Y-Jj-lGe"/>
                     </view>
@@ -292,10 +293,10 @@
                         <outlet property="collectionView1" destination="SA1-T5-gze" id="B9e-GO-W7d"/>
                         <outlet property="collectionView2" destination="nFc-QX-XQu" id="mdP-8G-eiW"/>
                         <outlet property="collectionView3" destination="DYa-f5-UK7" id="SLv-bj-5U3"/>
+                        <outlet property="googleMapView" destination="jiK-Ff-Bko" id="Jhp-jG-oYN"/>
                         <outlet property="left1ImageView" destination="QSc-tD-J61" id="7XX-mG-ssj"/>
                         <outlet property="left2ImageView" destination="bh2-eV-AE8" id="fAp-In-cNM"/>
                         <outlet property="left3ImageView" destination="jHw-cA-GeX" id="Nyd-Eg-XkO"/>
-                        <outlet property="mapView" destination="jYR-3V-ZWp" id="Ndg-b0-fbt"/>
                         <outlet property="right1ImageView" destination="LEk-XP-VKx" id="75H-Bp-rPH"/>
                         <outlet property="right2ImageView" destination="Qts-g0-DDA" id="J1r-IN-8Xo"/>
                         <outlet property="right3ImageView" destination="5ep-07-ETX" id="KcM-ce-rfR"/>
