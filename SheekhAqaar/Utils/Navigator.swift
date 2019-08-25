@@ -24,8 +24,8 @@ public class Navigator {
         }
     }
     
-    public func navigateToPhoneVerification(phoneNumber: String) {
-        weak var vc = PhoneVerificationVC.buildVC(phoneNumber: phoneNumber)
+    public func navigateToPhoneVerification(phoneNumber: String, nextPage: Int) {
+        weak var vc = PhoneVerificationVC.buildVC(phoneNumber: phoneNumber, nextPage: nextPage)
         if let vc = vc {
             self.navigationController.pushViewController(vc, animated: true)
         }

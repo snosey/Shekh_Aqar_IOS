@@ -60,8 +60,8 @@ class SignUp1VC: BaseVC {
     @IBAction func continueClicked(_ sender: Any) {
         if let username = usernameTextfield.text, !username.isEmpty {
             if imageChoosen {
-                // go to phone verification
-                navigator.navigateToPhoneVerification(phoneNumber: phoneNumber)
+                // go to home
+                navigator.navigateToHome()
             } else {
                 self.view.makeToast("enterAvatar".localized())
             }

@@ -18,4 +18,5 @@ extension DefaultsKeys {
     static let notVerifiedUserId = DefaultsKey<String?>("notVerifiedUserId")
     static let hasTrip = DefaultsKey<Bool?>("hasTrip")
     static let lastLoggedInUserId = DefaultsKey<String?>("lastLoggedInUserId")
+    static let authVerificationID = DefaultsKey<String?>("authVerificationID")
 }

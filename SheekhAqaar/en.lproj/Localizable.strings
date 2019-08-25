@@ -51,3 +51,6 @@
 "locationServicesDisabledMessage" = "Location service is disabled. Please enable it to use our features.";
 "enable" = "Enable";
 "cancel" = "Cancel";
+"emptyFieldsError" = "Please fill empty fields";
+"companyServices" = "Company services";
+"adsNumber" = "Ads number:";

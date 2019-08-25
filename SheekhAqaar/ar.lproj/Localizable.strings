@@ -51,3 +51,6 @@
 "locationServicesDisabledMessage" = "خدمات الموقع مغلقة. من فضلك قم بفتحها لتتمكن من استخدام التطبيق";
 "enable" = "تشغيل";
 "cancel" = "تجاهل";
+"emptyFieldsError" = "من فضلك املأ الحقول الفارغة";
+"companyServices" = "خدمات الشركة";
+"adsNumber" = "عدد الاعلانات:";

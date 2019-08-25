@@ -11,6 +11,7 @@ import Gloss
 
 public class Company: DataType {
     
+    var id : Int!
     var nameAr : String!
     var nameEn : String!
     var addressEn : String!
@@ -20,7 +21,7 @@ public class Company: DataType {
     var longitude: Double!
     var numberOfAds: Int!
     var imageUrl: String!
-    var id : Int!
+    var colorCode : String!
     
     //MARK: Decodable
     required public init?(json: JSON){
@@ -34,13 +35,14 @@ public class Company: DataType {
         numberOfAds = "ads_number" <~~ json
         imageUrl = "image_url" <~~ json
         id = "id" <~~ json
+        colorCode = "color_code" <~~ json
     }
     
     public init() {
         
     }
     
-    public init(id : Int, nameEn: String, nameAr: String, addressEn: String, addressAr: String, phoneNumber: String, latitude: Double, longitude: Double, numberOfAds: Int, imageUrl: String) {
+    public init(id : Int, nameEn: String, nameAr: String, addressEn: String, addressAr: String, phoneNumber: String, latitude: Double, longitude: Double, numberOfAds: Int, imageUrl: String, colorCode: String) {
         self.id = id
         self.nameEn = nameEn
         self.nameAr = nameAr
@@ -51,6 +53,7 @@ public class Company: DataType {
         self.longitude = longitude
         self.numberOfAds = numberOfAds
         self.imageUrl = imageUrl
+        self.colorCode = colorCode
     }
     
     //MARK: Encodable
@@ -66,6 +69,7 @@ public class Company: DataType {
             "ads_number" ~~> numberOfAds,
             "image_url" ~~> imageUrl,
             "id" ~~> id,
+            "color_code" ~~> colorCode,
             ])
     }
     

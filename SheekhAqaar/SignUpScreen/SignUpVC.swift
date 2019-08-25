@@ -8,6 +8,8 @@
 
 import UIKit
 import MICountryPicker
+import FirebaseAuth
+import SwiftyUserDefaults
 
 class SignUpVC: BaseVC {
     
@@ -66,6 +68,7 @@ class SignUpVC: BaseVC {
             let bundle = "assets.bundle/"
             self.countryFlagImageView.image = UIImage(named: bundle + code.lowercased() + ".png", in: Bundle(for: MICountryPicker.self), compatibleWith: nil)
             self.countryCodeLabel.text = dialCode
+            self.code = dialCode
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -73,7 +76,28 @@ class SignUpVC: BaseVC {
     @IBAction func loginClicked(_ sender: Any) {
         if let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty {
             if phoneNumber.isNumber() {
-                navigator.navigateToSignUp1(phoneNumber: phoneNumber)
+                print(phoneNumber)
+                var userPhone = phoneNumber
+                if userPhone.first == "0" {
+                    userPhone.removeFirst()
+                }
+                userPhone = "\(code)\(userPhone)"
+                print(userPhone)
+                PhoneAuthProvider.provider().verifyPhoneNumber(userPhone, uiDelegate: nil) { [weak self] (verificationID, error) in
+                    if let error = error {
+                        print("error :: \(error.localizedDescription)")
+                        return
+                    }
+
+                    Defaults[.authVerificationID] = verificationID
+
+                    /*
+                     Should check account exist here and send to verification screen the next screen
+                     if exist --> home
+                     if not exist --> sign up
+                     */
+                    self?.navigator.navigateToPhoneVerification(phoneNumber: userPhone, nextPage: CommonConstants.HOME_NEXT_PAGE_CODE)
+                }
             } else {
                 self.view.makeToast("enterValidPhoneNumber".localized())
             }

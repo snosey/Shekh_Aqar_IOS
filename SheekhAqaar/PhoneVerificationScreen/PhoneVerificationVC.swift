@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import FirebaseAuth
+import SwiftyUserDefaults
 
 class PhoneVerificationVC: BaseVC {
 
-    public class func buildVC(phoneNumber: String) -> PhoneVerificationVC {
+    public class func buildVC(phoneNumber: String, nextPage: Int) -> PhoneVerificationVC {
         let storyboard = UIStoryboard(name: "PhoneVerificationStoryboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PhoneVerificationVC") as! PhoneVerificationVC
         vc.phoneNumber = phoneNumber
+        vc.nextPage = nextPage
         return vc
     }
     
@@ -21,12 +24,16 @@ class PhoneVerificationVC: BaseVC {
     @IBOutlet weak var digit2: UITextField!
     @IBOutlet weak var digit3: UITextField!
     @IBOutlet weak var digit4: UITextField!
+    @IBOutlet weak var digit5: UITextField!
+    @IBOutlet weak var digit6: UITextField!
+    
     @IBOutlet weak var resendCodeLabel: LocalizedLabel!
     @IBOutlet weak var backLabel: LocalizedLabel!
     @IBOutlet weak var confirmButton: LocalizedButton!
     
     
     var phoneNumber: String!
+    var nextPage: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +42,21 @@ class PhoneVerificationVC: BaseVC {
         UiHelpers.makeLabelUnderlined(label: backLabel)
         
         resendCodeLabel.addTapGesture { [weak self](_) in
+            self?.digit1.text = ""
+            self?.digit2.text = ""
+            self?.digit3.text = ""
+            self?.digit4.text = ""
+            self?.digit5.text = ""
+            self?.digit6.text = ""
             
+            PhoneAuthProvider.provider().verifyPhoneNumber(self?.phoneNumber ?? "", uiDelegate: nil) { (verificationID, error) in
+                if let error = error {
+                    print("error :: \(error.localizedDescription)")
+                    return
+                }
+                
+                Defaults[.authVerificationID] = verificationID
+            }
         }
         
         backLabel.addTapGesture { [weak self] (_) in
@@ -46,6 +67,8 @@ class PhoneVerificationVC: BaseVC {
         digit2.delegate = self
         digit3.delegate = self
         digit4.delegate = self
+        digit5.delegate = self
+        digit6.delegate = self
         
         digit1.becomeFirstResponder()
         
@@ -53,6 +76,33 @@ class PhoneVerificationVC: BaseVC {
     }
 
     @IBAction func confirmClicked(_ sender: Any) {
+        
+        if let verificationID = Defaults[.authVerificationID] {
+            if digit1.text?.isEmpty ?? true || digit2.text?.isEmpty ?? true || digit3.text?.isEmpty ?? true || digit4.text?.isEmpty ?? true || digit5.text?.isEmpty ?? true || digit6.text?.isEmpty ?? true {
+                self.view.makeToast("emptyFieldsError".localized())
+            } else {
+                let verificationCodeFirst4 = digit1.text! + digit2.text! + digit3.text! + digit4.text!
+                let verificationCode = verificationCodeFirst4 + digit5.text! + digit6.text!
+                let credential = PhoneAuthProvider.provider().credential(
+                    withVerificationID: verificationID,
+                    verificationCode: verificationCode)
+                
+                Auth.auth().signIn(with: credential) { [weak self] (authResult, error) in
+                    if let error = error {
+                        print("error :: \(error.localizedDescription)")
+                        return
+                    }
+                    // call login api here
+                    if self?.nextPage == CommonConstants.HOME_NEXT_PAGE_CODE {
+                        self?.navigator.navigateToHome()
+                    } else if self?.nextPage == CommonConstants.SIGN_UP_NEXT_PAGE_CODE {
+                        self?.navigator.navigateToSignUp1(phoneNumber: self?.phoneNumber ?? "")
+                    }
+                }
+            }
+            
+        }
+        
         
     }
     
@@ -106,11 +156,37 @@ extension PhoneVerificationVC: UITextFieldDelegate {
             if digit4.text!.count == 0 {
                 print(string)
                 digit4.text = string
-                dismissKeyboard()
+                digit5.becomeFirstResponder()
                 return true
             } else if digit4.text!.count == 1 && "" != string {
                 print(string)
                 digit4.resignFirstResponder()
+                digit5.becomeFirstResponder()
+                return false
+            }
+            
+        case digit5:
+            if digit5.text!.count == 0 {
+                print(string)
+                digit5.text = string
+                digit6.becomeFirstResponder()
+                return true
+            } else if digit6.text!.count == 1 && "" != string {
+                print(string)
+                digit5.resignFirstResponder()
+                digit6.becomeFirstResponder()
+                return false
+            }
+            
+        case digit6:
+            if digit6.text!.count == 0 {
+                print(string)
+                digit6.text = string
+                dismissKeyboard()
+                return true
+            } else if digit6.text!.count == 1 && "" != string {
+                print(string)
+                digit6.resignFirstResponder()
                 dismissKeyboard()
                 return false
             }

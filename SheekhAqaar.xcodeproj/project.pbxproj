@@ -106,6 +106,8 @@
 		E89CBB1C2309B8EA000B6BB7 /* RegisterCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CBB1B2309B8EA000B6BB7 /* RegisterCompanyVC.swift */; };
 		E89CBB1E2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89CBB1D2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard */; };
 		E8BD7F3223129D65003B6829 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8BD7F3123129D65003B6829 /* GoogleService-Info.plist */; };
+		E8BD7F342312D886003B6829 /* CompanyServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7F332312D886003B6829 /* CompanyServicesCell.swift */; };
+		E8BD7F362312DA58003B6829 /* CompanyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7F352312DA58003B6829 /* CompanyService.swift */; };
 		E8DAFE872311853F00C2F005 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE862311853F00C2F005 /* CompanyCell.swift */; };
 		E8DAFE892311855400C2F005 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE882311855400C2F005 /* CategoryCell.swift */; };
 		E8DAFE8B2311859E00C2F005 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE8A2311859E00C2F005 /* Company.swift */; };
@@ -241,6 +243,8 @@
 		E89CBB1B2309B8EA000B6BB7 /* RegisterCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompanyVC.swift; sourceTree = "<group>"; };
 		E89CBB1D2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterCompanyStoryboard.storyboard; sourceTree = "<group>"; };
 		E8BD7F3123129D65003B6829 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E8BD7F332312D886003B6829 /* CompanyServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyServicesCell.swift; sourceTree = "<group>"; };
+		E8BD7F352312DA58003B6829 /* CompanyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyService.swift; sourceTree = "<group>"; };
 		E8DAFE862311853F00C2F005 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		E8DAFE882311855400C2F005 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E8DAFE8A2311859E00C2F005 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
@@ -400,6 +404,7 @@
 				E86FA0DC230EABEE005A88D2 /* Region.swift */,
 				E8DAFE8A2311859E00C2F005 /* Company.swift */,
 				E8DAFE8C231185A600C2F005 /* Category.swift */,
+				E8BD7F352312DA58003B6829 /* CompanyService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -524,6 +529,7 @@
 				E89CBB1B2309B8EA000B6BB7 /* RegisterCompanyVC.swift */,
 				E89CBB1D2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard */,
 				E87A9008230B365D0020BAA2 /* RegisterCompanyCell.swift */,
+				E8BD7F332312D886003B6829 /* CompanyServicesCell.swift */,
 			);
 			path = RegisterCompanyScreen;
 			sourceTree = "<group>";
@@ -841,9 +847,11 @@
 				E82474BC2308398F00211FDB /* CommonConstants.swift in Sources */,
 				E82474952308278800211FDB /* BlockButton.swift in Sources */,
 				E824749C2308278800211FDB /* UIViewControllerExtensions.swift in Sources */,
+				E8BD7F342312D886003B6829 /* CompanyServicesCell.swift in Sources */,
 				E824748C2308278800211FDB /* TimerExtensions.swift in Sources */,
 				E82474992308278800211FDB /* DoubleExtensions.swift in Sources */,
 				E82474AC2308278800211FDB /* UIButtonExtensions.swift in Sources */,
+				E8BD7F362312DA58003B6829 /* CompanyService.swift in Sources */,
 				E82474CE23083C4F00211FDB /* NavigationBarUtils.swift in Sources */,
 				E82474A12308278800211FDB /* BundleExtensions.swift in Sources */,
 				E82474BA2308396800211FDB /* Colors.swift in Sources */,
