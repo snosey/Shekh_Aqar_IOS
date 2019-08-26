@@ -21,7 +21,10 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var registerAsCompany: LocalizedLabel!
     @IBOutlet weak var skipLabel: LocalizedLabel!
     
+    
+    var presenter: SignUpPresenter!
     var code: String = "966"
+    var userPhone = ""
     
     public class func buildVC() -> SignUpVC {
         let storyboard = UIStoryboard(name: "SignUpStoryboard", bundle: nil)
@@ -39,9 +42,7 @@ class SignUpVC: BaseVC {
             // go to home screen
             self?.navigator.navigateToHome()
         }
-        
-//        loginButton.backgroundColor = UIColor.AppColors.start
-        
+                
         registerAsCompany.addTapGesture { [weak self] (_) in
             // go to register company screen
             self?.navigator.navigateToRegisterAsCompany()
@@ -52,7 +53,8 @@ class SignUpVC: BaseVC {
         
         GradientBG.createGradientLayer(view: loginButton, cornerRaduis: 8, maskToBounds: true)
         
-        
+        presenter = Injector.provideSignUpPresenter()
+        presenter.setView(view: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,32 +79,46 @@ class SignUpVC: BaseVC {
         if let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty {
             if phoneNumber.isNumber() {
                 print(phoneNumber)
-                var userPhone = phoneNumber
+                userPhone = phoneNumber
                 if userPhone.first == "0" {
                     userPhone.removeFirst()
                 }
                 userPhone = "\(code)\(userPhone)"
                 print(userPhone)
-                PhoneAuthProvider.provider().verifyPhoneNumber(userPhone, uiDelegate: nil) { [weak self] (verificationID, error) in
-                    if let error = error {
-                        print("error :: \(error.localizedDescription)")
-                        return
-                    }
-
-                    Defaults[.authVerificationID] = verificationID
-
-                    /*
-                     Should check account exist here and send to verification screen the next screen
-                     if exist --> home
-                     if not exist --> sign up
-                     */
-                    self?.navigator.navigateToPhoneVerification(phoneNumber: userPhone, nextPage: CommonConstants.HOME_NEXT_PAGE_CODE)
-                }
+                presenter.checkUserExist(phoneNumber: userPhone)
+                
             } else {
                 self.view.makeToast("enterValidPhoneNumber".localized())
             }
         } else {
             self.view.makeToast("enterPhoneField".localized())
         }
+    }
+}
+
+extension SignUpVC: SignUpView {
+    func failed(errorMessage: String) {
+        self.view.makeToast(errorMessage)
+    }
+    
+    func userCheck(isExist: Bool) {
+        if isExist {
+            self.navigator.navigateToHome()
+        } else {
+            PhoneAuthProvider.provider().verifyPhoneNumber(userPhone, uiDelegate: nil) { [weak self] (verificationID, error) in
+                if let error = error {
+                    print("error :: \(error.localizedDescription)")
+                    return
+                }
+                
+                Defaults[.authVerificationID] = verificationID
+                
+                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.SIGN_UP_NEXT_PAGE_CODE)
+            }
+        }
+    }
+    
+    func handleNoInternetConnection() {
+        self.view.makeToast("noInternetConnection".localized())
     }
 }

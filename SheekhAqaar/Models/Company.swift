@@ -22,6 +22,7 @@ public class Company: DataType {
     var numberOfAds: Int!
     var imageUrl: String!
     var colorCode : String!
+    var companyServices: [CompanyService]!
     
     //MARK: Decodable
     required public init?(json: JSON){
@@ -36,13 +37,14 @@ public class Company: DataType {
         imageUrl = "image_url" <~~ json
         id = "id" <~~ json
         colorCode = "color_code" <~~ json
+        companyServices = "services" <~~ json
     }
     
     public init() {
         
     }
     
-    public init(id : Int, nameEn: String, nameAr: String, addressEn: String, addressAr: String, phoneNumber: String, latitude: Double, longitude: Double, numberOfAds: Int, imageUrl: String, colorCode: String) {
+    public init(id : Int, nameEn: String, nameAr: String, addressEn: String, addressAr: String, phoneNumber: String, latitude: Double, longitude: Double, numberOfAds: Int, imageUrl: String, colorCode: String, companyServices: [CompanyService]) {
         self.id = id
         self.nameEn = nameEn
         self.nameAr = nameAr
@@ -54,6 +56,7 @@ public class Company: DataType {
         self.numberOfAds = numberOfAds
         self.imageUrl = imageUrl
         self.colorCode = colorCode
+        self.companyServices = companyServices
     }
     
     //MARK: Encodable
@@ -70,6 +73,7 @@ public class Company: DataType {
             "image_url" ~~> imageUrl,
             "id" ~~> id,
             "color_code" ~~> colorCode,
+            "services" ~~> companyServices,
             ])
     }
     

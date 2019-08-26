@@ -84,11 +84,19 @@ class UiHelpers {
         return sourceView
     }
     
-    class func addMarker(sourceView: UIView, latitude: Double, longitude: Double, title: String, adsNumber: Int, mapView: GMSMapView) {
+    class func addCompanyMarker(sourceView: UIView, latitude: Double, longitude: Double, title: String, adsNumber: Int, mapView: GMSMapView) {
         let locationMarker = GMSMarker()
         locationMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         locationMarker.title = title
         locationMarker.iconView = UiHelpers.makeMarkerView(sourceView: sourceView, companyName: title, adsNumber: adsNumber, companyColorCode: "#ff00ff")
+        locationMarker.map = mapView
+    }
+    
+    class func addMarker(latitude: Double, longitude: Double, title: String, markerView: UIView?, mapView: GMSMapView) {
+        let locationMarker = GMSMarker()
+        locationMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        locationMarker.title = title
+        locationMarker.iconView = markerView
         locationMarker.map = mapView
     }
     

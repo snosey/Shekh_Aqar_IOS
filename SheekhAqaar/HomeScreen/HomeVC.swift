@@ -38,8 +38,12 @@ class HomeVC: BaseVC {
     var categories1 = [Category]()
     var categories2 = [Category]()
     var categories3 = [Category]()
-    var companies = [Company]()
+    
+    var selectedCategory: Category!
+    var selectedCategoryPosition = 0
+    var viewingMode = 1 // 1-->Map 2-->Table
     var alertController: UIAlertController!
+    var presenter: HomePresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +67,15 @@ class HomeVC: BaseVC {
             self?.tableView.isHidden = true
             self?.googleMapView.isHidden = false
             
-            self?.showCompaniesOnMap()
+            self?.viewingMode = 1
+            
+            if let category = self?.selectedCategory {
+                if self?.selectedCategoryPosition == 1 {
+                    self?.showCompaniesOnMap(category: category)
+                } else if self?.selectedCategoryPosition == 2 || self?.selectedCategoryPosition == 3 {
+                    self?.showAdsOnMap(category: category)
+                }
+            }
         }
         
         showImagesButton.addTapGesture { [weak self] (_) in
@@ -78,6 +90,8 @@ class HomeVC: BaseVC {
             self?.tableView.isHidden = false
             self?.googleMapView.isHidden = true
             
+            self?.viewingMode = 2
+            
             self?.tableView.reloadData()
         }
         
@@ -85,17 +99,15 @@ class HomeVC: BaseVC {
         
         setupScrollableViews()
         
-        createFakeCategories()
-        
-        createFakeCompanies()
-        
         collectionView1.reloadData()
         collectionView2.reloadData()
         collectionView3.reloadData()
         
         getCurrentLocation()
         
-        showCompaniesOnMap()
+        presenter = Injector.provideHomePresenter()
+        presenter.setView(view: self)
+        presenter.getFirstCategories()
     }
     
     func getCurrentLocation() {
@@ -116,46 +128,18 @@ class HomeVC: BaseVC {
         
     }
     
-    func showCompaniesOnMap() {
+    func showCompaniesOnMap(category: Category) {
         googleMapView.clear()
-        for company in companies {
-            UiHelpers.addMarker(sourceView: self.view, latitude: company.latitude, longitude: company.longitude, title: company.nameEn, adsNumber: company.numberOfAds, mapView: googleMapView)
+        for company in category.companies {
+            UiHelpers.addCompanyMarker(sourceView: self.view, latitude: company.latitude, longitude: company.longitude, title: company.nameEn, adsNumber: company.numberOfAds, mapView: googleMapView)
         }
-        
     }
     
-    
-    
-    private func createFakeCategories() {
-        let category1 = Category(id: 1, nameEn: "Category 1", nameAr: "مثمن عقاري", key: "cat1")
-        let category2 = Category(id: 2, nameEn: "Category 2", nameAr: "طلبات العقارات", key: "cat1")
-        let category3 = Category(id: 3, nameEn: "Category 3", nameAr: "شقق للايجار", key: "cat1")
-        let category4 = Category(id: 4, nameEn: "Category 4", nameAr: "فلل للايجار", key: "cat1")
-        let category5 = Category(id: 5, nameEn: "Category 5", nameAr: "شقق للبيع", key: "cat1")
-        
-        categories1.append(category1)
-        categories1.append(category2)
-        categories1.append(category3)
-        categories1.append(category4)
-        categories1.append(category5)
-        
-        categories2.append(category1)
-        categories2.append(category2)
-        categories2.append(category3)
-        categories2.append(category4)
-        categories2.append(category5)
-        
-        categories3.append(category1)
-        categories3.append(category2)
-        categories3.append(category3)
-        categories3.append(category4)
-        categories3.append(category5)
-    }
-    
-    private func createFakeCompanies() {
-        let company1 = Company(id: 1, nameEn: "Company 1", nameAr: "Copany 1", addressEn: "Address 1", addressAr: "Address 1", phoneNumber: "01119993362", latitude: 30.5999552, longitude: 32.2936338, numberOfAds: 10, imageUrl: "https://www.w3schools.com/html/pic_trulli.jpg", colorCode: "#ff00ff")
-        
-        companies.append(company1)
+    func showAdsOnMap(category: Category) {
+        googleMapView.clear()
+        for ad in category.ads {
+            UiHelpers.addCompanyMarker(sourceView: self.view, latitude: ad.latitude, longitude: ad.longitude, title: ad.name, adsNumber: category.ads.count, mapView: googleMapView)
+        }
     }
     
     private func changeArrows() {
@@ -201,6 +185,35 @@ class HomeVC: BaseVC {
 
 }
 
+extension HomeVC: HomeView {
+    func getFirstCategoriesSuccess(categories: [Category]) {
+        categories1 = categories
+        collectionView1.reloadData()
+        presenter.getSecondCategories()
+    }
+    
+    func getSecondCategoriesSuccess(categories: [Category]) {
+        categories2 = categories
+        collectionView2.reloadData()
+        presenter.getThirdCategories()
+    }
+    
+    func getThirdCategoriesSuccess(categories: [Category]) {
+        categories3 = categories
+        collectionView3.reloadData()
+    }
+    
+    func failed(errorMessage: String) {
+        self.view.makeToast(errorMessage)
+    }
+    
+    func handleNoInternetConnection() {
+        self.view.makeToast("noInternetConnection".localized())
+    }
+    
+    
+}
+
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionView1 {
@@ -233,6 +246,14 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
         
         cell.categoryNameButton.addTapGesture { [weak self](_) in
             if collectionView == self?.collectionView1 {
+                self?.selectedCategoryPosition = 1
+                self?.selectedCategory = cell.category
+                if self?.viewingMode == 1 {
+                    self?.showCompaniesOnMap(category: cell.category)
+                } else if self?.viewingMode == 2 {
+                    self?.tableView.reloadData()
+                }
+                
                 var indexPathes1 = [IndexPath]()
                 var count1 = 0
                 for category in self?.categories1 ?? [] {
@@ -262,6 +283,13 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
                 self?.collectionView3.reloadItems(at: indexPathes3)
                 
             } else if collectionView == self?.collectionView2 {
+                self?.selectedCategoryPosition = 2
+                self?.selectedCategory = cell.category
+                if self?.viewingMode == 1 {
+                    self?.showAdsOnMap(category: cell.category)
+                } else if self?.viewingMode == 2 {
+                    self?.tableView.reloadData()
+                }
                 var indexPathes1 = [IndexPath]()
                 var count1 = 0
                 for category in self?.categories2 ?? [] {
@@ -291,6 +319,13 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
                 self?.collectionView3.reloadItems(at: indexPathes3)
                 
             } else if collectionView == self?.collectionView3 {
+                self?.selectedCategoryPosition = 3
+                self?.selectedCategory = cell.category
+                if self?.viewingMode == 1 {
+                    self?.showAdsOnMap(category: cell.category)
+                } else if self?.viewingMode == 2 {
+                    self?.tableView.reloadData()
+                }
                 var indexPathes1 = [IndexPath]()
                 var count1 = 0
                 for category in self?.categories3 ?? [] {
@@ -327,16 +362,26 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return companies.count
+        if selectedCategoryPosition == 1 {
+            return selectedCategory.companies.count
+        } else if selectedCategoryPosition == 2 || selectedCategoryPosition == 3 {
+            return selectedCategory.ads.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCell.identifier, for: indexPath) as! CompanyCell
-        cell.company = self.companies.get(indexPath.row)
-        cell.delegate = self
-        cell.initializeCell()
-        cell.populateData()
-        return cell
+        if self.selectedCategoryPosition == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCell.identifier, for: indexPath) as! CompanyCell
+            cell.company = self.selectedCategory.companies.get(indexPath.row)
+            cell.delegate = self
+            cell.initializeCell()
+            cell.populateData()
+            return cell
+        } else if selectedCategoryPosition == 2 || selectedCategoryPosition == 3 {
+            return UITableViewCell()
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

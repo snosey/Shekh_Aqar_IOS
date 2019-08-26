@@ -112,6 +112,20 @@
 		E8DAFE892311855400C2F005 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE882311855400C2F005 /* CategoryCell.swift */; };
 		E8DAFE8B2311859E00C2F005 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE8A2311859E00C2F005 /* Company.swift */; };
 		E8DAFE8D231185A600C2F005 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE8C231185A600C2F005 /* Category.swift */; };
+		E8E4E6132313F26500A46C99 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6122313F26500A46C99 /* SignUpPresenter.swift */; };
+		E8E4E6152313F27000A46C99 /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6142313F27000A46C99 /* SignUpRepository.swift */; };
+		E8E4E6172313F62400A46C99 /* SignUp1Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6162313F62400A46C99 /* SignUp1Presenter.swift */; };
+		E8E4E6192313F63400A46C99 /* SignUp1Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6182313F63400A46C99 /* SignUp1Repository.swift */; };
+		E8E4E61B2313F72500A46C99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E61A2313F72500A46C99 /* User.swift */; };
+		E8E4E61D2313FA7400A46C99 /* RegisterCompanyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E61C2313FA7400A46C99 /* RegisterCompanyPresenter.swift */; };
+		E8E4E61F2313FA8000A46C99 /* RegisterCompanyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E61E2313FA8000A46C99 /* RegisterCompanyRepository.swift */; };
+		E8E4E621231402A400A46C99 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E620231402A400A46C99 /* HomePresenter.swift */; };
+		E8E4E623231402AE00A46C99 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E622231402AE00A46C99 /* HomeRepository.swift */; };
+		E8E4E6252314048400A46C99 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6242314048400A46C99 /* Ad.swift */; };
+		E8E4E627231405A600A46C99 /* AdType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E626231405A600A46C99 /* AdType.swift */; };
+		E8E4E6292314065600A46C99 /* FarshLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6282314065600A46C99 /* FarshLevel.swift */; };
+		E8E4E62B2314069300A46C99 /* AdditionalFacility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E62A2314069300A46C99 /* AdditionalFacility.swift */; };
+		E8E4E62D231408EE00A46C99 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E62C231408EE00A46C99 /* Currency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +263,20 @@
 		E8DAFE882311855400C2F005 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E8DAFE8A2311859E00C2F005 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		E8DAFE8C231185A600C2F005 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		E8E4E6122313F26500A46C99 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		E8E4E6142313F27000A46C99 /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
+		E8E4E6162313F62400A46C99 /* SignUp1Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp1Presenter.swift; sourceTree = "<group>"; };
+		E8E4E6182313F63400A46C99 /* SignUp1Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp1Repository.swift; sourceTree = "<group>"; };
+		E8E4E61A2313F72500A46C99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E8E4E61C2313FA7400A46C99 /* RegisterCompanyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompanyPresenter.swift; sourceTree = "<group>"; };
+		E8E4E61E2313FA8000A46C99 /* RegisterCompanyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompanyRepository.swift; sourceTree = "<group>"; };
+		E8E4E620231402A400A46C99 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		E8E4E622231402AE00A46C99 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		E8E4E6242314048400A46C99 /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
+		E8E4E626231405A600A46C99 /* AdType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdType.swift; sourceTree = "<group>"; };
+		E8E4E6282314065600A46C99 /* FarshLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarshLevel.swift; sourceTree = "<group>"; };
+		E8E4E62A2314069300A46C99 /* AdditionalFacility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalFacility.swift; sourceTree = "<group>"; };
+		E8E4E62C231408EE00A46C99 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		ED4B22E181EC1FC845445EAE /* Pods-SheekhAqaarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheekhAqaarUITests.debug.xcconfig"; path = "Target Support Files/Pods-SheekhAqaarUITests/Pods-SheekhAqaarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -405,6 +433,12 @@
 				E8DAFE8A2311859E00C2F005 /* Company.swift */,
 				E8DAFE8C231185A600C2F005 /* Category.swift */,
 				E8BD7F352312DA58003B6829 /* CompanyService.swift */,
+				E8E4E61A2313F72500A46C99 /* User.swift */,
+				E8E4E6242314048400A46C99 /* Ad.swift */,
+				E8E4E626231405A600A46C99 /* AdType.swift */,
+				E8E4E6282314065600A46C99 /* FarshLevel.swift */,
+				E8E4E62A2314069300A46C99 /* AdditionalFacility.swift */,
+				E8E4E62C231408EE00A46C99 /* Currency.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -481,6 +515,8 @@
 			children = (
 				E89CBAF023097AF3000B6BB7 /* SignUpVC.swift */,
 				E89CBAF423097B09000B6BB7 /* SignUpStoryboard.storyboard */,
+				E8E4E6122313F26500A46C99 /* SignUpPresenter.swift */,
+				E8E4E6142313F27000A46C99 /* SignUpRepository.swift */,
 			);
 			path = SignUpScreen;
 			sourceTree = "<group>";
@@ -492,6 +528,8 @@
 				E89CBAF223097AFE000B6BB7 /* HomeStoryboard.storyboard */,
 				E8DAFE882311855400C2F005 /* CategoryCell.swift */,
 				E8DAFE862311853F00C2F005 /* CompanyCell.swift */,
+				E8E4E620231402A400A46C99 /* HomePresenter.swift */,
+				E8E4E622231402AE00A46C99 /* HomeRepository.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -510,6 +548,8 @@
 			children = (
 				E89CBB132309B889000B6BB7 /* SignUp1VC.swift */,
 				E89CBB152309B89C000B6BB7 /* SignUp1Storyboard.storyboard */,
+				E8E4E6162313F62400A46C99 /* SignUp1Presenter.swift */,
+				E8E4E6182313F63400A46C99 /* SignUp1Repository.swift */,
 			);
 			path = SignUp1Screen;
 			sourceTree = "<group>";
@@ -530,6 +570,8 @@
 				E89CBB1D2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard */,
 				E87A9008230B365D0020BAA2 /* RegisterCompanyCell.swift */,
 				E8BD7F332312D886003B6829 /* CompanyServicesCell.swift */,
+				E8E4E61C2313FA7400A46C99 /* RegisterCompanyPresenter.swift */,
+				E8E4E61E2313FA8000A46C99 /* RegisterCompanyRepository.swift */,
 			);
 			path = RegisterCompanyScreen;
 			sourceTree = "<group>";
@@ -806,11 +848,15 @@
 				E89CBB182309B8B5000B6BB7 /* PhoneVerificationVC.swift in Sources */,
 				E82474922308278800211FDB /* ErrorTypeExtensions.swift in Sources */,
 				E82474A82308278800211FDB /* BlockLongPress.swift in Sources */,
+				E8E4E6252314048400A46C99 /* Ad.swift in Sources */,
 				E82474C623083A5400211FDB /* ViewControllersExtension.swift in Sources */,
+				E8E4E61D2313FA7400A46C99 /* RegisterCompanyPresenter.swift in Sources */,
 				E82474872308278800211FDB /* BlockPan.swift in Sources */,
 				E82474A72308278800211FDB /* UIWindowExtensions.swift in Sources */,
 				E824749B2308278800211FDB /* URLExtensions.swift in Sources */,
 				E82474C223083A1300211FDB /* UIDevice+extensions.swift in Sources */,
+				E8E4E61B2313F72500A46C99 /* User.swift in Sources */,
+				E8E4E623231402AE00A46C99 /* HomeRepository.swift in Sources */,
 				E86FA0D9230EABBA005A88D2 /* DataType.swift in Sources */,
 				E824748A2308278800211FDB /* BlockWebView.swift in Sources */,
 				E87A9009230B365D0020BAA2 /* RegisterCompanyCell.swift in Sources */,
@@ -821,10 +867,12 @@
 				E82474882308278800211FDB /* ArrayExtensions.swift in Sources */,
 				E82474AE2308278800211FDB /* UserDefaultsExtension.swift in Sources */,
 				E82474912308278800211FDB /* UIBarButtonItemExtensions.swift in Sources */,
+				E8E4E61F2313FA8000A46C99 /* RegisterCompanyRepository.swift in Sources */,
 				E89340E92308265F00F37DCE /* ViewController.swift in Sources */,
 				E82474A62308278800211FDB /* IntExtensions.swift in Sources */,
 				E82474B62308278800211FDB /* UIColorExtensions.swift in Sources */,
 				E82474AB2308278800211FDB /* UISwitchExtensions.swift in Sources */,
+				E8E4E6132313F26500A46C99 /* SignUpPresenter.swift in Sources */,
 				E82474962308278800211FDB /* UIColoredView.swift in Sources */,
 				E824749D2308278800211FDB /* FileManagerExtension.swift in Sources */,
 				E82474852308278800211FDB /* CGRectExtensions.swift in Sources */,
@@ -844,8 +892,11 @@
 				E82474A52308278800211FDB /* NSDictionaryExtensions.swift in Sources */,
 				E86FA0DD230EABEE005A88D2 /* Region.swift in Sources */,
 				E82474A22308278800211FDB /* CharacterExtensions.swift in Sources */,
+				E8E4E6152313F27000A46C99 /* SignUpRepository.swift in Sources */,
 				E82474BC2308398F00211FDB /* CommonConstants.swift in Sources */,
+				E8E4E627231405A600A46C99 /* AdType.swift in Sources */,
 				E82474952308278800211FDB /* BlockButton.swift in Sources */,
+				E8E4E62D231408EE00A46C99 /* Currency.swift in Sources */,
 				E824749C2308278800211FDB /* UIViewControllerExtensions.swift in Sources */,
 				E8BD7F342312D886003B6829 /* CompanyServicesCell.swift in Sources */,
 				E824748C2308278800211FDB /* TimerExtensions.swift in Sources */,
@@ -854,6 +905,7 @@
 				E8BD7F362312DA58003B6829 /* CompanyService.swift in Sources */,
 				E82474CE23083C4F00211FDB /* NavigationBarUtils.swift in Sources */,
 				E82474A12308278800211FDB /* BundleExtensions.swift in Sources */,
+				E8E4E621231402A400A46C99 /* HomePresenter.swift in Sources */,
 				E82474BA2308396800211FDB /* Colors.swift in Sources */,
 				E82474CA23083BFC00211FDB /* Injector.swift in Sources */,
 				E82474C0230839EB00211FDB /* Singleton.swift in Sources */,
@@ -873,14 +925,18 @@
 				E82474A32308278800211FDB /* BlockTap.swift in Sources */,
 				E82474B02308278800211FDB /* UIImageViewExtensions.swift in Sources */,
 				E82474CC23083C1F00211FDB /* Navigator.swift in Sources */,
+				E8E4E6192313F63400A46C99 /* SignUp1Repository.swift in Sources */,
 				E82474D523083D1A00211FDB /* SideMenuVC.swift in Sources */,
 				E82474A42308278800211FDB /* FloatingPointExtensions.swift in Sources */,
 				E824749E2308278800211FDB /* CollectionsExtension.swift in Sources */,
 				E824748E2308278800211FDB /* UITextViewExtensions.swift in Sources */,
+				E8E4E62B2314069300A46C99 /* AdditionalFacility.swift in Sources */,
+				E8E4E6292314065600A46C99 /* FarshLevel.swift in Sources */,
 				E8DAFE872311853F00C2F005 /* CompanyCell.swift in Sources */,
 				E8DAFE8B2311859E00C2F005 /* Company.swift in Sources */,
 				E82474932308278800211FDB /* StringExtensions.swift in Sources */,
 				E82474C423083A3500211FDB /* FontUtils.swift in Sources */,
+				E8E4E6172313F62400A46C99 /* SignUp1Presenter.swift in Sources */,
 				E82474A92308278800211FDB /* DateExtensions.swift in Sources */,
 				E82474D923083D5800211FDB /* SideMenuCell.swift in Sources */,
 				E8DAFE8D231185A600C2F005 /* Category.swift in Sources */,

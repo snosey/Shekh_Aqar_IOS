@@ -15,6 +15,8 @@ public class Category: DataType {
     var nameEn : String!
     var key: String!
     var id : Int!
+    var companies: [Company]!
+    var ads: [Ad]!
     
     var isClicked = false
     
@@ -24,17 +26,28 @@ public class Category: DataType {
         nameEn = "name_en" <~~ json
         key = "key" <~~ json
         id = "id" <~~ json
+        companies = "companies" <~~ json
+        ads = "ads" <~~ json
     }
     
     public init() {
         
     }
     
-    public init(id : Int, nameEn: String, nameAr: String, key: String) {
+    public init(id : Int, nameEn: String, nameAr: String, key: String, companies: [Company]) {
         self.id = id
         self.nameEn = nameEn
         self.nameAr = nameAr
         self.key = key
+        self.companies = companies
+    }
+    
+    public init(id : Int, nameEn: String, nameAr: String, key: String, ads: [Ad]) {
+        self.id = id
+        self.nameEn = nameEn
+        self.nameAr = nameAr
+        self.key = key
+        self.ads = ads
     }
     
     //MARK: Encodable
@@ -44,6 +57,8 @@ public class Category: DataType {
             "name_en" ~~> nameEn,
             "key" ~~> key,
             "id" ~~> id,
+            "companies" ~~> companies,
+            "ads" ~~> ads,
             ])
     }
     

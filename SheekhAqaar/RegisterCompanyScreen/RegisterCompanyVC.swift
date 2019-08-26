@@ -10,6 +10,9 @@ import UIKit
 import MICountryPicker
 import Localize_Swift
 import DropDown
+import GoogleMaps
+import GooglePlacePicker
+import SwiftyUserDefaults
 
 class RegisterCompanyVC: BaseVC {
 
@@ -31,42 +34,27 @@ class RegisterCompanyVC: BaseVC {
     var selectedRegion: Region?
     var userCountryCode = "+966"
     var companyCountryCode = "+966"
+    var locationManager = CLLocationManager()
+    var alertController: UIAlertController!
+    var presenter: RegisterCompanyPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         weakSelf = self
-        companyDataTableView.dataSource = weakSelf
-        companyDataTableView.delegate = weakSelf
         
-        createFakeCountriesAndRegions()
-        createFakeServices()
+        presenter = Injector.provideRegisterCompanyPresenter()
+        presenter.setView(view: self)
+        presenter.getCountries()
         
-        
+        getCurrentLocation()
     }
     
-    func createFakeCountriesAndRegions() {
-        let country1 = Country(id: 1, nameEn: "Country 1", nameAr: "الدولة ١", regions: [Region(id: 1, nameEn: "Region 1.1", nameAr: "المنطقة ١.١"), Region(id: 1, nameEn: "Region 1.2", nameAr: "المنطقة ١.٢"), Region(id: 1, nameEn: "Region 1.3", nameAr: "المنطقة ١.٣"), Region(id: 1, nameEn: "Region 1.4", nameAr: "المنطقة ١.٤")])
-        
-        let country2 = Country(id: 2, nameEn: "Country 2", nameAr: "الدولة ٢", regions: [Region(id: 1, nameEn: "Region 2.1", nameAr: "المنطقة ٢.١"), Region(id: 1, nameEn: "Region 2.2", nameAr: "المنطقة ٢.٢"), Region(id: 1, nameEn: "Region 2.3", nameAr: "المنطقة ٢.٣"), Region(id: 1, nameEn: "Region 2.4", nameAr: "المنطقة ٢.٤")])
-        
-        let country3 = Country(id: 3, nameEn: "Country 3", nameAr: "الدولة ٣", regions: [Region(id: 1, nameEn: "Region 3.1", nameAr: "المنطقة ٣.١"), Region(id: 1, nameEn: "Region 3.2", nameAr: "المنطقة ٣.٢"), Region(id: 1, nameEn: "Region 3.3", nameAr: "المنطقة ٣.٣"), Region(id: 1, nameEn: "Region 3.4", nameAr: "المنطقة ٣.٤")])
-        
-        let country4 = Country(id: 4, nameEn: "Country 4", nameAr: "الدولة ٤", regions: [Region(id: 1, nameEn: "Region 4.1", nameAr: "المنطقة ٤.١"), Region(id: 1, nameEn: "Region 4.2", nameAr: "المنطقة ٤.٢"), Region(id: 1, nameEn: "Region 4.3", nameAr: "المنطقة ٤.٣"), Region(id: 1, nameEn: "Region 4.4", nameAr: "المنطق؛ ٤.٤")])
-        
-        countries.append(country1)
-        countries.append(country2)
-        countries.append(country3)
-        countries.append(country4)
-    }
-    
-    func createFakeServices() {
-        let service1 = CompanyService(id: 1, nameEn: "Service 1", nameAr: "الخدمة ١", key: "ser1")
-        let service2 = CompanyService(id: 2, nameEn: "Service 2", nameAr: "الخدمة ١", key: "ser1")
-        let service3 = CompanyService(id: 3, nameEn: "Service 3", nameAr: "الخدمة ١", key: "ser1")
-        
-        companyServices.append(service1)
-        companyServices.append(service2)
-        companyServices.append(service3)
+    func getCurrentLocation() {
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.distanceFilter = 50
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
     }
 
     func showCountriesList(isUser: Bool) {
@@ -113,6 +101,32 @@ class RegisterCompanyVC: BaseVC {
     }
 }
 
+extension RegisterCompanyVC: RegisterCompanyView {
+    func registerCompanySuccess(company: Company) {
+        Defaults[.company] = company.toJSON()
+    }
+    
+    func getCountriesSuccess(countries: [Country]) {
+        self.countries = countries
+        presenter.getServices()
+    }
+    
+    func getServicesSuccess(services: [CompanyService]) {
+        self.companyServices = services
+        companyDataTableView.dataSource = weakSelf
+        companyDataTableView.delegate = weakSelf
+        companyDataTableView.reloadData()
+    }
+    
+    func failed(errorMessage: String) {
+        self.view.makeToast(errorMessage)
+    }
+    
+    func handleNoInternetConnection() {
+        self.view.makeToast("noInternetConnection".localized())
+    }
+}
+
 extension RegisterCompanyVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -135,7 +149,33 @@ extension RegisterCompanyVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+extension RegisterCompanyVC: GMSPlacePickerViewControllerDelegate {
+    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+        viewController.dismiss(animated: true, completion: nil)
+
+        cell.addressOnMapLabel.text = place.formattedAddress
+//        print("Place name \(place.name)")
+//        print("Place address \(place.formattedAddress)")
+//        print("Place attributions \(place.attributions)")
+//        print("Place coordinates \(place.coordinate.latitude), \(place.coordinate.longitude)")
+    }
+    
+    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: nil)
+        
+        print("No place selected")
+    }
+}
+
 extension RegisterCompanyVC: RegisterCompanyCellDelegate {
+    func pickPlaceClicked() {
+        let config = GMSPlacePickerConfig(viewport: nil)
+        let placePicker = GMSPlacePickerViewController(config: config)
+        placePicker.delegate = self
+        present(placePicker, animated: true, completion: nil)
+    }
+    
     func serviceChecked(checked: Bool, index: Int) {
         if checked {
             weakSelf?.selectedServices.append((weakSelf?.companyServices.get(index))!)
@@ -334,3 +374,49 @@ extension RegisterCompanyVC: UIImagePickerControllerDelegate, UINavigationContro
     }
 }
 
+extension RegisterCompanyVC: CLLocationManagerDelegate {
+    
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if Singleton.getInstance().currentLocation == nil || (Singleton.getInstance().currentLocation.coordinate.latitude != locations.last!.coordinate.latitude && Singleton.getInstance().currentLocation.coordinate.longitude != locations.last!.coordinate.longitude) {
+            Singleton.getInstance().currentLocation = locations.last!
+            print("Location: \(Singleton.getInstance().currentLocation!)")
+        }
+    }
+    
+    // Handle authorization for the location manager.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted, .notDetermined:
+            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+            break
+            
+        case .denied:
+            print("Location access was restricted.")
+            let enableAction = UIAlertAction(title: "enable".localized(), style: .default) { (_) in
+                UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
+            }
+            
+            let cancelAction = UIAlertAction(title: "cancel".localized(), style: .default) { [weak self] (_) in
+                self?.alertController.dismissVC(completion: nil)
+            }
+            
+            alertController = UiHelpers.createAlertView(title: "locationServicesDisabledTitle".localized(), message: "locationServicesDisabledMessage".localized(), actions: [enableAction, cancelAction])
+            
+            presentVC(alertController)
+            break
+        case .authorizedAlways, .authorizedWhenInUse:
+            break
+        default:
+            break
+        }
+    }
+    
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print("Error: \(error)")
+    }
+}

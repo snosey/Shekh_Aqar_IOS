@@ -13,6 +13,7 @@ import UIKit
 import Material
 import Firebase
 import GoogleMaps
+import GooglePlaces
 
 public class ApplicationStarter {
     
@@ -21,6 +22,7 @@ public class ApplicationStarter {
         FirebaseApp.configure()
         
         GMSServices.provideAPIKey(CommonConstants.GOOGLE_MAPS_KEY)
+        GMSPlacesClient.provideAPIKey(CommonConstants.GOOGLE_MAPS_KEY)
         
         switch Localize.currentLanguage() {
         case "ar":

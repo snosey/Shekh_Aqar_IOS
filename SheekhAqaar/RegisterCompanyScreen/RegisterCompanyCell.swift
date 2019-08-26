@@ -19,6 +19,7 @@ public protocol RegisterCompanyCellDelegate: class {
     func registerClicked()
     func backClicked()
     func serviceChecked(checked: Bool, index: Int)
+    func pickPlaceClicked()
 }
 
 class RegisterCompanyCell: UITableViewCell {
@@ -89,6 +90,11 @@ class RegisterCompanyCell: UITableViewCell {
         registerButton.addTapGesture { [weak self] (_) in
             self?.delegate.registerClicked()
         }
+        
+        mapView.addTapGesture { [weak self] (_) in
+            self?.delegate.pickPlaceClicked()
+        }
+        
         GradientBG.createGradientLayer(view: registerButton, cornerRaduis: 8, maskToBounds: true)
         
         UiHelpers.makeLabelUnderlined(label: backLabel)

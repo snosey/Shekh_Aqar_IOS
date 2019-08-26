@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class SignUp1VC: BaseVC {
 
@@ -26,6 +27,7 @@ class SignUp1VC: BaseVC {
     let imagePicker = UIImagePickerController()
     var phoneNumber: String!
     var imageChoosen = false
+    var presenter: SignUp1Presenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,13 +57,16 @@ class SignUp1VC: BaseVC {
         }
         
         GradientBG.createGradientLayer(view: continueButton, cornerRaduis: 8, maskToBounds: true)
+        
+        presenter = Injector.provideSignUp1Presenter()
+        presenter.setView(view: self)
     }
 
     @IBAction func continueClicked(_ sender: Any) {
         if let username = usernameTextfield.text, !username.isEmpty {
             if imageChoosen {
-                // go to home
-                navigator.navigateToHome()
+                presenter.registerUser(phoneNumber: phoneNumber, userName: username, image: self.userAvatarImageView.image!.jpegData(compressionQuality: 0.5)!)
+                
             } else {
                 self.view.makeToast("enterAvatar".localized())
             }
@@ -88,6 +93,21 @@ class SignUp1VC: BaseVC {
             
             present(imagePicker, animated: true, completion: nil)
         }
+    }
+}
+
+extension SignUp1VC: SignUp1View {
+    func registerUserSuccess(user: User) {
+        Defaults[.user] = user.toJSON()
+        navigator.navigateToHome()
+    }
+    
+    func failed(errorMessage: String) {
+        self.view.makeToast(errorMessage)
+    }
+    
+    func handleNoInternetConnection() {
+        self.view.makeToast("noInternetConnection".localized())
     }
 }
 

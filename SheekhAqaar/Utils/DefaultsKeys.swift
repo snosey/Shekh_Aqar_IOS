@@ -11,7 +11,7 @@ import SwiftyUserDefaults
 
 extension DefaultsKeys {
     static let user = DefaultsKey<Dictionary<String, Any>?>("user")
-    static let status = DefaultsKey<Dictionary<String, Any>?>("status")
+    static let company = DefaultsKey<Dictionary<String, Any>?>("company")
     static let fcmToken = DefaultsKey<String?>("fcm_token")
     static let token = DefaultsKey<String?>("token")
     static let isLoggedIn = DefaultsKey<Bool?>("isLoggedIn")
