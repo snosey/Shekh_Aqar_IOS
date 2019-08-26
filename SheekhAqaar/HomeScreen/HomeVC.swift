@@ -77,6 +77,8 @@ class HomeVC: BaseVC {
             
             self?.tableView.isHidden = false
             self?.googleMapView.isHidden = true
+            
+            self?.tableView.reloadData()
         }
         
         changeArrows()
@@ -325,17 +327,20 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0//companies.count
+        return companies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCell.identifier, for: indexPath) as! CompanyCell
-        
+        cell.company = self.companies.get(indexPath.row)
+        cell.delegate = self
+        cell.initializeCell()
+        cell.populateData()
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 20)
+        return UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 15)
     }
 }
 
@@ -385,5 +390,21 @@ extension HomeVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
         print("Error: \(error)")
+    }
+}
+
+extension HomeVC: CompanyCellDelegate {
+    func callCompanyClicked(phoneNumber: String) {
+        let urlString = "telprompt://\(phoneNumber)"
+        guard let url = URL(string: urlString) else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    func openMapsClicked(latitude: Double, longitude: Double) {
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+        UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(latitude),\(longitude)&zoom=14&views=traffic&q=\(latitude),\(longitude)")!, options: [:], completionHandler: nil)
+        } else {
+            print("Can't use comgooglemaps://")
+        }
     }
 }
