@@ -55,3 +55,6 @@
 "companyServices" = "Company services";
 "adsNumber" = "Ads number:";
 "noInternetConnection" = "No internet connection. Please check your connection to the network and try again";
+"rooms" = "Rooms";
+"room" = "Room";
+"bathroom" = "Bathroom";

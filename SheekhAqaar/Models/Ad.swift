@@ -19,7 +19,7 @@ public class Ad: DataType {
     var details: String!
     var category: Category!
     var adType: AdType!
-    var placeArea: Double!
+    var placeArea: Double = 20
     var country: Country!
     var region: Region!
     var detailedAddress: String!
@@ -29,6 +29,7 @@ public class Ad: DataType {
     var roomsNumber: Int!
     var bathRoomsNumber: Int!
     var additionalFacilities: [AdditionalFacility]!
+    var creationTime: Double = 123123.1312323
     
     //MARK: Decodable
     required public init?(json: JSON){

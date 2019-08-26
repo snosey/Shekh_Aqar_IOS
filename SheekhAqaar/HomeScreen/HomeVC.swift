@@ -377,9 +377,14 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             cell.delegate = self
             cell.initializeCell()
             cell.populateData()
+            cell.selectionStyle = .none
             return cell
         } else if selectedCategoryPosition == 2 || selectedCategoryPosition == 3 {
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: AdCell.identifier, for: indexPath) as! AdCell
+            cell.ad = selectedCategory.ads.get(indexPath.row)
+            cell.populateData()
+            cell.selectionStyle = .none
+            return cell
         }
         return UITableViewCell()
     }
