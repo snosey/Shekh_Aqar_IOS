@@ -44,4 +44,11 @@ public class Navigator {
             self.navigationController.pushViewController(vc, animated: true)
         }
     }
+    
+    public func navigateToCompany(company: Company) {
+        weak var vc = CompanyVC.buildVC(company: company)
+        if let vc = vc {
+            self.navigationController.pushViewController(vc, animated: true)
+        }
+    }
 }

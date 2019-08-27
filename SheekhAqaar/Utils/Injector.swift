@@ -41,4 +41,12 @@ public class Injector {
     public class func provideHomeRepository() -> HomeRepository {
         return HomeRepository()
     }
+    
+    public class func provideCompanyPresenter() -> CompanyPresenter {
+        return CompanyPresenter(repository: Injector.provideCompanyRepository())
+    }
+    
+    public class func provideCompanyRepository() -> CompanyRepository {
+        return CompanyRepository()
+    }
 }

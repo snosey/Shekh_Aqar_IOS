@@ -58,3 +58,13 @@
 "rooms" = "Rooms";
 "room" = "Room";
 "bathroom" = "Bathroom";
+"min" = "Mins ago";
+"sec" = "Sec ago";
+"hr" = "Hrs ago";
+"days" = "Days ago";
+"weeks" = "weeks ago";
+"from" = "";
+"address" = "Address";
+"call" = "Call";
+"lastAds" = "Ads history";
+"downloadGoogleMaps" = "Please download Google Maps application.";

@@ -12,6 +12,7 @@ import Localize_Swift
 protocol CompanyCellDelegate: class {
     func callCompanyClicked(phoneNumber: String)
     func openMapsClicked(latitude: Double, longitude: Double)
+    func goToCompanyScreen(company: Company?)
 }
 
 class CompanyCell: UITableViewCell {
@@ -35,6 +36,10 @@ class CompanyCell: UITableViewCell {
         
         mapImageView.addTapGesture { [weak self] (_) in
             self?.delegate.openMapsClicked(latitude: self?.company.latitude ?? 0, longitude: self?.company.longitude ?? 0)
+        }
+        
+        contentView.addTapGesture { [weak self] (_) in
+            self?.delegate.goToCompanyScreen(company: self?.company)
         }
     }
 

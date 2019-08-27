@@ -29,7 +29,7 @@ public class Ad: DataType {
     var roomsNumber: Int!
     var bathRoomsNumber: Int!
     var additionalFacilities: [AdditionalFacility]!
-    var creationTime: Double = 123123.1312323
+    var creationTime: Double = 1566899994
     
     //MARK: Decodable
     required public init?(json: JSON){

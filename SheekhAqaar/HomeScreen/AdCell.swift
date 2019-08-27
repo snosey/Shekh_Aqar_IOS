@@ -30,6 +30,7 @@ class AdCell: UITableViewCell {
         if let urls = ad.imagesUrls, urls.count > 0, let photoUrl = URL(string: urls[0]) {
             adPhotoImageView.af_setImage(withURL: photoUrl)
         }
+        
         if Localize.currentLanguage() == "ar" {
             priceLabel.text = "\(ad.price!) \(ad.currency.nameAr!)"
             farshLevelLabel.text = ad.farshLevel.nameAr
@@ -49,9 +50,6 @@ class AdCell: UITableViewCell {
         }
         roomsNumberLabel.text = "\(ad.roomsNumber!) \(roomWord)"
         bathroomsNumberLabel.text = "\(ad.bathRoomsNumber!) \("bathroom".localized())"
-        creationTimeLabel.text = "\(ad.creationTime)"
+        creationTimeLabel.text = Date(milliseconds: Int(ad.creationTime) * 1000).timeAgoDisplay()
     }
-    
-    
-    
 }

@@ -444,6 +444,12 @@ extension HomeVC: CLLocationManagerDelegate {
 }
 
 extension HomeVC: CompanyCellDelegate {
+    func goToCompanyScreen(company: Company?) {
+        if let company = company {
+            navigator.navigateToCompany(company: company)
+        }
+    }
+    
     func callCompanyClicked(phoneNumber: String) {
         let urlString = "telprompt://\(phoneNumber)"
         guard let url = URL(string: urlString) else { return }
@@ -454,7 +460,7 @@ extension HomeVC: CompanyCellDelegate {
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
         UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(latitude),\(longitude)&zoom=14&views=traffic&q=\(latitude),\(longitude)")!, options: [:], completionHandler: nil)
         } else {
-            print("Can't use comgooglemaps://")
+            self.view.makeToast("downloadGoogleMaps".localized())
         }
     }
 }
