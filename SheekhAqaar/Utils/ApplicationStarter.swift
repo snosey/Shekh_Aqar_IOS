@@ -52,6 +52,7 @@ public class ApplicationStarter {
         }
         
         let navigationController = UINavigationController(rootViewController: vc)
+        navigationController.navigationBar.barStyle = .black
 //        navigationController.navigationBar.setStyle(style: .solid, tintColor: UIColor.white, forgroundColor: .white)
         
         //navigationController.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "back"), for: UIBarMetrics.default)
