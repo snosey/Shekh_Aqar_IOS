@@ -97,13 +97,18 @@ class SignUpVC: BaseVC {
 }
 
 extension SignUpVC: SignUpView {
+    func loginSuccess(user: User) {
+        Defaults[.user] = user.toJSON()
+        self.navigator.navigateToHome()
+    }
+    
     func failed(errorMessage: String) {
         self.view.makeToast(errorMessage)
     }
     
     func userCheck(isExist: Bool) {
         if isExist {
-            self.navigator.navigateToHome()
+            presenter.login(phoneNumber: phoneNumberTextField.text!)
         } else {
             PhoneAuthProvider.provider().verifyPhoneNumber(userPhone, uiDelegate: nil) { [weak self] (verificationID, error) in
                 if let error = error {

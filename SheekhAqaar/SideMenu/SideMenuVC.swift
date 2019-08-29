@@ -11,6 +11,8 @@ import UIKit
 import SwiftyUserDefaults
 import AlamofireImage
 import SnapKit
+import SwiftyUserDefaults
+
 
 class SideMenuVC : BaseVC {
     
@@ -18,9 +20,7 @@ class SideMenuVC : BaseVC {
     var sideMenuCellDelegate: SideMenuCellDelegate!
     var sideMenuHeaderDelegate: SideMenuHeaderDelegate!
     
-    var menuStringsDataSource: [String] = ["home".localized(), "payment".localized(), "tripHistory".localized(), "profile".localized(), "terms".localized(), "language".localized()]
-    
-    var menuImagesDataSource: [UIImage] = [UIImage(named: "home")!, UIImage(named: "credit-card")!, UIImage(named: "history")!, UIImage(named: "profile")!, UIImage(named: "terms")!, UIImage(named: "translate")!]
+    var menuStringsDataSource: [String] = ["homeScreen".localized(), "editProfile".localized(), "tripHistory".localized(), "profile".localized(), "help".localized()]
     
     
     static func buildVC() -> SideMenuVC {
@@ -34,11 +34,20 @@ class SideMenuVC : BaseVC {
         layout.setupViews()
         layout.sideMenuHeaderDelegate = self.sideMenuHeaderDelegate
         
+        if let _ = Defaults[.user] {
+            menuStringsDataSource.append("logout".localized())
+        } else {
+            menuStringsDataSource.append("login".localized())
+        }
+        
         setupMenuTableView()
+        
+        self.navigationController?.navigationBar.isHidden = true
+        self.view.backgroundColor = .black
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        showUserData()
+//        showUserData()
     }
     
     func setupMenuTableView() {
@@ -48,14 +57,14 @@ class SideMenuVC : BaseVC {
         layout.menuTableView.reloadData()
     }
     
-    func showUserData() {
+//    func showUserData() {
         
 //        layout.usernameLabel.text = DataHandler.shared.loggedUser()?.name
 //        layout.userPhoneLabel.text = DataHandler.shared.loggedUser()?.mobile
 //        if let imageUrl = DataHandler.shared.loggedUser()!.img, !imageUrl.isEmpty {
 //            layout.userProfilePicImageView.af_setImage(withURL: URL(string: imageUrl)!, placeholderImage: UIImage(named: "background"))
 //        }
-    }
+//    }
 }
 
 extension SideMenuVC : UITableViewDataSource, UITableViewDelegate {
@@ -69,7 +78,13 @@ extension SideMenuVC : UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         cell.delegate = self.sideMenuCellDelegate
         cell.index = indexPath.row
-        cell.populateMenuItemData(data: self.menuStringsDataSource.get(at: indexPath.row)!, image: self.menuImagesDataSource.get(at: indexPath.row)!)
+        cell.backgroundColor = .clear
+        cell.populateMenuItemData(data: self.menuStringsDataSource.get(at: indexPath.row)!)
+        if indexPath.row == self.menuStringsDataSource.count - 1 {
+            cell.lineView.isHidden = true
+        } else {
+            cell.lineView.isHidden = false
+        }
         return cell
         
     }

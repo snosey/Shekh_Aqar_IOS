@@ -9,8 +9,10 @@
 import UIKit
 import Localize_Swift
 import GoogleMaps
+import SideMenu
+import SwiftyUserDefaults
 
-class HomeVC: BaseVC {
+class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
 
     public class func buildVC() -> HomeVC {
         let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
@@ -34,6 +36,7 @@ class HomeVC: BaseVC {
     @IBOutlet weak var collectionView3: UICollectionView!
     @IBOutlet weak var googleMapView: GMSMapView!
     
+    weak var sideMenuVC: SideMenuVC!
     var locationManager = CLLocationManager()
     var categories1 = [Category]()
     var categories2 = [Category]()
@@ -99,9 +102,7 @@ class HomeVC: BaseVC {
         
         setupScrollableViews()
         
-        collectionView1.reloadData()
-        collectionView2.reloadData()
-        collectionView3.reloadData()
+        setupSideMenu()
         
         getCurrentLocation()
         
@@ -152,6 +153,18 @@ class HomeVC: BaseVC {
             right3ImageView.image = UIImage(named: "left_arrow")
             
         }
+    }
+    
+    private func setupSideMenu() {
+        sideMenuIcon.addTapGesture { [weak self] (_) in
+            if Localize.currentLanguage() == "en" {
+                self?.present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+            } else {
+                self?.present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
+            }
+        }
+        
+        sideMenuVC = UiHelpers.setupSideMenu(delegate: self, viewToPresent: sideMenuIcon, viewToEdge: self.view, sideMenuCellDelegate: self, sideMenuHeaderDelegate: nil)
     }
     
     private func setupScrollableViews() {
@@ -462,5 +475,37 @@ extension HomeVC: CompanyCellDelegate {
         } else {
             self.view.makeToast("downloadGoogleMaps".localized())
         }
+    }
+}
+
+extension HomeVC: SideMenuCellDelegate {
+    func sideMenuItemSelected(index: Int) {
+        switch index {
+        case 0:
+            break
+            
+        case 1:
+            
+            if let _ = Defaults[.user] {
+                // go to edit profile
+            } else {
+                navigator.navigateToSignUp()
+            }
+            break
+            
+        case sideMenuVC.menuStringsDataSource.count - 2:
+            navigator.navigateToHelp()
+            break
+            
+        case sideMenuVC.menuStringsDataSource.count - 1:
+            if let _ = Defaults[.user] {
+                Defaults.remove(.user)
+            }
+            navigator.navigateToSignUp()
+            break
+        default:
+            break
+        }
+        sideMenuVC.dismissVC(completion: nil)
     }
 }

@@ -17,6 +17,13 @@ public class Navigator {
         self.navigationController = navController
     }
     
+    public func navigateToSignUp() {
+        weak var vc = SignUpVC.buildVC()
+        if let vc = vc {
+            self.navigationController.pushViewController(vc, animated: true)
+        }
+    }
+    
     public func navigateToSignUp1(phoneNumber: String) {
         weak var vc = SignUp1VC.buildVC(phoneNumber: phoneNumber)
         if let vc = vc {
@@ -47,6 +54,13 @@ public class Navigator {
     
     public func navigateToCompany(company: Company) {
         weak var vc = CompanyVC.buildVC(company: company)
+        if let vc = vc {
+            self.navigationController.pushViewController(vc, animated: true)
+        }
+    }
+    
+    public func navigateToHelp() {
+        weak var vc = HelpVC.buildVC()
         if let vc = vc {
             self.navigationController.pushViewController(vc, animated: true)
         }

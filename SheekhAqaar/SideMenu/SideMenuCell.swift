@@ -22,16 +22,17 @@ class SideMenuCell: UITableViewCell {
     
     lazy var menuItemLabel: UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
+        lbl.textColor = .white
+        lbl.textAlignment = .center
         lbl.numberOfLines = 1
         lbl.font = AppFont.font(type: .Regular, size: 15)
         return lbl
     }()
     
-    lazy var menuItemImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    lazy var lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.AppColors.darkTextColor
+        return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -45,28 +46,28 @@ class SideMenuCell: UITableViewCell {
     
     func setup() {
         let superView = self.contentView
-        superView.addSubviews([menuItemLabel, menuItemImageView])
+        superView.backgroundColor = .clear
+        superView.addSubviews([menuItemLabel, lineView])
         superView.addTapGesture { (recognizer) in
             self.delegate.sideMenuItemSelected(index: self.index)
         }
         
-        self.menuItemImageView.snp.makeConstraints { maker in
-            maker.top.equalTo(superView).offset(15)
-            maker.leading.equalTo(superView).offset(10)
-            maker.width.equalTo(30)
-            maker.bottom.equalTo(superView).offset(-15)
-        }
-        
         self.menuItemLabel.snp.makeConstraints { maker in
-            maker.leading.equalTo(menuItemImageView.snp.trailing).offset(10)
+            maker.leading.equalTo(superView).offset(15)
             maker.top.equalTo(superView).offset(10)
             maker.trailing.equalTo(superView).offset(-15)
             maker.bottom.equalTo(superView).offset(-10)
         }
+        
+        self.lineView.snp.makeConstraints { (maker) in
+            maker.bottom.equalTo(superView)
+            maker.height.equalTo(1)
+            maker.centerX.equalTo(superView)
+            maker.width.equalTo(UiHelpers.getLengthAccordingTo(relation: .VIEW_WIDTH, relativeView: superView, percentage: 70))
+        }
     }
     
-    func populateMenuItemData(data: String, image: UIImage) {
+    func populateMenuItemData(data: String) {
         self.menuItemLabel.text = data
-        self.menuItemImageView.image = image
-    }    
+    }
 }

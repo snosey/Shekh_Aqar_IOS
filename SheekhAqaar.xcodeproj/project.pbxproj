@@ -82,6 +82,8 @@
 		E82474D723083D3700211FDB /* SideMenuLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474D623083D3700211FDB /* SideMenuLayout.swift */; };
 		E82474D923083D5800211FDB /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474D823083D5800211FDB /* SideMenuCell.swift */; };
 		E83CC32223142871009A307F /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC32123142871009A307F /* AdCell.swift */; };
+		E848315623184BD2009C7BE9 /* PhoneVerificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848315523184BD1009C7BE9 /* PhoneVerificationPresenter.swift */; };
+		E848315823184BE7009C7BE9 /* PhoneVerificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848315723184BE7009C7BE9 /* PhoneVerificationRepository.swift */; };
 		E86FA0D9230EABBA005A88D2 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FA0D8230EABBA005A88D2 /* DataType.swift */; };
 		E86FA0DB230EABE5005A88D2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FA0DA230EABE5005A88D2 /* Country.swift */; };
 		E86FA0DD230EABEE005A88D2 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FA0DC230EABEE005A88D2 /* Region.swift */; };
@@ -113,6 +115,8 @@
 		E8BD7F362312DA58003B6829 /* CompanyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7F352312DA58003B6829 /* CompanyService.swift */; };
 		E8CBCF9723155A08005F91BE /* CompanyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBCF9623155A08005F91BE /* CompanyPresenter.swift */; };
 		E8CBCF9923155A15005F91BE /* CompanyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBCF9823155A15005F91BE /* CompanyRepository.swift */; };
+		E8CBCF9F23156D56005F91BE /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBCF9E23156D56005F91BE /* HelpVC.swift */; };
+		E8CBCFA123156D6A005F91BE /* HelpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8CBCFA023156D6A005F91BE /* HelpStoryboard.storyboard */; };
 		E8DAFE872311853F00C2F005 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE862311853F00C2F005 /* CompanyCell.swift */; };
 		E8DAFE892311855400C2F005 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE882311855400C2F005 /* CategoryCell.swift */; };
 		E8DAFE8B2311859E00C2F005 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE8A2311859E00C2F005 /* Company.swift */; };
@@ -231,6 +235,8 @@
 		E82474D623083D3700211FDB /* SideMenuLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLayout.swift; sourceTree = "<group>"; };
 		E82474D823083D5800211FDB /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		E83CC32123142871009A307F /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
+		E848315523184BD1009C7BE9 /* PhoneVerificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationPresenter.swift; sourceTree = "<group>"; };
+		E848315723184BE7009C7BE9 /* PhoneVerificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationRepository.swift; sourceTree = "<group>"; };
 		E86FA0D8230EABBA005A88D2 /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
 		E86FA0DA230EABE5005A88D2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		E86FA0DC230EABEE005A88D2 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
@@ -269,6 +275,8 @@
 		E8BD7F352312DA58003B6829 /* CompanyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyService.swift; sourceTree = "<group>"; };
 		E8CBCF9623155A08005F91BE /* CompanyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPresenter.swift; sourceTree = "<group>"; };
 		E8CBCF9823155A15005F91BE /* CompanyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyRepository.swift; sourceTree = "<group>"; };
+		E8CBCF9E23156D56005F91BE /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
+		E8CBCFA023156D6A005F91BE /* HelpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HelpStoryboard.storyboard; sourceTree = "<group>"; };
 		E8DAFE862311853F00C2F005 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		E8DAFE882311855400C2F005 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E8DAFE8A2311859E00C2F005 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
@@ -507,6 +515,7 @@
 				E89CBAED23097A9E000B6BB7 /* HomeScreen */,
 				E81232C323153BAE00ECDDFB /* CompanyScreen */,
 				E81232C423153BE800ECDDFB /* AdScreen */,
+				E8CBCF9D23156D35005F91BE /* HelpScreen */,
 				E82474D323083D1000211FDB /* SideMenu */,
 				E82474B82308393F00211FDB /* Utils */,
 				E86FA0D7230EAB11005A88D2 /* Models */,
@@ -590,6 +599,8 @@
 			children = (
 				E89CBB172309B8B5000B6BB7 /* PhoneVerificationVC.swift */,
 				E89CBB192309B8D7000B6BB7 /* PhoneVerificationStoryboard.storyboard */,
+				E848315523184BD1009C7BE9 /* PhoneVerificationPresenter.swift */,
+				E848315723184BE7009C7BE9 /* PhoneVerificationRepository.swift */,
 			);
 			path = PhoneVerificationScreen;
 			sourceTree = "<group>";
@@ -605,6 +616,15 @@
 				E8E4E61E2313FA8000A46C99 /* RegisterCompanyRepository.swift */,
 			);
 			path = RegisterCompanyScreen;
+			sourceTree = "<group>";
+		};
+		E8CBCF9D23156D35005F91BE /* HelpScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E8CBCF9E23156D56005F91BE /* HelpVC.swift */,
+				E8CBCFA023156D6A005F91BE /* HelpStoryboard.storyboard */,
+			);
+			path = HelpScreen;
 			sourceTree = "<group>";
 		};
 		EFD2FD269832BDC832A98A6F /* Pods */ = {
@@ -732,6 +752,7 @@
 			files = (
 				E89340F12308265F00F37DCE /* LaunchScreen.storyboard in Resources */,
 				E89340EE2308265F00F37DCE /* Assets.xcassets in Resources */,
+				E8CBCFA123156D6A005F91BE /* HelpStoryboard.storyboard in Resources */,
 				E89CBAF323097AFE000B6BB7 /* HomeStoryboard.storyboard in Resources */,
 				E82474842308278800211FDB /* README.md in Resources */,
 				E89CBB0423097F30000B6BB7 /* TheSans-Bold.otf in Resources */,
@@ -908,6 +929,7 @@
 				E82474962308278800211FDB /* UIColoredView.swift in Sources */,
 				E824749D2308278800211FDB /* FileManagerExtension.swift in Sources */,
 				E82474852308278800211FDB /* CGRectExtensions.swift in Sources */,
+				E8CBCF9F23156D56005F91BE /* HelpVC.swift in Sources */,
 				E81232C623153C3400ECDDFB /* CompanyVC.swift in Sources */,
 				E89CBB142309B889000B6BB7 /* SignUp1VC.swift in Sources */,
 				E82474902308278800211FDB /* BlockPinch.swift in Sources */,
@@ -973,9 +995,11 @@
 				E82474932308278800211FDB /* StringExtensions.swift in Sources */,
 				E82474C423083A3500211FDB /* FontUtils.swift in Sources */,
 				E8E4E6172313F62400A46C99 /* SignUp1Presenter.swift in Sources */,
+				E848315623184BD2009C7BE9 /* PhoneVerificationPresenter.swift in Sources */,
 				E82474A92308278800211FDB /* DateExtensions.swift in Sources */,
 				E82474D923083D5800211FDB /* SideMenuCell.swift in Sources */,
 				E8DAFE8D231185A600C2F005 /* Category.swift in Sources */,
+				E848315823184BE7009C7BE9 /* PhoneVerificationRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

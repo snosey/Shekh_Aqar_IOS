@@ -92,7 +92,7 @@ class PhoneVerificationVC: BaseVC {
                         print("error :: \(error.localizedDescription)")
                         return
                     }
-                    // call login api here
+                    
                     if self?.nextPage == CommonConstants.HOME_NEXT_PAGE_CODE {
                         self?.navigator.navigateToHome()
                     } else if self?.nextPage == CommonConstants.SIGN_UP_NEXT_PAGE_CODE {
@@ -102,8 +102,6 @@ class PhoneVerificationVC: BaseVC {
             }
             
         }
-        
-        
     }
     
 }
@@ -195,5 +193,19 @@ extension PhoneVerificationVC: UITextFieldDelegate {
             return true
         }
         return true
+    }
+}
+
+extension PhoneVerificationVC: PhoneVerificationView {
+    func loginSuccess(user: User) {
+        
+    }
+    
+    func failed(errorMessage: String) {
+        self.view.makeToast(errorMessage)
+    }
+    
+    func handleNoInternetConnection() {
+        self.view.makeToast("noInternetConnection".localized())
     }
 }

@@ -26,6 +26,14 @@ public class Injector {
         return SignUp1Repository()
     }
     
+    public class func providePhoneVerificationPresenter() -> PhoneVerificationPresenter {
+        return PhoneVerificationPresenter(repository: Injector.providePhoneVerificationRepository())
+    }
+    
+    public class func providePhoneVerificationRepository() -> PhoneVerificationRepository {
+        return PhoneVerificationRepository()
+    }
+    
     public class func provideRegisterCompanyPresenter() -> RegisterCompanyPresenter {
         return RegisterCompanyPresenter(repository: Injector.provideRegisterCompanyRepository())
     }

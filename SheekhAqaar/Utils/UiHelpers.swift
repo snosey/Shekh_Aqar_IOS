@@ -181,7 +181,7 @@ class UiHelpers {
         vc.present(activityViewController, animated: true, completion: nil)
     }
     
-    class func setupSideMenu(delegate: UISideMenuNavigationControllerDelegate, viewToPresent: UIView, viewToEdge: UIView, sideMenuCellDelegate: SideMenuCellDelegate, sideMenuHeaderDelegate: SideMenuHeaderDelegate) -> SideMenuVC {
+    class func setupSideMenu(delegate: UISideMenuNavigationControllerDelegate, viewToPresent: UIView, viewToEdge: UIView, sideMenuCellDelegate: SideMenuCellDelegate?, sideMenuHeaderDelegate: SideMenuHeaderDelegate?) -> SideMenuVC {
         
         let sideMenuVC = SideMenuVC.buildVC()
         sideMenuVC.sideMenuCellDelegate = sideMenuCellDelegate

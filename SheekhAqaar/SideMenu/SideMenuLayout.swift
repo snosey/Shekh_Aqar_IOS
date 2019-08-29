@@ -30,83 +30,63 @@ public class SideMenuLayout {
         self.sideMenuLayoutDelegate = sideMenuLayoutDelegate
     }
     
-    lazy var menuHeaderView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(hexString: "#7C037A")
-        view.addTapGesture(action: { (recognizer) in
-            self.sideMenuHeaderDelegate.headerClicked()
-        })
-        return view
-    }()
+//    lazy var menuHeaderView: UIView = {
+//        let view = UIView()
+//        view.backgroundColor = UIColor(hexString: "#7C037A")
+//        view.addTapGesture(action: { (recognizer) in
+//            self.sideMenuHeaderDelegate.headerClicked()
+//        })
+//        return view
+//    }()
     
-    lazy var userProfilePicImageView: UIImageView = {
+    lazy var appIconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 15)/2
+//        imageView.layer.cornerRadius = UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 15)/2
+        imageView.image = UIImage(named: "splash_icon")
         return imageView
     }()
     
-    lazy var usernameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.textAlignment = .center
-        label.font = AppFont.font(type: .Bold, size: 20)
-        return label
-    }()
-    
-    lazy var userPhoneLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor(hexString: "#ffffff")?.withAlphaComponent(0.48)
-        label.textAlignment = .center
-        label.font = AppFont.font(type: .Regular, size: 20)
-        return label
-    }()
+//    lazy var usernameLabel: UILabel = {
+//        let label = UILabel()
+//        label.textColor = .white
+//        label.textAlignment = .center
+//        label.font = AppFont.font(type: .Bold, size: 20)
+//        return label
+//    }()
+//
+//    lazy var userPhoneLabel: UILabel = {
+//        let label = UILabel()
+//        label.textColor = UIColor(hexString: "#ffffff")?.withAlphaComponent(0.48)
+//        label.textAlignment = .center
+//        label.font = AppFont.font(type: .Regular, size: 20)
+//        return label
+//    }()
     
     lazy var menuTableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.clear
         tableView.separatorStyle = .none
         tableView.register(SideMenuCell.self, forCellReuseIdentifier: SideMenuCell.identifier)
         return tableView
     }()
     
     public func setupViews() {
-        let views = [menuHeaderView, menuTableView, userProfilePicImageView, usernameLabel, userPhoneLabel]
+        let views = [menuTableView, appIconImageView]
         
         self.superview.addSubviews(views)
         
-        self.menuHeaderView.addSubviews([userProfilePicImageView, usernameLabel, userPhoneLabel])
         
-        self.menuHeaderView.snp.makeConstraints { (maker) in
-            maker.leading.trailing.top.equalTo(superview)
-            maker.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 40))
-        }
-        
-        menuHeaderView.bringSubviewToFront(userProfilePicImageView)
-        menuHeaderView.bringSubviewToFront(usernameLabel)
-        menuHeaderView.bringSubviewToFront(userPhoneLabel)
-        
-        self.userProfilePicImageView.snp.makeConstraints { maker in
-            maker.centerX.centerY.equalTo(self.menuHeaderView)
+        self.appIconImageView.snp.makeConstraints { maker in
+            maker.centerX.equalTo(self.superview)
             maker.width.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 15))
-        }
-        
-        self.usernameLabel.snp.makeConstraints { maker in
-            maker.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 3))
-            maker.leading.trailing.equalTo(self.menuHeaderView)
-            maker.top.equalTo(self.userProfilePicImageView.snp.bottom).offset(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 2))
-        }
-        
-        self.userPhoneLabel.snp.makeConstraints { maker in
-            maker.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 3))
-            maker.leading.trailing.equalTo(self.menuHeaderView)
-            maker.top.equalTo(self.usernameLabel.snp.bottom).offset(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 1))
+            maker.top.equalTo(self.superview).offset(64)
         }
         
         self.menuTableView.snp.makeConstraints { maker in
             maker.leading.trailing.equalTo(self.superview)
-            maker.top.equalTo(self.menuHeaderView.snp.bottom)
+            maker.top.equalTo(self.appIconImageView.snp.bottom).offset(8)
             maker.bottom.equalTo(self.superview.bottom)
         }
     }

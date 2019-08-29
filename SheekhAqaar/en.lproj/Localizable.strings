@@ -68,3 +68,10 @@
 "call" = "Call";
 "lastAds" = "Ads history";
 "downloadGoogleMaps" = "Please download Google Maps application.";
+"whatsappChat" = "Chat using WhatsApp";
+"downloadWhatsApp" = "Please download WhatsApp application.";
+"homeScreen" = "Home";
+"editProfile" = "Edit profile";
+"help" = "Help";
+"logout" = "Logout";
+"login" = "Login";

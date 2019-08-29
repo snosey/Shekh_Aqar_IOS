@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HelpVC-->
+        <scene sceneID="Aei-aG-P3Y">
+            <objects>
+                <viewController storyboardIdentifier="HelpVC" id="UVr-mk-iwd" customClass="HelpVC" customModule="SheekhAqaar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jRL-rs-hm6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="mu2-H3-GHp">
+                                <rect key="frame" x="344.5" y="44" width="49.5" height="32.5"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FKG-4G-3Lj">
+                                <rect key="frame" x="83" y="108.5" width="248" height="164"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label LabelLabel Label Label Label Label Label LabelLabel Label Label Label Label Label LabelLabel Label " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBa-cS-JGG">
+                                <rect key="frame" x="62" y="304.5" width="290" height="98"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label LabelLabel Label Label Label Label Label LabelLabel Label Label Label Label Label LabelLabel Label " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xah-Jk-iGg">
+                                <rect key="frame" x="62" y="402.5" width="290" height="98"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="leT-gH-kP0">
+                                <rect key="frame" x="83" y="508.5" width="248" height="49"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter" translatesAutoresizingMaskIntoConstraints="NO" id="UBf-qG-uOx">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="49"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="5OO-mE-pax">
+                                        <rect key="frame" x="88" y="0.0" width="72" height="49"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram" translatesAutoresizingMaskIntoConstraints="NO" id="uGL-5R-9vs">
+                                        <rect key="frame" x="176" y="0.0" width="72" height="49"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سيقوم أحد المختصين بالتواصل معك في أقرب وقت" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Qw-Qf-LDJ">
+                                <rect key="frame" x="62" y="589.5" width="290" height="98.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sc8-72-doL">
+                                <rect key="frame" x="8" y="696" width="398" height="39"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7j-lZ-yhY" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="39"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="whatsappChat"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="whatsAppClicked:" destination="UVr-mk-iwd" eventType="touchUpInside" id="hsH-Mz-RWL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRY-C5-VyD" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
+                                        <rect key="frame" x="138" y="0.0" width="122" height="39"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="email"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="emailClicked:" destination="UVr-mk-iwd" eventType="touchUpInside" id="wm1-Q1-BOw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1H-ay-uxL" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
+                                        <rect key="frame" x="276" y="0.0" width="122" height="39"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="call"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="callClicked:" destination="UVr-mk-iwd" eventType="touchUpInside" id="6HA-J9-Uqu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SI-1G-KVJ">
+                                <rect key="frame" x="8" y="743" width="398" height="111"/>
+                                <string key="text">عنوان المقر الرئيسي في الاسماعيليه عنوان المقر الرئيسي في الاسماعيليه عنوان المقر الرئيسي في الاسماعيليه عنوان المقر الرئيسي في الاسماعيليه</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FKG-4G-3Lj" firstAttribute="height" secondItem="0fE-13-m11" secondAttribute="height" multiplier="0.2" id="2Ab-NK-ddI"/>
+                            <constraint firstItem="8Qw-Qf-LDJ" firstAttribute="trailing" secondItem="Xah-Jk-iGg" secondAttribute="trailing" id="2Dc-Xh-dfX"/>
+                            <constraint firstItem="leT-gH-kP0" firstAttribute="width" secondItem="0fE-13-m11" secondAttribute="width" multiplier="0.6" id="4en-sC-gvW"/>
+                            <constraint firstItem="8Qw-Qf-LDJ" firstAttribute="height" secondItem="Xah-Jk-iGg" secondAttribute="height" id="57l-S6-VVb"/>
+                            <constraint firstItem="8Qw-Qf-LDJ" firstAttribute="top" secondItem="leT-gH-kP0" secondAttribute="bottom" constant="32" id="5dF-hh-h4A"/>
+                            <constraint firstItem="EBa-cS-JGG" firstAttribute="centerX" secondItem="0fE-13-m11" secondAttribute="centerX" id="6h7-9s-039"/>
+                            <constraint firstItem="mu2-H3-GHp" firstAttribute="width" secondItem="0fE-13-m11" secondAttribute="width" multiplier="0.12" id="BAz-iI-mub"/>
+                            <constraint firstItem="FKG-4G-3Lj" firstAttribute="centerX" secondItem="0fE-13-m11" secondAttribute="centerX" id="EbH-4K-oBY"/>
+                            <constraint firstItem="EBa-cS-JGG" firstAttribute="top" secondItem="FKG-4G-3Lj" secondAttribute="bottom" constant="32" id="K5T-wd-sdU"/>
+                            <constraint firstItem="leT-gH-kP0" firstAttribute="top" secondItem="Xah-Jk-iGg" secondAttribute="bottom" constant="8" id="Rjw-aa-VIf"/>
+                            <constraint firstItem="0fE-13-m11" firstAttribute="bottom" secondItem="3SI-1G-KVJ" secondAttribute="bottom" constant="8" id="SBP-Om-G1Z"/>
+                            <constraint firstItem="Xah-Jk-iGg" firstAttribute="trailing" secondItem="EBa-cS-JGG" secondAttribute="trailing" id="TaR-0U-fC9"/>
+                            <constraint firstItem="EBa-cS-JGG" firstAttribute="height" secondItem="0fE-13-m11" secondAttribute="height" multiplier="0.12" id="Unl-Ej-fub"/>
+                            <constraint firstItem="sc8-72-doL" firstAttribute="top" secondItem="8Qw-Qf-LDJ" secondAttribute="bottom" constant="8" id="XmW-hG-zE8"/>
+                            <constraint firstItem="sc8-72-doL" firstAttribute="height" secondItem="leT-gH-kP0" secondAttribute="height" multiplier="0.8" id="agn-zQ-rTT"/>
+                            <constraint firstItem="mu2-H3-GHp" firstAttribute="top" secondItem="0fE-13-m11" secondAttribute="top" id="bab-kR-X9J"/>
+                            <constraint firstItem="3SI-1G-KVJ" firstAttribute="trailing" secondItem="sc8-72-doL" secondAttribute="trailing" id="dA2-gA-qjU"/>
+                            <constraint firstItem="leT-gH-kP0" firstAttribute="height" secondItem="Xah-Jk-iGg" secondAttribute="height" multiplier="0.5" id="erw-TP-XlB"/>
+                            <constraint firstItem="EBa-cS-JGG" firstAttribute="width" secondItem="0fE-13-m11" secondAttribute="width" multiplier="0.7" id="exz-sE-gjB"/>
+                            <constraint firstItem="Xah-Jk-iGg" firstAttribute="top" secondItem="EBa-cS-JGG" secondAttribute="bottom" id="fvA-eG-vlk"/>
+                            <constraint firstItem="leT-gH-kP0" firstAttribute="centerX" secondItem="0fE-13-m11" secondAttribute="centerX" id="gtf-aQ-fHP"/>
+                            <constraint firstItem="FKG-4G-3Lj" firstAttribute="width" secondItem="0fE-13-m11" secondAttribute="width" multiplier="0.6" id="hJq-d1-3aV"/>
+                            <constraint firstItem="FKG-4G-3Lj" firstAttribute="top" secondItem="mu2-H3-GHp" secondAttribute="bottom" constant="32" id="hq9-Ll-Ueb"/>
+                            <constraint firstItem="8Qw-Qf-LDJ" firstAttribute="leading" secondItem="Xah-Jk-iGg" secondAttribute="leading" id="jfl-mv-DUJ"/>
+                            <constraint firstItem="3SI-1G-KVJ" firstAttribute="top" secondItem="sc8-72-doL" secondAttribute="bottom" constant="8" id="kBh-QD-cBX"/>
+                            <constraint firstItem="Xah-Jk-iGg" firstAttribute="height" secondItem="EBa-cS-JGG" secondAttribute="height" id="mgT-59-NEc"/>
+                            <constraint firstItem="sc8-72-doL" firstAttribute="leading" secondItem="0fE-13-m11" secondAttribute="leading" constant="8" id="miR-96-sln"/>
+                            <constraint firstItem="0fE-13-m11" firstAttribute="trailing" secondItem="mu2-H3-GHp" secondAttribute="trailing" constant="20" id="rfg-2K-iWt"/>
+                            <constraint firstItem="0fE-13-m11" firstAttribute="trailing" secondItem="sc8-72-doL" secondAttribute="trailing" constant="8" id="rmg-9g-YGp"/>
+                            <constraint firstItem="Xah-Jk-iGg" firstAttribute="leading" secondItem="EBa-cS-JGG" secondAttribute="leading" id="y2v-TD-Gs5"/>
+                            <constraint firstItem="mu2-H3-GHp" firstAttribute="height" secondItem="0fE-13-m11" secondAttribute="height" multiplier="0.04" id="y4C-Wr-dPy"/>
+                            <constraint firstItem="3SI-1G-KVJ" firstAttribute="leading" secondItem="sc8-72-doL" secondAttribute="leading" id="zE6-s2-2EQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0fE-13-m11"/>
+                    </view>
+                    <connections>
+                        <outlet property="backIcon" destination="mu2-H3-GHp" id="pB1-GT-zbO"/>
+                        <outlet property="facebookImageView" destination="5OO-mE-pax" id="i4b-H3-WzE"/>
+                        <outlet property="instagramImageView" destination="uGL-5R-9vs" id="gho-mz-SyR"/>
+                        <outlet property="twitterImageView" destination="UBf-qG-uOx" id="TiR-fB-NZN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VSR-nT-eQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8.6956521739130448" y="76.339285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back" width="24" height="24"/>
+        <image name="facebook" width="64" height="51"/>
+        <image name="instagram" width="69" height="51"/>
+        <image name="splash_icon" width="596" height="468"/>
+        <image name="twitter" width="61" height="51"/>
+    </resources>
+</document>
