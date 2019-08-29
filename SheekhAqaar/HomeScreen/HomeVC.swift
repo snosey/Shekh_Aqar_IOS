@@ -123,7 +123,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude), zoom: 12)
         googleMapView.camera = camera
         googleMapView.animate(to: camera)
-//        googleMapView.delegate = self
+        googleMapView.delegate = self
         googleMapView.isMyLocationEnabled = true
         googleMapView.settings.myLocationButton = true
         
@@ -132,14 +132,16 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     func showCompaniesOnMap(category: Category) {
         googleMapView.clear()
         for company in category.companies {
-            UiHelpers.addCompanyMarker(sourceView: self.view, latitude: company.latitude, longitude: company.longitude, title: company.nameEn, adsNumber: company.numberOfAds, mapView: googleMapView)
+            let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: company.latitude, longitude: company.longitude, title: company.nameEn, adsNumber: company.numberOfAds, mapView: googleMapView)
+            marker.userData = company
         }
     }
     
     func showAdsOnMap(category: Category) {
         googleMapView.clear()
         for ad in category.ads {
-            UiHelpers.addCompanyMarker(sourceView: self.view, latitude: ad.latitude, longitude: ad.longitude, title: ad.name, adsNumber: category.ads.count, mapView: googleMapView)
+           let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: ad.latitude, longitude: ad.longitude, title: ad.name, adsNumber: category.ads.count, mapView: googleMapView)
+            marker.userData = ad
         }
     }
     
@@ -391,12 +393,18 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             cell.initializeCell()
             cell.populateData()
             cell.selectionStyle = .none
+            cell.contentView.addTapGesture { [weak self] (_) in
+                self?.navigator.navigateToCompany(company: self?.selectedCategory.companies.get(indexPath.row) ?? Company())
+            }
             return cell
         } else if selectedCategoryPosition == 2 || selectedCategoryPosition == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: AdCell.identifier, for: indexPath) as! AdCell
             cell.ad = selectedCategory.ads.get(indexPath.row)
             cell.populateData()
             cell.selectionStyle = .none
+            cell.contentView.addTapGesture { [weak self] (_) in
+                self?.navigator.navigateToAdDetails(ad: self?.selectedCategory.ads.get(indexPath.row) ?? Ad())
+            }
             return cell
         }
         return UITableViewCell()
@@ -507,5 +515,18 @@ extension HomeVC: SideMenuCellDelegate {
             break
         }
         sideMenuVC.dismissVC(completion: nil)
+    }
+}
+
+extension HomeVC: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        if let userData = marker.userData {
+            if let company = userData as? Company {
+                self.navigator.navigateToCompany(company: company)
+            } else if let ad = userData as? Ad {
+                self.navigator.navigateToAdDetails(ad: ad)
+            }
+        }
+        return true
     }
 }

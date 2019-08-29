@@ -75,3 +75,14 @@
 "help" = "Help";
 "logout" = "Logout";
 "login" = "Login";
+"addToFav" = "Add to favourites";
+"removeFromFav" = "Remove from favourites";
+"additionalFacilities" = "Additional facilities";
+"makeCall" = "Call";
+"adType" = "Building type";
+"location" = "Location";
+"area" = "Area";
+"roomsCount" = "Rooms count";
+"bathroomsCount" = "Bathrooms count";
+"farsh" = "";
+"meter" = "M";

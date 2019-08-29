@@ -105,6 +105,9 @@ extension CompanyVC: UITableViewDataSource, UITableViewDelegate {
         cell.ad = ads.get(indexPath.row)
         cell.populateData()
         cell.selectionStyle = .none
+        cell.contentView.addTapGesture { [weak self] (_) in
+            self?.navigator.navigateToAdDetails(ad: self?.ads.get(indexPath.row) ?? Ad())
+        }
         return cell
     }
     

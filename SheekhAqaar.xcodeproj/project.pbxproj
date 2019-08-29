@@ -84,6 +84,12 @@
 		E83CC32223142871009A307F /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC32123142871009A307F /* AdCell.swift */; };
 		E848315623184BD2009C7BE9 /* PhoneVerificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848315523184BD1009C7BE9 /* PhoneVerificationPresenter.swift */; };
 		E848315823184BE7009C7BE9 /* PhoneVerificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848315723184BE7009C7BE9 /* PhoneVerificationRepository.swift */; };
+		E848315A2318509B009C7BE9 /* AdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84831592318509B009C7BE9 /* AdVC.swift */; };
+		E848315C231850A4009C7BE9 /* AdStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E848315B231850A4009C7BE9 /* AdStoryboard.storyboard */; };
+		E848315E2318583D009C7BE9 /* AdDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848315D2318583D009C7BE9 /* AdDetail.swift */; };
+		E848316023185D1F009C7BE9 /* AdDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848315F23185D1F009C7BE9 /* AdDetailsCell.swift */; };
+		E848316223185D36009C7BE9 /* AdditionalFacilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848316123185D36009C7BE9 /* AdditionalFacilityCell.swift */; };
+		E848316423185D98009C7BE9 /* AdPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848316323185D98009C7BE9 /* AdPhotoCell.swift */; };
 		E86FA0D9230EABBA005A88D2 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FA0D8230EABBA005A88D2 /* DataType.swift */; };
 		E86FA0DB230EABE5005A88D2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FA0DA230EABE5005A88D2 /* Country.swift */; };
 		E86FA0DD230EABEE005A88D2 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FA0DC230EABEE005A88D2 /* Region.swift */; };
@@ -237,6 +243,12 @@
 		E83CC32123142871009A307F /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
 		E848315523184BD1009C7BE9 /* PhoneVerificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationPresenter.swift; sourceTree = "<group>"; };
 		E848315723184BE7009C7BE9 /* PhoneVerificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationRepository.swift; sourceTree = "<group>"; };
+		E84831592318509B009C7BE9 /* AdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdVC.swift; sourceTree = "<group>"; };
+		E848315B231850A4009C7BE9 /* AdStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdStoryboard.storyboard; sourceTree = "<group>"; };
+		E848315D2318583D009C7BE9 /* AdDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetail.swift; sourceTree = "<group>"; };
+		E848315F23185D1F009C7BE9 /* AdDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailsCell.swift; sourceTree = "<group>"; };
+		E848316123185D36009C7BE9 /* AdditionalFacilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalFacilityCell.swift; sourceTree = "<group>"; };
+		E848316323185D98009C7BE9 /* AdPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdPhotoCell.swift; sourceTree = "<group>"; };
 		E86FA0D8230EABBA005A88D2 /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
 		E86FA0DA230EABE5005A88D2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		E86FA0DC230EABEE005A88D2 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
@@ -350,6 +362,11 @@
 		E81232C423153BE800ECDDFB /* AdScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E84831592318509B009C7BE9 /* AdVC.swift */,
+				E848315B231850A4009C7BE9 /* AdStoryboard.storyboard */,
+				E848315F23185D1F009C7BE9 /* AdDetailsCell.swift */,
+				E848316123185D36009C7BE9 /* AdditionalFacilityCell.swift */,
+				E848316323185D98009C7BE9 /* AdPhotoCell.swift */,
 			);
 			path = AdScreen;
 			sourceTree = "<group>";
@@ -475,6 +492,7 @@
 				E8E4E6282314065600A46C99 /* FarshLevel.swift */,
 				E8E4E62A2314069300A46C99 /* AdditionalFacility.swift */,
 				E8E4E62C231408EE00A46C99 /* Currency.swift */,
+				E848315D2318583D009C7BE9 /* AdDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -762,6 +780,7 @@
 				E89CBAF523097B09000B6BB7 /* SignUpStoryboard.storyboard in Resources */,
 				E89CBB162309B89C000B6BB7 /* SignUp1Storyboard.storyboard in Resources */,
 				E89CBB1E2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard in Resources */,
+				E848315C231850A4009C7BE9 /* AdStoryboard.storyboard in Resources */,
 				E81232C823153C4300ECDDFB /* CompanyStoryboard.storyboard in Resources */,
 				E89340EC2308265F00F37DCE /* Main.storyboard in Resources */,
 				E89CBB1A2309B8D7000B6BB7 /* PhoneVerificationStoryboard.storyboard in Resources */,
@@ -897,6 +916,7 @@
 				E89CBAF123097AF3000B6BB7 /* SignUpVC.swift in Sources */,
 				E89CBAEF23097AD1000B6BB7 /* HomeVC.swift in Sources */,
 				E82474D223083C9500211FDB /* BaseVC.swift in Sources */,
+				E848316223185D36009C7BE9 /* AdditionalFacilityCell.swift in Sources */,
 				E82474B22308278800211FDB /* UIDeviceExtensions.swift in Sources */,
 				E89CBB182309B8B5000B6BB7 /* PhoneVerificationVC.swift in Sources */,
 				E82474922308278800211FDB /* ErrorTypeExtensions.swift in Sources */,
@@ -920,6 +940,7 @@
 				E82474882308278800211FDB /* ArrayExtensions.swift in Sources */,
 				E82474AE2308278800211FDB /* UserDefaultsExtension.swift in Sources */,
 				E82474912308278800211FDB /* UIBarButtonItemExtensions.swift in Sources */,
+				E848316023185D1F009C7BE9 /* AdDetailsCell.swift in Sources */,
 				E8E4E61F2313FA8000A46C99 /* RegisterCompanyRepository.swift in Sources */,
 				E89340E92308265F00F37DCE /* ViewController.swift in Sources */,
 				E82474A62308278800211FDB /* IntExtensions.swift in Sources */,
@@ -934,6 +955,7 @@
 				E89CBB142309B889000B6BB7 /* SignUp1VC.swift in Sources */,
 				E82474902308278800211FDB /* BlockPinch.swift in Sources */,
 				E82474B72308278800211FDB /* UIEdgeInsets.swift in Sources */,
+				E848316423185D98009C7BE9 /* AdPhotoCell.swift in Sources */,
 				E82474B12308278800211FDB /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				E82474862308278800211FDB /* CGFloatExtensions.swift in Sources */,
 				E82474B42308278800211FDB /* UIAlertControllerExtensions.swift in Sources */,
@@ -941,9 +963,11 @@
 				E82474BE230839BE00211FDB /* DefaultsKeys.swift in Sources */,
 				E89CBB1C2309B8EA000B6BB7 /* RegisterCompanyVC.swift in Sources */,
 				E82474892308278800211FDB /* UITextFieldExtensions.swift in Sources */,
+				E848315E2318583D009C7BE9 /* AdDetail.swift in Sources */,
 				E82474B32308278800211FDB /* NSAttributedStringExtensions.swift in Sources */,
 				E82474972308278800211FDB /* BoolExtensions.swift in Sources */,
 				E82474A02308278800211FDB /* UIViewExtensions.swift in Sources */,
+				E848315A2318509B009C7BE9 /* AdVC.swift in Sources */,
 				E83CC32223142871009A307F /* AdCell.swift in Sources */,
 				E82474A52308278800211FDB /* NSDictionaryExtensions.swift in Sources */,
 				E86FA0DD230EABEE005A88D2 /* Region.swift in Sources */,

@@ -90,8 +90,6 @@ class HelpVC: BaseVC {
     }
     
     @IBAction func callClicked(_ sender: Any) {
-        let urlString = "telprompt://\(phoneNumber)"
-        guard let url = URL(string: urlString) else { return }
-        UIApplication.shared.open(url)
+        UiHelpers.makeCall(phoneNumber: phoneNumber)
     }
 }

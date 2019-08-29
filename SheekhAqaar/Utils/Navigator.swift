@@ -65,4 +65,11 @@ public class Navigator {
             self.navigationController.pushViewController(vc, animated: true)
         }
     }
+    
+    public func navigateToAdDetails(ad: Ad) {
+        weak var vc = AdVC.buildVC(ad: ad)
+        if let vc = vc {
+            self.navigationController.pushViewController(vc, animated: true)
+        }
+    }
 }

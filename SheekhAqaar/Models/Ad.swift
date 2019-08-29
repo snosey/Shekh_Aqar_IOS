@@ -29,6 +29,8 @@ public class Ad: DataType {
     var roomsNumber: Int!
     var bathRoomsNumber: Int!
     var additionalFacilities: [AdditionalFacility]!
+    var companyName = "شركة أزميل العقارية"
+    var phoneNumber = "+201119993362"
     var creationTime: Double = 1566899994
     
     //MARK: Decodable

@@ -84,12 +84,13 @@ class UiHelpers {
         return sourceView
     }
     
-    class func addCompanyMarker(sourceView: UIView, latitude: Double, longitude: Double, title: String, adsNumber: Int, mapView: GMSMapView) {
+    class func addCompanyMarker(sourceView: UIView, latitude: Double, longitude: Double, title: String, adsNumber: Int, mapView: GMSMapView) -> GMSMarker {
         let locationMarker = GMSMarker()
         locationMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         locationMarker.title = title
         locationMarker.iconView = UiHelpers.makeMarkerView(sourceView: sourceView, companyName: title, adsNumber: adsNumber, companyColorCode: "#ff00ff")
         locationMarker.map = mapView
+        return locationMarker
     }
     
     class func addMarker(latitude: Double, longitude: Double, title: String, markerView: UIView?, mapView: GMSMapView) {
@@ -179,6 +180,12 @@ class UiHelpers {
         activityViewController.popoverPresentationController?.sourceView = sourceView
         
         vc.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    class func makeCall(phoneNumber: String) {
+        let urlString = "telprompt://\(phoneNumber)"
+        guard let url = URL(string: urlString) else { return }
+        UIApplication.shared.open(url)
     }
     
     class func setupSideMenu(delegate: UISideMenuNavigationControllerDelegate, viewToPresent: UIView, viewToEdge: UIView, sideMenuCellDelegate: SideMenuCellDelegate?, sideMenuHeaderDelegate: SideMenuHeaderDelegate?) -> SideMenuVC {

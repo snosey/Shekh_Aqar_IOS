@@ -75,3 +75,14 @@
 "homeScreen" = "الصفحة الرئيسية";
 "editProfile" = "تعديل الصفحة الشخصية";
 "login" = "تسجيل الدخول";
+"addToFav" = "أضف الي العقارات المفضلة";
+"removeFromFav" = "مسح من العقارات المفضلة";
+"additionalFacilities" = "مميزات إضافية";
+"makeCall" = "اتصل";
+"adType" = "نوع العقار";
+"location" = "الموقع";
+"area" = "المساحة";
+"roomsCount" = "عدد الغرف";
+"bathroomsCount" = "عدد الحمامات";
+"farsh" = "الفرش";
+"meter" = "م";
