@@ -12,6 +12,12 @@
 		E462872465864B7C257082CF /* Pods_SheekhAqaarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29069927BE2F914E9EECFBFB /* Pods_SheekhAqaarUITests.framework */; };
 		E81232C623153C3400ECDDFB /* CompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81232C523153C3400ECDDFB /* CompanyVC.swift */; };
 		E81232C823153C4300ECDDFB /* CompanyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81232C723153C4300ECDDFB /* CompanyStoryboard.storyboard */; };
+		E8245C3A2318B44B0021729B /* FavouritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8245C392318B44B0021729B /* FavouritesPresenter.swift */; };
+		E8245C3C2318B4550021729B /* FavouritesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8245C3B2318B4550021729B /* FavouritesRepository.swift */; };
+		E8245C3E2318B6300021729B /* AdPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8245C3D2318B6300021729B /* AdPresenter.swift */; };
+		E8245C402318B6390021729B /* AdRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8245C3F2318B6390021729B /* AdRepository.swift */; };
+		E8245C422318B9EE0021729B /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8245C412318B9EE0021729B /* FavouritesVC.swift */; };
+		E8245C442318B9FA0021729B /* FavouritesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8245C432318B9FA0021729B /* FavouritesStoryboard.storyboard */; };
 		E82474832308278800211FDB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E824744D2308278800211FDB /* LICENSE */; };
 		E82474842308278800211FDB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E824744E2308278800211FDB /* README.md */; };
 		E82474852308278800211FDB /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474502308278800211FDB /* CGRectExtensions.swift */; };
@@ -171,6 +177,12 @@
 		7AF3071E486320F2E1F4A799 /* Pods-SheekhAqaarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheekhAqaarTests.release.xcconfig"; path = "Target Support Files/Pods-SheekhAqaarTests/Pods-SheekhAqaarTests.release.xcconfig"; sourceTree = "<group>"; };
 		E81232C523153C3400ECDDFB /* CompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyVC.swift; sourceTree = "<group>"; };
 		E81232C723153C4300ECDDFB /* CompanyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompanyStoryboard.storyboard; sourceTree = "<group>"; };
+		E8245C392318B44B0021729B /* FavouritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPresenter.swift; sourceTree = "<group>"; };
+		E8245C3B2318B4550021729B /* FavouritesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesRepository.swift; sourceTree = "<group>"; };
+		E8245C3D2318B6300021729B /* AdPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdPresenter.swift; sourceTree = "<group>"; };
+		E8245C3F2318B6390021729B /* AdRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdRepository.swift; sourceTree = "<group>"; };
+		E8245C412318B9EE0021729B /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
+		E8245C432318B9FA0021729B /* FavouritesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavouritesStoryboard.storyboard; sourceTree = "<group>"; };
 		E824744D2308278800211FDB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E824744E2308278800211FDB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E82474502308278800211FDB /* CGRectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtensions.swift; sourceTree = "<group>"; };
@@ -367,8 +379,21 @@
 				E848315F23185D1F009C7BE9 /* AdDetailsCell.swift */,
 				E848316123185D36009C7BE9 /* AdditionalFacilityCell.swift */,
 				E848316323185D98009C7BE9 /* AdPhotoCell.swift */,
+				E8245C3D2318B6300021729B /* AdPresenter.swift */,
+				E8245C3F2318B6390021729B /* AdRepository.swift */,
 			);
 			path = AdScreen;
+			sourceTree = "<group>";
+		};
+		E8245C382318B40B0021729B /* FavouritesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E8245C412318B9EE0021729B /* FavouritesVC.swift */,
+				E8245C432318B9FA0021729B /* FavouritesStoryboard.storyboard */,
+				E8245C392318B44B0021729B /* FavouritesPresenter.swift */,
+				E8245C3B2318B4550021729B /* FavouritesRepository.swift */,
+			);
+			path = FavouritesScreen;
 			sourceTree = "<group>";
 		};
 		E824744C2308278800211FDB /* EZSwiftExtensions */ = {
@@ -534,6 +559,7 @@
 				E81232C323153BAE00ECDDFB /* CompanyScreen */,
 				E81232C423153BE800ECDDFB /* AdScreen */,
 				E8CBCF9D23156D35005F91BE /* HelpScreen */,
+				E8245C382318B40B0021729B /* FavouritesScreen */,
 				E82474D323083D1000211FDB /* SideMenu */,
 				E82474B82308393F00211FDB /* Utils */,
 				E86FA0D7230EAB11005A88D2 /* Models */,
@@ -775,6 +801,7 @@
 				E82474842308278800211FDB /* README.md in Resources */,
 				E89CBB0423097F30000B6BB7 /* TheSans-Bold.otf in Resources */,
 				E89CBB0A2309821B000B6BB7 /* Localizable.strings in Resources */,
+				E8245C442318B9FA0021729B /* FavouritesStoryboard.storyboard in Resources */,
 				E89CBB0323097F30000B6BB7 /* TheSans-Plain.otf in Resources */,
 				E82474832308278800211FDB /* LICENSE in Resources */,
 				E89CBAF523097B09000B6BB7 /* SignUpStoryboard.storyboard in Resources */,
@@ -914,6 +941,7 @@
 			files = (
 				E82474AD2308278800211FDB /* NSObjectExtensions.swift in Sources */,
 				E89CBAF123097AF3000B6BB7 /* SignUpVC.swift in Sources */,
+				E8245C402318B6390021729B /* AdRepository.swift in Sources */,
 				E89CBAEF23097AD1000B6BB7 /* HomeVC.swift in Sources */,
 				E82474D223083C9500211FDB /* BaseVC.swift in Sources */,
 				E848316223185D36009C7BE9 /* AdditionalFacilityCell.swift in Sources */,
@@ -928,6 +956,7 @@
 				E82474A72308278800211FDB /* UIWindowExtensions.swift in Sources */,
 				E824749B2308278800211FDB /* URLExtensions.swift in Sources */,
 				E82474C223083A1300211FDB /* UIDevice+extensions.swift in Sources */,
+				E8245C3A2318B44B0021729B /* FavouritesPresenter.swift in Sources */,
 				E8E4E61B2313F72500A46C99 /* User.swift in Sources */,
 				E8E4E623231402AE00A46C99 /* HomeRepository.swift in Sources */,
 				E86FA0D9230EABBA005A88D2 /* DataType.swift in Sources */,
@@ -961,6 +990,7 @@
 				E82474B42308278800211FDB /* UIAlertControllerExtensions.swift in Sources */,
 				E82474D023083C6B00211FDB /* UIExtensions.swift in Sources */,
 				E82474BE230839BE00211FDB /* DefaultsKeys.swift in Sources */,
+				E8245C3C2318B4550021729B /* FavouritesRepository.swift in Sources */,
 				E89CBB1C2309B8EA000B6BB7 /* RegisterCompanyVC.swift in Sources */,
 				E82474892308278800211FDB /* UITextFieldExtensions.swift in Sources */,
 				E848315E2318583D009C7BE9 /* AdDetail.swift in Sources */,
@@ -971,6 +1001,7 @@
 				E83CC32223142871009A307F /* AdCell.swift in Sources */,
 				E82474A52308278800211FDB /* NSDictionaryExtensions.swift in Sources */,
 				E86FA0DD230EABEE005A88D2 /* Region.swift in Sources */,
+				E8245C422318B9EE0021729B /* FavouritesVC.swift in Sources */,
 				E82474A22308278800211FDB /* CharacterExtensions.swift in Sources */,
 				E8E4E6152313F27000A46C99 /* SignUpRepository.swift in Sources */,
 				E82474BC2308398F00211FDB /* CommonConstants.swift in Sources */,
@@ -987,6 +1018,7 @@
 				E82474CE23083C4F00211FDB /* NavigationBarUtils.swift in Sources */,
 				E82474A12308278800211FDB /* BundleExtensions.swift in Sources */,
 				E8E4E621231402A400A46C99 /* HomePresenter.swift in Sources */,
+				E8245C3E2318B6300021729B /* AdPresenter.swift in Sources */,
 				E82474BA2308396800211FDB /* Colors.swift in Sources */,
 				E82474CA23083BFC00211FDB /* Injector.swift in Sources */,
 				E82474C0230839EB00211FDB /* Singleton.swift in Sources */,

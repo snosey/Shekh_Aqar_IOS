@@ -501,6 +501,10 @@ extension HomeVC: SideMenuCellDelegate {
             }
             break
             
+        case sideMenuVC.menuStringsDataSource.count - 3:
+            navigator.navigateToFavourites()
+            break
+            
         case sideMenuVC.menuStringsDataSource.count - 2:
             navigator.navigateToHelp()
             break

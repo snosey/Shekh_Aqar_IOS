@@ -86,3 +86,6 @@
 "bathroomsCount" = "Bathrooms count";
 "farsh" = "";
 "meter" = "M";
+"favourites" = "Favourites";
+"addedToFavSuccess" = "Added to favourites successfully";
+"removedToFavSuccess" = "Removed from favourites successfully";

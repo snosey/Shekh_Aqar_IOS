@@ -37,6 +37,7 @@ class AdVC: BaseVC {
     
     var ad: Ad!
     var adDetails = [AdDetail]()
+    var presenter: AdPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,8 @@ class AdVC: BaseVC {
         
         populateData()
         
+        presenter = Injector.provideAdPresenter()
+        presenter.setView(view: self)
     }
     
     private func setBorders() {
@@ -59,6 +62,12 @@ class AdVC: BaseVC {
         
         backIcon.addTapGesture { [weak self] (_) in
             self?.navigationController?.popViewController(animated: true)
+        }
+        
+        if self.ad.isFavourite {
+            addToFavouritesButton.setTitle("removeFromFav".localized(), for: .normal)
+        } else {
+            addToFavouritesButton.setTitle("addToFav".localized(), for: .normal)
         }
         
         photosCollectionView.dataSource = self
@@ -90,13 +99,38 @@ class AdVC: BaseVC {
     }
     
     @IBAction func addToFavouritesClicked(_ sender: Any) {
-        
+        if self.ad.isFavourite {
+            presenter.removeFavouriteAd(ad: ad)
+        } else {
+            presenter.saveFavouriteAd(ad: ad)
+        }
+        self.ad.isFavourite = !self.ad.isFavourite
     }
     
     @IBAction func makeCallClicked(_ sender: Any) {
         UiHelpers.makeCall(phoneNumber: ad.phoneNumber)
     }
 
+}
+
+extension AdVC: AdView {
+    func saveFavouriteAdSuccess() {
+        self.view.makeToast("addedToFavSuccess".localized())
+        addToFavouritesButton.setTitle("removeFromFav".localized(), for: .normal)
+    }
+    
+    public func removeFavouriteAdSuccess() {
+        self.view.makeToast("removedToFavSuccess".localized())
+        addToFavouritesButton.setTitle("addToFav".localized(), for: .normal)
+    }
+    
+    func failed(errorMessage: String) {
+        self.view.makeToast(errorMessage)
+    }
+    
+    func handleNoInternetConnection() {
+        self.view.makeToast("noInternetConnection".localized())
+    }
 }
 
 extension AdVC: UICollectionViewDataSource, UICollectionViewDelegate {

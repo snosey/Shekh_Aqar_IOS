@@ -86,3 +86,6 @@
 "bathroomsCount" = "عدد الحمامات";
 "farsh" = "الفرش";
 "meter" = "م";
+"favourites" = "العقارات المفضلة";
+"addedToFavSuccess" = "تمت الاضافة في المفضلة بنجاح";
+"removedToFavSuccess" = "تم الحذف من المفضلة بنجاح";

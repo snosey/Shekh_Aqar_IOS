@@ -32,6 +32,7 @@ public class Ad: DataType {
     var companyName = "شركة أزميل العقارية"
     var phoneNumber = "+201119993362"
     var creationTime: Double = 1566899994
+    var isFavourite: Bool = false
     
     //MARK: Decodable
     required public init?(json: JSON){
