@@ -45,7 +45,7 @@ public class ApplicationStarter {
         Localize.setCurrentLanguage("ar")
         
         var vc: UIViewController!
-        if let isLoggedIn = Defaults[.isLoggedIn], isLoggedIn {
+        if let _ = Defaults[.user] {
             vc = HomeVC.buildVC()
         } else {
             vc = SignUpVC.buildVC()

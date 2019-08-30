@@ -89,3 +89,10 @@
 "favourites" = "العقارات المفضلة";
 "addedToFavSuccess" = "تمت الاضافة في المفضلة بنجاح";
 "removedToFavSuccess" = "تم الحذف من المفضلة بنجاح";
+"addAd" = "إضافة عقار";
+"adImagesWarning" = "يجب إضافة ٣ صور علي الأقل";
+"adDetails" = "تفاصيل العقار";
+"currency" = "العملة";
+"category" = "التصنيف";
+"city" = "المدينة";
+"farshLevel" = "مستوي الفرش";

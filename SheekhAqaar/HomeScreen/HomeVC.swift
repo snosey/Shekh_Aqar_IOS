@@ -422,10 +422,9 @@ extension HomeVC: CLLocationManagerDelegate {
         
         if Singleton.getInstance().currentLocation == nil || (Singleton.getInstance().currentLocation.coordinate.latitude != locations.last!.coordinate.latitude && Singleton.getInstance().currentLocation.coordinate.longitude != locations.last!.coordinate.longitude) {
             Singleton.getInstance().currentLocation = locations.last!
-            print("Location: \(Singleton.getInstance().currentLocation!)")
-            createMapView(latitude: (Singleton.getInstance().currentLocation?.coordinate.latitude)!, longitude: (Singleton.instance.currentLocation?.coordinate.longitude)!)
-            
         }
+        
+        createMapView(latitude: (Singleton.getInstance().currentLocation?.coordinate.latitude)!, longitude: (Singleton.instance.currentLocation?.coordinate.longitude)!)
     }
     
     // Handle authorization for the location manager.
@@ -496,6 +495,16 @@ extension HomeVC: SideMenuCellDelegate {
             
             if let _ = Defaults[.user] {
                 // go to edit profile
+            } else {
+                navigator.navigateToSignUp()
+            }
+            break
+            
+        case 2:
+            
+            if let _ = Defaults[.user] {
+                // go to add ad
+                navigator.navigateToCreateAd()
             } else {
                 navigator.navigateToSignUp()
             }

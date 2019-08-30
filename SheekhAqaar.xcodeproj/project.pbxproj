@@ -18,6 +18,8 @@
 		E8245C402318B6390021729B /* AdRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8245C3F2318B6390021729B /* AdRepository.swift */; };
 		E8245C422318B9EE0021729B /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8245C412318B9EE0021729B /* FavouritesVC.swift */; };
 		E8245C442318B9FA0021729B /* FavouritesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8245C432318B9FA0021729B /* FavouritesStoryboard.storyboard */; };
+		E8245C472318BD670021729B /* CreateAdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8245C462318BD670021729B /* CreateAdVC.swift */; };
+		E8245C492318BD8F0021729B /* CreateAdStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8245C482318BD8F0021729B /* CreateAdStoryboard.storyboard */; };
 		E82474832308278800211FDB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E824744D2308278800211FDB /* LICENSE */; };
 		E82474842308278800211FDB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E824744E2308278800211FDB /* README.md */; };
 		E82474852308278800211FDB /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474502308278800211FDB /* CGRectExtensions.swift */; };
@@ -183,6 +185,8 @@
 		E8245C3F2318B6390021729B /* AdRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdRepository.swift; sourceTree = "<group>"; };
 		E8245C412318B9EE0021729B /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
 		E8245C432318B9FA0021729B /* FavouritesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavouritesStoryboard.storyboard; sourceTree = "<group>"; };
+		E8245C462318BD670021729B /* CreateAdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdVC.swift; sourceTree = "<group>"; };
+		E8245C482318BD8F0021729B /* CreateAdStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAdStoryboard.storyboard; sourceTree = "<group>"; };
 		E824744D2308278800211FDB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E824744E2308278800211FDB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E82474502308278800211FDB /* CGRectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtensions.swift; sourceTree = "<group>"; };
@@ -396,6 +400,15 @@
 			path = FavouritesScreen;
 			sourceTree = "<group>";
 		};
+		E8245C452318BCDD0021729B /* CreateAdScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E8245C462318BD670021729B /* CreateAdVC.swift */,
+				E8245C482318BD8F0021729B /* CreateAdStoryboard.storyboard */,
+			);
+			path = CreateAdScreen;
+			sourceTree = "<group>";
+		};
 		E824744C2308278800211FDB /* EZSwiftExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +571,7 @@
 				E89CBAED23097A9E000B6BB7 /* HomeScreen */,
 				E81232C323153BAE00ECDDFB /* CompanyScreen */,
 				E81232C423153BE800ECDDFB /* AdScreen */,
+				E8245C452318BCDD0021729B /* CreateAdScreen */,
 				E8CBCF9D23156D35005F91BE /* HelpScreen */,
 				E8245C382318B40B0021729B /* FavouritesScreen */,
 				E82474D323083D1000211FDB /* SideMenu */,
@@ -805,6 +819,7 @@
 				E89CBB0323097F30000B6BB7 /* TheSans-Plain.otf in Resources */,
 				E82474832308278800211FDB /* LICENSE in Resources */,
 				E89CBAF523097B09000B6BB7 /* SignUpStoryboard.storyboard in Resources */,
+				E8245C492318BD8F0021729B /* CreateAdStoryboard.storyboard in Resources */,
 				E89CBB162309B89C000B6BB7 /* SignUp1Storyboard.storyboard in Resources */,
 				E89CBB1E2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard in Resources */,
 				E848315C231850A4009C7BE9 /* AdStoryboard.storyboard in Resources */,
@@ -996,6 +1011,7 @@
 				E848315E2318583D009C7BE9 /* AdDetail.swift in Sources */,
 				E82474B32308278800211FDB /* NSAttributedStringExtensions.swift in Sources */,
 				E82474972308278800211FDB /* BoolExtensions.swift in Sources */,
+				E8245C472318BD670021729B /* CreateAdVC.swift in Sources */,
 				E82474A02308278800211FDB /* UIViewExtensions.swift in Sources */,
 				E848315A2318509B009C7BE9 /* AdVC.swift in Sources */,
 				E83CC32223142871009A307F /* AdCell.swift in Sources */,
