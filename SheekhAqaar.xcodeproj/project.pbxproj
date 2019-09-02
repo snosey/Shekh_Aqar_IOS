@@ -90,6 +90,7 @@
 		E82474D723083D3700211FDB /* SideMenuLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474D623083D3700211FDB /* SideMenuLayout.swift */; };
 		E82474D923083D5800211FDB /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474D823083D5800211FDB /* SideMenuCell.swift */; };
 		E83CC32223142871009A307F /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC32123142871009A307F /* AdCell.swift */; };
+		E847DD2F231DAC2F0063CC8F /* CreateAdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847DD2E231DAC2F0063CC8F /* CreateAdCell.swift */; };
 		E848315623184BD2009C7BE9 /* PhoneVerificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848315523184BD1009C7BE9 /* PhoneVerificationPresenter.swift */; };
 		E848315823184BE7009C7BE9 /* PhoneVerificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848315723184BE7009C7BE9 /* PhoneVerificationRepository.swift */; };
 		E848315A2318509B009C7BE9 /* AdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84831592318509B009C7BE9 /* AdVC.swift */; };
@@ -257,6 +258,7 @@
 		E82474D623083D3700211FDB /* SideMenuLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLayout.swift; sourceTree = "<group>"; };
 		E82474D823083D5800211FDB /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		E83CC32123142871009A307F /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
+		E847DD2E231DAC2F0063CC8F /* CreateAdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdCell.swift; sourceTree = "<group>"; };
 		E848315523184BD1009C7BE9 /* PhoneVerificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationPresenter.swift; sourceTree = "<group>"; };
 		E848315723184BE7009C7BE9 /* PhoneVerificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationRepository.swift; sourceTree = "<group>"; };
 		E84831592318509B009C7BE9 /* AdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdVC.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 			children = (
 				E8245C462318BD670021729B /* CreateAdVC.swift */,
 				E8245C482318BD8F0021729B /* CreateAdStoryboard.storyboard */,
+				E847DD2E231DAC2F0063CC8F /* CreateAdCell.swift */,
 			);
 			path = CreateAdScreen;
 			sourceTree = "<group>";
@@ -1006,6 +1009,7 @@
 				E82474D023083C6B00211FDB /* UIExtensions.swift in Sources */,
 				E82474BE230839BE00211FDB /* DefaultsKeys.swift in Sources */,
 				E8245C3C2318B4550021729B /* FavouritesRepository.swift in Sources */,
+				E847DD2F231DAC2F0063CC8F /* CreateAdCell.swift in Sources */,
 				E89CBB1C2309B8EA000B6BB7 /* RegisterCompanyVC.swift in Sources */,
 				E82474892308278800211FDB /* UITextFieldExtensions.swift in Sources */,
 				E848315E2318583D009C7BE9 /* AdDetail.swift in Sources */,

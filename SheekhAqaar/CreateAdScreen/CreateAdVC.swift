@@ -16,6 +16,7 @@ class CreateAdVC: BaseVC {
         return vc
     }
     
+    @IBOutlet weak var createAdTableView: UITableView!
     @IBOutlet weak var backIcon: UIImageView!
     
     override func viewDidLoad() {
@@ -24,6 +25,27 @@ class CreateAdVC: BaseVC {
         backIcon.addTapGesture { [weak self] (_) in
             self?.navigationController?.popViewController(animated: true)
         }
+        
+        createAdTableView.delegate = self
+        createAdTableView.dataSource = self
+        createAdTableView.reloadData()
     }
 
+}
+
+extension CreateAdVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CreateAdCell.identifier, for: indexPath) as! CreateAdCell
+        cell.populateData()
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 120)
+    }
 }

@@ -96,3 +96,5 @@
 "category" = "التصنيف";
 "city" = "المدينة";
 "farshLevel" = "مستوي الفرش";
+"numberOfRooms" = "عدد الغرف";
+"numberOfBathrooms" = "عدد الحمامات";

@@ -96,3 +96,5 @@
 "category" = "Category";
 "city" = "City";
 "farshLevel" = "";
+"numberOfRooms" = "Number of rooms";
+"numberOfBathrooms" = "Number of bathrooms";
