@@ -73,4 +73,12 @@ public class Injector {
     public class func provideFavouritesRepository() -> FavouritesRepository {
         return FavouritesRepository()
     }
+    
+    public class func provideCreateAdPresenter() -> CreateAdPresenter {
+        return CreateAdPresenter(repository: Injector.provideCreateAdRepository())
+    }
+    
+    public class func provideCreateAdRepository() -> CreateAdRepository {
+        return CreateAdRepository()
+    }
 }

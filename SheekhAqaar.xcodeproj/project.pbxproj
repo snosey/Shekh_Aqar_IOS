@@ -91,6 +91,10 @@
 		E82474D923083D5800211FDB /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82474D823083D5800211FDB /* SideMenuCell.swift */; };
 		E83CC32223142871009A307F /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC32123142871009A307F /* AdCell.swift */; };
 		E847DD2F231DAC2F0063CC8F /* CreateAdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847DD2E231DAC2F0063CC8F /* CreateAdCell.swift */; };
+		E847DD31231DB3A30063CC8F /* CreateAdPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847DD30231DB3A30063CC8F /* CreateAdPresenter.swift */; };
+		E847DD33231DB3E30063CC8F /* CreateAdRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847DD32231DB3E30063CC8F /* CreateAdRepository.swift */; };
+		E847DD35231DB8900063CC8F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847DD34231DB8900063CC8F /* City.swift */; };
+		E847DD37231DC5A30063CC8F /* ChooseAdditionalFacilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847DD36231DC5A30063CC8F /* ChooseAdditionalFacilityCell.swift */; };
 		E848315623184BD2009C7BE9 /* PhoneVerificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848315523184BD1009C7BE9 /* PhoneVerificationPresenter.swift */; };
 		E848315823184BE7009C7BE9 /* PhoneVerificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848315723184BE7009C7BE9 /* PhoneVerificationRepository.swift */; };
 		E848315A2318509B009C7BE9 /* AdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84831592318509B009C7BE9 /* AdVC.swift */; };
@@ -259,6 +263,10 @@
 		E82474D823083D5800211FDB /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		E83CC32123142871009A307F /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
 		E847DD2E231DAC2F0063CC8F /* CreateAdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdCell.swift; sourceTree = "<group>"; };
+		E847DD30231DB3A30063CC8F /* CreateAdPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdPresenter.swift; sourceTree = "<group>"; };
+		E847DD32231DB3E30063CC8F /* CreateAdRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdRepository.swift; sourceTree = "<group>"; };
+		E847DD34231DB8900063CC8F /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		E847DD36231DC5A30063CC8F /* ChooseAdditionalFacilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAdditionalFacilityCell.swift; sourceTree = "<group>"; };
 		E848315523184BD1009C7BE9 /* PhoneVerificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationPresenter.swift; sourceTree = "<group>"; };
 		E848315723184BE7009C7BE9 /* PhoneVerificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationRepository.swift; sourceTree = "<group>"; };
 		E84831592318509B009C7BE9 /* AdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdVC.swift; sourceTree = "<group>"; };
@@ -408,6 +416,9 @@
 				E8245C462318BD670021729B /* CreateAdVC.swift */,
 				E8245C482318BD8F0021729B /* CreateAdStoryboard.storyboard */,
 				E847DD2E231DAC2F0063CC8F /* CreateAdCell.swift */,
+				E847DD30231DB3A30063CC8F /* CreateAdPresenter.swift */,
+				E847DD32231DB3E30063CC8F /* CreateAdRepository.swift */,
+				E847DD36231DC5A30063CC8F /* ChooseAdditionalFacilityCell.swift */,
 			);
 			path = CreateAdScreen;
 			sourceTree = "<group>";
@@ -525,6 +536,7 @@
 				E86FA0DA230EABE5005A88D2 /* Country.swift */,
 				E86FA0DC230EABEE005A88D2 /* Region.swift */,
 				E8DAFE8A2311859E00C2F005 /* Company.swift */,
+				E847DD34231DB8900063CC8F /* City.swift */,
 				E8DAFE8C231185A600C2F005 /* Category.swift */,
 				E8BD7F352312DA58003B6829 /* CompanyService.swift */,
 				E8E4E61A2313F72500A46C99 /* User.swift */,
@@ -964,6 +976,7 @@
 				E82474D223083C9500211FDB /* BaseVC.swift in Sources */,
 				E848316223185D36009C7BE9 /* AdditionalFacilityCell.swift in Sources */,
 				E82474B22308278800211FDB /* UIDeviceExtensions.swift in Sources */,
+				E847DD37231DC5A30063CC8F /* ChooseAdditionalFacilityCell.swift in Sources */,
 				E89CBB182309B8B5000B6BB7 /* PhoneVerificationVC.swift in Sources */,
 				E82474922308278800211FDB /* ErrorTypeExtensions.swift in Sources */,
 				E82474A82308278800211FDB /* BlockLongPress.swift in Sources */,
@@ -989,6 +1002,7 @@
 				E82474912308278800211FDB /* UIBarButtonItemExtensions.swift in Sources */,
 				E848316023185D1F009C7BE9 /* AdDetailsCell.swift in Sources */,
 				E8E4E61F2313FA8000A46C99 /* RegisterCompanyRepository.swift in Sources */,
+				E847DD35231DB8900063CC8F /* City.swift in Sources */,
 				E89340E92308265F00F37DCE /* ViewController.swift in Sources */,
 				E82474A62308278800211FDB /* IntExtensions.swift in Sources */,
 				E82474B62308278800211FDB /* UIColorExtensions.swift in Sources */,
@@ -1018,6 +1032,7 @@
 				E8245C472318BD670021729B /* CreateAdVC.swift in Sources */,
 				E82474A02308278800211FDB /* UIViewExtensions.swift in Sources */,
 				E848315A2318509B009C7BE9 /* AdVC.swift in Sources */,
+				E847DD33231DB3E30063CC8F /* CreateAdRepository.swift in Sources */,
 				E83CC32223142871009A307F /* AdCell.swift in Sources */,
 				E82474A52308278800211FDB /* NSDictionaryExtensions.swift in Sources */,
 				E86FA0DD230EABEE005A88D2 /* Region.swift in Sources */,
@@ -1040,6 +1055,7 @@
 				E8E4E621231402A400A46C99 /* HomePresenter.swift in Sources */,
 				E8245C3E2318B6300021729B /* AdPresenter.swift in Sources */,
 				E82474BA2308396800211FDB /* Colors.swift in Sources */,
+				E847DD31231DB3A30063CC8F /* CreateAdPresenter.swift in Sources */,
 				E82474CA23083BFC00211FDB /* Injector.swift in Sources */,
 				E82474C0230839EB00211FDB /* Singleton.swift in Sources */,
 				E86FA0DB230EABE5005A88D2 /* Country.swift in Sources */,

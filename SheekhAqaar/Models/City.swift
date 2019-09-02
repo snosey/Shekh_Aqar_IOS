@@ -1,21 +1,18 @@
 //
-//  AdditionalFacility.swift
+//  City.swift
 //  SheekhAqaar
 //
-//  Created by Hesham Donia on 8/26/19.
+//  Created by Hesham Donia on 9/2/19.
 //  Copyright © 2019 Hesham Donia. All rights reserved.
 //
 
 import Foundation
 import Gloss
 
-public class AdditionalFacility: DataType {
-    
+public class City: DataType {
+    var id : Int!
     var nameAr : String!
     var nameEn : String!
-    var id : Int!
-    
-    var isChecked = false
     
     //MARK: Decodable
     required public init?(json: JSON){
@@ -32,6 +29,7 @@ public class AdditionalFacility: DataType {
         self.id = id
         self.nameEn = nameEn
         self.nameAr = nameAr
+        
     }
     
     //MARK: Encodable
@@ -42,5 +40,4 @@ public class AdditionalFacility: DataType {
             "id" ~~> id,
             ])
     }
-    
 }
