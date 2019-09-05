@@ -10,8 +10,8 @@ import Foundation
 import Alamofire
 
 public protocol SignUpPresenterDelegate: class {
-    func userCheck(isExist: Bool)
-    func loginSuccess(user: User)
+    func loginSuccess(user: User?, isExist: Bool)
+    func getSignUpDataSuccess(signUpData: SignUpData)
     func failed(errorMessage: String)
 }
 
@@ -22,11 +22,47 @@ public class SignUpRepository {
         self.delegate = delegate
     }
     
-    public func checkUserExist(phoneNumber: String) {
-        self.delegate.userCheck(isExist: true)
+    public func login(phoneNumber: String) {
+        let params = ["Phone" : phoneNumber]
+        let url = CommonConstants.BASE_URL + "User/Login"
+        
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
+            .responseJSON { response in
+            
+                switch response.result {
+                case .success(_):
+                    let json = (response.result.value as! Dictionary<String,AnyObject>)
+                    let entity = Entity<User>(json: json)
+                    self.delegate.loginSuccess(user: entity?.data, isExist: entity?.status.id == 1)
+                break
+            
+                case .failure(let error):
+                    self.delegate.failed(errorMessage: error.localizedDescription)
+                break
+            }
+        }
     }
     
-    public func login(phoneNumber: String) {
-        self.delegate.loginSuccess(user: User(imageUrl: "alksjdlksjdk", name: "Hesham Donia", token: "laksjdaskjd123", phoneNumber: "+201119993362"))
+    public func getSignUpData() {
+        let url = CommonConstants.BASE_URL + "User/SignUp"
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+            .responseJSON { response in
+                
+                switch response.result {
+                case .success(_):
+                    let json = (response.result.value as! Dictionary<String,AnyObject>)
+                    if let signUpDataDictionary = json["Data"] as? Dictionary<String,AnyObject> {
+                        let signUpData = SignUpData(json: signUpDataDictionary)
+                        self.delegate.getSignUpDataSuccess(signUpData: signUpData!)
+                    }
+                    
+                    break
+                    
+                case .failure(let error):
+                    self.delegate.failed(errorMessage: error.localizedDescription)
+                    break
+                }
+        }
     }
 }

@@ -230,11 +230,7 @@ extension RegisterCompanyVC: RegisterCompanyCellDelegate {
 
         var dataSource = [String]()
         for country in countries {
-            if Localize.currentLanguage() == "en" {
-                dataSource.append(country.nameEn)
-            } else {
-                dataSource.append(country.nameAr)
-            }
+            dataSource.append(country.name)
         }
 
         dropDown.dataSource = dataSource
@@ -262,11 +258,7 @@ extension RegisterCompanyVC: RegisterCompanyCellDelegate {
             dropDown.anchorView = weakSelf?.cell.regionView
             var dataSource = [String]()
             for region in selectedCountry?.regions ?? [] {
-                if Localize.currentLanguage() == "en" {
-                    dataSource.append(region.nameEn)
-                } else {
-                    dataSource.append(region.nameAr)
-                }
+                dataSource.append(region.name)
             }
             
             dropDown.dataSource = dataSource

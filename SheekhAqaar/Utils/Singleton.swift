@@ -13,6 +13,7 @@ public class Singleton {
     
     static var instance: Singleton!
     public var currentLocation: CLLocation!
+    public var signUpData: SignUpData!
     
     public class func getInstance() -> Singleton {
         if instance ==  nil {

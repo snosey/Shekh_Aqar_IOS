@@ -11,38 +11,52 @@ import Gloss
 
 public class User: DataType {
     
+    var id: Int!
     var name : String!
     var imageUrl : String!
     var phoneNumber: String!
     var token: String!
+    var language: Int!
+    var countryId: Int!
+    var regionId: Int!
+    var userType: Int!
     
     //MARK: Decodable
     required public init?(json: JSON){
-        token = "token" <~~ json
-        name = "name" <~~ json
-        phoneNumber = "phone_number" <~~ json
-        imageUrl = "imageUrl" <~~ json
+        id = "Id" <~~ json
+        token = "Token" <~~ json
+        name = "Name" <~~ json
+        phoneNumber = "Phone" <~~ json
+        imageUrl = "ImageUrl" <~~ json
+        language = "Fk_Language" <~~ json
+        countryId = "Fk_Country" <~~ json
+        regionId = "Fk_UserState" <~~ json
+        userType = "Fk_UserType" <~~ json
     }
     
     public init() {
         
     }
     
-    public init(imageUrl : String, name: String, token: String, phoneNumber: String) {
-        self.imageUrl = imageUrl
-        self.name = name
-        self.token = token
-        self.phoneNumber = phoneNumber
-    }
-    
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "name" ~~> name,
-            "token" ~~> token,
-            "imageUrl" ~~> imageUrl,
-            "phone_number" ~~> phoneNumber,
+            "Id" ~~> id,
+            "Name" ~~> name,
+            "Token" ~~> token,
+            "ImageUrl" ~~> imageUrl,
+            "Phone" ~~> phoneNumber,
+            "Fk_Language" ~~> language,
+            "Fk_Country" ~~> countryId,
+            "Fk_UserState" ~~> regionId,
+            "Fk_UserType" ~~> userType,
             ])
     }
     
+}
+
+public enum UserType: Int {    
+    case USER = 1
+    case ADMIN = 2
+    case COMPANY = 4
 }

@@ -55,6 +55,7 @@ class SignUpVC: BaseVC {
         
         presenter = Injector.provideSignUpPresenter()
         presenter.setView(view: self)
+        presenter.getSignUpData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,17 +63,9 @@ class SignUpVC: BaseVC {
     }
     
     func showCountriesList() {
-        
-        let picker = MICountryPicker()
-        navigationController?.pushViewController(picker, animated: true)
-        
-        picker.didSelectCountryWithCallingCodeClosure = { name, code, dialCode in
-            let bundle = "assets.bundle/"
-            self.countryFlagImageView.image = UIImage(named: bundle + code.lowercased() + ".png", in: Bundle(for: MICountryPicker.self), compatibleWith: nil)
-            self.countryCodeLabel.text = dialCode
-            self.code = dialCode
-            self.navigationController?.popViewController(animated: true)
-        }
+        let vc = CountriesListVC.buildVC(countries: Singleton.getInstance().signUpData.countries)
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func loginClicked(_ sender: Any) {
@@ -85,7 +78,7 @@ class SignUpVC: BaseVC {
                 }
                 userPhone = "\(code)\(userPhone)"
                 print(userPhone)
-                presenter.checkUserExist(phoneNumber: userPhone)
+                presenter.login(phoneNumber: userPhone)
                 
             } else {
                 self.view.makeToast("enterValidPhoneNumber".localized())
@@ -97,18 +90,19 @@ class SignUpVC: BaseVC {
 }
 
 extension SignUpVC: SignUpView {
-    func loginSuccess(user: User) {
-        Defaults[.user] = user.toJSON()
-        self.navigator.navigateToHome()
-    }
-    
-    func failed(errorMessage: String) {
-        self.view.makeToast(errorMessage)
-    }
-    
-    func userCheck(isExist: Bool) {
+    func loginSuccess(user: User?, isExist: Bool) {
         if isExist {
-            presenter.login(phoneNumber: phoneNumberTextField.text!)
+            Defaults[.user] = user!.toJSON()
+            PhoneAuthProvider.provider().verifyPhoneNumber(userPhone, uiDelegate: nil) { [weak self] (verificationID, error) in
+                if let error = error {
+                    print("error :: \(error.localizedDescription)")
+                    return
+                }
+                
+                Defaults[.authVerificationID] = verificationID
+                
+                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.HOME_NEXT_PAGE_CODE)
+            }
         } else {
             PhoneAuthProvider.provider().verifyPhoneNumber(userPhone, uiDelegate: nil) { [weak self] (verificationID, error) in
                 if let error = error {
@@ -123,7 +117,23 @@ extension SignUpVC: SignUpView {
         }
     }
     
+    func failed(errorMessage: String) {
+        self.view.makeToast(errorMessage)
+    }
+    
     func handleNoInternetConnection() {
         self.view.makeToast("noInternetConnection".localized())
+    }
+}
+
+extension SignUpVC: CountriesListDelegate {
+    func countrySelected(country: Country?) {
+        if let country = country {
+            if let url = URL(string: country.imageUrl) {
+                self.countryFlagImageView.af_setImage(withURL: url)
+            }
+            self.countryCodeLabel.text = "+" + country.code
+            self.code = "+" + country.code
+        }
     }
 }

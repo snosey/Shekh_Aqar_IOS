@@ -45,11 +45,12 @@ public class ApplicationStarter {
         Localize.setCurrentLanguage("ar")
         
         var vc: UIViewController!
-        if let _ = Defaults[.user] {
-            vc = HomeVC.buildVC()
-        } else {
-            vc = SignUpVC.buildVC()
-        }
+        vc = SignUpVC.buildVC()
+//        if let _ = Defaults[.user] {
+//            vc = HomeVC.buildVC()
+//        } else {
+//            vc = SignUpVC.buildVC()
+//        }
         
         let navigationController = UINavigationController(rootViewController: vc)
         navigationController.navigationBar.barStyle = .black

@@ -22,6 +22,6 @@ public class PhoneVerificationRepository {
     }
     
     public func login(phoneNumber: String, password: String) {
-        self.delegate.loginSuccess(user: User(imageUrl: "alksjdlksjdk", name: "Hesham Donia", token: "laksjdaskjd123", phoneNumber: "+201119993362"))
+//        self.delegate.loginSuccess(user: User(imageUrl: "alksjdlksjdk", name: "Hesham Donia", token: "laksjdaskjd123", phoneNumber: "+201119993362"))
     }
 }

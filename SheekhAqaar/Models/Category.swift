@@ -11,9 +11,7 @@ import Gloss
 
 public class Category: DataType {
     
-    var nameAr : String!
-    var nameEn : String!
-    var key: String!
+    var name : String!
     var id : Int!
     var companies: [Company]!
     var ads: [Ad]!
@@ -22,11 +20,9 @@ public class Category: DataType {
     
     //MARK: Decodable
     required public init?(json: JSON){
-        nameAr = "name_ar" <~~ json
-        nameEn = "name_en" <~~ json
-        key = "key" <~~ json
+        name = "Name" <~~ json
         id = "id" <~~ json
-        companies = "companies" <~~ json
+        companies = "CompanyTypesModel" <~~ json
         ads = "ads" <~~ json
     }
     
@@ -36,28 +32,27 @@ public class Category: DataType {
     
     public init(id : Int, nameEn: String, nameAr: String, key: String, companies: [Company]) {
         self.id = id
-        self.nameEn = nameEn
-        self.nameAr = nameAr
-        self.key = key
+//        self.nameEn = nameEn
+//        self.nameAr = nameAr
+        self.name = nameEn
+//        self.key = key
         self.companies = companies
     }
     
     public init(id : Int, nameEn: String, nameAr: String, key: String, ads: [Ad]) {
         self.id = id
-        self.nameEn = nameEn
-        self.nameAr = nameAr
-        self.key = key
+//        self.nameEn = nameEn
+        self.name = nameEn
+//        self.key = key
         self.ads = ads
     }
     
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "name_ar" ~~> nameAr,
-            "name_en" ~~> nameEn,
-            "key" ~~> key,
+            "Name" ~~> name,
             "id" ~~> id,
-            "companies" ~~> companies,
+            "CompanyTypesModel" ~~> companies,
             "ads" ~~> ads,
             ])
     }

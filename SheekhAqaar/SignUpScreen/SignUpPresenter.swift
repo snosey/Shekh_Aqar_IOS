@@ -10,8 +10,7 @@ import Foundation
 
 public protocol SignUpView : class {
     func failed(errorMessage: String)
-    func userCheck(isExist: Bool)
-    func loginSuccess(user: User)
+    func loginSuccess(user: User?, isExist: Bool)
     func handleNoInternetConnection()
 }
 
@@ -31,14 +30,6 @@ public class SignUpPresenter {
 }
 
 extension SignUpPresenter {
-    public func checkUserExist(phoneNumber: String) {
-        if UiHelpers.isInternetAvailable() {
-            UiHelpers.showLoader()
-            signUpRepository?.checkUserExist(phoneNumber: phoneNumber)
-        } else {
-            signUpView?.handleNoInternetConnection()
-        }
-    }
     
     public func login(phoneNumber: String) {
         if UiHelpers.isInternetAvailable() {
@@ -48,17 +39,26 @@ extension SignUpPresenter {
             signUpView?.handleNoInternetConnection()
         }
     }
+    
+    public func getSignUpData() {
+        if UiHelpers.isInternetAvailable() {
+            UiHelpers.showLoader()
+            signUpRepository?.getSignUpData()
+        } else {
+            signUpView?.handleNoInternetConnection()
+        }
+    }
 }
 
 extension SignUpPresenter: SignUpPresenterDelegate {
-    public func userCheck(isExist: Bool) {
+    public func getSignUpDataSuccess(signUpData: SignUpData) {
         UiHelpers.hideLoader()
-        self.signUpView?.userCheck(isExist: isExist)
+        Singleton.getInstance().signUpData = signUpData
     }
     
-    public func loginSuccess(user: User) {
+    public func loginSuccess(user: User?, isExist: Bool) {
         UiHelpers.hideLoader()
-        self.signUpView?.loginSuccess(user: user)
+        self.signUpView?.loginSuccess(user: user, isExist: isExist)
     }
     
     public func failed(errorMessage: String) {

@@ -22,6 +22,6 @@ public class SignUp1Repository {
     }
     
     public func registerUser(phoneNumber: String, userName: String, image: Data) {
-        self.delegate.registerUserSuccess(user: User(imageUrl: "alksjdlksjdk", name: "Hesham Donia", token: "laksjdaskjd123", phoneNumber: "+201119993362"))
+//        self.delegate.registerUserSuccess(user: User(imageUrl: "alksjdlksjdk", name: "Hesham Donia", token: "laksjdaskjd123", phoneNumber: "+201119993362"))
     }
 }

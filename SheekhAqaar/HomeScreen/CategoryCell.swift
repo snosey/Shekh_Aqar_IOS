@@ -17,11 +17,7 @@ class CategoryCell: UICollectionViewCell {
     public var category: Category!
     
     public func populateData() {
-        if Localize.currentLanguage() == "en"{
-            categoryNameButton.setTitle(category.nameEn, for: .normal)
-        } else {
-            categoryNameButton.setTitle(category.nameAr, for: .normal)
-        }
+        categoryNameButton.setTitle(category.name, for: .normal)
     }
     
     public func changeLabelToBeClicked() {
