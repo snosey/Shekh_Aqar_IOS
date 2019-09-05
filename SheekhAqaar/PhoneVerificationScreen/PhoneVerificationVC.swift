@@ -12,11 +12,12 @@ import SwiftyUserDefaults
 
 class PhoneVerificationVC: BaseVC {
 
-    public class func buildVC(phoneNumber: String, nextPage: Int) -> PhoneVerificationVC {
+    public class func buildVC(phoneNumber: String, nextPage: Int, country: Country) -> PhoneVerificationVC {
         let storyboard = UIStoryboard(name: "PhoneVerificationStoryboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PhoneVerificationVC") as! PhoneVerificationVC
         vc.phoneNumber = phoneNumber
         vc.nextPage = nextPage
+        vc.country = country
         return vc
     }
     
@@ -34,6 +35,7 @@ class PhoneVerificationVC: BaseVC {
     
     var phoneNumber: String!
     var nextPage: Int!
+    var country: Country!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +98,7 @@ class PhoneVerificationVC: BaseVC {
                     if self?.nextPage == CommonConstants.HOME_NEXT_PAGE_CODE {
                         self?.navigator.navigateToHome()
                     } else if self?.nextPage == CommonConstants.SIGN_UP_NEXT_PAGE_CODE {
-                        self?.navigator.navigateToSignUp1(phoneNumber: self?.phoneNumber ?? "")
+                        self?.navigator.navigateToSignUp1(phoneNumber: self?.phoneNumber ?? "", country: self?.country ?? Country())
                     }
                 }
             }

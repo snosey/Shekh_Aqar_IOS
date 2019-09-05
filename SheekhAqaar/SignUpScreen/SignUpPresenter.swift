@@ -11,6 +11,7 @@ import Foundation
 public protocol SignUpView : class {
     func failed(errorMessage: String)
     func loginSuccess(user: User?, isExist: Bool)
+    func getSignUpDataSuccess()
     func handleNoInternetConnection()
 }
 
@@ -54,6 +55,7 @@ extension SignUpPresenter: SignUpPresenterDelegate {
     public func getSignUpDataSuccess(signUpData: SignUpData) {
         UiHelpers.hideLoader()
         Singleton.getInstance().signUpData = signUpData
+        self.signUpView?.getSignUpDataSuccess()
     }
     
     public func loginSuccess(user: User?, isExist: Bool) {

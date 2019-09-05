@@ -23,8 +23,9 @@ class SignUpVC: BaseVC {
     
     
     var presenter: SignUpPresenter!
-    var code: String = "966"
+    var code = ""
     var userPhone = ""
+    var selectedCountry: Country!
     
     public class func buildVC() -> SignUpVC {
         let storyboard = UIStoryboard(name: "SignUpStoryboard", bundle: nil)
@@ -69,27 +70,43 @@ class SignUpVC: BaseVC {
     }
     
     @IBAction func loginClicked(_ sender: Any) {
-        if let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty {
-            if phoneNumber.isNumber() {
-                print(phoneNumber)
-                userPhone = phoneNumber
-                if userPhone.first == "0" {
-                    userPhone.removeFirst()
+        if selectedCountry != nil {
+            if let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty {
+                if phoneNumber.isNumber() {
+                    print(phoneNumber)
+                    userPhone = phoneNumber
+                    if userPhone.first != "0" {
+                        userPhone = "0" + userPhone
+                    }
+                    userPhone = "\(code)\(userPhone)"
+                    print(userPhone)
+                    presenter.login(phoneNumber: userPhone)
+                    
+                } else {
+                    self.view.makeToast("enterValidPhoneNumber".localized())
                 }
-                userPhone = "\(code)\(userPhone)"
-                print(userPhone)
-                presenter.login(phoneNumber: userPhone)
-                
             } else {
-                self.view.makeToast("enterValidPhoneNumber".localized())
+                self.view.makeToast("enterPhoneField".localized())
             }
         } else {
-            self.view.makeToast("enterPhoneField".localized())
+            self.view.makeToast("selectCountryError".localized())
         }
     }
 }
 
 extension SignUpVC: SignUpView {
+    
+    func getSignUpDataSuccess() {
+        if let country = Singleton.getInstance().signUpData.countries.get(0) {
+            if let url = URL(string: country.imageUrl) {
+                self.countryFlagImageView.af_setImage(withURL: url)
+            }
+            self.countryCodeLabel.text = "+" + country.code
+            self.code = "+" + country.code
+            self.selectedCountry = country
+        }
+    }
+    
     func loginSuccess(user: User?, isExist: Bool) {
         if isExist {
             Defaults[.user] = user!.toJSON()
@@ -101,7 +118,7 @@ extension SignUpVC: SignUpView {
                 
                 Defaults[.authVerificationID] = verificationID
                 
-                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.HOME_NEXT_PAGE_CODE)
+                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.HOME_NEXT_PAGE_CODE, country: self!.selectedCountry)
             }
         } else {
             PhoneAuthProvider.provider().verifyPhoneNumber(userPhone, uiDelegate: nil) { [weak self] (verificationID, error) in
@@ -112,7 +129,7 @@ extension SignUpVC: SignUpView {
                 
                 Defaults[.authVerificationID] = verificationID
                 
-                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.SIGN_UP_NEXT_PAGE_CODE)
+                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.SIGN_UP_NEXT_PAGE_CODE, country: self!.selectedCountry)
             }
         }
     }
@@ -134,6 +151,7 @@ extension SignUpVC: CountriesListDelegate {
             }
             self.countryCodeLabel.text = "+" + country.code
             self.code = "+" + country.code
+            self.selectedCountry = country
         }
     }
 }

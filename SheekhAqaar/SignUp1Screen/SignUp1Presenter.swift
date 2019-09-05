@@ -29,10 +29,10 @@ public class SignUp1Presenter {
 }
 
 extension SignUp1Presenter {
-    public func registerUser(phoneNumber: String, userName: String, image: Data) {
+    public func registerUser(phoneNumber: String, userName: String, image: Data, countryId: Int) {
         if UiHelpers.isInternetAvailable() {
             UiHelpers.showLoader()
-            signUp1Repository?.registerUser(phoneNumber: phoneNumber, userName: userName, image: image)
+            signUp1Repository?.registerUser(phoneNumber: phoneNumber, userName: userName, image: image, countryId: countryId)
         } else {
             signUp1View?.handleNoInternetConnection()
         }

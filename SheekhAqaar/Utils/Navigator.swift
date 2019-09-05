@@ -24,15 +24,15 @@ public class Navigator {
         }
     }
     
-    public func navigateToSignUp1(phoneNumber: String) {
-        weak var vc = SignUp1VC.buildVC(phoneNumber: phoneNumber)
+    public func navigateToSignUp1(phoneNumber: String, country: Country) {
+        weak var vc = SignUp1VC.buildVC(phoneNumber: phoneNumber, country: country)
         if let vc = vc {
             self.navigationController.pushViewController(vc, animated: true)
         }
     }
     
-    public func navigateToPhoneVerification(phoneNumber: String, nextPage: Int) {
-        weak var vc = PhoneVerificationVC.buildVC(phoneNumber: phoneNumber, nextPage: nextPage)
+    public func navigateToPhoneVerification(phoneNumber: String, nextPage: Int, country: Country) {
+        weak var vc = PhoneVerificationVC.buildVC(phoneNumber: phoneNumber, nextPage: nextPage, country: country)
         if let vc = vc {
             self.navigationController.pushViewController(vc, animated: true)
         }

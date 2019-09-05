@@ -60,7 +60,7 @@ class RegisterCompanyCell: UITableViewCell {
     var companyImageChoosen: Bool = false
     
     public var delegate: RegisterCompanyCellDelegate!
-    public var services: [CompanyService]!
+    public var categories: [Category]!
     
     public func initializeCell() {
         changeAvatarImageView.addTapGesture { [weak self] (_) in
@@ -117,14 +117,14 @@ class RegisterCompanyCell: UITableViewCell {
 
 extension RegisterCompanyCell: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return services.count
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyServicesCell.identifier, for: indexPath) as! CompanyServicesCell
         
         cell.delegate = self
-        cell.service = services.get(indexPath.row)!
+        cell.category = categories.get(indexPath.row)!
         cell.index = indexPath.row
         cell.populateData()        
         return cell
@@ -147,7 +147,7 @@ extension RegisterCompanyCell: UITableViewDataSource, UITableViewDelegate {
 
 extension RegisterCompanyCell: CompanyServicesCellDelegate {
     func serviceChecked(checked: Bool, index: Int) {
-        self.services.get(index)?.isChecked = checked
+        self.categories.get(index)?.isClicked = checked
         companyServicesTableView.reloadData()
         self.delegate.serviceChecked(checked: checked, index: index)
     }

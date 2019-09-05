@@ -28,15 +28,19 @@ class RegisterCompanyVC: BaseVC {
     let imagePicker = UIImagePickerController()
     var isUserChangingAvatar: Bool?
     var countries = [Country]()
-    var companyServices = [CompanyService]()
-    var selectedServices = [CompanyService]()
+    var selectedServices = [Category]()
     var selectedCountry: Country?
+    var userSelectedCountry = Singleton.getInstance().signUpData.countries.get(0)
+    var companySelectedCountry = Singleton.getInstance().signUpData.countries.get(0)
     var selectedRegion: Region?
-    var userCountryCode = "+966"
-    var companyCountryCode = "+966"
+    var userCountryCode = "+" + (Singleton.getInstance().signUpData.countries.get(0)?.code ?? "966")
+    var companyCountryCode = "+" + (Singleton.getInstance().signUpData.countries.get(0)?.code ?? "966")
     var locationManager = CLLocationManager()
     var alertController: UIAlertController!
     var presenter: RegisterCompanyPresenter!
+    var isUser: Bool!
+    var selectedLatitude: Double!
+    var selectedLongitude: Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +48,10 @@ class RegisterCompanyVC: BaseVC {
         
         presenter = Injector.provideRegisterCompanyPresenter()
         presenter.setView(view: self)
-        presenter.getCountries()
+        
+        companyDataTableView.dataSource = self
+        companyDataTableView.delegate = self
+        companyDataTableView.reloadData()
         
         getCurrentLocation()
     }
@@ -59,23 +66,10 @@ class RegisterCompanyVC: BaseVC {
 
     func showCountriesList(isUser: Bool) {
         
-        let picker = MICountryPicker()
-        navigationController?.pushViewController(picker, animated: true)
-        
-        picker.didSelectCountryWithCallingCodeClosure = { name, code, dialCode in
-            weak var weakSelf = self
-            let bundle = "assets.bundle/"
-            if isUser {
-                weakSelf?.cell.countryFlagImageView.image = UIImage(named: bundle + code.lowercased() + ".png", in: Bundle(for: MICountryPicker.self), compatibleWith: nil)
-                weakSelf?.cell.countryCodeLabel.text = dialCode
-                weakSelf?.userCountryCode = dialCode
-            } else {
-                weakSelf?.cell.companyCountryCodeFlag.image = UIImage(named: bundle + code.lowercased() + ".png", in: Bundle(for: MICountryPicker.self), compatibleWith: nil)
-                weakSelf?.cell.companyCountryCodeLabel.text = dialCode
-                weakSelf?.companyCountryCode = dialCode
-            }
-            weakSelf?.navigationController?.popViewController(animated: true)
-        }
+        let vc = CountriesListVC.buildVC(countries: Singleton.getInstance().signUpData.countries)
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
+        self.isUser = isUser
     }
     
     private func openPhotoGallery(isUserChangingAvatar: Bool) {
@@ -106,18 +100,6 @@ extension RegisterCompanyVC: RegisterCompanyView {
         Defaults[.company] = company.toJSON()
     }
     
-    func getCountriesSuccess(countries: [Country]) {
-        self.countries = countries
-        presenter.getServices()
-    }
-    
-    func getServicesSuccess(services: [CompanyService]) {
-        self.companyServices = services
-        companyDataTableView.dataSource = weakSelf
-        companyDataTableView.delegate = weakSelf
-        companyDataTableView.reloadData()
-    }
-    
     func failed(errorMessage: String) {
         self.view.makeToast(errorMessage)
     }
@@ -137,7 +119,7 @@ extension RegisterCompanyVC: UITableViewDataSource, UITableViewDelegate {
         
         cell.selectionStyle = .none
         cell.delegate = weakSelf
-        cell.services = companyServices
+        cell.categories = Singleton.getInstance().signUpData.categories
         cell.initializeCell()
         
         return cell
@@ -154,6 +136,8 @@ extension RegisterCompanyVC: GMSPlacePickerViewControllerDelegate {
         viewController.dismiss(animated: true, completion: nil)
 
         cell.addressOnMapLabel.text = place.formattedAddress
+        self.selectedLatitude = place.coordinate.latitude
+        self.selectedLongitude = place.coordinate.longitude
 //        print("Place name \(place.name)")
 //        print("Place address \(place.formattedAddress)")
 //        print("Place attributions \(place.attributions)")
@@ -178,7 +162,7 @@ extension RegisterCompanyVC: RegisterCompanyCellDelegate {
     
     func serviceChecked(checked: Bool, index: Int) {
         if checked {
-            weakSelf?.selectedServices.append((weakSelf?.companyServices.get(index))!)
+            weakSelf?.selectedServices.append((Singleton.getInstance().signUpData.categories.get(index))!)
         } else {
             weakSelf?.selectedServices.remove(at: index)
         }        
@@ -289,8 +273,11 @@ extension RegisterCompanyVC: RegisterCompanyCellDelegate {
                                                     if let _ = weakSelf?.selectedRegion {
                                                         if let detailedAddress = weakSelf?.cell.detailedAddressTextField.text, !detailedAddress.isEmpty {
                                                             if let traditionalNumber = weakSelf?.cell.traditionalNumberTextField.text, !traditionalNumber.isEmpty {
-                                                                // go to home
-                                                                weakSelf?.navigator.navigateToHome()
+                                                                if let _ = weakSelf?.selectedLatitude, let _ = weakSelf?.selectedLongitude {
+                                                                    weakSelf?.presenter.registerCompany(userPhoneNumber: userPhoneNumber, userName: fullName, userImage: (weakSelf?.cell.userAvatarImageView.image?.jpegData(compressionQuality: 0.5))!, companyImage: (weakSelf?.cell.companyAvatar.image?.jpegData(compressionQuality: 0.5))!, companyServices: weakSelf!.selectedServices, companyName: companyName, companyTraditionalNumber: traditionalNumber, companyPhoneNumber: companyPhoneNumber, companyEmail: email, companyCountry: self.selectedCountry!, companyRegion: self.selectedRegion!, detailedAddress: detailedAddress, companyLatitude: self.selectedLatitude, companyLongitude: self.selectedLongitude, userSelectedCountry: self.userSelectedCountry!, companySelectedCountry: self.companySelectedCountry!)
+                                                                } else {
+                                                                    weakSelf?.view.makeToast("selectCompanyPlace".localized())
+                                                                }
                                                             } else {
                                                                 weakSelf?.view.makeToast("enterTraditionalnumber".localized())
                                                             }
@@ -412,3 +399,26 @@ extension RegisterCompanyVC: CLLocationManagerDelegate {
         print("Error: \(error)")
     }
 }
+
+extension RegisterCompanyVC: CountriesListDelegate {
+    func countrySelected(country: Country?) {
+        if let country = country {
+            if isUser {
+                if let url = URL(string: country.imageUrl) {
+                    cell.countryFlagImageView.af_setImage(withURL: url)
+                }
+                cell.countryCodeLabel.text =  "+" + country.code
+                userCountryCode =  "+" + country.code
+                userSelectedCountry = country
+            } else {
+                if let url = URL(string: country.imageUrl) {
+                    cell.companyCountryCodeFlag.af_setImage(withURL: url)
+                }
+                cell.companyCountryCodeLabel.text = "+" + country.code
+                companyCountryCode =  "+" + country.code
+                companySelectedCountry = country
+            }
+        }
+    }
+}
+

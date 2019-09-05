@@ -8,11 +8,13 @@
 
 import Foundation
 import Alamofire
+import SwiftyUserDefaults
 
 public protocol HomePresenterDelegate: class {
     func getFirstCategoriesSuccess(categories: [Category])
     func getSecondCategoriesSuccess(categories: [Category])
     func getThirdCategoriesSuccess(categories: [Category])
+    func loginSuccess(user: User?, isExist: Bool)
     func failed(errorMessage: String)
 }
 
@@ -22,6 +24,27 @@ public class HomeRepository {
     
     public func setDelegate(delegate: HomePresenterDelegate) {
         self.delegate = delegate
+    }
+    
+    public func login() {
+        let params = ["token" : User(json: Defaults[.user]!)?.token]
+        let url = CommonConstants.BASE_URL + "User/Login"
+        
+        Alamofire.request(url, method: .post, parameters: params as Parameters, encoding: JSONEncoding.default, headers: nil)
+            .responseJSON { response in
+                
+                switch response.result {
+                case .success(_):
+                    let json = (response.result.value as! Dictionary<String,AnyObject>)
+                    let entity = Entity<User>(json: json)
+                    self.delegate.loginSuccess(user: entity?.data, isExist: entity?.status.id == 1)
+                    break
+                    
+                case .failure(let error):
+                    self.delegate.failed(errorMessage: error.localizedDescription)
+                    break
+                }
+        }
     }
     
     public func getFirstCategories() {

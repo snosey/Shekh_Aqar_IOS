@@ -109,6 +109,10 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         presenter = Injector.provideHomePresenter()
         presenter.setView(view: self)
         presenter.getFirstCategories()
+        if let _ = Defaults[.user] {
+            presenter.getUserData()
+        }
+        
     }
     
     func getCurrentLocation() {
@@ -201,6 +205,12 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
 }
 
 extension HomeVC: HomeView {
+    func loginSuccess(user: User?, isExist: Bool) {
+        if isExist {
+            Defaults[.user] = user?.toJSON()
+        }
+    }
+    
     func getFirstCategoriesSuccess(categories: [Category]) {
         categories1 = categories
         collectionView1.reloadData()

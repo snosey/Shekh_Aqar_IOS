@@ -12,6 +12,7 @@ public protocol HomeView: class {
     func getFirstCategoriesSuccess(categories: [Category])
     func getSecondCategoriesSuccess(categories: [Category])
     func getThirdCategoriesSuccess(categories: [Category])
+    func loginSuccess(user: User?, isExist: Bool)
     func failed(errorMessage: String)
     func handleNoInternetConnection()
 }
@@ -58,6 +59,15 @@ extension HomePresenter {
            homeView?.handleNoInternetConnection()
         }
     }
+    
+    public func getUserData() {
+        if UiHelpers.isInternetAvailable() {
+            UiHelpers.showLoader()
+            homeRepository?.login()
+        } else {
+            homeView?.handleNoInternetConnection()
+        }
+    }
 }
 
 extension HomePresenter: HomePresenterDelegate {
@@ -74,6 +84,11 @@ extension HomePresenter: HomePresenterDelegate {
     public func getThirdCategoriesSuccess(categories: [Category]) {
         UiHelpers.hideLoader()
         homeView?.getThirdCategoriesSuccess(categories: categories)
+    }
+    
+    public func loginSuccess(user: User?, isExist: Bool) {
+        UiHelpers.hideLoader()
+        homeView?.loginSuccess(user: user, isExist: isExist)
     }
     
     public func failed(errorMessage: String) {

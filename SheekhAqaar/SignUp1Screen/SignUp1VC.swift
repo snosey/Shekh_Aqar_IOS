@@ -11,10 +11,11 @@ import SwiftyUserDefaults
 
 class SignUp1VC: BaseVC {
 
-    public class func buildVC(phoneNumber: String) -> SignUp1VC {
+    public class func buildVC(phoneNumber: String, country: Country) -> SignUp1VC {
         let storyboard = UIStoryboard(name: "SignUp1Storyboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SignUp1VC") as! SignUp1VC
         vc.phoneNumber = phoneNumber
+        vc.country = country
         return vc
     }
     
@@ -26,6 +27,7 @@ class SignUp1VC: BaseVC {
     
     let imagePicker = UIImagePickerController()
     var phoneNumber: String!
+    var country: Country!
     var imageChoosen = false
     var presenter: SignUp1Presenter!
     
@@ -65,7 +67,7 @@ class SignUp1VC: BaseVC {
     @IBAction func continueClicked(_ sender: Any) {
         if let username = usernameTextfield.text, !username.isEmpty {
             if imageChoosen {
-                presenter.registerUser(phoneNumber: phoneNumber, userName: username, image: self.userAvatarImageView.image!.jpegData(compressionQuality: 0.5)!)
+                presenter.registerUser(phoneNumber: phoneNumber, userName: username, image: self.userAvatarImageView.image!.jpegData(compressionQuality: 0.5)!, countryId: self.country.id)
                 
             } else {
                 self.view.makeToast("enterAvatar".localized())

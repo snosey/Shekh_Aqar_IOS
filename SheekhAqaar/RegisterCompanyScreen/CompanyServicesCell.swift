@@ -21,28 +21,25 @@ class CompanyServicesCell: UITableViewCell {
     @IBOutlet weak var serviceNameLabel: UILabel!
     
     public var index: Int!
-    public var service: CompanyService!
+    public var category: Category!
     public var delegate: CompanyServicesCellDelegate!
     
     public func populateData() {
         contentView.backgroundColor = .clear
-        if service.isChecked {
+        if category.isClicked {
            checkImageView.image = UIImage(named: "checked")
         } else {
             checkImageView.image = UIImage(named: "unchecked")
         }
         
         checkImageView.addTapGesture { [weak self] (_) in
-            self?.delegate.serviceChecked(checked: !(self?.service.isChecked ?? false), index: self?.index ?? 0)
+            self?.delegate.serviceChecked(checked: !(self?.category.isClicked ?? false), index: self?.index ?? 0)
         }
         
         serviceNameLabel.addTapGesture { [weak self] (_) in
-            self?.delegate.serviceChecked(checked: !(self?.service.isChecked ?? false), index: self?.index ?? 0)
+            self?.delegate.serviceChecked(checked: !(self?.category.isClicked ?? false), index: self?.index ?? 0)
         }
-        if Localize.currentLanguage() == "ar" {
-            serviceNameLabel.text = self.service.nameAr
-        } else {
-            serviceNameLabel.text = self.service.nameEn
-        }
+        
+        serviceNameLabel.text = self.category.name
     }
 }

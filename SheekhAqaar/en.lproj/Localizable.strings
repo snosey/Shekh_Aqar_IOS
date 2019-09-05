@@ -98,3 +98,5 @@
 "farshLevel" = "";
 "numberOfRooms" = "Number of rooms";
 "numberOfBathrooms" = "Number of bathrooms";
+"selectCountryError" = "Please select country code first";
+"selectCompanyPlace" = "Please select company location on the map";

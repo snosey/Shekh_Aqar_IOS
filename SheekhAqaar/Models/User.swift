@@ -16,6 +16,7 @@ public class User: DataType {
     var imageUrl : String!
     var phoneNumber: String!
     var token: String!
+    var fcmToken: String!
     var language: Int!
     var countryId: Int!
     var regionId: Int!
@@ -32,6 +33,7 @@ public class User: DataType {
         countryId = "Fk_Country" <~~ json
         regionId = "Fk_UserState" <~~ json
         userType = "Fk_UserType" <~~ json
+        fcmToken = "OneSiganlToken" <~~ json
     }
     
     public init() {
@@ -50,6 +52,7 @@ public class User: DataType {
             "Fk_Country" ~~> countryId,
             "Fk_UserState" ~~> regionId,
             "Fk_UserType" ~~> userType,
+            "OneSiganlToken" ~~> fcmToken,
             ])
     }
     

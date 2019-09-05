@@ -98,3 +98,5 @@
 "farshLevel" = "مستوي الفرش";
 "numberOfRooms" = "عدد الغرف";
 "numberOfBathrooms" = "عدد الحمامات";
+"selectCountryError" = "من فضلك اختر كود الدولة";
+"selectCompanyPlace" = "من فضلك قم بتحديد موقع الشركة علي خرائط جوجل";
