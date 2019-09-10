@@ -38,6 +38,8 @@ extension RegisterCompanyPresenter {
             registerCompanyView?.handleNoInternetConnection()
         }
     }
+    
+    
 }
 
 extension RegisterCompanyPresenter: RegisterCompanyPresenterDelegate {

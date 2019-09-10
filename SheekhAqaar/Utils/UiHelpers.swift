@@ -26,14 +26,14 @@ class UiHelpers {
         companyNameLabel.backgroundColor = .clear
         companyNameLabel.text = companyName
         companyNameLabel.textAlignment = .center
-        companyNameLabel.textColor = .black
+        companyNameLabel.textColor = UIColor(hexString: "#1E1C21")
         companyNameLabel.fontSize = 10
         
         let adsNumberLabel = UILabel()
         adsNumberLabel.backgroundColor = .clear
         adsNumberLabel.text = "\("adsNumber".localized()) \(adsNumber)"
         adsNumberLabel.textAlignment = .center
-        adsNumberLabel.textColor = .black
+        adsNumberLabel.textColor = UIColor(hexString: "#1E1C21")
         adsNumberLabel.fontSize = 10
         
         let sourceView = UIView(superView: sourceView, padding: 0)
@@ -84,11 +84,11 @@ class UiHelpers {
         return sourceView
     }
     
-    class func addCompanyMarker(sourceView: UIView, latitude: Double, longitude: Double, title: String, adsNumber: Int, mapView: GMSMapView) -> GMSMarker {
+    class func addCompanyMarker(sourceView: UIView, latitude: Double, longitude: Double, title: String, adsNumber: Int, mapView: GMSMapView, companyMarkerColor: String) -> GMSMarker {
         let locationMarker = GMSMarker()
         locationMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         locationMarker.title = title
-        locationMarker.iconView = UiHelpers.makeMarkerView(sourceView: sourceView, companyName: title, adsNumber: adsNumber, companyColorCode: "#ff00ff")
+        locationMarker.iconView = UiHelpers.makeMarkerView(sourceView: sourceView, companyName: title, adsNumber: adsNumber, companyColorCode: companyMarkerColor)
         locationMarker.map = mapView
         return locationMarker
     }

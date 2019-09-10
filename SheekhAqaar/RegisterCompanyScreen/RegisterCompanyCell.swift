@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SwiftyUserDefaults
 
 public protocol RegisterCompanyCellDelegate: class {
     func changeUserAvatar()
@@ -26,6 +27,8 @@ class RegisterCompanyCell: UITableViewCell {
 
     public static let identifier = "RegisterCompanyCell"
     
+    
+    @IBOutlet weak var userDataTitleLabel: LocalizedLabel!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var userAvatarImageView: UIImageView!
     @IBOutlet weak var changeAvatarImageView: UIImageView!
@@ -35,6 +38,7 @@ class RegisterCompanyCell: UITableViewCell {
     @IBOutlet weak var countryCodeLabel: UILabel!
     @IBOutlet weak var countryFlagImageView: UIImageView!
     
+    @IBOutlet weak var companyDataTitleLabel: LocalizedLabel!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var companyAvatar: UIImageView!
     @IBOutlet weak var changeCompanyAvatar: UIImageView!
@@ -112,6 +116,17 @@ class RegisterCompanyCell: UITableViewCell {
         companyServicesTableView.dataSource = self
         companyServicesTableView.delegate = self
         companyServicesTableView.reloadData()
+        
+        if let _ = Defaults[.user] {
+            userDataTitleLabel.isHidden = true
+            topView.isHidden = true
+            
+            companyDataTitleLabel.snp.remakeConstraints { (maker) in
+                maker.top.equalTo(self.contentView).offset(8)
+                maker.leading.equalTo(self.contentView).offset(8)
+                maker.trailing.equalTo(self.contentView).offset(-8)
+            }
+        }
     }
 }
 

@@ -9,10 +9,9 @@
 import Foundation
 
 public protocol HomeView: class {
-    func getFirstCategoriesSuccess(categories: [Category])
-    func getSecondCategoriesSuccess(categories: [Category])
-    func getThirdCategoriesSuccess(categories: [Category])
+    func getCategoriesSuccess(firstRowCategories: [Category], secondRowCategories: [Category], thirdRowCategories: [Category])
     func loginSuccess(user: User?, isExist: Bool)
+    func getCompaniesSuccess(companies: [Company])
     func failed(errorMessage: String)
     func handleNoInternetConnection()
 }
@@ -33,30 +32,21 @@ public class HomePresenter {
 }
 
 extension HomePresenter {
-    public func getFirstCategories() {
+    public func getHomeCategories() {
         if UiHelpers.isInternetAvailable() {
             UiHelpers.showLoader()
-            homeRepository?.getFirstCategories()
+            homeRepository?.getHomeCategories()
         } else {
             homeView?.handleNoInternetConnection()
         }
     }
     
-    public func getSecondCategories() {
+    public func getCompanies(categoryId: Int, latitude: Double, longitude: Double) {
         if UiHelpers.isInternetAvailable() {
             UiHelpers.showLoader()
-            homeRepository?.getSecondCategories()
+            homeRepository?.getCompanies(categoryId: categoryId, latitude: latitude, longitude: longitude)
         } else {
             homeView?.handleNoInternetConnection()
-        }
-    }
-    
-    public func getThirdCategories() {
-        if UiHelpers.isInternetAvailable() {
-            UiHelpers.showLoader()
-            homeRepository?.getThirdCategories()
-        } else {
-           homeView?.handleNoInternetConnection()
         }
     }
     
@@ -68,22 +58,26 @@ extension HomePresenter {
             homeView?.handleNoInternetConnection()
         }
     }
+    
+    public func getSignUpData() {
+        if UiHelpers.isInternetAvailable() {
+            UiHelpers.showLoader()
+            homeRepository?.getSignUpData()
+        } else {
+            homeView?.handleNoInternetConnection()
+        }
+    }
 }
 
 extension HomePresenter: HomePresenterDelegate {
-    public func getFirstCategoriesSuccess(categories: [Category]) {
+    public func getCompaniesSuccess(companies: [Company]) {
         UiHelpers.hideLoader()
-        homeView?.getFirstCategoriesSuccess(categories: categories)
+        homeView?.getCompaniesSuccess(companies: companies)
     }
     
-    public func getSecondCategoriesSuccess(categories: [Category]) {
+    public func getCategoriesSuccess(firstRowCategories: [Category], secondRowCategories: [Category], thirdRowCategories: [Category]) {
         UiHelpers.hideLoader()
-        homeView?.getSecondCategoriesSuccess(categories: categories)
-    }
-    
-    public func getThirdCategoriesSuccess(categories: [Category]) {
-        UiHelpers.hideLoader()
-        homeView?.getThirdCategoriesSuccess(categories: categories)
+        homeView?.getCategoriesSuccess(firstRowCategories: firstRowCategories, secondRowCategories: secondRowCategories, thirdRowCategories: thirdRowCategories)
     }
     
     public func loginSuccess(user: User?, isExist: Bool) {

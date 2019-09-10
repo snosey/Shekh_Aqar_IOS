@@ -32,10 +32,10 @@ public class SignUpPresenter {
 
 extension SignUpPresenter {
     
-    public func login(phoneNumber: String) {
+    public func login(phoneNumber: String, countryId: Int) {
         if UiHelpers.isInternetAvailable() {
             UiHelpers.showLoader()
-            signUpRepository?.login(phoneNumber: phoneNumber)
+            signUpRepository?.login(phoneNumber: phoneNumber, countryId: countryId)
         } else {
             signUpView?.handleNoInternetConnection()
         }

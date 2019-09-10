@@ -15,6 +15,7 @@ extension DefaultsKeys {
     static let fcmToken = DefaultsKey<String?>("fcm_token")
     static let token = DefaultsKey<String?>("token")
     static let isLoggedIn = DefaultsKey<Bool?>("isLoggedIn")
+    static let isSkipped = DefaultsKey<Bool?>("isSkipped")
     static let notVerifiedUserId = DefaultsKey<String?>("notVerifiedUserId")
     static let hasTrip = DefaultsKey<Bool?>("hasTrip")
     static let lastLoggedInUserId = DefaultsKey<String?>("lastLoggedInUserId")

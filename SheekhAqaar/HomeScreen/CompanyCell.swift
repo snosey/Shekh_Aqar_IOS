@@ -35,7 +35,7 @@ class CompanyCell: UITableViewCell {
         }
         
         mapImageView.addTapGesture { [weak self] (_) in
-            self?.delegate.openMapsClicked(latitude: self?.company.latitude ?? 0, longitude: self?.company.longitude ?? 0)
+            self?.delegate.openMapsClicked(latitude: Double(self?.company.latitude ?? "") ?? 0, longitude: Double(self?.company.longitude ?? "") ?? 0)
         }
         
         contentView.addTapGesture { [weak self] (_) in
@@ -47,14 +47,8 @@ class CompanyCell: UITableViewCell {
         if let url = URL(string: company.imageUrl) {
             companyImageView.af_setImage(withURL: url)
         }
-        
-        if Localize.currentLanguage() == "en" {
-            companyNameLabel.text = company.nameEn
-            companyAddressLabel.text = company.addressEn
-        } else {
-            companyNameLabel.text = company.nameAr
-            companyAddressLabel.text = company.addressAr
-        }
+        companyNameLabel.text = company.name
+        companyAddressLabel.text = company.address
         
         companyNumberOfAdsLabel.text = "\("adsNumber".localized()) \(company.numberOfAds!)"
     }

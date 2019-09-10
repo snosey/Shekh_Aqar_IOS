@@ -49,7 +49,11 @@ public class ApplicationStarter {
         if let _ = Defaults[.user] {
             vc = HomeVC.buildVC()
         } else {
-            vc = SignUpVC.buildVC()
+            if let isSkipped = Defaults[.isSkipped], isSkipped {
+                vc = HomeVC.buildVC()
+            } else {
+                vc = SignUpVC.buildVC()
+            }
         }
         
         let navigationController = UINavigationController(rootViewController: vc)

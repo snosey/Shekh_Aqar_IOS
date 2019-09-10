@@ -23,7 +23,7 @@ public class SignUp1Repository {
     
     public func registerUser(phoneNumber: String, userName: String, image: Data, countryId: Int) {
         
-        let params = ["Fk_Country" : countryId, "Fk_Language" : 0, "Fk_UserState" : 0, "Fk_UserType" : UserType.USER.rawValue, "Id" : 0, "Name" : userName, "Phone" : phoneNumber] as [String : Any]
+        let params = ["Fk_Country" : countryId, "Fk_Language" : 0, "Fk_UserState" : 0, "Fk_UserType" : UserType.USER.rawValue, "Name" : userName, "Phone" : phoneNumber] as [String : Any]
         
         let url = CommonConstants.BASE_URL + "User/SignUp"
         

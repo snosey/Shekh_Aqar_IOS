@@ -22,8 +22,8 @@ public class SignUpRepository {
         self.delegate = delegate
     }
     
-    public func login(phoneNumber: String) {
-        let params = ["Phone" : phoneNumber]
+    public func login(phoneNumber: String, countryId: Int) {
+        let params = ["Phone" : phoneNumber, "Fk_Country" : countryId] as [String : Any]
         let url = CommonConstants.BASE_URL + "User/Login"
         
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)

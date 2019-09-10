@@ -41,6 +41,7 @@ class SignUpVC: BaseVC {
         
         skipLabel.addTapGesture { [weak self] (_) in
             // go to home screen
+            Defaults[.isSkipped] = true
             self?.navigator.navigateToHome()
         }
                 
@@ -80,7 +81,7 @@ class SignUpVC: BaseVC {
                     }
                     userPhone = "\(code)\(userPhone)"
                     print(userPhone)
-                    presenter.login(phoneNumber: userPhone)
+                    presenter.login(phoneNumber: userPhone, countryId: self.selectedCountry.id)
                     
                 } else {
                     self.view.makeToast("enterValidPhoneNumber".localized())

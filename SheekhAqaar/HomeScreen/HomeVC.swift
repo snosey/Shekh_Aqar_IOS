@@ -11,6 +11,7 @@ import Localize_Swift
 import GoogleMaps
 import SideMenu
 import SwiftyUserDefaults
+import GooglePlaces
 
 class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
 
@@ -42,6 +43,11 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     var categories2 = [Category]()
     var categories3 = [Category]()
     
+    var companies = [Company]()
+    
+    var currentLatitude: Double!
+    var currentLongitude: Double!
+    
     var selectedCategory: Category!
     var selectedCategoryPosition = 0
     var viewingMode = 1 // 1-->Map 2-->Table
@@ -57,6 +63,21 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         showImagesButton.layer.borderColor = UIColor.AppColors.textColor.cgColor
         showImagesButton.layer.borderWidth = 1
         showImagesButton.setTitleColor(UIColor.AppColors.textColor, for: .normal)
+        
+        searchIcon.addTapGesture { [weak self] (_) in
+            let autocompleteController = GMSAutocompleteViewController()
+            autocompleteController.delegate = self
+            
+            let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
+                UInt(GMSPlaceField.placeID.rawValue))!
+            autocompleteController.placeFields = fields
+            
+            let filter = GMSAutocompleteFilter()
+            filter.type = .address
+            autocompleteController.autocompleteFilter = filter
+            
+            self?.present(autocompleteController, animated: true, completion: nil)
+        }
         
         showMapButton.addTapGesture { [weak self] (_) in
             GradientBG.createGradientLayer(view: self?.showMapButton ?? UIView(), cornerRaduis: 8, maskToBounds: true)
@@ -74,7 +95,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
             
             if let category = self?.selectedCategory {
                 if self?.selectedCategoryPosition == 1 {
-                    self?.showCompaniesOnMap(category: category)
+                    self?.showCompaniesOnMap()
                 } else if self?.selectedCategoryPosition == 2 || self?.selectedCategoryPosition == 3 {
                     self?.showAdsOnMap(category: category)
                 }
@@ -108,9 +129,13 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         
         presenter = Injector.provideHomePresenter()
         presenter.setView(view: self)
-        presenter.getFirstCategories()
+        presenter.getHomeCategories()
         if let _ = Defaults[.user] {
             presenter.getUserData()
+        }
+        
+        if Singleton.getInstance().signUpData == nil {
+            presenter.getSignUpData()
         }
         
     }
@@ -130,23 +155,22 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         googleMapView.delegate = self
         googleMapView.isMyLocationEnabled = true
         googleMapView.settings.myLocationButton = true
-        
     }
     
-    func showCompaniesOnMap(category: Category) {
+    func showCompaniesOnMap() {
         googleMapView.clear()
-        for company in category.companies {
-            let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: company.latitude, longitude: company.longitude, title: company.nameEn, adsNumber: company.numberOfAds, mapView: googleMapView)
+        for company in companies {
+            let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(company.latitude)!, longitude: Double(company.longitude)!, title: company.name, adsNumber: company.numberOfAds, mapView: googleMapView, companyMarkerColor: "#eede71")
             marker.userData = company
         }
     }
     
     func showAdsOnMap(category: Category) {
         googleMapView.clear()
-        for ad in category.ads {
-           let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: ad.latitude, longitude: ad.longitude, title: ad.name, adsNumber: category.ads.count, mapView: googleMapView)
-            marker.userData = ad
-        }
+//        for ad in category.ads {
+//           let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: ad.latitude, longitude: ad.longitude, title: ad.name, adsNumber: category.ads.count, mapView: googleMapView)
+//            marker.userData = ad
+//        }
     }
     
     private func changeArrows() {
@@ -157,7 +181,6 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
             right1ImageView.image = UIImage(named: "left_arrow")
             right2ImageView.image = UIImage(named: "left_arrow")
             right3ImageView.image = UIImage(named: "left_arrow")
-            
         }
     }
     
@@ -205,26 +228,29 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
 }
 
 extension HomeVC: HomeView {
+    func getCompaniesSuccess(companies: [Company]) {
+        self.companies = companies
+        if viewingMode == 1 {
+            showCompaniesOnMap()
+        } else {
+            tableView.reloadData()
+        }
+    }
+    
     func loginSuccess(user: User?, isExist: Bool) {
         if isExist {
             Defaults[.user] = user?.toJSON()
         }
     }
     
-    func getFirstCategoriesSuccess(categories: [Category]) {
-        categories1 = categories
+    func getCategoriesSuccess(firstRowCategories: [Category], secondRowCategories: [Category], thirdRowCategories: [Category]) {
+        categories1 = firstRowCategories
         collectionView1.reloadData()
-        presenter.getSecondCategories()
-    }
-    
-    func getSecondCategoriesSuccess(categories: [Category]) {
-        categories2 = categories
+        
+        categories2 = secondRowCategories
         collectionView2.reloadData()
-        presenter.getThirdCategories()
-    }
-    
-    func getThirdCategoriesSuccess(categories: [Category]) {
-        categories3 = categories
+        
+        categories3 = thirdRowCategories
         collectionView3.reloadData()
     }
     
@@ -235,8 +261,6 @@ extension HomeVC: HomeView {
     func handleNoInternetConnection() {
         self.view.makeToast("noInternetConnection".localized())
     }
-    
-    
 }
 
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -271,14 +295,41 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
         
         cell.categoryNameButton.addTapGesture { [weak self](_) in
             if collectionView == self?.collectionView1 {
-                self?.selectedCategoryPosition = 1
-                self?.selectedCategory = cell.category
-                if self?.viewingMode == 1 {
-                    self?.showCompaniesOnMap(category: cell.category)
-                } else if self?.viewingMode == 2 {
-                    self?.tableView.reloadData()
+                
+                switch cell.category.id {
+                case -1:
+                    if let _ = Defaults[.user] {
+                        // go to add ad
+                        self?.navigator.navigateToCreateAd()
+                    } else {
+                        self?.navigator.navigateToSignUp()
+                    }
+                    break
+                    
+                case -2:
+                    if let _ = Defaults[.user] {
+                        // go to add ad
+                        self?.navigator.navigateToCreateAd() // will be changed to request ad
+                    } else {
+                        self?.navigator.navigateToSignUp()
+                    }
+                    break
+                    
+                case -3:
+                    self?.navigator.navigateToRegisterAsCompany()
+                    break
+                    
+                default:
+                    self?.selectedCategory = cell.category
+                    if self?.viewingMode == 1 {
+                        self?.presenter.getCompanies(categoryId: cell.category.id, latitude: self?.currentLatitude ?? 0, longitude: self?.currentLongitude ?? 0)
+                    } else if self?.viewingMode == 2 {
+                        self?.presenter.getCompanies(categoryId: cell.category.id, latitude: self?.currentLatitude ?? 0, longitude: self?.currentLongitude ?? 0)
+                    }
+                    break
                 }
                 
+                self?.selectedCategoryPosition = 1                
                 var indexPathes1 = [IndexPath]()
                 var count1 = 0
                 for category in self?.categories1 ?? [] {
@@ -388,9 +439,9 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if selectedCategoryPosition == 1 {
-            return selectedCategory.companies.count
+            return companies.count
         } else if selectedCategoryPosition == 2 || selectedCategoryPosition == 3 {
-            return selectedCategory.ads.count
+            return 0//selectedCategory.ads.count
         }
         return 0
     }
@@ -398,22 +449,22 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if self.selectedCategoryPosition == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCell.identifier, for: indexPath) as! CompanyCell
-            cell.company = self.selectedCategory.companies.get(indexPath.row)
+            cell.company = companies.get(indexPath.row)
             cell.delegate = self
             cell.initializeCell()
             cell.populateData()
             cell.selectionStyle = .none
             cell.contentView.addTapGesture { [weak self] (_) in
-                self?.navigator.navigateToCompany(company: self?.selectedCategory.companies.get(indexPath.row) ?? Company())
+                self?.navigator.navigateToCompany(company: self?.companies.get(indexPath.row) ?? Company())
             }
             return cell
         } else if selectedCategoryPosition == 2 || selectedCategoryPosition == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: AdCell.identifier, for: indexPath) as! AdCell
-            cell.ad = selectedCategory.ads.get(indexPath.row)
+//            cell.ad = selectedCategory.ads.get(indexPath.row)
             cell.populateData()
             cell.selectionStyle = .none
             cell.contentView.addTapGesture { [weak self] (_) in
-                self?.navigator.navigateToAdDetails(ad: self?.selectedCategory.ads.get(indexPath.row) ?? Ad())
+//                self?.navigator.navigateToAdDetails(ad: self?.selectedCategory.ads.get(indexPath.row) ?? Ad())
             }
             return cell
         }
@@ -432,6 +483,8 @@ extension HomeVC: CLLocationManagerDelegate {
         
         if Singleton.getInstance().currentLocation == nil || (Singleton.getInstance().currentLocation.coordinate.latitude != locations.last!.coordinate.latitude && Singleton.getInstance().currentLocation.coordinate.longitude != locations.last!.coordinate.longitude) {
             Singleton.getInstance().currentLocation = locations.last!
+            currentLatitude = locations.last!.coordinate.latitude
+            currentLongitude = locations.last!.coordinate.longitude
         }
         
         createMapView(latitude: (Singleton.getInstance().currentLocation?.coordinate.latitude)!, longitude: (Singleton.instance.currentLocation?.coordinate.longitude)!)
@@ -551,5 +604,46 @@ extension HomeVC: GMSMapViewDelegate {
             }
         }
         return true
+    }
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        mapView.clear()
+        currentLatitude = position.target.latitude
+        currentLongitude = position.target.longitude
+        if let _ = selectedCategory {
+            presenter.getCompanies(categoryId: selectedCategory.id, latitude: currentLatitude, longitude: currentLongitude)
+        }
+    }
+}
+
+extension HomeVC: GMSAutocompleteViewControllerDelegate {
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        currentLatitude = place.coordinate.latitude
+        currentLongitude = place.coordinate.longitude
+        createMapView(latitude: currentLatitude, longitude: currentLongitude)
+        if let _ = selectedCategory {
+            presenter.getCompanies(categoryId: selectedCategory.id, latitude: currentLatitude, longitude: currentLongitude)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }

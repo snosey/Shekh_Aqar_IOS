@@ -18,6 +18,7 @@ class CategoryCell: UICollectionViewCell {
     
     public func populateData() {
         categoryNameButton.setTitle(category.name, for: .normal)
+        categoryNameButton.titleLabel?.textAlignment = .center
     }
     
     public func changeLabelToBeClicked() {

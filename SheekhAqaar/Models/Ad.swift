@@ -13,7 +13,8 @@ public class Ad: DataType {
     
     var id: Int!
     var name : String!
-    var imagesUrls : [String]!
+    var adImages : [AdImage]!
+    var imagesUrls: [String]!
     var price: String!
     var currency: Currency!
     var details: String!
@@ -33,6 +34,33 @@ public class Ad: DataType {
     var phoneNumber = "+201119993362"
     var creationTime: Double = 1566899994
     var isFavourite: Bool = false
+    
+    /*
+     public int Id;
+     public String Title;
+     public int Fk_User;
+     public int Fk_SubCategory;
+     public String About;
+     public String Address;
+     public String Longitude;
+     public String Latitude;
+     public int Fk_ItemState;
+     public int ViewCount;
+     public int Fk_ItemType;
+     public String CreatedAt;
+     public String UpdatedAt;
+     public ItemStateModel
+     ItemStateModel;
+     public ItemTypeModel
+     ItemTypeModel;
+     public SubCategoryModel
+     SubCategoryModel;
+     public UserModel
+     UserModel;
+     public List<UserItemFavoriteModel> UserItemFavoritesModel;
+     public List<UserItemImageModel> UserItemImagesModel;
+     public List<UserItemMainModel> UserItemMainsModel;
+     */
     
     //MARK: Decodable
     required public init?(json: JSON){
