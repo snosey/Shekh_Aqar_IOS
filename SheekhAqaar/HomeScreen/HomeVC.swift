@@ -202,7 +202,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         if let layout = collectionView1.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
             layout.itemSize = CGSize(width: UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH
-                , relativeView: nil, percentage: 100), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 10))
+                , relativeView: nil, percentage: 20), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5))
         }
         
         collectionView2.dataSource = self
@@ -218,7 +218,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         if let layout = collectionView3.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
             layout.itemSize = CGSize(width: UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH
-                , relativeView: nil, percentage: 25), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 10))
+                , relativeView: nil, percentage: 100), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 10))
         }
         
         tableView.dataSource = self
@@ -263,7 +263,7 @@ extension HomeVC: HomeView {
     }
 }
 
-extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
+extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionView1 {
             return categories1.count
@@ -276,6 +276,9 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
         }
     }
     
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: 100, height: 100)
+//    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
         if collectionView == collectionView1 {
