@@ -23,7 +23,7 @@ class CategoryCell: UICollectionViewCell {
     
     public func changeLabelToBeClicked() {
         GradientBG.createGradientLayer(view: categoryNameButton, cornerRaduis: 8, maskToBounds: true, size: CGSize(width: UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH
-            , relativeView: nil, percentage: 20), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5)))
+            , relativeView: nil, percentage: 25), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5)))
         categoryNameButton.setTitleColor(.black, for: .normal)
     }
     
