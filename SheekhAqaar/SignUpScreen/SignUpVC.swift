@@ -6,11 +6,9 @@
 //  Copyright © 2019 Hesham Donia. All rights reserved.
 //
 
-import UIKit
-import MICountryPicker
-import FirebaseAuth
+import UIKit 
 import SwiftyUserDefaults
-
+import FirebaseAuth
 class SignUpVC: BaseVC {
     
     @IBOutlet weak var phoneNumberTextField: LocalizedTextField!

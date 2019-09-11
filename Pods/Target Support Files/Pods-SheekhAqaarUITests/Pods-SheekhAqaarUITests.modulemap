@@ -1,0 +1,6 @@
+framework module Pods_SheekhAqaarUITests {
+  umbrella header "Pods-SheekhAqaarUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

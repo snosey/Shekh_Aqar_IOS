@@ -226,7 +226,7 @@ extension RegisterCompanyVC: RegisterCompanyCellDelegate {
             self?.selectedRegion = nil
             self?.cell.regionNameLabel.text = "region".localized()
             if #available(iOS 13.0, *) {
-                self?.cell.regionNameLabel.textColor = .placeholderText
+                self?.cell.regionNameLabel.textColor = .black
             } else {
                 self?.cell.regionNameLabel.textColor = .lightGray
             }
