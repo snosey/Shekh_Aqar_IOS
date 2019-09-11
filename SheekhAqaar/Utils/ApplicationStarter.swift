@@ -21,6 +21,8 @@ public class ApplicationStarter {
         
         FirebaseApp.configure()
         
+        Localize.setCurrentLanguage("ar")
+        
         GMSServices.provideAPIKey(CommonConstants.GOOGLE_MAPS_KEY)
         GMSPlacesClient.provideAPIKey(CommonConstants.GOOGLE_MAPS_KEY)
         
@@ -42,7 +44,7 @@ public class ApplicationStarter {
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.AppColors.primaryColor, NSAttributedString.Key.font: AppFont.font(type: .Bold, size: 12)], for: .selected)
         
-        Localize.setCurrentLanguage("ar")
+        
         
         var vc: UIViewController!
         vc = SignUpVC.buildVC()
