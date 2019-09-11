@@ -14,6 +14,7 @@ public protocol CountriesListDelegate: class {
 
 class CountriesListVC: BaseVC {
 
+    
     public class func buildVC(countries: [Country]) -> CountriesListVC {
         let storyboard = UIStoryboard(name: "CountriesListStoryboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CountriesListVC") as! CountriesListVC
@@ -29,7 +30,8 @@ class CountriesListVC: BaseVC {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var countriesTableView: UITableView!
-    
+    @IBOutlet weak var backIconImageView: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,11 @@ class CountriesListVC: BaseVC {
         countriesTableView.dataSource = self
         countriesTableView.delegate = self
         countriesTableView.reloadData()
+       
+//        backIconImageView.transform = CGAffineTransform(scaleX: -1, y: 1);
+        backIconImageView.addTapGesture { [weak self] (_) in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
     
 }
