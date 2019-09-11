@@ -27,9 +27,9 @@ class RegisterCompanyVC: BaseVC {
     weak var weakSelf: RegisterCompanyVC?
     let imagePicker = UIImagePickerController()
     var isUserChangingAvatar: Bool?
-    var countries = [Country]()
+    var countries = Singleton.getInstance().signUpData.countries
     var selectedServices = [Category]()
-    var selectedCountry: Country?
+    var selectedCountry = Singleton.getInstance().signUpData.countries.get(0)
     var userSelectedCountry = Singleton.getInstance().signUpData.countries.get(0)
     var companySelectedCountry = Singleton.getInstance().signUpData.countries.get(0)
     var selectedRegion: Region?
@@ -120,10 +120,11 @@ extension RegisterCompanyVC: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         cell.delegate = weakSelf
         cell.categories = Singleton.getInstance().signUpData.categories
+        cell.userSelectedCountry = userSelectedCountry
+        cell.companySelectedCountry = companySelectedCountry
         cell.initializeCell()
         
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -212,7 +213,7 @@ extension RegisterCompanyVC: RegisterCompanyCellDelegate {
         dropDown.anchorView = weakSelf?.cell.countryView
 
         var dataSource = [String]()
-        for country in countries {
+        for country in countries ?? [] {
             dataSource.append(country.name)
         }
 
@@ -221,7 +222,7 @@ extension RegisterCompanyVC: RegisterCompanyCellDelegate {
             print("Selected item: \(item) at index: \(index)")
             self?.cell.countryNameLabel.text = item
             self?.cell.countryNameLabel.textColor = .black
-            self?.selectedCountry = self?.countries.get(index)
+            self?.selectedCountry = self?.countries?.get(index)
             
             self?.selectedRegion = nil
             self?.cell.regionNameLabel.text = "region".localized()
@@ -236,22 +237,27 @@ extension RegisterCompanyVC: RegisterCompanyCellDelegate {
     }
     
     func changeRegion() {
-        if let _ = selectedCountry {
+        if let _ = userSelectedCountry {
             let dropDown = DropDown()
-            dropDown.anchorView = weakSelf?.cell.regionView
-            var dataSource = [String]()
-            for region in selectedCountry?.regions ?? [] {
-                dataSource.append(region.name)
+            if let regions = userSelectedCountry?.regions, regions.count > 0 {
+                dropDown.anchorView = weakSelf?.cell.regionView
+                var dataSource = [String]()
+                for region in userSelectedCountry?.regions ?? [] {
+                    dataSource.append(region.name)
+                }
+                
+                dropDown.dataSource = dataSource
+                dropDown.selectionAction = { [weak self] (index: Int, item: String) in
+                    self?.cell.regionNameLabel.text = item
+                    self?.cell.regionNameLabel.textColor = .black
+                    self?.selectedRegion = self?.userSelectedCountry?.regions.get(index)
+                }
+                dropDown.direction = .any
+                dropDown.show()
+            } else {
+                weakSelf?.view.makeToast("noCities".localized())
             }
             
-            dropDown.dataSource = dataSource
-            dropDown.selectionAction = { [weak self] (index: Int, item: String) in
-                self?.cell.regionNameLabel.text = item
-                self?.cell.regionNameLabel.textColor = .black
-                self?.selectedRegion = self?.selectedCountry?.regions.get(index)
-            }
-            dropDown.direction = .any
-            dropDown.show()
         } else {
             weakSelf?.view.makeToast("selectCountryFirst".localized())
         }
@@ -457,6 +463,15 @@ extension RegisterCompanyVC: CountriesListDelegate {
                 cell.countryCodeLabel.text =  "+" + country.code
                 userCountryCode =  "+" + country.code
                 userSelectedCountry = country
+                cell.userSelectedCountry = country
+                
+                selectedRegion = nil
+                cell.regionNameLabel.text = "region".localized()
+                if #available(iOS 13.0, *) {
+                    cell.regionNameLabel.textColor = .placeholderText
+                } else {
+                    cell.regionNameLabel.textColor = .lightGray
+                }
             } else {
                 if let url = URL(string: country.imageUrl) {
                     cell.companyCountryCodeFlag.af_setImage(withURL: url)
@@ -464,6 +479,7 @@ extension RegisterCompanyVC: CountriesListDelegate {
                 cell.companyCountryCodeLabel.text = "+" + country.code
                 companyCountryCode =  "+" + country.code
                 companySelectedCountry = country
+                cell.companySelectedCountry = country
             }
         }
     }

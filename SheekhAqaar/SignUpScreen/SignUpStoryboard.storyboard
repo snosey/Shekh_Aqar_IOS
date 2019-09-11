@@ -29,10 +29,10 @@
                                         <rect key="frame" x="174" y="0.0" width="116" height="41"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oIw-HT-fjE">
-                                                <rect key="frame" x="62.5" y="4" width="46" height="33"/>
+                                                <rect key="frame" x="74" y="4" width="38" height="33"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnF-Lv-8zN">
-                                                <rect key="frame" x="8" y="4" width="46.5" height="33"/>
+                                                <rect key="frame" x="8" y="4" width="58" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -44,9 +44,9 @@
                                             <constraint firstItem="oIw-HT-fjE" firstAttribute="centerY" secondItem="XnF-Lv-8zN" secondAttribute="centerY" id="CPg-Fc-ubZ"/>
                                             <constraint firstItem="XnF-Lv-8zN" firstAttribute="height" secondItem="M8E-zS-Rsy" secondAttribute="height" multiplier="0.8" id="GCG-9B-Tog"/>
                                             <constraint firstItem="oIw-HT-fjE" firstAttribute="leading" secondItem="XnF-Lv-8zN" secondAttribute="trailing" constant="8" id="K6R-zt-TvG"/>
-                                            <constraint firstItem="oIw-HT-fjE" firstAttribute="width" secondItem="XnF-Lv-8zN" secondAttribute="width" id="MWO-es-ODC"/>
                                             <constraint firstItem="XnF-Lv-8zN" firstAttribute="centerY" secondItem="M8E-zS-Rsy" secondAttribute="centerY" id="QW5-u6-sfs"/>
-                                            <constraint firstItem="XnF-Lv-8zN" firstAttribute="width" secondItem="M8E-zS-Rsy" secondAttribute="width" multiplier="0.4" id="iS3-FU-V0Y"/>
+                                            <constraint firstItem="XnF-Lv-8zN" firstAttribute="width" secondItem="M8E-zS-Rsy" secondAttribute="width" multiplier="0.5" id="iS3-FU-V0Y"/>
+                                            <constraint firstItem="oIw-HT-fjE" firstAttribute="width" secondItem="M8E-zS-Rsy" secondAttribute="width" multiplier="0.33" id="xtS-TN-hkz"/>
                                             <constraint firstItem="XnF-Lv-8zN" firstAttribute="leading" secondItem="M8E-zS-Rsy" secondAttribute="leading" constant="8" id="yDf-Qn-Scq"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -58,7 +58,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIK-KD-weI">
                                         <rect key="frame" x="0.0" y="0.0" width="166" height="41"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="37P-IP-HlB" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="37P-IP-HlB" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="150" height="41"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

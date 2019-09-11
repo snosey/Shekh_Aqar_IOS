@@ -100,3 +100,4 @@
 "numberOfBathrooms" = "عدد الحمامات";
 "selectCountryError" = "من فضلك اختر كود الدولة";
 "selectCompanyPlace" = "من فضلك قم بتحديد موقع الشركة علي خرائط جوجل";
+"noCities" = "لا يوجد مدن لهذه الدولة";

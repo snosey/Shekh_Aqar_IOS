@@ -56,6 +56,7 @@ class RegisterCompanyCell: UITableViewCell {
     @IBOutlet weak var detailedAddressTextField: LocalizedTextField!
     @IBOutlet weak var addressOnMapLabel: LocalizedLabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var detectAddressOnGoogleMapsView: UIView!
     @IBOutlet weak var registerButton: LocalizedButton!
     @IBOutlet weak var backLabel: LocalizedLabel!
     @IBOutlet weak var companyServicesTableView: UITableView!
@@ -65,6 +66,8 @@ class RegisterCompanyCell: UITableViewCell {
     
     public var delegate: RegisterCompanyCellDelegate!
     public var categories: [Category]!
+    public var userSelectedCountry: Country!
+    public var companySelectedCountry: Country!
     
     public func initializeCell() {
         changeAvatarImageView.addTapGesture { [weak self] (_) in
@@ -99,6 +102,10 @@ class RegisterCompanyCell: UITableViewCell {
             self?.delegate.pickPlaceClicked()
         }
         
+        detectAddressOnGoogleMapsView.addTapGesture { [weak self] (_) in
+            self?.delegate.pickPlaceClicked()
+        }
+        
         GradientBG.createGradientLayer(view: registerButton, cornerRaduis: 8, maskToBounds: true)
         
         UiHelpers.makeLabelUnderlined(label: backLabel)
@@ -127,6 +134,23 @@ class RegisterCompanyCell: UITableViewCell {
                 maker.trailing.equalTo(self.contentView).offset(-8)
             }
         }
+        
+        showUserCodeAndFlag()
+        showCompanyCodeAndFlag()
+    }
+    
+    func showUserCodeAndFlag() {
+        countryCodeLabel.text = "+" + userSelectedCountry.code
+        if let url = URL(string: userSelectedCountry.imageUrl) {
+            countryFlagImageView.af_setImage(withURL: url)
+        }
+    }
+    
+    func showCompanyCodeAndFlag() {
+        companyCountryCodeLabel.text = "+" + companySelectedCountry.code
+        if let url = URL(string: companySelectedCountry.imageUrl) {
+            companyCountryCodeFlag.af_setImage(withURL: url)
+        }
     }
 }
 
@@ -150,14 +174,14 @@ extension RegisterCompanyCell: UITableViewDataSource, UITableViewDelegate {
     }
     
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.backgroundColor = .clear
-        label.text = "companyServices".localized()
-        label.textAlignment = .natural
-        label.textColor = .white
-        return label
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let label = UILabel()
+//        label.backgroundColor = .clear
+//        label.text = "companyServices".localized()
+//        label.textAlignment = .natural
+//        label.textColor = .white
+//        return label
+//    }
 }
 
 extension RegisterCompanyCell: CompanyServicesCellDelegate {

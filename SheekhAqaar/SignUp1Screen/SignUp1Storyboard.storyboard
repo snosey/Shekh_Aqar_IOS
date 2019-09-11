@@ -139,7 +139,7 @@
         <image name="add_ic" width="24" height="24"/>
         <image name="main_bg" width="450" height="800"/>
         <image name="splash_icon" width="596" height="468"/>
-        <image name="user_avatar" width="120" height="120"/>
+        <image name="user_avatar" width="240" height="240"/>
         <image name="white_circle" width="49" height="49"/>
     </resources>
 </document>
