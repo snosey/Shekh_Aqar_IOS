@@ -341,6 +341,10 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 }
                 self?.categories1[indexPath.row].isClicked = true
                 self?.collectionView1.reloadItems(at: indexPathes1)
+                if indexPath.row > 2 {
+                    self?.collectionView1.scrollToItem(at: indexPath, at: .left, animated: false)
+                }
+                
                 
                 var indexPathes2 = [IndexPath]()
                 var count2 = 0
@@ -377,7 +381,9 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 }
                 self?.categories2[indexPath.row].isClicked = true
                 self?.collectionView2.reloadItems(at: indexPathes1)
-                
+                if indexPath.row > 2 {
+                    self?.collectionView2.scrollToItem(at: indexPath, at: .left, animated: false)
+                }
                 var indexPathes2 = [IndexPath]()
                 var count2 = 0
                 for category in self?.categories1 ?? [] {
@@ -413,6 +419,9 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 }
                 self?.categories3[indexPath.row].isClicked = true
                 self?.collectionView3.reloadItems(at: indexPathes1)
+                if indexPath.row > 2 {
+                    self?.collectionView3.scrollToItem(at: indexPath, at: .left, animated: false)
+                }
                 
                 var indexPathes2 = [IndexPath]()
                 var count2 = 0
