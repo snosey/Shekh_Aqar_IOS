@@ -125,10 +125,10 @@ infix operator &&& : LogicalConjunctionPrecedence
 
 /// Returns a Result with a tuple of `left` and `right` values if both are `Success`es, or re-wrapping the error of the earlier `Failure`.
 @available(*, deprecated, renamed: "ResultProtocol.fanout(self:_:)")
-public func &&& <L: ResultProtocol, R: ResultProtocol> (left: L, right: @autoclosure () -> R) -> Result<(L.Value, R.Value), L.Error>
+public func &&& <L: ResultProtocol, R: ResultProtocol> (left: L, right:  R) -> Result<(L.Value, R.Value), L.Error>
 	where L.Error == R.Error
 {
-    return left.fanout(right())
+	return left.fanout(right)
 }
 
 precedencegroup ChainingPrecedence {
