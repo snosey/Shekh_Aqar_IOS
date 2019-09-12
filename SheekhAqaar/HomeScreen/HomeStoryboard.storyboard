@@ -286,7 +286,7 @@
                                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </stackView>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="jHT-57-cFd" secondAttribute="bottom" constant="8" id="372-4i-sZi"/>
                                                                 <constraint firstItem="jHT-57-cFd" firstAttribute="leading" secondItem="OuJ-WF-QpQ" secondAttribute="leading" id="6ud-W3-Bbb"/>
@@ -309,7 +309,7 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="x0y-zR-Xx2" firstAttribute="leading" secondItem="ciG-de-O8I" secondAttribute="trailing" constant="-8" id="1Zt-gd-t3d"/>
                                                         <constraint firstAttribute="bottom" secondItem="ciG-de-O8I" secondAttribute="bottom" id="25m-Q7-QJz"/>
@@ -427,7 +427,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstItem="LgV-dO-5Ay" firstAttribute="width" secondItem="Yca-Yt-9ri" secondAttribute="width" id="0st-lo-1jn"/>
                                                                 <constraint firstItem="kmM-PG-88t" firstAttribute="top" secondItem="LgV-dO-5Ay" secondAttribute="top" id="2kP-8R-8kn"/>
@@ -477,7 +477,7 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="Zzw-0F-Ojo" firstAttribute="top" secondItem="74d-86-gHS" secondAttribute="top" id="7rN-sa-C0M"/>
                                                         <constraint firstItem="74d-86-gHS" firstAttribute="leading" secondItem="b90-L2-lDA" secondAttribute="leading" id="Ab1-j5-zfe"/>

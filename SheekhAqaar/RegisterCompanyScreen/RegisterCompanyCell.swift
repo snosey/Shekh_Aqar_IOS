@@ -106,7 +106,7 @@ class RegisterCompanyCell: UITableViewCell {
             self?.delegate.pickPlaceClicked()
         }
         
-        GradientBG.createGradientLayer(view: registerButton, cornerRaduis: 8, maskToBounds: true)
+        GradientBG.createGradientLayer(view: registerButton, cornerRaduis: 4, maskToBounds: true)
         
         UiHelpers.makeLabelUnderlined(label: backLabel)
         backLabel.addTapGesture { [weak self] (_) in

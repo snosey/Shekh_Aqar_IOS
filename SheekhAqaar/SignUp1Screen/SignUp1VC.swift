@@ -58,7 +58,7 @@ class SignUp1VC: BaseVC {
             self?.navigationController?.popViewController(animated: true)
         }
         
-        GradientBG.createGradientLayer(view: continueButton, cornerRaduis: 8, maskToBounds: true)
+        GradientBG.createGradientLayer(view: continueButton, cornerRaduis: 4, maskToBounds: true)
         
         presenter = Injector.provideSignUp1Presenter()
         presenter.setView(view: self)
