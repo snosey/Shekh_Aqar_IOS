@@ -53,12 +53,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1DB-UX-Bhi" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="127.5" height="41"/>
                                         <state key="normal" title="Button">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="showMap"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
+                                                <integer key="value" value="4"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
@@ -68,12 +68,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieo-1j-WQR" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
                                         <rect key="frame" x="270.5" y="0.0" width="127.5" height="41"/>
                                         <state key="normal" title="Button">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="showImages"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
+                                                <integer key="value" value="4"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
@@ -105,7 +105,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="8"/>
+                                                            <integer key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
@@ -153,7 +153,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="8"/>
+                                                            <integer key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
@@ -201,7 +201,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="8"/>
+                                                            <integer key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
@@ -286,7 +286,7 @@
                                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </stackView>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="jHT-57-cFd" secondAttribute="bottom" constant="8" id="372-4i-sZi"/>
                                                                 <constraint firstItem="jHT-57-cFd" firstAttribute="leading" secondItem="OuJ-WF-QpQ" secondAttribute="leading" id="6ud-W3-Bbb"/>
@@ -309,7 +309,7 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="x0y-zR-Xx2" firstAttribute="leading" secondItem="ciG-de-O8I" secondAttribute="trailing" constant="-8" id="1Zt-gd-t3d"/>
                                                         <constraint firstAttribute="bottom" secondItem="ciG-de-O8I" secondAttribute="bottom" id="25m-Q7-QJz"/>
@@ -427,7 +427,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstItem="LgV-dO-5Ay" firstAttribute="width" secondItem="Yca-Yt-9ri" secondAttribute="width" id="0st-lo-1jn"/>
                                                                 <constraint firstItem="kmM-PG-88t" firstAttribute="top" secondItem="LgV-dO-5Ay" secondAttribute="top" id="2kP-8R-8kn"/>
@@ -477,7 +477,7 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="Zzw-0F-Ojo" firstAttribute="top" secondItem="74d-86-gHS" secondAttribute="top" id="7rN-sa-C0M"/>
                                                         <constraint firstItem="74d-86-gHS" firstAttribute="leading" secondItem="b90-L2-lDA" secondAttribute="leading" id="Ab1-j5-zfe"/>
@@ -519,7 +519,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="p6h-mB-fTQ" firstAttribute="leading" secondItem="T7Y-Jj-lGe" secondAttribute="leading" id="0hh-ND-hLs"/>
                             <constraint firstItem="jiK-Ff-Bko" firstAttribute="trailing" secondItem="p6h-mB-fTQ" secondAttribute="trailing" id="0qC-W5-Fgz"/>
@@ -603,7 +603,7 @@
     <resources>
         <image name="bathroom" width="10" height="10"/>
         <image name="bed" width="10" height="10"/>
-        <image name="call" width="16.5" height="16.5"/>
+        <image name="call" width="32.5" height="32.5"/>
         <image name="circle" width="27" height="27"/>
         <image name="clock" width="10" height="10"/>
         <image name="left_arrow" width="48" height="48"/>
@@ -612,6 +612,6 @@
         <image name="menu_ic" width="36" height="36"/>
         <image name="right_arrow" width="48" height="48"/>
         <image name="search" width="24" height="24"/>
-        <image name="top_icon" width="83" height="43"/>
+        <image name="top_icon" width="332" height="172"/>
     </resources>
 </document>

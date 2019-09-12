@@ -43,7 +43,7 @@ class SideMenuVC : BaseVC {
         setupMenuTableView()
         
         self.navigationController?.navigationBar.isHidden = true
-        self.view.backgroundColor = .black
+        self.view.backgroundColor = UIColor(hexString: "#1E1C21")
     }
     
     override func viewWillAppear(_ animated: Bool) {

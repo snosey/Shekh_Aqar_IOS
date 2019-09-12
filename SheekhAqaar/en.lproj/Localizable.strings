@@ -100,3 +100,4 @@
 "numberOfBathrooms" = "Number of bathrooms";
 "selectCountryError" = "Please select country code first";
 "selectCompanyPlace" = "Please select company location on the map";
+"noCities" = "No cities for this country";

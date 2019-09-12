@@ -244,13 +244,14 @@ extension HomeVC: HomeView {
     }
     
     func getCategoriesSuccess(firstRowCategories: [Category], secondRowCategories: [Category], thirdRowCategories: [Category]) {
-        categories1 = firstRowCategories
+        
+        categories1 = addSpacesToSmallCategoriesNames(categories: firstRowCategories)
         collectionView1.reloadData()
         
-        categories2 = secondRowCategories
+        categories2 = addSpacesToSmallCategoriesNames(categories: secondRowCategories)
         collectionView2.reloadData()
         
-        categories3 = thirdRowCategories
+        categories3 = addSpacesToSmallCategoriesNames(categories: thirdRowCategories)
         collectionView3.reloadData()
     }
     
@@ -648,5 +649,34 @@ extension HomeVC: GMSAutocompleteViewControllerDelegate {
     
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}
+
+extension HomeVC {
+    func getLongestCategoryNameCharactersCount(categories: [Category]) -> Int {
+        var length = 0
+        if categories.count > 0 {
+            for category in categories {
+                if category.name.count > length {
+                    length = category.name.count
+                }
+            }
+        }
+        return length
+    }
+    
+    func addSpacesToSmallCategoriesNames(categories: [Category]) -> [Category] {
+        let length = getLongestCategoryNameCharactersCount(categories: categories)
+        if categories.count > 0 {
+            for category in categories {
+                if category.name.count < length {
+                    for _ in category.name.count...length {
+                        category.name = category.name + " "
+                    }
+                }
+            }
+        }
+        
+        return categories
     }
 }

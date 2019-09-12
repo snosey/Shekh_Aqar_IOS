@@ -50,7 +50,7 @@
                                                             <rect key="frame" x="135.5" y="16" width="102" height="102"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_circle" translatesAutoresizingMaskIntoConstraints="NO" id="fO7-Vz-oGI">
-                                                            <rect key="frame" x="135.5" y="78" width="40.000000000000014" height="40.000000000000014"/>
+                                                            <rect key="frame" x="135.5" y="78" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="Ov9-vq-NBR"/>
                                                                 <constraint firstAttribute="width" constant="40" id="w0h-S7-kgZ"/>
@@ -116,13 +116,13 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JM3-b4-1ty">
                                                             <rect key="frame" x="266.5" y="184" width="90.5" height="34"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+966" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qY-D9-WQo">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qY-D9-WQo">
                                                                     <rect key="frame" x="8" y="6" width="36" height="20"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sa" translatesAutoresizingMaskIntoConstraints="NO" id="moa-XZ-klM">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="moa-XZ-klM">
                                                                     <rect key="frame" x="52" y="8" width="30.5" height="18"/>
                                                                 </imageView>
                                                             </subviews>
@@ -183,27 +183,27 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClS-zy-WC5">
-                                                    <rect key="frame" x="20.5" y="295" width="373" height="714"/>
+                                                    <rect key="frame" x="20.5" y="295" width="373" height="793.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="company_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="9b4-4U-vWo">
-                                                            <rect key="frame" x="133" y="8" width="107" height="107"/>
+                                                            <rect key="frame" x="127" y="8" width="119" height="119"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_circle" translatesAutoresizingMaskIntoConstraints="NO" id="xTN-sD-5Zr">
-                                                            <rect key="frame" x="125" y="83" width="40.000000000000014" height="40.000000000000014"/>
+                                                            <rect key="frame" x="119" y="95" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="jBa-mM-Xnq"/>
                                                                 <constraint firstAttribute="width" constant="40" id="wAT-1R-xPb"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_ic" translatesAutoresizingMaskIntoConstraints="NO" id="9yR-6e-2im">
-                                                            <rect key="frame" x="137.5" y="93.5" width="15" height="15"/>
+                                                            <rect key="frame" x="131.5" y="105.5" width="15" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="15" id="WML-pc-DKj"/>
                                                                 <constraint firstAttribute="height" constant="15" id="weu-vu-Oqa"/>
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2m2-dR-Aq3">
-                                                            <rect key="frame" x="9.5" y="123" width="354" height="35.5"/>
+                                                            <rect key="frame" x="9.5" y="135" width="354" height="35.5"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fgw-ha-Y7K" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="8" width="322" height="19.5"/>
@@ -229,7 +229,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78u-bk-Q9W">
-                                                            <rect key="frame" x="9.5" y="166.5" width="354" height="36"/>
+                                                            <rect key="frame" x="9.5" y="178.5" width="354" height="36"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-Dw-4jv" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="8" width="322" height="20"/>
@@ -254,8 +254,17 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ub-6q-I0P" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                            <rect key="frame" x="9.5" y="222.5" width="354" height="35.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="companyServices"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
                                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ifR-lb-h5u">
-                                                            <rect key="frame" x="9.5" y="210.5" width="354" height="160.5"/>
+                                                            <rect key="frame" x="9.5" y="266" width="354" height="161"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <prototypes>
                                                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompanyServicesCell" rowHeight="44" id="NcW-jv-LnS" customClass="CompanyServicesCell" customModule="SheekhAqaar" customModuleProvider="target">
@@ -295,10 +304,10 @@
                                                             </prototypes>
                                                         </tableView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paZ-Xa-fxm">
-                                                            <rect key="frame" x="9.5" y="379" width="248" height="36"/>
+                                                            <rect key="frame" x="9.5" y="435" width="248" height="35.5"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nxE-uT-BsR" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
-                                                                    <rect key="frame" x="16" y="8" width="216" height="20"/>
+                                                                    <rect key="frame" x="16" y="8" width="216" height="19.5"/>
                                                                     <color key="textColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
@@ -321,16 +330,16 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ns-1V-P69">
-                                                            <rect key="frame" x="275" y="379" width="88.5" height="36"/>
+                                                            <rect key="frame" x="275" y="435" width="88.5" height="35.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+966" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSE-6w-ZEe">
-                                                                    <rect key="frame" x="8" y="8" width="35.5" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSE-6w-ZEe">
+                                                                    <rect key="frame" x="8" y="8" width="35.5" height="19.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sa" translatesAutoresizingMaskIntoConstraints="NO" id="OAT-R1-DqC">
-                                                                    <rect key="frame" x="51.5" y="8" width="29" height="20"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OAT-R1-DqC">
+                                                                    <rect key="frame" x="51.5" y="8" width="29" height="19.5"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -351,7 +360,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJS-OX-A6Q">
-                                                            <rect key="frame" x="9.5" y="423" width="354" height="35.5"/>
+                                                            <rect key="frame" x="9.5" y="478.5" width="354" height="35.5"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KLC-lW-YGi" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="8" width="322" height="19.5"/>
@@ -377,13 +386,13 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IhW-18-98a">
-                                                            <rect key="frame" x="9.5" y="466.5" width="354" height="36"/>
+                                                            <rect key="frame" x="9.5" y="522" width="354" height="36"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAu-v3-xI3">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="173" height="36"/>
+                                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAu-v3-xI3">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="36"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTj-5C-DFv" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
-                                                                            <rect key="frame" x="8" y="8" width="121" height="20"/>
+                                                                            <rect key="frame" x="8" y="8" width="0.0" height="20"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" cocoaTouchSystemColor="placeholderTextColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -392,7 +401,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </label>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="XDr-BW-jvN">
-                                                                            <rect key="frame" x="136" y="8" width="20" height="20"/>
+                                                                            <rect key="frame" x="-37" y="8" width="20" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="20" id="2Ir-W5-JOq"/>
                                                                                 <constraint firstAttribute="height" constant="20" id="g1Q-ee-a1Y"/>
@@ -415,10 +424,10 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIK-gf-c8J">
-                                                                    <rect key="frame" x="181" y="0.0" width="173" height="36"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="36"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyZ-gN-YFj" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
-                                                                            <rect key="frame" x="8" y="8" width="121" height="20"/>
+                                                                            <rect key="frame" x="8" y="8" width="248" height="20"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" cocoaTouchSystemColor="placeholderTextColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -427,7 +436,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </label>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="0Hf-Yq-6oM">
-                                                                            <rect key="frame" x="127" y="8" width="20" height="20"/>
+                                                                            <rect key="frame" x="308" y="8" width="20" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="20" id="avs-o0-vGb"/>
                                                                                 <constraint firstAttribute="height" constant="20" id="ido-FN-P82"/>
@@ -452,7 +461,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kt7-G0-RZh">
-                                                            <rect key="frame" x="9.5" y="510.5" width="354" height="35.5"/>
+                                                            <rect key="frame" x="9.5" y="566" width="354" height="35.5"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LuH-rp-LJf" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="8" width="322" height="19.5"/>
@@ -478,7 +487,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6a-dJ-9S6">
-                                                            <rect key="frame" x="9.5" y="554" width="354" height="36"/>
+                                                            <rect key="frame" x="9.5" y="609.5" width="354" height="36"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nED-vA-dry" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="8" width="269" height="20"/>
@@ -511,7 +520,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="G8e-L0-nMX">
-                                                            <rect key="frame" x="9.5" y="598" width="354" height="107"/>
+                                                            <rect key="frame" x="9.5" y="653.5" width="354" height="119"/>
                                                         </mapView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.16379494859999999" colorSpace="calibratedRGB"/>
@@ -531,7 +540,7 @@
                                                         <constraint firstItem="78u-bk-Q9W" firstAttribute="trailing" secondItem="2m2-dR-Aq3" secondAttribute="trailing" id="Cqd-eD-idn"/>
                                                         <constraint firstItem="9yR-6e-2im" firstAttribute="centerX" secondItem="xTN-sD-5Zr" secondAttribute="centerX" id="DN4-6n-36Y"/>
                                                         <constraint firstItem="Kt7-G0-RZh" firstAttribute="trailing" secondItem="IhW-18-98a" secondAttribute="trailing" id="DfB-Iy-xdB"/>
-                                                        <constraint firstItem="2m2-dR-Aq3" firstAttribute="height" secondItem="ClS-zy-WC5" secondAttribute="height" multiplier="0.05" id="DrR-3d-e2a"/>
+                                                        <constraint firstItem="2m2-dR-Aq3" firstAttribute="height" secondItem="ClS-zy-WC5" secondAttribute="height" multiplier="0.045" id="DrR-3d-e2a"/>
                                                         <constraint firstItem="Kt7-G0-RZh" firstAttribute="top" secondItem="IhW-18-98a" secondAttribute="bottom" constant="8" id="Emq-M9-Oa2"/>
                                                         <constraint firstItem="T6a-dJ-9S6" firstAttribute="leading" secondItem="Kt7-G0-RZh" secondAttribute="leading" id="F84-Ke-mJb"/>
                                                         <constraint firstItem="IhW-18-98a" firstAttribute="height" secondItem="oJS-OX-A6Q" secondAttribute="height" id="Fj3-Zt-QxY"/>
@@ -541,23 +550,27 @@
                                                         <constraint firstItem="xTN-sD-5Zr" firstAttribute="bottom" secondItem="9b4-4U-vWo" secondAttribute="bottom" constant="8" id="LT2-Je-Jkh"/>
                                                         <constraint firstItem="2m2-dR-Aq3" firstAttribute="top" secondItem="9b4-4U-vWo" secondAttribute="bottom" constant="8" id="M4p-fZ-1SA"/>
                                                         <constraint firstItem="9b4-4U-vWo" firstAttribute="centerX" secondItem="ClS-zy-WC5" secondAttribute="centerX" id="PHe-u6-NVc"/>
-                                                        <constraint firstItem="ifR-lb-h5u" firstAttribute="top" secondItem="78u-bk-Q9W" secondAttribute="bottom" constant="8" id="PdY-G7-6SS"/>
                                                         <constraint firstItem="9b4-4U-vWo" firstAttribute="height" secondItem="ClS-zy-WC5" secondAttribute="height" multiplier="0.15" id="T4q-8y-Ujj"/>
+                                                        <constraint firstItem="0ub-6q-I0P" firstAttribute="height" secondItem="78u-bk-Q9W" secondAttribute="height" id="Ujq-bn-qaF"/>
                                                         <constraint firstItem="paZ-Xa-fxm" firstAttribute="top" secondItem="ifR-lb-h5u" secondAttribute="bottom" constant="8" id="VYy-sS-HxN"/>
                                                         <constraint firstItem="G8e-L0-nMX" firstAttribute="leading" secondItem="T6a-dJ-9S6" secondAttribute="leading" id="Vkj-mn-AoX"/>
                                                         <constraint firstItem="1Ns-1V-P69" firstAttribute="height" secondItem="paZ-Xa-fxm" secondAttribute="height" id="WUU-yt-xYb"/>
                                                         <constraint firstItem="78u-bk-Q9W" firstAttribute="height" secondItem="2m2-dR-Aq3" secondAttribute="height" id="X1H-vK-OLd"/>
                                                         <constraint firstItem="IhW-18-98a" firstAttribute="leading" secondItem="oJS-OX-A6Q" secondAttribute="leading" id="YtM-Z2-4CF"/>
+                                                        <constraint firstItem="0ub-6q-I0P" firstAttribute="top" secondItem="78u-bk-Q9W" secondAttribute="bottom" constant="8" id="YvX-qx-p1t"/>
                                                         <constraint firstItem="9b4-4U-vWo" firstAttribute="width" secondItem="ClS-zy-WC5" secondAttribute="height" multiplier="0.15" id="ZRz-xk-sDd"/>
                                                         <constraint firstItem="oJS-OX-A6Q" firstAttribute="trailing" secondItem="78u-bk-Q9W" secondAttribute="trailing" id="ZhI-1r-2zB"/>
                                                         <constraint firstItem="T6a-dJ-9S6" firstAttribute="trailing" secondItem="Kt7-G0-RZh" secondAttribute="trailing" id="d0U-eV-jrd"/>
+                                                        <constraint firstItem="0ub-6q-I0P" firstAttribute="trailing" secondItem="78u-bk-Q9W" secondAttribute="trailing" id="d2a-hW-qgE"/>
                                                         <constraint firstItem="Kt7-G0-RZh" firstAttribute="leading" secondItem="IhW-18-98a" secondAttribute="leading" id="eHD-Rb-0bb"/>
                                                         <constraint firstItem="IhW-18-98a" firstAttribute="top" secondItem="oJS-OX-A6Q" secondAttribute="bottom" constant="8" id="eiH-ts-8tR"/>
                                                         <constraint firstItem="T6a-dJ-9S6" firstAttribute="height" secondItem="Kt7-G0-RZh" secondAttribute="height" id="hIW-Es-hEc"/>
                                                         <constraint firstItem="T6a-dJ-9S6" firstAttribute="top" secondItem="Kt7-G0-RZh" secondAttribute="bottom" constant="8" id="iTG-1y-vjc"/>
+                                                        <constraint firstItem="ifR-lb-h5u" firstAttribute="top" secondItem="0ub-6q-I0P" secondAttribute="bottom" constant="8" id="kk9-3c-8u2"/>
                                                         <constraint firstItem="1Ns-1V-P69" firstAttribute="top" secondItem="ifR-lb-h5u" secondAttribute="bottom" constant="8" id="oSB-7p-9Qu"/>
                                                         <constraint firstItem="1Ns-1V-P69" firstAttribute="width" secondItem="78u-bk-Q9W" secondAttribute="width" multiplier="0.25" id="qol-pb-SnZ"/>
                                                         <constraint firstItem="oJS-OX-A6Q" firstAttribute="leading" secondItem="78u-bk-Q9W" secondAttribute="leading" id="suh-Wb-cFI"/>
+                                                        <constraint firstItem="0ub-6q-I0P" firstAttribute="leading" secondItem="78u-bk-Q9W" secondAttribute="leading" id="tvu-L7-PlZ"/>
                                                         <constraint firstItem="78u-bk-Q9W" firstAttribute="leading" secondItem="2m2-dR-Aq3" secondAttribute="leading" id="w3h-Jt-mlh"/>
                                                         <constraint firstItem="paZ-Xa-fxm" firstAttribute="leading" secondItem="78u-bk-Q9W" secondAttribute="leading" id="wA6-5k-MRs"/>
                                                         <constraint firstItem="xTN-sD-5Zr" firstAttribute="leading" secondItem="9b4-4U-vWo" secondAttribute="leading" constant="-8" id="wUB-9D-fhC"/>
@@ -572,7 +585,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-eZ-a8r" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
-                                                    <rect key="frame" x="145" y="1017" width="124" height="30"/>
+                                                    <rect key="frame" x="145" y="1096.5" width="124" height="30"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -588,7 +601,7 @@
                                                 <constraint firstItem="Mpu-ll-pJI" firstAttribute="top" secondItem="O4z-ZY-yaq" secondAttribute="top" id="ETf-qM-V1R"/>
                                                 <constraint firstItem="UjO-OQ-SbG" firstAttribute="width" secondItem="O4z-ZY-yaq" secondAttribute="width" multiplier="0.9" id="FQG-ep-3iH"/>
                                                 <constraint firstItem="UjO-OQ-SbG" firstAttribute="centerX" secondItem="O4z-ZY-yaq" secondAttribute="centerX" id="Fc5-1G-UgU"/>
-                                                <constraint firstItem="ClS-zy-WC5" firstAttribute="height" secondItem="O4z-ZY-yaq" secondAttribute="height" multiplier="0.63" id="Jp5-J9-8Od"/>
+                                                <constraint firstItem="ClS-zy-WC5" firstAttribute="height" secondItem="O4z-ZY-yaq" secondAttribute="height" multiplier="0.7" id="Jp5-J9-8Od"/>
                                                 <constraint firstItem="ClS-zy-WC5" firstAttribute="leading" secondItem="UjO-OQ-SbG" secondAttribute="leading" id="Kfg-od-pty"/>
                                                 <constraint firstItem="7sP-T6-9BA" firstAttribute="top" secondItem="UjO-OQ-SbG" secondAttribute="bottom" constant="16" id="LEg-is-j3V"/>
                                                 <constraint firstAttribute="trailing" secondItem="Mpu-ll-pJI" secondAttribute="trailing" constant="8" id="ZRi-bP-oMM"/>
@@ -624,6 +637,7 @@
                                             <outlet property="countryNameLabel" destination="LTj-5C-DFv" id="QY0-u3-5l3"/>
                                             <outlet property="countryView" destination="FAu-v3-xI3" id="tQf-0L-DwZ"/>
                                             <outlet property="detailedAddressTextField" destination="LuH-rp-LJf" id="3qR-ba-y7a"/>
+                                            <outlet property="detectAddressOnGoogleMapsView" destination="T6a-dJ-9S6" id="Ima-Tj-0j3"/>
                                             <outlet property="fullNameTextField" destination="9NQ-aB-jgY" id="kF3-Ja-10U"/>
                                             <outlet property="mapView" destination="G8e-L0-nMX" id="pzE-tx-jzR"/>
                                             <outlet property="phoneNumberTextField" destination="nag-B1-EQQ" id="EQi-Va-WDZ"/>
@@ -681,14 +695,13 @@
     </scenes>
     <resources>
         <image name="add_ic" width="24" height="24"/>
-        <image name="company_avatar" width="120" height="120"/>
+        <image name="company_avatar" width="240" height="240"/>
         <image name="down_arrow" width="12" height="10"/>
         <image name="main_bg" width="450" height="800"/>
         <image name="maps" width="34" height="35"/>
-        <image name="sa" width="22" height="14"/>
         <image name="splash_icon" width="596" height="468"/>
         <image name="unchecked" width="24" height="24"/>
-        <image name="user_avatar" width="120" height="120"/>
+        <image name="user_avatar" width="240" height="240"/>
         <image name="white_circle" width="49" height="49"/>
     </resources>
 </document>
