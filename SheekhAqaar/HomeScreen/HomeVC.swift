@@ -58,7 +58,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         super.viewDidLoad()
         GradientBG.createGradientLayer(view: topView, cornerRaduis: 0, maskToBounds: false)
         
-        GradientBG.createGradientLayer(view: showMapButton, cornerRaduis: 8, maskToBounds: true)
+        GradientBG.createGradientLayer(view: showMapButton, cornerRaduis: 4, maskToBounds: true)
         
         showImagesButton.layer.borderColor = UIColor.AppColors.textColor.cgColor
         showImagesButton.layer.borderWidth = 1
@@ -80,7 +80,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         }
         
         showMapButton.addTapGesture { [weak self] (_) in
-            GradientBG.createGradientLayer(view: self?.showMapButton ?? UIView(), cornerRaduis: 8, maskToBounds: true)
+            GradientBG.createGradientLayer(view: self?.showMapButton ?? UIView(), cornerRaduis: 4, maskToBounds: true)
             self?.showMapButton.setTitleColor(UIColor.black, for: .normal)
             
             self?.showImagesButton.layer.sublayers?.remove(at: 0)
@@ -103,7 +103,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         }
         
         showImagesButton.addTapGesture { [weak self] (_) in
-            GradientBG.createGradientLayer(view: self?.showImagesButton ?? UIView(), cornerRaduis: 8, maskToBounds: true)
+            GradientBG.createGradientLayer(view: self?.showImagesButton ?? UIView(), cornerRaduis: 4, maskToBounds: true)
             self?.showImagesButton.setTitleColor(UIColor.black, for: .normal)
             
             self?.showMapButton.layer.sublayers?.remove(at: 0)
@@ -244,14 +244,15 @@ extension HomeVC: HomeView {
     }
     
     func getCategoriesSuccess(firstRowCategories: [Category], secondRowCategories: [Category], thirdRowCategories: [Category]) {
+        let length = getLongestCategoryNameCharactersCount(categories1: firstRowCategories, categories2: secondRowCategories, categories3: thirdRowCategories)
         
-        categories1 = addSpacesToSmallCategoriesNames(categories: firstRowCategories)
+        categories1 = addSpacesToSmallCategoriesNames(length: length, categories: firstRowCategories)
         collectionView1.reloadData()
         
-        categories2 = addSpacesToSmallCategoriesNames(categories: secondRowCategories)
+        categories2 = addSpacesToSmallCategoriesNames(length: length, categories: secondRowCategories)
         collectionView2.reloadData()
         
-        categories3 = addSpacesToSmallCategoriesNames(categories: thirdRowCategories)
+        categories3 = addSpacesToSmallCategoriesNames(length: length, categories: thirdRowCategories)
         collectionView3.reloadData()
     }
     
@@ -277,9 +278,6 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 100, height: 100)
-//    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
         if collectionView == collectionView1 {
@@ -653,20 +651,36 @@ extension HomeVC: GMSAutocompleteViewControllerDelegate {
 }
 
 extension HomeVC {
-    func getLongestCategoryNameCharactersCount(categories: [Category]) -> Int {
+    func getLongestCategoryNameCharactersCount(categories1: [Category], categories2: [Category], categories3: [Category]) -> Int {
         var length = 0
-        if categories.count > 0 {
-            for category in categories {
+        if categories1.count > 0 {
+            for category in categories1 {
                 if category.name.count > length {
                     length = category.name.count
                 }
             }
         }
+        
+        if categories2.count > 0 {
+            for category in categories2 {
+                if category.name.count > length {
+                    length = category.name.count
+                }
+            }
+        }
+        
+        if categories3.count > 0 {
+            for category in categories2 {
+                if category.name.count > length {
+                    length = category.name.count
+                }
+            }
+        }
+        
         return length
     }
     
-    func addSpacesToSmallCategoriesNames(categories: [Category]) -> [Category] {
-        let length = getLongestCategoryNameCharactersCount(categories: categories)
+    func addSpacesToSmallCategoriesNames(length: Int, categories: [Category]) -> [Category] {
         if categories.count > 0 {
             for category in categories {
                 if category.name.count < length {

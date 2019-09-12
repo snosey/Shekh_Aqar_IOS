@@ -74,7 +74,7 @@ class PhoneVerificationVC: BaseVC {
         
         digit1.becomeFirstResponder()
         
-        GradientBG.createGradientLayer(view: confirmButton, cornerRaduis: 8, maskToBounds: true)
+        GradientBG.createGradientLayer(view: confirmButton, cornerRaduis: 4, maskToBounds: true)
     }
 
     @IBAction func confirmClicked(_ sender: Any) {

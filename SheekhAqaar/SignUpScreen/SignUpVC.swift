@@ -51,7 +51,7 @@ class SignUpVC: BaseVC {
         UiHelpers.makeLabelUnderlined(label: skipLabel)
         UiHelpers.makeLabelUnderlined(label: registerAsCompany)
         
-        GradientBG.createGradientLayer(view: loginButton, cornerRaduis: 8, maskToBounds: true)
+        GradientBG.createGradientLayer(view: loginButton, cornerRaduis: 4, maskToBounds: true)
         
         presenter = Injector.provideSignUpPresenter()
         presenter.setView(view: self)
