@@ -224,7 +224,15 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    
+    @IBAction func googleEarthClicked(_ sender: Any) {
+        googleMapView.mapType = .satellite
+    }
+    
+    @IBAction func googleMapsClicked(_ sender: Any) {
+        googleMapView.mapType = .normal
+    }
+    
 }
 
 extension HomeVC: HomeView {
@@ -319,6 +327,10 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                     
                 case -3:
                     self?.navigator.navigateToRegisterAsCompany()
+                    break
+                    
+                case -4:
+                    // call api not implemented yet
                     break
                     
                 default:

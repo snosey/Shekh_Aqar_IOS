@@ -79,9 +79,15 @@ public class HomeRepository {
                         registerAsCompany.id = -3
                         registerAsCompany.name = "أضف شركتك" + "    "
                         
+                        let requestedAds = Category()
+                        requestedAds.id = -4
+                        requestedAds.name = "العقارات المطلوبة" + "    "
+                        
+                        firstCategories.append(requestedAds)
                         firstCategories.append(addAd)
                         firstCategories.append(requestAd)
                         firstCategories.append(registerAsCompany)
+                        
                         
                         var secondCategories = [Category]()
                         var thirdCategories = [Category]()
@@ -94,7 +100,7 @@ public class HomeRepository {
                             secondCategories.append(category)
                         }
                         
-                        let thirdRowJsonArray = (secondAndThirdRowJsonArray[0])["SubCategoriesModel"] as! [Dictionary<String,AnyObject>]
+                        let thirdRowJsonArray = (secondAndThirdRowJsonArray[1])["SubCategoriesModel"] as! [Dictionary<String,AnyObject>]
                         
                         for thirdRowJsonObj in thirdRowJsonArray {
                             let category = Category(json: thirdRowJsonObj)!
