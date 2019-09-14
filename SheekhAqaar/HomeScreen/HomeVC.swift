@@ -376,7 +376,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 self?.selectedCategory = cell.category
                 self?.categories2[self?.selectedIndex ?? 0].isClicked = false
                 self?.categories2[indexPath.row].isClicked = true
-                if let oldCell = self?.collectionView1.cellForItem(at: IndexPath(item: self?.selectedIndex ?? 0, section: 0)) as? CategoryCell {
+                if let oldCell = self?.collectionView2.cellForItem(at: IndexPath(item: self?.selectedIndex ?? 0, section: 0)) as? CategoryCell {
                     oldCell.populateData()
                 }
                 
