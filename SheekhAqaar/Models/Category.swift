@@ -20,7 +20,7 @@ public class Category: DataType {
     //MARK: Decodable
     required public init?(json: JSON){
         name = "Name" <~~ json
-        name = name + "    "
+//        name = name + "    "
         id = "Id" <~~ json
         hexCode = "HexColor" <~~ json
     }

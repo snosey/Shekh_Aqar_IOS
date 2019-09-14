@@ -101,6 +101,10 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nr-yz-Ph2">
                                                     <rect key="frame" x="0.0" y="0.0" width="130" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="ahT-Fy-wnh"/>
+                                                        <constraint firstAttribute="height" constant="30" id="vRa-XL-jEc"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Button"/>
                                                     <userDefinedRuntimeAttributes>
@@ -149,6 +153,10 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0a-Li-RnX">
                                                     <rect key="frame" x="0.0" y="0.0" width="130" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="GcP-Ae-qVO"/>
+                                                        <constraint firstAttribute="height" constant="30" id="k2E-eH-P4v"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Button"/>
                                                     <userDefinedRuntimeAttributes>
@@ -197,6 +205,10 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iF-Nd-sab">
                                                     <rect key="frame" x="0.0" y="0.0" width="109" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="1Jk-0e-LNX"/>
+                                                        <constraint firstAttribute="height" constant="30" id="XPe-YR-4sD"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Button"/>
                                                     <userDefinedRuntimeAttributes>

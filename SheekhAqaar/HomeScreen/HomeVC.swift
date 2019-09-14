@@ -43,6 +43,8 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     var categories2 = [Category]()
     var categories3 = [Category]()
     
+    var selectedIndex = 0
+    
     var companies = [Company]()
     
     var currentLatitude: Double!
@@ -201,8 +203,8 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         collectionView1.delegate = self
         if let layout = collectionView1.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
-            layout.itemSize = CGSize(width: UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH
-                , relativeView: nil, percentage: 20), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5))
+//            layout.itemSize = CGSize(width: UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH
+//                , relativeView: nil, percentage: 20), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5))
         }
         
         collectionView2.dataSource = self
@@ -252,15 +254,14 @@ extension HomeVC: HomeView {
     }
     
     func getCategoriesSuccess(firstRowCategories: [Category], secondRowCategories: [Category], thirdRowCategories: [Category]) {
-        let length = getLongestCategoryNameCharactersCount(categories1: firstRowCategories, categories2: secondRowCategories, categories3: thirdRowCategories)
         
-        categories1 = addSpacesToSmallCategoriesNames(length: length, categories: firstRowCategories)
+        categories1 = firstRowCategories
         collectionView1.reloadData()
         
-        categories2 = addSpacesToSmallCategoriesNames(length: length, categories: secondRowCategories)
+        categories2 = secondRowCategories
         collectionView2.reloadData()
         
-        categories3 = addSpacesToSmallCategoriesNames(length: length, categories: thirdRowCategories)
+        categories3 = thirdRowCategories
         collectionView3.reloadData()
     }
     
@@ -289,7 +290,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
         if collectionView == collectionView1 {
-             cell.category = self.categories1.get(indexPath.row)!
+            cell.category = self.categories1.get(indexPath.row)!
         } else if collectionView == collectionView2 {
             cell.category = self.categories2.get(indexPath.row)!
         } else if collectionView == collectionView3 {
@@ -297,11 +298,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         }
         
         cell.populateData()
-        cell.changeLabelToBeUnclicked()
         
-        if cell.category.isClicked {
-            cell.changeLabelToBeClicked()
-        }
         
         cell.categoryNameButton.addTapGesture { [weak self](_) in
             if collectionView == self?.collectionView1 {
@@ -344,37 +341,37 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 }
                 
                 self?.selectedCategoryPosition = 1                
-                var indexPathes1 = [IndexPath]()
-                var count1 = 0
-                for category in self?.categories1 ?? [] {
-                    category.isClicked = false
-                    indexPathes1.append(IndexPath(item: count1, section: 0))
-                    count1 = count1 + 1
-                }
+//                var indexPathes1 = [IndexPath]()
+//                var count1 = 0
+//                for category in self?.categories1 ?? [] {
+//                    category.isClicked = false
+//                    indexPathes1.append(IndexPath(item: count1, section: 0))
+//                    count1 = count1 + 1
+//                }
+                self?.categories1[self?.selectedIndex ?? 0].isClicked = false
                 self?.categories1[indexPath.row].isClicked = true
-                self?.collectionView1.reloadItems(at: indexPathes1)
-                if indexPath.row > 2 {
-                    self?.collectionView1.scrollToItem(at: indexPath, at: .left, animated: false)
-                }
+                self?.collectionView1.reloadItems(at: [IndexPath(item: self?.selectedIndex ?? 0, section: 0)])
+                self?.selectedIndex = indexPath.row
+                print("------------------------------ \(self?.selectedIndex ?? -10)")
                 
                 
-                var indexPathes2 = [IndexPath]()
-                var count2 = 0
-                for category in self?.categories2 ?? [] {
-                    category.isClicked = false
-                    indexPathes2.append(IndexPath(item: count2, section: 0))
-                    count2 = count2 + 1
-                }
-                self?.collectionView2.reloadItems(at: indexPathes2)
-                
-                var indexPathes3 = [IndexPath]()
-                var count3 = 0
-                for category in self?.categories3 ?? [] {
-                    category.isClicked = false
-                    indexPathes3.append(IndexPath(item: count3, section: 0))
-                    count3 = count3 + 1
-                }
-                self?.collectionView3.reloadItems(at: indexPathes3)
+//                var indexPathes2 = [IndexPath]()
+//                var count2 = 0
+//                for category in self?.categories2 ?? [] {
+//                    category.isClicked = false
+//                    indexPathes2.append(IndexPath(item: count2, section: 0))
+//                    count2 = count2 + 1
+//                }
+//                self?.collectionView2.reloadItems(at: indexPathes2)
+//
+//                var indexPathes3 = [IndexPath]()
+//                var count3 = 0
+//                for category in self?.categories3 ?? [] {
+//                    category.isClicked = false
+//                    indexPathes3.append(IndexPath(item: count3, section: 0))
+//                    count3 = count3 + 1
+//                }
+//                self?.collectionView3.reloadItems(at: indexPathes3)
                 
             } else if collectionView == self?.collectionView2 {
                 self?.selectedCategoryPosition = 2
@@ -586,15 +583,15 @@ extension HomeVC: SideMenuCellDelegate {
             }
             break
             
-        case 2:
-            
-            if let _ = Defaults[.user] {
-                // go to add ad
-                navigator.navigateToCreateAd()
-            } else {
-                navigator.navigateToSignUp()
-            }
-            break
+//        case 2:
+//
+//            if let _ = Defaults[.user] {
+//                // go to add ad
+//                navigator.navigateToCreateAd()
+//            } else {
+//                navigator.navigateToSignUp()
+//            }
+//            break
             
         case sideMenuVC.menuStringsDataSource.count - 3:
             navigator.navigateToFavourites()
