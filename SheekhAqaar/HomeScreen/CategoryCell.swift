@@ -17,8 +17,15 @@ class CategoryCell: UICollectionViewCell {
     public var category: Category!
     
     public func populateData() {
+        changeLabelToBeUnclicked()
+        
+        if category.isClicked {
+            changeLabelToBeClicked()
+        }
         categoryNameButton.setTitle(category.name, for: .normal)
         categoryNameButton.titleLabel?.textAlignment = .center
+        categoryNameButton.titleLabel?.adjustsFontSizeToFitWidth = false
+        categoryNameButton.titleLabel?.lineBreakMode = .byTruncatingTail
     }
     
     public func changeLabelToBeClicked() {
