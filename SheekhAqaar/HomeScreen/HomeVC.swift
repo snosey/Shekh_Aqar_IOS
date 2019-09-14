@@ -340,59 +340,55 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                     break
                 }
                 
-                self?.selectedCategoryPosition = 1                
-//                var indexPathes1 = [IndexPath]()
-//                var count1 = 0
-//                for category in self?.categories1 ?? [] {
-//                    category.isClicked = false
-//                    indexPathes1.append(IndexPath(item: count1, section: 0))
-//                    count1 = count1 + 1
-//                }
+                self?.selectedCategoryPosition = 1
                 self?.categories1[self?.selectedIndex ?? 0].isClicked = false
                 self?.categories1[indexPath.row].isClicked = true
-                self?.collectionView1.reloadItems(at: [IndexPath(item: self?.selectedIndex ?? 0, section: 0)])
+                if let oldCell = self?.collectionView1.cellForItem(at: IndexPath(item: self?.selectedIndex ?? 0, section: 0)) as? CategoryCell {
+                    oldCell.populateData()
+                }
+                
+                cell.populateData()
                 self?.selectedIndex = indexPath.row
-                print("------------------------------ \(self?.selectedIndex ?? -10)")
                 
                 
-//                var indexPathes2 = [IndexPath]()
-//                var count2 = 0
-//                for category in self?.categories2 ?? [] {
-//                    category.isClicked = false
-//                    indexPathes2.append(IndexPath(item: count2, section: 0))
-//                    count2 = count2 + 1
-//                }
-//                self?.collectionView2.reloadItems(at: indexPathes2)
-//
-//                var indexPathes3 = [IndexPath]()
-//                var count3 = 0
-//                for category in self?.categories3 ?? [] {
-//                    category.isClicked = false
-//                    indexPathes3.append(IndexPath(item: count3, section: 0))
-//                    count3 = count3 + 1
-//                }
-//                self?.collectionView3.reloadItems(at: indexPathes3)
+                var indexPathes2 = [IndexPath]()
+                var count2 = 0
+                for category in self?.categories2 ?? [] {
+                    category.isClicked = false
+                    indexPathes2.append(IndexPath(item: count2, section: 0))
+                    count2 = count2 + 1
+                }
+                self?.collectionView2.reloadItems(at: indexPathes2)
+
+                var indexPathes3 = [IndexPath]()
+                var count3 = 0
+                for category in self?.categories3 ?? [] {
+                    category.isClicked = false
+                    indexPathes3.append(IndexPath(item: count3, section: 0))
+                    count3 = count3 + 1
+                }
+                self?.collectionView3.reloadItems(at: indexPathes3)
                 
             } else if collectionView == self?.collectionView2 {
+                
+                
                 self?.selectedCategoryPosition = 2
                 self?.selectedCategory = cell.category
+                self?.categories2[self?.selectedIndex ?? 0].isClicked = false
+                self?.categories2[indexPath.row].isClicked = true
+                if let oldCell = self?.collectionView1.cellForItem(at: IndexPath(item: self?.selectedIndex ?? 0, section: 0)) as? CategoryCell {
+                    oldCell.populateData()
+                }
+                
+                cell.populateData()
+                self?.selectedIndex = indexPath.row
+                
                 if self?.viewingMode == 1 {
                     self?.showAdsOnMap(category: cell.category)
                 } else if self?.viewingMode == 2 {
                     self?.tableView.reloadData()
                 }
-                var indexPathes1 = [IndexPath]()
-                var count1 = 0
-                for category in self?.categories2 ?? [] {
-                    category.isClicked = false
-                    indexPathes1.append(IndexPath(item: count1, section: 0))
-                    count1 = count1 + 1
-                }
-                self?.categories2[indexPath.row].isClicked = true
-                self?.collectionView2.reloadItems(at: indexPathes1)
-                if indexPath.row > 2 {
-                    self?.collectionView2.scrollToItem(at: indexPath, at: .left, animated: false)
-                }
+                
                 var indexPathes2 = [IndexPath]()
                 var count2 = 0
                 for category in self?.categories1 ?? [] {
@@ -412,24 +408,22 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 self?.collectionView3.reloadItems(at: indexPathes3)
                 
             } else if collectionView == self?.collectionView3 {
+                
                 self?.selectedCategoryPosition = 3
                 self?.selectedCategory = cell.category
+                self?.categories3[self?.selectedIndex ?? 0].isClicked = false
+                self?.categories3[indexPath.row].isClicked = true
+                if let oldCell = self?.collectionView3.cellForItem(at: IndexPath(item: self?.selectedIndex ?? 0, section: 0)) as? CategoryCell {
+                    oldCell.populateData()
+                }
+                
+                cell.populateData()
+                self?.selectedIndex = indexPath.row
+                
                 if self?.viewingMode == 1 {
                     self?.showAdsOnMap(category: cell.category)
                 } else if self?.viewingMode == 2 {
                     self?.tableView.reloadData()
-                }
-                var indexPathes1 = [IndexPath]()
-                var count1 = 0
-                for category in self?.categories3 ?? [] {
-                    category.isClicked = false
-                    indexPathes1.append(IndexPath(item: count1, section: 0))
-                    count1 = count1 + 1
-                }
-                self?.categories3[indexPath.row].isClicked = true
-                self?.collectionView3.reloadItems(at: indexPathes1)
-                if indexPath.row > 2 {
-                    self?.collectionView3.scrollToItem(at: indexPath, at: .left, animated: false)
                 }
                 
                 var indexPathes2 = [IndexPath]()
