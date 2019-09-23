@@ -39,11 +39,7 @@ class ChooseAdditionalFacilityCell: UITableViewCell {
         facilityNameLabel.addTapGesture { [weak self] (_) in
             self?.delegate.facilityChecked(checked: !(self?.additionalFacility.isChecked ?? false), index: self?.index ?? 0)
         }
-        if Localize.currentLanguage() == "ar" {
-            facilityNameLabel.text = self.additionalFacility.nameAr
-        } else {
-            facilityNameLabel.text = self.additionalFacility.nameEn
-        }
+        facilityNameLabel.text = self.additionalFacility.name
     }
 
 }

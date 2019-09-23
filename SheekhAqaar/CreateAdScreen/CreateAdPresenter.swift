@@ -8,13 +8,7 @@
 
 import Foundation
 public protocol CreateAdView: class {
-    func getCountriesSuccess(countries: [Country])
-    func getCitiesSuccess(cities: [City])
-    func getCategoriesSuccess(categories: [Category])
-    func getAdTypesSuccess(adTypes: [AdType])
-    func getFarshLevelsSuccess(levels: [FarshLevel])
-    func getCurrenciesSuccess(currencies: [Currency])
-    func getAdditionalFacilitiesSuccess(additionalFacilities: [AdditionalFacility])
+    func getCreateAdDataSuccess(createAdData: CreateAdData)
     func publishAdSuccess()
     func failed(errorMessage: String)
     func handleNoInternetConnection()
@@ -36,64 +30,12 @@ public class CreateAdPresenter {
 }
 
 extension CreateAdPresenter {
-    public func getCountries() {
-        if UiHelpers.isInternetAvailable() {
-            UiHelpers.showLoader()
-            createAdRepository?.getCountries()
-        } else {
-            createAdView?.handleNoInternetConnection()
-        }
-    }
     
-    public func getCities(countryId: Int) {
-        if UiHelpers.isInternetAvailable() {
-            UiHelpers.showLoader()
-            createAdRepository?.getCities(countryId: countryId)
-        } else {
-            createAdView?.handleNoInternetConnection()
-        }
-    }
     
-    public func getCategories() {
+    public func getCreateAdData(subCategoryId: Int, latitude: Double, longitude: Double) {
         if UiHelpers.isInternetAvailable() {
             UiHelpers.showLoader()
-            createAdRepository?.getCategories()
-        } else {
-            createAdView?.handleNoInternetConnection()
-        }
-    }
-    
-    public func getAdTypes() {
-        if UiHelpers.isInternetAvailable() {
-            UiHelpers.showLoader()
-            createAdRepository?.getAdTypes()
-        } else {
-            createAdView?.handleNoInternetConnection()
-        }
-    }
-    
-    public func getFarshLevels() {
-        if UiHelpers.isInternetAvailable() {
-            UiHelpers.showLoader()
-            createAdRepository?.getFarshLevels()
-        } else {
-            createAdView?.handleNoInternetConnection()
-        }
-    }
-    
-    public func getCurrencies() {
-        if UiHelpers.isInternetAvailable() {
-            UiHelpers.showLoader()
-            createAdRepository?.getCurrencies()
-        } else {
-            createAdView?.handleNoInternetConnection()
-        }
-    }
-    
-    public func getAdditionalFacilities() {
-        if UiHelpers.isInternetAvailable() {
-            UiHelpers.showLoader()
-            createAdRepository?.getAdditionalFacilities()
+            createAdRepository?.getCreateAdData(subCategoryId: subCategoryId, latitude: latitude, longitude: longitude)
         } else {
             createAdView?.handleNoInternetConnection()
         }
@@ -110,44 +52,14 @@ extension CreateAdPresenter {
 }
 
 extension CreateAdPresenter: CreateAdPresenterDelegate {
+    public func getCreateAdDataSuccess(createAdData: CreateAdData) {
+        UiHelpers.hideLoader()
+        createAdView?.getCreateAdDataSuccess(createAdData: createAdData)
+    }
+    
     public func publishAdSuccess() {
         UiHelpers.hideLoader()
         createAdView?.publishAdSuccess()
-    }
-    
-    public func getCountriesSuccess(countries: [Country]) {
-        UiHelpers.hideLoader()
-        createAdView?.getCountriesSuccess(countries: countries)
-    }
-    
-    public func getCitiesSuccess(cities: [City]) {
-        UiHelpers.hideLoader()
-        createAdView?.getCitiesSuccess(cities: cities)
-    }
-    
-    public func getCategoriesSuccess(categories: [Category]) {
-        UiHelpers.hideLoader()
-        createAdView?.getCategoriesSuccess(categories: categories)
-    }
-    
-    public func getAdTypesSuccess(adTypes: [AdType]) {
-        UiHelpers.hideLoader()
-        createAdView?.getAdTypesSuccess(adTypes: adTypes)
-    }
-    
-    public func getFarshLevelsSuccess(levels: [FarshLevel]) {
-        UiHelpers.hideLoader()
-        createAdView?.getFarshLevelsSuccess(levels: levels)
-    }
-    
-    public func getCurrenciesSuccess(currencies: [Currency]) {
-        UiHelpers.hideLoader()
-        createAdView?.getCurrenciesSuccess(currencies: currencies)
-    }
-    
-    public func getAdditionalFacilitiesSuccess(additionalFacilities: [AdditionalFacility]) {
-        UiHelpers.hideLoader()
-        createAdView?.getAdditionalFacilitiesSuccess(additionalFacilities: additionalFacilities)
     }
     
     public func failed(errorMessage: String) {

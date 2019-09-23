@@ -13,27 +13,34 @@ public class Ad: DataType {
     
     var id: Int!
     var name : String!
-    var adImages : [AdImage]!
-    var imagesUrls: [String]!
-    var price: String!
-    var currency: Currency!
+    var userId: Int!
+    var subCategoryId: Int!
     var details: String!
-    var category: Category!
-    var adType: AdType!
-    var placeArea: Double = 20
-    var country: Country!
-    var region: Region!
     var detailedAddress: String!
+    var viewCount: Int!
     var latitude: Double!
     var longitude: Double!
+    var creationTime: String!
+    var adImages : [AdImage]!
+    var adType: AdType!
+    var adTypeId: Int!
+    var subCategory: Category!
+    var user: User!
+    var price: Int!
+    var currency: Currency!
+    var currencyId: Int!
+    var placeArea: Double = 20
+    var regionId: Int!
+    var phoneNumber: String!
+    var companyName: String!
+    var isFavourite: Bool!
+    
     var farshLevel: FarshLevel!
+    var farshLevelId: Int!
     var roomsNumber: Int!
     var bathRoomsNumber: Int!
     var additionalFacilities: [AdditionalFacility]!
-    var companyName = "شركة أزميل العقارية"
-    var phoneNumber = "+201119993362"
-    var creationTime: Double = 1566899994
-    var isFavourite: Bool = false
+    
     
     /*
      public int Id;
@@ -44,43 +51,84 @@ public class Ad: DataType {
      public String Address;
      public String Longitude;
      public String Latitude;
-     public int Fk_ItemState;
      public int ViewCount;
-     public int Fk_ItemType;
      public String CreatedAt;
-     public String UpdatedAt;
-     public ItemStateModel
-     ItemStateModel;
-     public ItemTypeModel
-     ItemTypeModel;
-     public SubCategoryModel
-     SubCategoryModel;
-     public UserModel
-     UserModel;
-     public List<UserItemFavoriteModel> UserItemFavoritesModel;
      public List<UserItemImageModel> UserItemImagesModel;
+     public ItemTypeModel ItemTypeModel;
+     public int Fk_ItemType;
+     public SubCategoryModel SubCategoryModel;
+     public UserModel UserModel;
+     public int Fk_ItemState;
+     public ItemStateModel ItemStateModel;
+     
+     
+     public String UpdatedAt;
+     public List<UserItemFavoriteModel> UserItemFavoritesModel;
      public List<UserItemMainModel> UserItemMainsModel;
      */
     
     //MARK: Decodable
     required public init?(json: JSON){
-        id = "id" <~~ json
-        name = "name" <~~ json
-        imagesUrls = "imagesUrls" <~~ json
-        price = "price" <~~ json
-        currency = "currency" <~~ json
-        details = "details" <~~ json
-        category = "category" <~~ json
-        adType = "adType" <~~ json
-        country = "country" <~~ json
-        region = "region" <~~ json
-        detailedAddress = "detailedAddress" <~~ json
-        latitude = "latitude" <~~ json
-        longitude = "longitude" <~~ json
-        farshLevel = "farshLevel" <~~ json
-        roomsNumber = "roomsNumber" <~~ json
-        bathRoomsNumber = "bathRoomsNumber" <~~ json
-        additionalFacilities = "additionalFacilities" <~~ json
+        id = "Id" <~~ json
+        name = "Title" <~~ json
+        userId = "Fk_User" <~~ json
+        subCategoryId = "Fk_SubCategory" <~~ json
+        details = "About" <~~ json
+        detailedAddress = "Address" <~~ json
+        latitude = "Latitude" <~~ json
+        longitude = "Longitude" <~~ json
+        viewCount = "ViewCount" <~~ json
+        creationTime = "CreatedAt" <~~ json
+        adImages = "UserItemImagesModel" <~~ json
+        adType = "ItemTypeModel" <~~ json
+        adTypeId = "Fk_ItemType" <~~ json
+        subCategory = "SubCategoryModel" <~~ json
+        user = "UserModel" <~~ json
+        farshLevel = "ItemStateModel" <~~ json
+        farshLevelId = "Fk_ItemState" <~~ json
+        price = "Price" <~~ json
+        currency = "Currency" <~~ json
+        currencyId = "FK_Currency" <~~ json
+        phoneNumber = "Phone" <~~ json
+        regionId = "FK_Location" <~~ json
+        isFavourite = "Is_Favourite" <~~ json
+        
+//        imagesUrls = "imagesUrls" <~~ json
+//        roomsNumber = "roomsNumber" <~~ json
+//        bathRoomsNumber = "bathRoomsNumber" <~~ json
+//        additionalFacilities = "additionalFacilities" <~~ json
+    }
+    
+    //MARK: Encodable
+    public func toJSON() -> JSON? {
+        return jsonify([
+            "id" ~~> id,
+            "Title" ~~> name,
+            "Fk_User" ~~> userId,
+            "Fk_SubCategory" ~~> subCategoryId,
+            "About" ~~> details,
+            "Address" ~~> detailedAddress,
+            "Latitude" ~~> latitude,
+            "Longitude" ~~> longitude,
+            "creationTime" ~~> creationTime,
+            "UserItemImagesModel" ~~> adImages,
+            "ItemTypeModel" ~~> adType,
+            "Fk_ItemType" ~~> adTypeId,
+            "SubCategoryModel" ~~> subCategory,
+            "UserModel" ~~> user,
+            "ItemStateModel" ~~> farshLevel,
+            "Fk_ItemState" ~~> farshLevelId,
+            "Currency" ~~> currency,
+            "FK_Currency" ~~> currencyId,
+            "FK_Location" ~~> regionId,
+            "Phone" ~~> phoneNumber,
+            "Is_Favourite" ~~> isFavourite,
+            
+//            "imagesUrls" ~~> imagesUrls,
+//            "roomsNumber" ~~> roomsNumber,
+//            "bathRoomsNumber" ~~> bathRoomsNumber,
+//            "additionalFacilities" ~~> additionalFacilities,
+            ])
     }
     
     public init() {
@@ -90,14 +138,14 @@ public class Ad: DataType {
     public init(id: Int, name: String, imagesUrls: [String], price: String, currency: Currency, details: String, category: Category, adType: AdType, country: Country, region: Region, detailedAddress: String, latitude: Double, longitude: Double, farshLevel: FarshLevel, roomsNumber: Int, bathRoomsNumber: Int, additionalFacilities: [AdditionalFacility]) {
         self.id = id
         self.name = name
-        self.imagesUrls = imagesUrls
-        self.price = price
+//        self.imagesUrls = imagesUrls
+//        self.price = price
         self.currency = currency
         self.details = details
-        self.category = category
+        self.subCategory = category
         self.adType = adType
-        self.country = country
-        self.region = region
+//        self.country = country
+//        self.region = region
         self.detailedAddress = detailedAddress
         self.latitude = latitude
         self.longitude = longitude
@@ -106,28 +154,4 @@ public class Ad: DataType {
         self.bathRoomsNumber = bathRoomsNumber
         self.additionalFacilities = additionalFacilities
     }
-    
-    //MARK: Encodable
-    public func toJSON() -> JSON? {
-        return jsonify([
-            "id" ~~> id,
-            "name" ~~> name,
-            "imagesUrls" ~~> imagesUrls,
-            "price" ~~> price,
-            "currency" ~~> currency,
-            "details" ~~> details,
-            "category" ~~> category,
-            "adType" ~~> adType,
-            "country" ~~> country,
-            "region" ~~> region,
-            "detailedAddress" ~~> detailedAddress,
-            "latitude" ~~> latitude,
-            "longitude" ~~> longitude,
-            "farshLevel" ~~> farshLevel,
-            "roomsNumber" ~~> roomsNumber,
-            "bathRoomsNumber" ~~> bathRoomsNumber,
-            "additionalFacilities" ~~> additionalFacilities,
-            ])
-    }
-    
 }

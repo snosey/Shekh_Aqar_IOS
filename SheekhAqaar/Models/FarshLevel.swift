@@ -11,15 +11,13 @@ import Gloss
 
 public class FarshLevel: DataType {
     
-    var nameAr : String!
-    var nameEn : String!
+    var name : String!
     var id : Int!
     
     //MARK: Decodable
     required public init?(json: JSON){
-        nameAr = "name_ar" <~~ json
-        nameEn = "name_en" <~~ json
-        id = "id" <~~ json
+        name = "Name" <~~ json
+        id = "Id" <~~ json
     }
     
     public init() {
@@ -28,16 +26,14 @@ public class FarshLevel: DataType {
     
     public init(id : Int, nameEn: String, nameAr: String) {
         self.id = id
-        self.nameEn = nameEn
-        self.nameAr = nameAr
+        self.name = nameEn
     }
     
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "name_ar" ~~> nameAr,
-            "name_en" ~~> nameEn,
-            "id" ~~> id,
+            "Name" ~~> name,
+            "Id" ~~> id,
             ])
     }
     

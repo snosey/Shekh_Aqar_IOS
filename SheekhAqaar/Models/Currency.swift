@@ -11,15 +11,17 @@ import Gloss
 
 public class Currency: DataType {
     
-    var nameAr : String!
-    var nameEn : String!
+    var name : String!
+    var shortName: String!
+    var valueToEG: Int!
     var id : Int!
     
     //MARK: Decodable
     required public init?(json: JSON){
-        nameAr = "name_ar" <~~ json
-        nameEn = "name_en" <~~ json
-        id = "id" <~~ json
+        name = "Name" <~~ json
+        shortName = "ShortName" <~~ json
+        valueToEG = "VtoEg" <~~ json
+        id = "Id" <~~ json
     }
     
     public init() {
@@ -28,16 +30,17 @@ public class Currency: DataType {
     
     public init(id : Int, nameEn: String, nameAr: String) {
         self.id = id
-        self.nameEn = nameEn
-        self.nameAr = nameAr
+        self.name = nameEn
+//        self.nameAr = nameAr
     }
     
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "name_ar" ~~> nameAr,
-            "name_en" ~~> nameEn,
-            "id" ~~> id,
+            "ShortName" ~~> shortName,
+            "VtoEg" ~~> valueToEG,
+            "Name" ~~> name,
+            "Id" ~~> id,
             ])
     }
     

@@ -1,42 +1,36 @@
 //
-//  AdditionalFacility.swift
+//  AdDetailsItem.swift
 //  SheekhAqaar
 //
-//  Created by Hesham Donia on 8/26/19.
+//  Created by Hesham Donia on 9/23/19.
 //  Copyright © 2019 Hesham Donia. All rights reserved.
 //
 
 import Foundation
 import Gloss
 
-public class AdditionalFacility: DataType {
-    
-    var name : String!
+public class AdDetailsItem: DataType {
     var id : Int!
-    
-    var isChecked = false
+    var name: String!
+    var spinnerDataArray: [SpinnerData]!
     
     //MARK: Decodable
     required public init?(json: JSON){
-        name = "Name" <~~ json
         id = "Id" <~~ json
+        name = "Name" <~~ json
+        spinnerDataArray = "DataSpinnerModel" <~~ json
     }
     
     public init() {
         
     }
     
-    public init(id : Int, nameEn: String, nameAr: String) {
-        self.id = id
-        self.name = nameAr
-    }
-    
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "Name" ~~> name,
             "Id" ~~> id,
+            "Name" ~~> name,
+            "DataSpinnerModel" ~~> spinnerDataArray,
             ])
     }
-    
 }

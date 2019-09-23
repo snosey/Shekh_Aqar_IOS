@@ -99,5 +99,15 @@
 "numberOfRooms" = "عدد الغرف";
 "numberOfBathrooms" = "عدد الحمامات";
 "selectCountryError" = "من فضلك اختر كود الدولة";
+"selectCategoryFirst" = "من فضلك اختر تصنيف اولا";
 "selectCompanyPlace" = "من فضلك قم بتحديد موقع الشركة علي خرائط جوجل";
 "noCities" = "لا يوجد مدن لهذه الدولة";
+"whatsApp" = "واتساب";
+"adTitle" = "عنوان الاعلان";
+"details" = "التفاصيل";
+"noCategories" = "لا يوجد تصنيفات";
+"noCountries" = "لا يوجد دول";
+"noCurrencies" = "لا يوجد عملات";
+"aream2" = "المساحه بالمتر المربع";
+"price" = "السعر";
+"addImages" = "اضافة صور العقار";

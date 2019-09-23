@@ -21,18 +21,48 @@ class HelpVC: BaseVC {
     @IBOutlet weak var facebookImageView: UIImageView!
     @IBOutlet weak var instagramImageView: UIImageView!
     
-    let phoneNumber =  "+989160000000"
-    let email = "heshamkhaled92@gmail.com"
+    @IBOutlet weak var aboutLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    
+    var helpData: HelpData!
+    
+    var presenter: HelpPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter = Injector.provideHelpPresenter()
+        presenter.setView(view: self)
+        presenter.getHelpData()
+        
         backIcon.addTapGesture { [weak self] (_) in
             self?.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    @IBAction func whatsAppClicked(_ sender: Any) {
+         UiHelpers.openWahtsApp(view: self.view, phoneNumber: helpData.whatsApp)
+    }
+    
+    @IBAction func emailClicked(_ sender: Any) {
+        UiHelpers.openMail(email: helpData.email)
+    }
+    
+    @IBAction func callClicked(_ sender: Any) {
+        UiHelpers.makeCall(phoneNumber: helpData.mobile)
+    }
+}
+
+extension HelpVC: HelpView {
+    func getHelpDateSuccess(helpData: HelpData) {
+        
+        self.helpData = helpData
+        
+        aboutLabel.text = helpData.about
+        addressLabel.text = helpData.address
         
         twitterImageView.addTapGesture { (_) in
-            let appURL = NSURL(string: "https://www.twitter.com")!
+            let appURL = NSURL(string: helpData.twitter)!
             if UIApplication.shared.canOpenURL(appURL as URL) {
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(appURL as URL, options: [:], completionHandler: nil)
@@ -43,7 +73,7 @@ class HelpVC: BaseVC {
         }
         
         facebookImageView.addTapGesture { (_) in
-            let appURL = NSURL(string: "https://www.facebook.com")!
+            let appURL = NSURL(string: helpData.facebook)!
             if UIApplication.shared.canOpenURL(appURL as URL) {
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(appURL as URL, options: [:], completionHandler: nil)
@@ -54,7 +84,7 @@ class HelpVC: BaseVC {
         }
         
         instagramImageView.addTapGesture { (_) in
-            let appURL = NSURL(string: "https://www.instagram.com")!
+            let appURL = NSURL(string: helpData.instagram)!
             if UIApplication.shared.canOpenURL(appURL as URL) {
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(appURL as URL, options: [:], completionHandler: nil)
@@ -65,31 +95,11 @@ class HelpVC: BaseVC {
         }
     }
     
-    @IBAction func whatsAppClicked(_ sender: Any) {
-        
-        let appURL = NSURL(string: "https://api.whatsapp.com/send?phone=\(phoneNumber)")!
-        if UIApplication.shared.canOpenURL(appURL as URL) {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(appURL as URL, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(appURL as URL)
-            }
-        } else {
-            self.view.makeToast("downloadWhatsApp".localized())
-        }
+    func failed(errorMessage: String) {
+        self.view.makeToast(errorMessage)
     }
     
-    @IBAction func emailClicked(_ sender: Any) {
-        if let url = URL(string: "mailto:\(email)") {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        }
-    }
-    
-    @IBAction func callClicked(_ sender: Any) {
-        UiHelpers.makeCall(phoneNumber: phoneNumber)
+    func handleNoInternetConnection() {
+        self.view.makeToast("noInternetConnection".localized())
     }
 }

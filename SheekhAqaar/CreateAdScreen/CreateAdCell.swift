@@ -14,11 +14,9 @@ public protocol CreateAdCellDelegate: class {
     func showAdTypes()
     func showCountries()
     func showCities()
-    func showFarshLevels()
     func facilityChecked(checked: Bool, index: Int)
-    func changeNumberOfBathrooms(newNumber: Int)
-    func changeNumberOfRooms(newNumber: Int)
     func publishAd(ad: Ad, images: [Data])
+    func addImages()
 }
 
 class CreateAdCell: UITableViewCell {
@@ -43,33 +41,26 @@ class CreateAdCell: UITableViewCell {
     @IBOutlet weak var cityLabel: LocalizedLabel!
     @IBOutlet weak var buildingLocationTextField: LocalizedTextField!
     @IBOutlet weak var detectLocationOnGoogleMaps: UIView!
-    @IBOutlet weak var farshLevelView: UIView!
-    @IBOutlet weak var farshLevelLabel: LocalizedLabel!
-    @IBOutlet weak var increaseNumberOfRoomsLabel: UILabel!
-    @IBOutlet weak var numberOfRoomsLabel: UILabel!
-    @IBOutlet weak var decreaseNumberOfRoomsLabel: UILabel!
-    @IBOutlet weak var increaseNumberOfBathroomsLabel: UILabel!
-    @IBOutlet weak var numberOfBathroomsLabel: UILabel!
-    @IBOutlet weak var decreaseNumberOfBathroomsLabel: UILabel!
+    
+    @IBOutlet weak var adDetailsTableView: UITableView!
     @IBOutlet weak var additionalFacilitiesTableView: UITableView!
     @IBOutlet weak var publishAddButton: UIButton!
-    
-    var countries = [Country]()
-    var categories = [Category]()
-    var adTypes = [AdType]()
-    var farshLevels = [FarshLevel]()
-    var currencies = [Currency]()
+
+    var adDetailsItems = [AdDetailsItem]()
     var additionalFacilities = [AdditionalFacility]()
-    var cities = [City]()
     
+    @IBOutlet weak var addImagesButton: LocalizedButton!
     var delegate: CreateAdCellDelegate!
     
-    var images = [UIImage]()
+    var selectedImages = [UIImage]()
     
     var numberOfRooms = 0
     var numberOfBathrooms = 0
     
     public func initializeCell() {
+        if let layout = photosCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
         photosCollectionView.dataSource = self
         photosCollectionView.delegate = self
         photosCollectionView.reloadData()
@@ -98,69 +89,17 @@ class CreateAdCell: UITableViewCell {
             self?.delegate.showCountries()
         }
         
-        increaseNumberOfRoomsLabel.addTapGesture { [weak self] (_) in
-            self?.numberOfRooms = (self?.numberOfRooms ?? 0) + 1
-            self?.delegate.changeNumberOfRooms(newNumber: self?.numberOfRooms ?? 0)
-            if let count = self?.numberOfRooms, count == 0 {
-                self?.numberOfRoomsLabel.text = "numberOfRooms".localized()
-            } else {
-                self?.numberOfRoomsLabel.text = "\(self?.numberOfRooms ?? 0)"
-            }
-        }
-        
-        decreaseNumberOfRoomsLabel.addTapGesture { [weak self] (_) in
-            if let count = self?.numberOfRooms {
-                if count > 0 {
-                    self?.numberOfRooms = (self?.numberOfRooms ?? 1) - 1
-                    if let c = self?.numberOfRooms, c == 0 {
-                        self?.numberOfRoomsLabel.text = "numberOfRooms".localized()
-                    } else {
-                        self?.delegate.changeNumberOfRooms(newNumber: self?.numberOfRooms ?? 0)
-                        self?.numberOfRoomsLabel.text = "\(self?.numberOfRooms ?? 0)"
-                    }
-                } else {
-                    self?.numberOfRoomsLabel.text = "numberOfRooms".localized()
-                }
-            }
-        }
-        
-        increaseNumberOfBathroomsLabel.addTapGesture { [weak self] (_) in
-            self?.numberOfBathrooms = (self?.numberOfBathrooms ?? 0) + 1
-            self?.delegate.changeNumberOfBathrooms(newNumber: self?.numberOfBathrooms ?? 0)
-            if let count = self?.numberOfBathrooms, count == 0 {
-                self?.numberOfBathroomsLabel.text = "numberOfBathrooms".localized()
-            } else {
-                self?.numberOfBathroomsLabel.text = "\(self?.numberOfBathrooms ?? 0)"
-            }
-        }
-        
-        decreaseNumberOfBathroomsLabel.addTapGesture { [weak self] (_) in
-            if let count = self?.numberOfBathrooms {
-                if count > 0 {
-                    self?.numberOfBathrooms = (self?.numberOfBathrooms ?? 1) - 1
-                    if let c = self?.numberOfBathrooms, c == 0 {
-                        self?.numberOfBathroomsLabel.text = "numberOfBathrooms".localized()
-                    } else {
-                        self?.delegate.changeNumberOfBathrooms(newNumber: self?.numberOfBathrooms ?? 0)
-                        self?.numberOfBathroomsLabel.text = "\(self?.numberOfBathrooms ?? 0)"
-                    }
-                } else {
-                    self?.numberOfBathroomsLabel.text = "numberOfBathrooms".localized()
-                }
-            }
-        }
-        
         cityView.addTapGesture { [weak self] (_) in
             self?.delegate.showCities()
-        }
-        
-        farshLevelView.addTapGesture { [weak self] (_) in
-            self?.delegate.showFarshLevels()
         }
         
         publishAddButton.addTapGesture { [weak self](_) in
             let ad = Ad()
             self?.delegate.publishAd(ad: ad, images: [])
+        }
+        
+        addImagesButton.addTapGesture { [weak self](_) in
+            self?.delegate.addImages()
         }
     }
     
@@ -168,19 +107,17 @@ class CreateAdCell: UITableViewCell {
 
 extension CreateAdCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count + 1
+        return selectedImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdPhotoCell
             .identifier, for: indexPath) as! AdPhotoCell
         
-        if indexPath.row == 0 {
-            cell.adPhotoImageView.image = UIImage(named: "bed")
-        } else {
-            cell.adPhotoImageView.image = images.get(indexPath.row)
-        }
-        
+        cell.adPhotoImageView.image = selectedImages.get(indexPath.row)
+        cell.delegate = self
+        cell.index = indexPath.row
+        cell.configureRemoveIcon()
         return cell
     }
 }
@@ -209,5 +146,12 @@ extension CreateAdCell: ChooseAdditionalFacilityCellDelegate {
         self.delegate.facilityChecked(checked: checked, index: index)
         self.additionalFacilities.get(index)?.isChecked = checked
         self.additionalFacilitiesTableView.reloadData()
+    }
+}
+
+extension CreateAdCell: AdPhotoCellDelegate {
+    func removeImage(index: Int) {
+        self.selectedImages.remove(at: index)
+        photosCollectionView.reloadData()
     }
 }

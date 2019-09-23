@@ -16,11 +16,13 @@ import Gloss
 public class AdImage: DataType {
     var id : Int!
     var imageUrl: String!
+    var adId: Int!
     
     //MARK: Decodable
     required public init?(json: JSON){
         id = "Id" <~~ json
         imageUrl = "ImageURL" <~~ json
+        adId = "Fk_UserItem" <~~ json
     }
     
     public init() {
@@ -32,6 +34,7 @@ public class AdImage: DataType {
         return jsonify([
             "Id" ~~> id,
             "ImageURL" ~~> imageUrl,
+            "Fk_UserItem" ~~> adId,
             ])
     }
 }

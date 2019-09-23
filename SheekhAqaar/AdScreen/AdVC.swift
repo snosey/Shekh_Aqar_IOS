@@ -15,12 +15,12 @@ class AdVC: BaseVC {
         let storyboard = UIStoryboard(name: "AdStoryboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "AdVC") as! AdVC
         vc.ad = ad
-        vc.adDetails.append(AdDetail(title: "adType".localized(), details: ad.adType.nameEn, imageName: "building"))
+        vc.adDetails.append(AdDetail(title: "adType".localized(), details: ad.adType.name, imageName: "building"))
         vc.adDetails.append(AdDetail(title: "location".localized(), details: ad.detailedAddress, imageName: "location"))
         vc.adDetails.append(AdDetail(title: "area".localized(), details: String(ad.placeArea) + "meter".localized(), imageName: "m2"))
         vc.adDetails.append(AdDetail(title: "roomsCount".localized(), details: String(ad.roomsNumber), imageName: "bed"))
         vc.adDetails.append(AdDetail(title: "bathroomsCount".localized(), details: String(ad.bathRoomsNumber), imageName: "bathroom"))
-        vc.adDetails.append(AdDetail(title: "farsh".localized(), details: ad.farshLevel.nameEn, imageName: "farsh"))
+        vc.adDetails.append(AdDetail(title: "farsh".localized(), details: ad.farshLevel.name, imageName: "farsh"))
         return vc
     }
     
@@ -81,7 +81,8 @@ class AdVC: BaseVC {
         }
         
         adNameLabel.text = ad.name
-        companyAndTimeLabel.text = ad.companyName + " | " + Date(milliseconds: Int(ad.creationTime) * 1000).timeAgoDisplay()
+        let date = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/YYYY")
+        companyAndTimeLabel.text = ad.companyName + " | " + date.timeAgoDisplay()
         
         adDetailsTableView.dataSource = self
         adDetailsTableView.delegate = self
@@ -91,11 +92,7 @@ class AdVC: BaseVC {
         additionalFacilitiesTableView.delegate = self
         additionalFacilitiesTableView.reloadData()
         
-        if Localize.currentLanguage() == "ar" {
-             adPriceLabel.text = String(ad.price) + " " + ad.currency.nameAr
-        } else {
-             adPriceLabel.text = String(ad.price) + " " + ad.currency.nameEn
-        }
+        adPriceLabel.text = String(ad.price) + " " + ad.currency.name
     }
     
     @IBAction func addToFavouritesClicked(_ sender: Any) {
@@ -111,6 +108,9 @@ class AdVC: BaseVC {
         UiHelpers.makeCall(phoneNumber: ad.phoneNumber)
     }
 
+    @IBAction func openWhatsAppClicked(_ sender: Any) {
+        UiHelpers.openWahtsApp(view: self.view, phoneNumber: ad.phoneNumber)
+    }
 }
 
 extension AdVC: AdView {
@@ -135,13 +135,13 @@ extension AdVC: AdView {
 
 extension AdVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ad.imagesUrls.count
+        return ad.adImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdPhotoCell
             .identifier, for: indexPath) as! AdPhotoCell
-        cell.imageUrl = ad.imagesUrls.get(indexPath.row)
+        cell.imageUrl = ad.adImages.get(indexPath.row)?.imageUrl
         cell.populateData()
         return cell
     }

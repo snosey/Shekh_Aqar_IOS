@@ -24,6 +24,7 @@ class CompanyVC: BaseVC {
     @IBOutlet weak var companyNumberOfAdsLabel: UILabel!
     @IBOutlet weak var addressView: UIView!
     @IBOutlet weak var callView: UIView!
+    @IBOutlet weak var whatsAppView: UIView!
     @IBOutlet weak var adsTableView: UITableView!
     
     var company: Company!
@@ -67,9 +68,11 @@ class CompanyVC: BaseVC {
         }
         
         callView.addTapGesture { [weak self] (_) in
-            let urlString = "telprompt://\(self?.company.phoneNumber ?? "")"
-            guard let url = URL(string: urlString) else { return }
-            UIApplication.shared.open(url)
+            UiHelpers.makeCall(phoneNumber: self?.company.phoneNumber ?? "")
+        }
+        
+        whatsAppView.addTapGesture { [weak self](_) in
+            UiHelpers.openWahtsApp(view: self?.view ?? UIView(), phoneNumber: self?.company.phoneNumber ?? "" )
         }
     }
 }

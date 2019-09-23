@@ -615,10 +615,12 @@
                         <outlet property="collectionView1" destination="SA1-T5-gze" id="B9e-GO-W7d"/>
                         <outlet property="collectionView2" destination="nFc-QX-XQu" id="mdP-8G-eiW"/>
                         <outlet property="collectionView3" destination="DYa-f5-UK7" id="SLv-bj-5U3"/>
+                        <outlet property="googleEarthButton" destination="wiZ-8u-6Xu" id="Nx2-Ej-fPh"/>
                         <outlet property="googleMapView" destination="jiK-Ff-Bko" id="Jhp-jG-oYN"/>
                         <outlet property="left1ImageView" destination="QSc-tD-J61" id="7XX-mG-ssj"/>
                         <outlet property="left2ImageView" destination="bh2-eV-AE8" id="fAp-In-cNM"/>
                         <outlet property="left3ImageView" destination="jHw-cA-GeX" id="Nyd-Eg-XkO"/>
+                        <outlet property="normalMapButton" destination="IHw-ko-op3" id="VD7-a3-ZvC"/>
                         <outlet property="right1ImageView" destination="LEk-XP-VKx" id="75H-Bp-rPH"/>
                         <outlet property="right2ImageView" destination="Qts-g0-DDA" id="J1r-IN-8Xo"/>
                         <outlet property="right3ImageView" destination="5ep-07-ETX" id="KcM-ce-rfR"/>
