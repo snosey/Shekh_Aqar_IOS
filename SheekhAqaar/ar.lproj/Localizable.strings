@@ -111,3 +111,15 @@
 "aream2" = "المساحه بالمتر المربع";
 "price" = "السعر";
 "addImages" = "اضافة صور العقار";
+"pleaseInsert" = "برجاء ادخال ";
+"noData" = "لا يوجد بيانات متاحة";
+"atLeast3Images" = "من فضلك قم باضافة ثلاثة صور علي الاقل";
+"enterAdTitle" = "من فضلك أدخل عنوان الاعلان";
+"enterPrice" = "من فضلك ادخل السعر";
+"enterDetails" = "من فضلك ادخل تفاصيل الاعلان";
+"enterArea" = "من فضلك ادخل المساحة";
+"enterAddress" = "من فضلك أدخل العنوان";
+"selectAdTypeFirst" = "من فضلك اختر نوع العقار أولا";
+"selectCurrencyFirst" = "من فضلك اختر العمله أولا";
+"selectRegionFirst" = "من فضلك اختر المدينة أولا";
+"chooseLocationFirst" = "من فضلك اختر المكان من خرائط جوجل أولا";

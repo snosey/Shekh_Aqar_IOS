@@ -309,13 +309,12 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 
                 switch cell.category.id {
                 case -1:
-//                    if let _ = Defaults[.user] {
-//                        // go to add ad
-//                        self?.navigator.navigateToCreateAd()
-//                    } else {
-//                        self?.navigator.navigateToSignUp()
-//                    }
-                    self?.navigator.navigateToCreateAd()
+                    if let _ = Defaults[.user] {
+                        // go to add ad
+                        self?.navigator.navigateToCreateAd()
+                    } else {
+                        self?.navigator.navigateToSignUp()
+                    }
                     break
                     
                 case -2:
@@ -502,9 +501,10 @@ extension HomeVC: CLLocationManagerDelegate {
         
         if Singleton.getInstance().currentLocation == nil || (Singleton.getInstance().currentLocation.coordinate.latitude != locations.last!.coordinate.latitude && Singleton.getInstance().currentLocation.coordinate.longitude != locations.last!.coordinate.longitude) {
             Singleton.getInstance().currentLocation = locations.last!
-            Singleton.getInstance().currentLatitude = locations.last!.coordinate.latitude
-            Singleton.getInstance().currentLongitude = locations.last!.coordinate.longitude
         }
+        
+        Singleton.getInstance().currentLatitude = locations.last!.coordinate.latitude
+        Singleton.getInstance().currentLongitude = locations.last!.coordinate.longitude
         
         createMapView(latitude: (Singleton.getInstance().currentLocation?.coordinate.latitude)!, longitude: (Singleton.instance.currentLocation?.coordinate.longitude)!)
     }

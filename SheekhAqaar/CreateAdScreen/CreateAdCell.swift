@@ -15,8 +15,9 @@ public protocol CreateAdCellDelegate: class {
     func showCountries()
     func showCities()
     func facilityChecked(checked: Bool, index: Int)
-    func publishAd(ad: Ad, images: [Data])
+    func publishAd(adTitle: String, additionalFacilities: [String], adDetailsItems: [String], images: [Data])
     func addImages()
+    func getLocationFromGoogleMaps()
 }
 
 class CreateAdCell: UITableViewCell {
@@ -25,7 +26,7 @@ class CreateAdCell: UITableViewCell {
     
     @IBOutlet weak var numberOfAddedPhotosLabel: UILabel!
     @IBOutlet weak var photosCollectionView: UICollectionView!
-    @IBOutlet weak var addressTextField: LocalizedTextField!
+    @IBOutlet weak var adTitleTextField: LocalizedTextField!
     @IBOutlet weak var priceTextField: LocalizedTextField!
     @IBOutlet weak var currencyView: UIView!
     @IBOutlet weak var currencyLabel: LocalizedLabel!
@@ -34,12 +35,12 @@ class CreateAdCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: LocalizedLabel!
     @IBOutlet weak var adTypeView: UIView!
     @IBOutlet weak var adTypeLabel: LocalizedLabel!
-    @IBOutlet weak var areaLabel: LocalizedTextField!
+    @IBOutlet weak var areaTextField: LocalizedTextField!
     @IBOutlet weak var countryView: UIView!
     @IBOutlet weak var countryLabel: LocalizedLabel!
     @IBOutlet weak var cityView: UIView!
     @IBOutlet weak var cityLabel: LocalizedLabel!
-    @IBOutlet weak var buildingLocationTextField: LocalizedTextField!
+    @IBOutlet weak var buildingLocationLabel: LocalizedLabel!
     @IBOutlet weak var detectLocationOnGoogleMaps: UIView!
     
     @IBOutlet weak var adDetailsTableView: UITableView!
@@ -69,6 +70,10 @@ class CreateAdCell: UITableViewCell {
         additionalFacilitiesTableView.delegate = self
         additionalFacilitiesTableView.reloadData()
         
+        adDetailsTableView.dataSource = self
+        adDetailsTableView.delegate = self
+        adDetailsTableView.reloadData()
+        
         currencyView.addTapGesture { [weak self] (_) in
             self?.delegate.showCurrencies()
         }
@@ -93,9 +98,55 @@ class CreateAdCell: UITableViewCell {
             self?.delegate.showCities()
         }
         
+        detectLocationOnGoogleMaps.addTapGesture { [weak self](_) in
+            self?.delegate.getLocationFromGoogleMaps()
+        }
+        
         publishAddButton.addTapGesture { [weak self](_) in
-            let ad = Ad()
-            self?.delegate.publishAd(ad: ad, images: [])
+            if self?.selectedImages.count ?? 0 >= 3 {
+                if let adTitle = self?.adTitleTextField.text, !adTitle.isEmpty {
+                    if let _ = self?.priceTextField.text {
+                        if let _ = self?.adDetailsTextField.text {
+                            if let _ = self?.areaTextField.text {
+                                var adDetailsItemsStrings  = [String]()
+                                var imagesData = [Data]()
+                                
+                                var index = 0
+                                
+                                
+                                for item in self?.adDetailsItems ?? [] {
+                                    var name = ""
+                                    
+                                    let cell = self?.adDetailsTableView.cellForRow(at: IndexPath(row: index, section: 0))
+                                    if let cell = cell as? AdDetailsWithoutSpinnerCell {
+                                        name = "\(item.name!): \(cell.valueTextField.text!)"
+                                    } else if let cell = cell as? AdDetailsWithSpinnerCell {
+                                        name = "\(item.name!): \(cell.valueLabel.text!)"
+                                    }
+                                    adDetailsItemsStrings.append(name)
+                                    index = index + 1
+                                }
+                                    
+                                for image in self?.selectedImages ?? [] {
+                                    imagesData.append(image.jpegData(compressionQuality: 0.1)!)
+                                }
+                                    
+                                self?.delegate.publishAd(adTitle: adTitle, additionalFacilities: [], adDetailsItems: adDetailsItemsStrings, images: imagesData)
+                            } else {
+                                self?.contentView.makeToast("enterArea".localized())
+                            }
+                        } else {
+                            self?.contentView.makeToast("enterDetails".localized())
+                        }
+                    } else {
+                        self?.contentView.makeToast("enterPrice".localized())
+                    }
+                } else {
+                    self?.contentView.makeToast("enterAdTitle".localized())
+                }
+            } else {
+                self?.contentView.makeToast("atLeast3Images".localized())
+            }
         }
         
         addImagesButton.addTapGesture { [weak self](_) in
@@ -124,16 +175,37 @@ extension CreateAdCell: UICollectionViewDataSource, UICollectionViewDelegate {
 
 extension CreateAdCell: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return additionalFacilities.count
+        if tableView == additionalFacilitiesTableView {
+            return additionalFacilities.count
+        } else if tableView == adDetailsTableView {
+            return adDetailsItems.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ChooseAdditionalFacilityCell.identifier, for: indexPath) as! ChooseAdditionalFacilityCell
-        cell.index = indexPath.row
-        cell.additionalFacility = self.additionalFacilities.get(indexPath.row)
-        cell.delegate = self
-        cell.populateData()
-        return cell
+         if tableView == additionalFacilitiesTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ChooseAdditionalFacilityCell.identifier, for: indexPath) as! ChooseAdditionalFacilityCell
+            cell.index = indexPath.row
+            cell.additionalFacility = self.additionalFacilities.get(indexPath.row)
+            cell.delegate = self
+            cell.populateData()
+            return cell
+         } else if tableView == adDetailsTableView {
+            let adDetailsItem = adDetailsItems.get(indexPath.row)
+            if adDetailsItem?.spinnerDataArray.count ?? 0 > 0 {
+               let cell = tableView.dequeueReusableCell(withIdentifier: AdDetailsWithSpinnerCell.identifier, for: indexPath) as! AdDetailsWithSpinnerCell
+                cell.adDetailsItem = adDetailsItem
+                cell.populateData()
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: AdDetailsWithoutSpinnerCell.identifier, for: indexPath) as! AdDetailsWithoutSpinnerCell
+                cell.adDetailsItem = adDetailsItem
+                cell.populateData()
+                return cell
+            }
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

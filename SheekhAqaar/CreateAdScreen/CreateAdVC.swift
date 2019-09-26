@@ -8,6 +8,8 @@
 
 import UIKit
 import DropDown
+import GoogleMaps
+import GooglePlacePicker
 
 class CreateAdVC: BaseVC {
 
@@ -32,16 +34,18 @@ class CreateAdVC: BaseVC {
     var selectedAdType: Category!
     
     var adDetailsItems = [AdDetailsItem]()
-    var selectedAdDetailsItem: AdDetailsItem!
     
     var currencies = [Currency]()
     var selectedCurrency: Currency!
     
     var additionalFacilities = [AdditionalFacility]()
-    var selectedAddtionalFacilities: [AdditionalFacility]!
+    var selectedAddtionalFacilities: [AdditionalFacility] = [AdditionalFacility]()
     
     var regions = [Region]()
     var selectedRegion: Region!
+    
+    var selectedLatitude: Double!
+    var selectedLongitude: Double!
     
     var cell: CreateAdCell!
     
@@ -109,6 +113,11 @@ extension CreateAdVC: CreateAdView {
         
         cell.additionalFacilities = additionalFacilities
         cell.additionalFacilitiesTableView.reloadData()
+        
+        cell.adDetailsItems = adDetailsItems
+        cell.adDetailsTableView.reloadData()
+        
+        createAdTableView.reloadData()
     }
     
     func publishAdSuccess() {
@@ -140,11 +149,31 @@ extension CreateAdVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        var height = UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 120)
+        var height = UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 80)
         for _ in additionalFacilities {
             height = height + UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 4)
         }
+        for _ in adDetailsItems {
+            height = height + UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 4)
+        }
         return height
+    }
+}
+
+extension CreateAdVC: GMSPlacePickerViewControllerDelegate {
+    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+        viewController.dismiss(animated: true, completion: nil)
+        
+        cell.buildingLocationLabel.text = place.formattedAddress
+        self.selectedLatitude = place.coordinate.latitude
+        self.selectedLongitude = place.coordinate.longitude
+    }
+    
+    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: nil)
+        
+        print("No place selected")
     }
 }
 
@@ -166,8 +195,35 @@ extension CreateAdVC: CreateAdCellDelegate {
         presentVC(alert)
     }
     
-    func publishAd(ad: Ad, images: [Data]) {
-        
+    func publishAd(adTitle: String, additionalFacilities: [String], adDetailsItems: [String], images: [Data]) {
+        if selectedCategory != nil {
+            if selectedAdType != nil {
+                if selectedCurrency != nil {
+                    if selectedRegion != nil {
+                        if selectedLatitude != nil && selectedLongitude != nil {
+                            
+                            var selectedAdditionalFacilitiesStrings = [String]()
+                            
+                            for facility in selectedAddtionalFacilities {
+                                selectedAdditionalFacilitiesStrings.append(facility.name)
+                            }
+                            
+                            presenter.publishAd(adTitle: adTitle, additionalFacilities: selectedAdditionalFacilitiesStrings, adDetailsItems: adDetailsItems, images: images)
+                        } else {
+                           view.makeToast("chooseLocationFirst".localized())
+                        }
+                    } else {
+                        view.makeToast("selectRegionFirst".localized())
+                    }
+                } else {
+                    view.makeToast("selectCurrencyFirst".localized())
+                }
+            } else {
+                view.makeToast("selectAdTypeFirst".localized())
+            }
+        } else {
+           view.makeToast("selectCategoryFirst".localized())
+        }
     }
     
     func showCurrencies() {
@@ -241,6 +297,10 @@ extension CreateAdVC: CreateAdCellDelegate {
                     self?.selectedAdType = self?.adTypes.get(index)
                     
                     self?.presenter.getCreateAdData(subCategoryId: self?.selectedAdType.id ?? 0, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                    if let _ = self?.selectedAddtionalFacilities {
+                        self?.selectedAddtionalFacilities.removeAll()
+                    }
+                    
                 }
                 dropDown.direction = .any
                 dropDown.show()
@@ -310,6 +370,20 @@ extension CreateAdVC: CreateAdCellDelegate {
     }
     
     func facilityChecked(checked: Bool, index: Int) {
-        
+        if checked {
+            selectedAddtionalFacilities.append(additionalFacilities.get(index)!)
+        } else {
+            let additionalFacilityId = additionalFacilities.get(index)!.id
+            selectedAddtionalFacilities.removeAll { (facility) -> Bool in
+                return facility.id == additionalFacilityId
+            }
+        }
+    }
+    
+    func getLocationFromGoogleMaps() {
+        let config = GMSPlacePickerConfig(viewport: nil)
+        let placePicker = GMSPlacePickerViewController(config: config)
+        placePicker.delegate = self
+        present(placePicker, animated: true, completion: nil)
     }
 }

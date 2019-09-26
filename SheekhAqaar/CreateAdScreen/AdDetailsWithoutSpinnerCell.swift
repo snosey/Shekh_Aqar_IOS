@@ -15,4 +15,10 @@ class AdDetailsWithoutSpinnerCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueTextField: UITextField!
     
+    var adDetailsItem: AdDetailsItem!
+    
+    public func populateData() {
+        titleLabel.text = adDetailsItem.name
+        valueTextField.placeholder = "pleaseInsert".localized() + adDetailsItem.name
+    }
 }

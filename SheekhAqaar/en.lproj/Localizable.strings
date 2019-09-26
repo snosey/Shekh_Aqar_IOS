@@ -111,3 +111,15 @@
 "aream2" = "Area in squared meter";
 "price" = "Price";
 "addImages" = "Add Images";
+"pleaseInsert" = "Please insert ";
+"noData" = "No data available";
+"atLeast3Images" = "Please add 3 photos at least";
+"enterAdTitle" = "Please enter Ad title";
+"enterPrice" = "Please enter price";
+"enterDetails" = "Please enter details";
+"enterArea" = "Please enter area";
+"enterAddress" = "Please enter address";
+"selectAdTypeFirst" = "Please select building type first";
+"selectCurrencyFirst" = "Please select currency first";
+"selectRegionFirst" = "Please select region first";
+"chooseLocationFirst" = "Please select location from Google Maps firsts";
