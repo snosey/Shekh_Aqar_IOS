@@ -13,6 +13,7 @@ import SwiftyUserDefaults
 public protocol HomePresenterDelegate: class {
     func getCategoriesSuccess(firstRowCategories: [Category], secondRowCategories: [Category], thirdRowCategories: [Category])
     func getCompaniesSuccess(companies: [Company])
+    func getAdsSuccess(ads: [Ad])
     func loginSuccess(user: User?, isExist: Bool)
     func failed(errorMessage: String)
 }
@@ -200,13 +201,13 @@ public class HomeRepository {
                     let statusObj = json["Status"] as! Dictionary<String,AnyObject>
                     
                     if let id = statusObj["Id"] as? Int, id == 1 {
-                        let companiesJsonArray = json["Data"] as! [Dictionary<String,AnyObject>]
-                        var companies = [Company]()
-                        for companyJsonObj in companiesJsonArray {
-                            let company = Company(json: companyJsonObj)
-                            companies.append(company!)
+                        let adsJsonArray = json["Data"] as! [Dictionary<String,AnyObject>]
+                        var ads = [Ad]()
+                        for adJsonObj in adsJsonArray {
+                            let ad = Ad(json: adJsonObj)
+                            ads.append(ad!)
                         }
-                        self.delegate.getCompaniesSuccess(companies: companies)
+                        self.delegate.getAdsSuccess(ads: ads)
                     } else {
                         self.delegate.failed(errorMessage: statusObj["Message"] as! String)
                     }

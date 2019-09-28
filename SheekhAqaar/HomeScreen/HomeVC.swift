@@ -50,6 +50,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     var selectedIndex = 0
     
     var companies = [Company]()
+    var ads = [Ad]()
     
     var selectedCategory: Category!
     var selectedCategoryPosition = 0
@@ -100,7 +101,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
                 if self?.selectedCategoryPosition == 1 {
                     self?.showCompaniesOnMap()
                 } else if self?.selectedCategoryPosition == 2 || self?.selectedCategoryPosition == 3 {
-                    self?.showAdsOnMap(category: category)
+                    self?.presenter.getAds(subCategoryId: category.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
                 }
             }
             
@@ -173,12 +174,12 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         }
     }
     
-    func showAdsOnMap(category: Category) {
+    func showAdsOnMap() {
         googleMapView.clear()
-//        for ad in category.ads {
-//           let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: ad.latitude, longitude: ad.longitude, title: ad.name, adsNumber: category.ads.count, mapView: googleMapView)
-//            marker.userData = ad
-//        }
+        for ad in ads {
+            let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: ad.latitude, longitude: ad.longitude, title: ad.name, adsNumber: ads.count, mapView: googleMapView, companyMarkerColor: "#ffffff")
+            marker.userData = ad
+        }
     }
     
     private func changeArrows() {
@@ -242,10 +243,20 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
 }
 
 extension HomeVC: HomeView {
+    
     func getCompaniesSuccess(companies: [Company]) {
         self.companies = companies
         if viewingMode == 1 {
             showCompaniesOnMap()
+        } else {
+            tableView.reloadData()
+        }
+    }
+    
+    func getAdsSuccess(ads: [Ad]) {
+        self.ads = ads
+        if viewingMode == 1 {
+            showAdsOnMap()
         } else {
             tableView.reloadData()
         }
@@ -387,11 +398,12 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 cell.populateData()
                 self?.selectedIndex = indexPath.row
                 
-                if self?.viewingMode == 1 {
-                    self?.showAdsOnMap(category: cell.category)
-                } else if self?.viewingMode == 2 {
-                    self?.tableView.reloadData()
-                }
+//                if self?.viewingMode == 1 {
+//                    self?.showAdsOnMap(category: cell.category)
+//                } else if self?.viewingMode == 2 {
+//                    self?.tableView.reloadData()
+//                }
+                self?.presenter.getAds(subCategoryId: cell.category.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
                 
                 var indexPathes2 = [IndexPath]()
                 var count2 = 0
@@ -424,11 +436,13 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 cell.populateData()
                 self?.selectedIndex = indexPath.row
                 
-                if self?.viewingMode == 1 {
-                    self?.showAdsOnMap(category: cell.category)
-                } else if self?.viewingMode == 2 {
-                    self?.tableView.reloadData()
-                }
+//                if self?.viewingMode == 1 {
+//                    self?.showAdsOnMap(category: cell.category)
+//                } else if self?.viewingMode == 2 {
+//                    self?.tableView.reloadData()
+//                }
+                
+                self?.presenter.getAds(subCategoryId: cell.category.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
                 
                 var indexPathes2 = [IndexPath]()
                 var count2 = 0
@@ -478,11 +492,11 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else if selectedCategoryPosition == 2 || selectedCategoryPosition == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: AdCell.identifier, for: indexPath) as! AdCell
-//            cell.ad = selectedCategory.ads.get(indexPath.row)
+            cell.ad = ads.get(indexPath.row)
             cell.populateData()
             cell.selectionStyle = .none
             cell.contentView.addTapGesture { [weak self] (_) in
-//                self?.navigator.navigateToAdDetails(ad: self?.selectedCategory.ads.get(indexPath.row) ?? Ad())
+                self?.navigator.navigateToAdDetails(ad: self?.ads.get(indexPath.row) ?? Ad())
             }
             return cell
         }

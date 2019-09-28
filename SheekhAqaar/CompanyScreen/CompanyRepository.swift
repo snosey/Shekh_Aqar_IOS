@@ -23,13 +23,36 @@ public class CompanyRepository {
     }
     
     public func getCompanyAds(companyId: Int) {
-        let category = Category(id: 1, nameEn: "Category 1", nameAr: "مثمن عقاري", key: "cat1", ads: [])
+        let params = ["Fk_Company" : companyId] as [String : Any]
+        let url = CommonConstants.BASE_URL + "User/GetAds"
         
-//        let ad1 = Ad(id: 1, name: "فيلا للبيع", imagesUrls: ["https://www.w3schools.com/html/pic_trulli.jpg", "https://www.w3schools.com/html/pic_trulli.jpg"], price: "200", currency: Currency(id: 1, nameEn: "R.S", nameAr: "ريال"), details: "Alot of details ", category: category, adType: AdType(id: 1, nameEn: "Type 1", nameAr: "نوع ١"), country: Country(id: 1, nameEn: "asd", nameAr: "asd", regions: []), region: Region(id: 1, nameEn: "asd", nameAr: "asd"), detailedAddress: "alksdjlkj alskdjaksdj laksjd", latitude: 30.1232323, longitude: 31.123123232, farshLevel: FarshLevel(id: 1, nameEn: "alskjd", nameAr: "laksjd"), roomsNumber: 4, bathRoomsNumber: 4, additionalFacilities: [AdditionalFacility(id: 1, nameEn: "laksjd", nameAr: "laksjd"), AdditionalFacility(id: 1, nameEn: "laksjd", nameAr: "laksjd"), AdditionalFacility(id: 1, nameEn: "laksjd", nameAr: "laksjd"), AdditionalFacility(id: 1, nameEn: "laksjd", nameAr: "laksjd")])
-//
-//        let ad2 = Ad(id: 1, name: "فيلا للبيع", imagesUrls: ["https://www.w3schools.com/html/pic_trulli.jpg", "https://www.w3schools.com/html/pic_trulli.jpg"], price: "1500", currency: Currency(id: 1, nameEn: "R.S", nameAr: "ريال"), details: "Alot of details ", category: category, adType: AdType(id: 1, nameEn: "Type 1", nameAr: "نوع ١"), country: Country(id: 1, nameEn: "asd", nameAr: "asd", regions: []), region: Region(id: 1, nameEn: "asd", nameAr: "asd"), detailedAddress: "alksdjlkj alskdjaksdj laksjd", latitude: 30.1232323, longitude: 31.123123232, farshLevel: FarshLevel(id: 1, nameEn: "alskjd", nameAr: "laksjd"), roomsNumber: 4, bathRoomsNumber: 4, additionalFacilities: [AdditionalFacility(id: 1, nameEn: "laksjd", nameAr: "laksjd"), AdditionalFacility(id: 1, nameEn: "laksjd", nameAr: "laksjd"), AdditionalFacility(id: 1, nameEn: "laksjd", nameAr: "laksjd"), AdditionalFacility(id: 1, nameEn: "laksjd", nameAr: "laksjd")])
-        
-        self.delegate.getCompanyAdsSuccess(ads: [])
+        Alamofire.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil)
+            .responseJSON { response in
+                
+                switch response.result {
+                case .success(_):
+                    let json = (response.result.value as! Dictionary<String,AnyObject>)
+                    let statusObj = json["Status"] as! Dictionary<String,AnyObject>
+                    
+                    if let id = statusObj["Id"] as? Int, id == 1 {
+                        let adsJsonArray = json["Data"] as! [Dictionary<String,AnyObject>]
+                        var ads = [Ad]()
+                        for adJsonObj in adsJsonArray {
+                            let ad = Ad(json: adJsonObj)
+                            ads.append(ad!)
+                        }
+                        self.delegate.getCompanyAdsSuccess(ads: ads)
+                    } else {
+                        self.delegate.failed(errorMessage: statusObj["Message"] as! String)
+                    }
+                    
+                    break
+                    
+                case .failure(let error):
+                    self.delegate.failed(errorMessage: error.localizedDescription)
+                    break
+                }
+        }
         
     }
 }
