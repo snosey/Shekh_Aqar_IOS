@@ -9,6 +9,7 @@
 import UIKit
 import DropDown
 import GooglePlacePicker
+import SwiftyUserDefaults
 
 class CreateAdVC: BaseVC {
 
@@ -194,20 +195,28 @@ extension CreateAdVC: CreateAdCellDelegate {
         presentVC(alert)
     }
     
-    func publishAd(adTitle: String, additionalFacilities: [String], adDetailsItems: [String], images: [Data]) {
+    func publishAd(ad: Ad, adDetailsItems: [AdDetailsItem], images: [Data]) {
         if selectedCategory != nil {
             if selectedAdType != nil {
                 if selectedCurrency != nil {
                     if selectedRegion != nil {
                         if selectedLatitude != nil && selectedLongitude != nil {
                             
-                            var selectedAdditionalFacilitiesStrings = [String]()
+                            let user = User(json: Defaults[.user]!)
                             
-                            for facility in selectedAddtionalFacilities {
-                                selectedAdditionalFacilitiesStrings.append(facility.name)
-                            }
+                            ad.additionalFacilities = self.selectedAddtionalFacilities
+                            ad.detailedAddress = cell.buildingLocationLabel.text
+                            ad.currencyId = selectedCurrency.id
+                            ad.currency = selectedCurrency
+                            ad.subCategory = selectedAdType
+                            ad.subCategoryId = selectedAdType.id
+                            ad.userId = user?.id
+                            ad.user = user
+                            ad.latitude = String(selectedLatitude)
+                            ad.longitude = String(selectedLongitude)
+                            ad.viewCount = 0
                             
-                            presenter.publishAd(adTitle: adTitle, additionalFacilities: selectedAdditionalFacilitiesStrings, adDetailsItems: adDetailsItems, images: images)
+                            presenter.publishAd(ad: ad, adDetailsItems: adDetailsItems, images: images)
                         } else {
                            view.makeToast("chooseLocationFirst".localized())
                         }

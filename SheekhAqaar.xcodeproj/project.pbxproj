@@ -618,6 +618,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E8784F49234035AF0036F8D0 /* EditAdScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EditAdScreen;
+			sourceTree = "<group>";
+		};
 		E89340DA2308265E00F37DCE = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +662,7 @@
 				E81232C323153BAE00ECDDFB /* CompanyScreen */,
 				E81232C423153BE800ECDDFB /* AdScreen */,
 				E8245C452318BCDD0021729B /* CreateAdScreen */,
+				E8784F49234035AF0036F8D0 /* EditAdScreen */,
 				E81C0E6F23350F8A002B3A92 /* RequestBuilding */,
 				E8CBCF9D23156D35005F91BE /* HelpScreen */,
 				E8245C382318B40B0021729B /* FavouritesScreen */,

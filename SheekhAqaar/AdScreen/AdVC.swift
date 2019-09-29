@@ -18,9 +18,9 @@ class AdVC: BaseVC {
         vc.adDetails.append(AdDetail(title: "adType".localized(), details: ad.adType.name, imageName: "building"))
         vc.adDetails.append(AdDetail(title: "location".localized(), details: ad.detailedAddress, imageName: "location"))
         vc.adDetails.append(AdDetail(title: "area".localized(), details: String(ad.placeArea) + "meter".localized(), imageName: "m2"))
-        vc.adDetails.append(AdDetail(title: "roomsCount".localized(), details: String(ad.roomsNumber), imageName: "bed"))
-        vc.adDetails.append(AdDetail(title: "bathroomsCount".localized(), details: String(ad.bathRoomsNumber), imageName: "bathroom"))
-        vc.adDetails.append(AdDetail(title: "farsh".localized(), details: ad.farshLevel.name, imageName: "farsh"))
+//        vc.adDetails.append(AdDetail(title: "roomsCount".localized(), details: String(ad.roomsNumber), imageName: "bed"))
+//        vc.adDetails.append(AdDetail(title: "bathroomsCount".localized(), details: String(ad.bathRoomsNumber), imageName: "bathroom"))
+//        vc.adDetails.append(AdDetail(title: "farsh".localized(), details: ad.farshLevel.name, imageName: "farsh"))
         return vc
     }
     

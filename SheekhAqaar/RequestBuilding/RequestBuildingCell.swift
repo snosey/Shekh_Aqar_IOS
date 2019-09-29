@@ -15,7 +15,7 @@ public protocol RequestBuildingCellDelegate: class {
     func showCountries()
     func showCities()
     func facilityChecked(checked: Bool, index: Int)
-    func requestBuilding(adTitle: String, additionalFacilities: [String], adDetailsItems: [String])
+    func requestBuilding(ad: Ad, adDetailsItems: [AdDetailsItem])
     func getLocationFromGoogleMaps()
 }
 
@@ -88,30 +88,58 @@ class RequestBuildingCell: UITableViewCell {
         }
         
         requestBuildingButton.addTapGesture { [weak self](_) in
-                if let adTitle = self?.adTitleTextField.text, !adTitle.isEmpty {
-                    if let _ = self?.priceTextField.text {
-                        if let _ = self?.adDetailsTextField.text {
-                            if let _ = self?.areaTextField.text {
-                                var adDetailsItemsStrings  = [String]()
-                                var imagesData = [Data]()
+            if let adTitle = self?.adTitleTextField.text, !adTitle.isEmpty {
+                if let price = self?.priceTextField.text, !price.isEmpty {
+                    if let details = self?.adDetailsTextField.text, !details.isEmpty {
+                        if let area = self?.areaTextField.text, !area.isEmpty {
+                                let ad = Ad()
+                                ad.name = adTitle
+                                ad.price = Int(price) ?? 0
+                                ad.details = details
+                                ad.placeArea = Int(area) ?? 0
                                 
                                 var index = 0
                                 
+                                var isAdDetailsItemEmpty = false
                                 
                                 for item in self?.adDetailsItems ?? [] {
-                                    var name = ""
-                                    
                                     let cell = self?.adDetailsTableView.cellForRow(at: IndexPath(row: index, section: 0))
                                     if let cell = cell as? AdDetailsWithoutSpinnerCell {
-                                        name = "\(item.name!): \(cell.valueTextField.text!)"
+                                        if let text = cell.valueTextField.text, !text.isEmpty {
+                                            
+                                        } else {
+                                            isAdDetailsItemEmpty = true
+                                            break
+                                        }
                                     } else if let cell = cell as? AdDetailsWithSpinnerCell {
-                                        name = "\(item.name!): \(cell.valueLabel.text!)"
+                                        if let text = cell.valueLabel.text, text == "pleaseInsert".localized() + item.name {
+                                            isAdDetailsItemEmpty = true
+                                            break
+                                        } else {
+                                            isAdDetailsItemEmpty = true
+                                            break
+                                        }
                                     }
-                                    adDetailsItemsStrings.append(name)
-                                    index = index + 1
                                 }
                                 
-                                self?.delegate.requestBuilding(adTitle: adTitle, additionalFacilities: [], adDetailsItems: adDetailsItemsStrings)
+                                if isAdDetailsItemEmpty {
+                                    self?.contentView.makeToast("enterAdDetails".localized())
+                                } else {
+                                    for item in self?.adDetailsItems ?? [] {
+                                        
+                                        let cell = self?.adDetailsTableView.cellForRow(at: IndexPath(row: index, section: 0))
+                                        if let cell = cell as? AdDetailsWithoutSpinnerCell {
+                                            item.value = cell.valueTextField.text!
+                                        } else if let cell = cell as? AdDetailsWithSpinnerCell {
+                                            item.value = cell.valueLabel.text!
+                                        }
+                                        index = index + 1
+                                    }
+                                    
+                                    self?.delegate.requestBuilding(ad: ad, adDetailsItems: self?.adDetailsItems ?? [])
+                                }
+                                
+                                
                             } else {
                                 self?.contentView.makeToast("enterArea".localized())
                             }

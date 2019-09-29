@@ -15,7 +15,7 @@ public protocol CreateAdCellDelegate: class {
     func showCountries()
     func showCities()
     func facilityChecked(checked: Bool, index: Int)
-    func publishAd(adTitle: String, additionalFacilities: [String], adDetailsItems: [String], images: [Data])
+    func publishAd(ad: Ad, adDetailsItems: [AdDetailsItem], images: [Data])
     func addImages()
     func getLocationFromGoogleMaps()
 }
@@ -102,33 +102,62 @@ class CreateAdCell: UITableViewCell {
         publishAddButton.addTapGesture { [weak self](_) in
             if self?.selectedImages.count ?? 0 >= 3 {
                 if let adTitle = self?.adTitleTextField.text, !adTitle.isEmpty {
-                    if let _ = self?.priceTextField.text {
-                        if let _ = self?.adDetailsTextField.text {
-                            if let _ = self?.areaTextField.text {
-                                var adDetailsItemsStrings  = [String]()
+                    if let price = self?.priceTextField.text, !price.isEmpty {
+                        if let details = self?.adDetailsTextField.text, !details.isEmpty {
+                            if let area = self?.areaTextField.text, !area.isEmpty {
                                 var imagesData = [Data]()
+                                
+                                let ad = Ad()
+                                ad.name = adTitle
+                                ad.price = Int(price) ?? 0
+                                ad.details = details
+                                ad.placeArea = Int(area) ?? 0
+                                
                                 
                                 var index = 0
                                 
+                                var isAdDetailsItemEmpty = false
                                 
                                 for item in self?.adDetailsItems ?? [] {
-                                    var name = ""
-                                    
                                     let cell = self?.adDetailsTableView.cellForRow(at: IndexPath(row: index, section: 0))
                                     if let cell = cell as? AdDetailsWithoutSpinnerCell {
-                                        name = "\(item.name!): \(cell.valueTextField.text!)"
+                                        if let text = cell.valueTextField.text, !text.isEmpty {
+                                            
+                                        } else {
+                                            isAdDetailsItemEmpty = true
+                                            break
+                                        }
                                     } else if let cell = cell as? AdDetailsWithSpinnerCell {
-                                        name = "\(item.name!): \(cell.valueLabel.text!)"
+                                        if let text = cell.valueLabel.text, text == "pleaseInsert".localized() + item.name {
+                                            isAdDetailsItemEmpty = true
+                                            break
+                                        } else {
+                                            isAdDetailsItemEmpty = true
+                                            break
+                                        }
                                     }
-                                    adDetailsItemsStrings.append(name)
-                                    index = index + 1
                                 }
+                                
+                                if isAdDetailsItemEmpty {
+                                    self?.contentView.makeToast("enterAdDetails".localized())
+                                } else {
+                                    for item in self?.adDetailsItems ?? [] {
+                                        
+                                        let cell = self?.adDetailsTableView.cellForRow(at: IndexPath(row: index, section: 0))
+                                        if let cell = cell as? AdDetailsWithoutSpinnerCell {
+                                            item.value = cell.valueTextField.text!
+                                        } else if let cell = cell as? AdDetailsWithSpinnerCell {
+                                            item.value = cell.valueLabel.text!
+                                        }
+                                        index = index + 1
+                                    }
                                     
-                                for image in self?.selectedImages ?? [] {
-                                    imagesData.append(image.jpegData(compressionQuality: 0.1)!)
+                                    for image in self?.selectedImages ?? [] {
+                                        imagesData.append(image.jpegData(compressionQuality: 0.1)!)
+                                    }
+                                    
+                                    self?.delegate.publishAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData)
                                 }
-                                    
-                                self?.delegate.publishAd(adTitle: adTitle, additionalFacilities: [], adDetailsItems: adDetailsItemsStrings, images: imagesData)
                             } else {
                                 self?.contentView.makeToast("enterArea".localized())
                             }

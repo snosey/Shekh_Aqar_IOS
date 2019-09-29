@@ -177,7 +177,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     func showAdsOnMap() {
         googleMapView.clear()
         for ad in ads {
-            let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: ad.latitude, longitude: ad.longitude, title: ad.name, adsNumber: ads.count, mapView: googleMapView, companyMarkerColor: "#ffffff")
+            let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, adsNumber: ads.count, mapView: googleMapView, companyMarkerColor: "#ffffff")
             marker.userData = ad
         }
     }
@@ -331,7 +331,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 case -2:
 //                    if let _ = Defaults[.user] {
 //                        // go to add ad
-//                       
+//
 //                    } else {
 //                        self?.navigator.navigateToSignUp()
 //                    }

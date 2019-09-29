@@ -54,8 +54,8 @@ public class CreateAdRepository {
         }
     }
     
-    public func publishAd(adTitle: String, additionalFacilities: [String], adDetailsItems: [String], images: [Data]) {
-        let url = CommonConstants.BASE_URL + "User/AddAds"
+    public func publishAd(ad: Ad, adDetailsItems: [AdDetailsItem], images: [Data]) {
+        var url = CommonConstants.BASE_URL + "User/AddAds"
         
         Alamofire.upload(
             multipartFormData: { MultipartFormData in
@@ -68,29 +68,48 @@ public class CreateAdRepository {
                         MultipartFormData.append(data, withName: "ImgFile", fileName: "file\(index).jpg", mimeType:"image/*")
                     }
                 }else {}
-                 MultipartFormData.append(adTitle.data(using: .utf8)!, withName: "UserItemString")
-                 let jsonArr1 = try? JSONEncoder().encode(additionalFacilities)
+                let adJsonObject = try? JSONSerialization.data(withJSONObject: ad.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
+                MultipartFormData.append(adJsonObject!, withName: "UserItemString")
+                
+                let additionalFacilities = ad.additionalFacilities
+                
+                var additionalFacilitiesJsonArray = [Data]()
+                var adDetailsItemsJsonArray = [Data]()
+                
+                for facility in additionalFacilities ?? [] {
+                    let facilityJsonObject = try? JSONSerialization.data(withJSONObject: facility.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
+                    additionalFacilitiesJsonArray.append(facilityJsonObject!)
+                    
+                }
+            
+                for adDetailsItem in adDetailsItems {
+                    let itemJsonObject = try? JSONSerialization.data(withJSONObject: adDetailsItem.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
+                    adDetailsItemsJsonArray.append(itemJsonObject!)
+                }
+                
+                let jsonArr1 = try? JSONEncoder().encode(additionalFacilitiesJsonArray)
                 MultipartFormData.append(jsonArr1!, withName: "UserItemFeatureString")
-                 let jsonArr2 = try? JSONEncoder().encode(adDetailsItems)
-                 MultipartFormData.append(jsonArr2!, withName: "UserItemMainString")
+                
+                let jsonArr2 = try? JSONEncoder().encode(adDetailsItemsJsonArray)
+                MultipartFormData.append(jsonArr2!, withName: "UserItemMainString")
                 guard let token = User(json: Defaults[.user]!)?.token else {
                     return
                 }
-                MultipartFormData.append("\(token)".data(using: .utf8)!, withName: "token")
-
+                url = url + "?token=\(token)"
+                
         }, to: url) { (result) in
-
+            
             switch result {
             case .success(_, _, _):
                 print(result)
                 self.delegate.publishAdSuccess()
                 break
-
+                
             case .failure(let error):
                 self.delegate.failed(errorMessage: error.localizedDescription)
                 break
             }
-
+            
         }
     }
 }

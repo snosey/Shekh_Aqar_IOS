@@ -8,6 +8,7 @@
 
 import Alamofire
 import SwiftyUserDefaults
+import SwiftyJSON
 
 public protocol RequestBuildingPresenterDelegate: class {
     func getRequestBuildingDataSuccess(createAdData: CreateAdData)
@@ -53,10 +54,22 @@ public class RequestBuildingRepository {
         }
     }
     
-    public func requestBuilding(adTitle: String, additionalFacilities: [String], adDetailsItems: [String]) {
+    public func requestBuilding(ad: Ad, adDetailsItems: [AdDetailsItem]) {
         let url = CommonConstants.BASE_URL + "User/AddAds"
         
-        let parameters = ["UserItemString" : adTitle, "UserItemFeatureString" : additionalFacilities, "UserItemMainString" : adDetailsItems] as [String : Any]
+        var facilitiesJsonArray = [Dictionary<String, Any>]()
+        
+        var adDetailsItemsJsonArray = [Dictionary<String, Any>]()
+        
+        for facility in ad.additionalFacilities {
+            facilitiesJsonArray.append(facility.toJSON()!)
+        }
+        
+        for item in adDetailsItems {
+            adDetailsItemsJsonArray.append(item.toJSON()!)
+        }
+        
+        let parameters = ["UserItemString" : ad.toJSON()!, "UserItemFeatureString" : facilitiesJsonArray, "UserItemMainString" : adDetailsItemsJsonArray] as [String : Any]
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
             .responseJSON { response in

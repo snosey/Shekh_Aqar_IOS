@@ -31,25 +31,25 @@ class AdCell: UITableViewCell {
             adPhotoImageView.af_setImage(withURL: photoUrl)
         }
         
-        if Localize.currentLanguage() == "ar" {
-            priceLabel.text = "\(ad.price!) \(ad.currency.name!)"
-            farshLevelLabel.text = ad.farshLevel.name
-        } else {
-            priceLabel.text = "\(ad.price!) \(ad.currency.name!)"
-            farshLevelLabel.text = ad.farshLevel.name
-        }
+//        if Localize.currentLanguage() == "ar" {
+//            priceLabel.text = "\(ad.price!) \(ad.currency.name!)"
+//            farshLevelLabel.text = ad.farshLevel.name
+//        } else {
+//            priceLabel.text = "\(ad.price!) \(ad.currency.name!)"
+//            farshLevelLabel.text = ad.farshLevel.name
+//        }
         
         titleLabel.text = ad.name
         addressLabel.text = ad.detailedAddress
         areaLabel.text = "\(ad.placeArea)"
         var roomWord = ""
-        if ad.roomsNumber > 1 {
-            roomWord = "rooms".localized()
-        } else {
-            roomWord = "room".localized()
-        }
-        roomsNumberLabel.text = "\(ad.roomsNumber!) \(roomWord)"
-        bathroomsNumberLabel.text = "\(ad.bathRoomsNumber!) \("bathroom".localized())"
+//        if ad.roomsNumber > 1 {
+//            roomWord = "rooms".localized()
+//        } else {
+//            roomWord = "room".localized()
+//        }
+//        roomsNumberLabel.text = "\(ad.roomsNumber!) \(roomWord)"
+//        bathroomsNumberLabel.text = "\(ad.bathRoomsNumber!) \("bathroom".localized())"
         creationTimeLabel.text = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/YYYY").timeAgoDisplay()
     }
 }

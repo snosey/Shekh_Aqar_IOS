@@ -15,11 +15,12 @@ public class Ad: DataType {
     var name : String!
     var userId: Int!
     var subCategoryId: Int!
+    var companyId: Int!
     var details: String!
     var detailedAddress: String!
     var viewCount: Int!
-    var latitude: Double!
-    var longitude: Double!
+    var latitude: String!
+    var longitude: String!
     var creationTime: String!
     var adImages : [AdImage]!
     var adType: AdType!
@@ -29,16 +30,13 @@ public class Ad: DataType {
     var price: Int!
     var currency: Currency!
     var currencyId: Int!
-    var placeArea: Double = 20
+    var placeArea: Int!
     var regionId: Int!
     var phoneNumber: String!
+    var company: Company!
     var companyName: String!
     var isFavourite: Bool!
-    
-    var farshLevel: FarshLevel!
-    var farshLevelId: Int!
-    var roomsNumber: Int!
-    var bathRoomsNumber: Int!
+    var itemStateId: Int!
     var additionalFacilities: [AdditionalFacility]!
     
     
@@ -72,8 +70,10 @@ public class Ad: DataType {
         id = "Id" <~~ json
         name = "Title" <~~ json
         userId = "Fk_User" <~~ json
+        companyId = "Fk_Company" <~~ json
         subCategoryId = "Fk_SubCategory" <~~ json
         details = "About" <~~ json
+        placeArea = "Space" <~~ json
         detailedAddress = "Address" <~~ json
         latitude = "Latitude" <~~ json
         longitude = "Longitude" <~~ json
@@ -84,19 +84,16 @@ public class Ad: DataType {
         adTypeId = "Fk_ItemType" <~~ json
         subCategory = "SubCategoryModel" <~~ json
         user = "UserModel" <~~ json
-        farshLevel = "ItemStateModel" <~~ json
-        farshLevelId = "Fk_ItemState" <~~ json
+        itemStateId = "Fk_ItemState" <~~ json
         price = "Price" <~~ json
-        currency = "Currency" <~~ json
+        currency = "CurrencyModel" <~~ json
         currencyId = "FK_Currency" <~~ json
         phoneNumber = "Phone" <~~ json
         regionId = "FK_Location" <~~ json
-        isFavourite = "Is_Favourite" <~~ json
-        
-//        imagesUrls = "imagesUrls" <~~ json
-//        roomsNumber = "roomsNumber" <~~ json
-//        bathRoomsNumber = "bathRoomsNumber" <~~ json
-//        additionalFacilities = "additionalFacilities" <~~ json
+        isFavourite = "IsFavourite" <~~ json
+        company = "CompanyModel" <~~ json
+        companyName = company.name
+        additionalFacilities = "UserItemFeaturesModel" <~~ json
     }
     
     //MARK: Encodable
@@ -105,9 +102,13 @@ public class Ad: DataType {
             "id" ~~> id,
             "Title" ~~> name,
             "Fk_User" ~~> userId,
+            "Fk_Company" ~~> companyId,
             "Fk_SubCategory" ~~> subCategoryId,
+            "Price" ~~> price,
             "About" ~~> details,
+            "Space" ~~> placeArea,
             "Address" ~~> detailedAddress,
+            "ViewCount" ~~> viewCount,
             "Latitude" ~~> latitude,
             "Longitude" ~~> longitude,
             "creationTime" ~~> creationTime,
@@ -116,18 +117,15 @@ public class Ad: DataType {
             "Fk_ItemType" ~~> adTypeId,
             "SubCategoryModel" ~~> subCategory,
             "UserModel" ~~> user,
-            "ItemStateModel" ~~> farshLevel,
-            "Fk_ItemState" ~~> farshLevelId,
-            "Currency" ~~> currency,
+//            "ItemStateModel" ~~> farshLevel,
+            "Fk_ItemState" ~~> itemStateId,
+            "CurrencyModel" ~~> currency,
             "FK_Currency" ~~> currencyId,
             "FK_Location" ~~> regionId,
             "Phone" ~~> phoneNumber,
-            "Is_Favourite" ~~> isFavourite,
-            
-//            "imagesUrls" ~~> imagesUrls,
-//            "roomsNumber" ~~> roomsNumber,
-//            "bathRoomsNumber" ~~> bathRoomsNumber,
-//            "additionalFacilities" ~~> additionalFacilities,
+            "IsFavourite" ~~> isFavourite,
+            "CompanyModel" ~~> company,
+            "UserItemFeaturesModel" ~~> additionalFacilities,
             ])
     }
     
@@ -147,11 +145,11 @@ public class Ad: DataType {
 //        self.country = country
 //        self.region = region
         self.detailedAddress = detailedAddress
-        self.latitude = latitude
-        self.longitude = longitude
-        self.farshLevel = farshLevel
-        self.roomsNumber = roomsNumber
-        self.bathRoomsNumber = bathRoomsNumber
+//        self.latitude = latitude
+//        self.longitude = longitude
+//        self.farshLevel = farshLevel
+//        self.roomsNumber = roomsNumber
+//        self.bathRoomsNumber = bathRoomsNumber
         self.additionalFacilities = additionalFacilities
     }
 }

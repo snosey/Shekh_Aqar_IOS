@@ -50,10 +50,10 @@ extension RequestBuildingPresenter {
         }
     }
     
-    public func requestBuilding(adTitle: String, additionalFacilities: [String], adDetailsItems: [String]) {
+    public func requestBuilding(ad: Ad, adDetailsItems: [AdDetailsItem]) {
         if UiHelpers.isInternetAvailable() {
             UiHelpers.showLoader()
-            requestBuildingRepository?.requestBuilding(adTitle: adTitle, additionalFacilities: additionalFacilities, adDetailsItems: adDetailsItems)
+            requestBuildingRepository?.requestBuilding(ad: ad, adDetailsItems: adDetailsItems)
         } else {
             requestBuildingView?.handleNoInternetConnection()
         }

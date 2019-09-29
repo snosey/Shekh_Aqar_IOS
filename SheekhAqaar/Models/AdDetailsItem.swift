@@ -12,12 +12,14 @@ import Gloss
 public class AdDetailsItem: DataType {
     var id : Int!
     var name: String!
+    var value: String!
     var spinnerDataArray: [SpinnerData]!
     
     //MARK: Decodable
     required public init?(json: JSON){
         id = "Id" <~~ json
         name = "Name" <~~ json
+        value = "Value" <~~ json
         spinnerDataArray = "DataSpinnerModel" <~~ json
     }
     
@@ -30,6 +32,7 @@ public class AdDetailsItem: DataType {
         return jsonify([
             "Id" ~~> id,
             "Name" ~~> name,
+            "Value" ~~> value,
             "DataSpinnerModel" ~~> spinnerDataArray,
             ])
     }

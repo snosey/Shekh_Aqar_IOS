@@ -41,10 +41,10 @@ extension CreateAdPresenter {
         }
     }
     
-    public func publishAd(adTitle: String, additionalFacilities: [String], adDetailsItems: [String], images: [Data]) {
+    public func publishAd(ad: Ad, adDetailsItems: [AdDetailsItem], images: [Data]) {
         if UiHelpers.isInternetAvailable() {
             UiHelpers.showLoader()
-            createAdRepository?.publishAd(adTitle: adTitle, additionalFacilities: additionalFacilities, adDetailsItems: adDetailsItems, images: images)
+            createAdRepository?.publishAd(ad: ad, adDetailsItems: adDetailsItems, images: images)
         } else {
             createAdView?.handleNoInternetConnection()
         }
