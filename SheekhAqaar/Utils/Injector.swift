@@ -89,4 +89,12 @@ public class Injector {
     public class func provideHelpRepository() -> HelpRepository {
         return HelpRepository()
     }
+    
+    public class func provideRequestBuildingPresenter() -> RequestBuildingPresenter {
+        return RequestBuildingPresenter(repository: Injector.provideRequestBuildingRepository())
+    }
+    
+    public class func provideRequestBuildingRepository() -> RequestBuildingRepository {
+        return RequestBuildingRepository()
+    }
 }

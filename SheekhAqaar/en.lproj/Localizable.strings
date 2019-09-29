@@ -123,3 +123,4 @@
 "selectCurrencyFirst" = "Please select currency first";
 "selectRegionFirst" = "Please select region first";
 "chooseLocationFirst" = "Please select location from Google Maps firsts";
+"requestBuildingSuccess" = "Your request send successfully";

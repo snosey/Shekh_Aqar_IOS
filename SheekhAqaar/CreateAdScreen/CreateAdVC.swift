@@ -8,7 +8,6 @@
 
 import UIKit
 import DropDown
-import GoogleMaps
 import GooglePlacePicker
 
 class CreateAdVC: BaseVC {

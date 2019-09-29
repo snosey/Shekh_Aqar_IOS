@@ -539,32 +539,32 @@
                                                             </connections>
                                                         </tableViewCell>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdDetailsWithSpinnerCell" id="vbw-cS-AhY" customClass="AdDetailsWithSpinnerCell" customModule="SheekhAqaar" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="71" width="398" height="75"/>
+                                                            <rect key="frame" x="0.0" y="71" width="398" height="75.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vbw-cS-AhY" id="Xea-34-BU2">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="75"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="75.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WJD-r8-qqi">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="71"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="71.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXa-94-PwC">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="195" height="71"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="195" height="71.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Bl-wD-ey9">
-                                                                                <rect key="frame" x="203" y="0.0" width="195" height="71"/>
+                                                                                <rect key="frame" x="203" y="0.0" width="195" height="71.5"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjU-rf-lyH">
-                                                                                        <rect key="frame" x="4" y="4" width="159" height="63"/>
+                                                                                        <rect key="frame" x="4" y="4" width="159" height="63.5"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-QR-iBO">
-                                                                                        <rect key="frame" x="167" y="25.5" width="20" height="20"/>
+                                                                                        <rect key="frame" x="167" y="26" width="20" height="20"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="20" id="W70-pZ-hdM"/>
                                                                                             <constraint firstAttribute="height" constant="20" id="hqW-2t-8sy"/>
@@ -746,6 +746,27 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="adDetailsTableView" destination="NOO-En-BjA" id="uqf-nH-e4w"/>
+                                            <outlet property="adDetailsTextField" destination="HJs-QO-Qyx" id="w4l-dI-kbl"/>
+                                            <outlet property="adTitleTextField" destination="TGV-LL-X7U" id="7Xa-xJ-CNL"/>
+                                            <outlet property="adTypeLabel" destination="6oM-JH-7oo" id="RbN-9P-AzT"/>
+                                            <outlet property="adTypeView" destination="e4p-fN-hpP" id="i2H-Us-x1U"/>
+                                            <outlet property="additionalFacilitiesTableView" destination="OYo-cF-Hd4" id="K6i-fg-8QT"/>
+                                            <outlet property="areaTextField" destination="Y4W-hn-exO" id="Hm6-d6-cgO"/>
+                                            <outlet property="buildingLocationLabel" destination="3Uf-ZA-7eT" id="zpD-0o-kl6"/>
+                                            <outlet property="categoryLabel" destination="8Z7-Cp-gKW" id="G1s-PH-bpB"/>
+                                            <outlet property="categoryView" destination="Ccb-7Y-fyp" id="uUK-rJ-2qR"/>
+                                            <outlet property="cityLabel" destination="uXQ-s6-YNQ" id="IOy-kF-hYH"/>
+                                            <outlet property="cityView" destination="3f0-ek-jnq" id="YHR-Co-Jhb"/>
+                                            <outlet property="countryLabel" destination="Vc3-eo-6VI" id="f3a-rG-sBo"/>
+                                            <outlet property="countryView" destination="CHK-SI-C0a" id="LOh-TE-AEl"/>
+                                            <outlet property="currencyLabel" destination="4no-wY-O3J" id="Iyo-BA-RLz"/>
+                                            <outlet property="currencyView" destination="yEB-8x-9xm" id="Hif-tK-roh"/>
+                                            <outlet property="detectLocationOnGoogleMaps" destination="NfS-FD-jid" id="KvA-oa-WKS"/>
+                                            <outlet property="priceTextField" destination="d7a-Rs-93s" id="cyk-bm-bTi"/>
+                                            <outlet property="requestBuildingButton" destination="zcX-V4-kLv" id="Fcn-Wa-zbC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

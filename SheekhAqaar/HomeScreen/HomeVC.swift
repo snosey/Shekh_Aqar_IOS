@@ -329,12 +329,13 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                     break
                     
                 case -2:
-                    if let _ = Defaults[.user] {
-                        // go to add ad
-                        self?.navigator.navigateToRequestBuilding()
-                    } else {
-                        self?.navigator.navigateToSignUp()
-                    }
+//                    if let _ = Defaults[.user] {
+//                        // go to add ad
+//                       
+//                    } else {
+//                        self?.navigator.navigateToSignUp()
+//                    }
+                     self?.navigator.navigateToRequestBuilding()
                     break
                     
                 case -3:

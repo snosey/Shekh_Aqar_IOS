@@ -55,9 +55,6 @@ class CreateAdCell: UITableViewCell {
     
     var selectedImages = [UIImage]()
     
-    var numberOfRooms = 0
-    var numberOfBathrooms = 0
-    
     public func initializeCell() {
         if let layout = photosCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
