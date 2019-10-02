@@ -10,10 +10,10 @@
         <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
     <scenes>
-        <!--Create AdVC-->
+        <!--Edit AdVC-->
         <scene sceneID="L3c-Tc-MlG">
             <objects>
-                <viewController storyboardIdentifier="CreateAdVC" id="Jpb-va-BdJ" customClass="CreateAdVC" customModule="SheekhAqaar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditAdVC" id="Jpb-va-BdJ" customClass="EditAdVC" customModule="SheekhAqaar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d8g-TF-Rme">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,7 +152,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LuM-Zz-Jfr" userLabel="CurrencyPriceView">
                                                     <rect key="frame" x="8" y="340.5" width="398" height="35"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICc-Ww-Do2">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICc-Ww-Do2" userLabel="PriceView">
                                                             <rect key="frame" x="0.0" y="4" width="239" height="31"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7a-Rs-93s" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
@@ -539,32 +539,32 @@
                                                             </connections>
                                                         </tableViewCell>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdDetailsWithSpinnerCell" id="vbw-cS-AhY" customClass="AdDetailsWithSpinnerCell" customModule="SheekhAqaar" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="71" width="398" height="68"/>
+                                                            <rect key="frame" x="0.0" y="71" width="398" height="70.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vbw-cS-AhY" id="Xea-34-BU2">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="68"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="70.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WJD-r8-qqi">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="64"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="66.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXa-94-PwC">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="195" height="64"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="195" height="66.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Bl-wD-ey9">
-                                                                                <rect key="frame" x="203" y="0.0" width="195" height="64"/>
+                                                                                <rect key="frame" x="203" y="0.0" width="195" height="66.5"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjU-rf-lyH">
-                                                                                        <rect key="frame" x="4" y="4" width="159" height="56"/>
+                                                                                        <rect key="frame" x="4" y="4" width="159" height="58.5"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-QR-iBO">
-                                                                                        <rect key="frame" x="167" y="22" width="20" height="20"/>
+                                                                                        <rect key="frame" x="167" y="23.5" width="20" height="20"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="20" id="W70-pZ-hdM"/>
                                                                                             <constraint firstAttribute="height" constant="20" id="hqW-2t-8sy"/>
@@ -789,8 +789,8 @@
                     </view>
                     <size key="freeformSize" width="414" height="1300"/>
                     <connections>
-                        <outlet property="backIcon" destination="8aL-cT-cG6" id="cSy-m8-XY9"/>
-                        <outlet property="createAdTableView" destination="uXo-05-9MK" id="SHP-JS-5DE"/>
+                        <outlet property="adDataTableView" destination="uXo-05-9MK" id="1iw-br-i0Y"/>
+                        <outlet property="backIcon" destination="8aL-cT-cG6" id="M48-q3-xzm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RV5-Ii-v7S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

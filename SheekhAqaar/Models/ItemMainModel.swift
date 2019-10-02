@@ -1,21 +1,21 @@
 //
-//  AdDetailsItem.swift
+//  ItemMainModel.swift
 //  SheekhAqaar
 //
-//  Created by Hesham Donia on 9/23/19.
+//  Created by Hesham Donia on 10/2/19.
 //  Copyright © 2019 Hesham Donia. All rights reserved.
 //
 
 import Foundation
 import Gloss
 
-public class AdDetailsItem: DataType {
+public class ItemMainModel: DataType {
     var id : Int!
     var name: String!
     var value: Int!
-    var spinnerDataArray: [SpinnerData]!
+    var spinnerData: SpinnerData!
     var imageUrl: String!
-    var dataSpinnerFK: Int!
+    var adDetailsItem: AdDetailsItem!
     
     //MARK: Decodable
     required public init?(json: JSON){
@@ -23,8 +23,8 @@ public class AdDetailsItem: DataType {
         name = "Name" <~~ json
         value = "Value" <~~ json
         imageUrl = "ImgURL" <~~ json
-        spinnerDataArray = "DataSpinnerModel" <~~ json
-        dataSpinnerFK = "Fk_DataSpinner" <~~ json
+        spinnerData = "DataSpinnerModel" <~~ json
+        adDetailsItem = "ItemMainModel" <~~ json
     }
     
     public init() {
@@ -38,8 +38,8 @@ public class AdDetailsItem: DataType {
             "Name" ~~> name,
             "Value" ~~> value,
             "ImgURL" ~~> imageUrl,
-            "DataSpinnerModel" ~~> spinnerDataArray,
-            "Fk_DataSpinner" ~~> dataSpinnerFK
+            "DataSpinnerModel" ~~> spinnerData,
+            "ItemMainModel" ~~> adDetailsItem,
             ])
     }
 }

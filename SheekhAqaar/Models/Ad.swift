@@ -38,7 +38,7 @@ public class Ad: DataType {
     var isFavourite: Bool!
     var itemStateId: Int!
     var additionalFacilities: [AdditionalFacility]!
-    
+    var itemMainModelArray: [ItemMainModel]!
     
     /*
      public int Id;
@@ -94,6 +94,7 @@ public class Ad: DataType {
         company = "CompanyModel" <~~ json
         companyName = company.name
         additionalFacilities = "UserItemFeaturesModel" <~~ json
+        itemMainModelArray = "UserItemMainsModel" <~~ json
     }
     
     //MARK: Encodable
@@ -126,6 +127,7 @@ public class Ad: DataType {
             "IsFavourite" ~~> isFavourite,
             "CompanyModel" ~~> company,
             "UserItemFeaturesModel" ~~> additionalFacilities,
+            "UserItemMainsModel" ~~> itemMainModelArray
             ])
     }
     

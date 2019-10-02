@@ -329,13 +329,13 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                     break
                     
                 case -2:
-//                    if let _ = Defaults[.user] {
-//                        // go to add ad
-//
-//                    } else {
-//                        self?.navigator.navigateToSignUp()
-//                    }
-                     self?.navigator.navigateToRequestBuilding()
+                    if let _ = Defaults[.user] {
+                        // go to add ad
+                        self?.navigator.navigateToRequestBuilding()
+                    } else {
+                        self?.navigator.navigateToSignUp()
+                    }
+                    
                     break
                     
                 case -3:
@@ -343,7 +343,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                     break
                     
                 case -4:
-                    // call api not implemented yet
+                    self?.presenter.getAds(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
                     break
                     
                 default:

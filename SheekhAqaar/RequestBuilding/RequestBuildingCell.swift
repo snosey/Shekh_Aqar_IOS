@@ -129,9 +129,14 @@ class RequestBuildingCell: UITableViewCell {
                                         
                                         let cell = self?.adDetailsTableView.cellForRow(at: IndexPath(row: index, section: 0))
                                         if let cell = cell as? AdDetailsWithoutSpinnerCell {
-                                            item.value = cell.valueTextField.text!
-                                        } else if let cell = cell as? AdDetailsWithSpinnerCell {
-                                            item.value = cell.valueLabel.text!
+                                            if let value = Int(cell.valueTextField.text!) {
+                                                item.value = value
+                                            } else {
+                                                self?.contentView.makeToast(item.name + "mustBeNumber".localized())
+                                                return
+                                            }
+                                        } else if (cell as? AdDetailsWithSpinnerCell) != nil {
+                                            item.dataSpinnerFK = item.spinnerDataArray[index].id
                                         }
                                         index = index + 1
                                     }

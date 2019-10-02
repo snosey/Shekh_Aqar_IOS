@@ -16,6 +16,7 @@ public protocol CreateAdCellDelegate: class {
     func showCities()
     func facilityChecked(checked: Bool, index: Int)
     func publishAd(ad: Ad, adDetailsItems: [AdDetailsItem], images: [Data])
+    func editAd(ad: Ad, adDetailsItems: [AdDetailsItem], images: [Data], imagesToBeRemoved: [Data])
     func addImages()
     func getLocationFromGoogleMaps()
 }
@@ -54,11 +55,47 @@ class CreateAdCell: UITableViewCell {
     var delegate: CreateAdCellDelegate!
     
     var selectedImages = [UIImage]()
+    var adImages = [AdImage]()
+    var imagesToBeRemoved = [UIImage]()
+    
+    public func showSelectedData(ad: Ad, selectedCountry: Country, selectedRegion: Region) {
+        adTitleTextField.text = ad.name
+        priceTextField.text = "\(ad.price!)"
+        currencyLabel.text = ad.currency.name
+        adDetailsTextField.text = ad.details
+//        categoryLabel.te
+        adTypeLabel.text = ad.subCategory.name
+        areaTextField.text = "\(ad.placeArea!)"
+        countryLabel.text = selectedCountry.name
+        cityLabel.text = selectedRegion.name
+        buildingLocationLabel.text = ad.detailedAddress
+        
+        for facility in additionalFacilities {
+            for adFacility in ad.additionalFacilities {
+                if adFacility.id == facility.id {
+                    facility.isChecked = true
+                }
+            }
+        }
+        
+        additionalFacilitiesTableView.reloadData()
+        
+        var index = 0
+        
+        for _ in adImages {
+            if let cell = photosCollectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? AdPhotoCell {
+                selectedImages.append(cell.adPhotoImageView.image!)
+                imagesToBeRemoved.append(cell.adPhotoImageView.image!)
+            }
+            index = index + 1
+        }
+    }
     
     public func initializeCell() {
         if let layout = photosCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
+        
         photosCollectionView.dataSource = self
         photosCollectionView.delegate = self
         photosCollectionView.reloadData()
@@ -145,9 +182,14 @@ class CreateAdCell: UITableViewCell {
                                         
                                         let cell = self?.adDetailsTableView.cellForRow(at: IndexPath(row: index, section: 0))
                                         if let cell = cell as? AdDetailsWithoutSpinnerCell {
-                                            item.value = cell.valueTextField.text!
-                                        } else if let cell = cell as? AdDetailsWithSpinnerCell {
-                                            item.value = cell.valueLabel.text!
+                                            if let value = Int(cell.valueTextField.text!) {
+                                                item.value = value
+                                            } else {
+                                                self?.contentView.makeToast(item.name + "mustBeNumber".localized())
+                                                return
+                                            }
+                                        } else if (cell as? AdDetailsWithSpinnerCell) != nil {
+                                            item.dataSpinnerFK = item.spinnerDataArray[index].id
                                         }
                                         index = index + 1
                                     }
@@ -156,7 +198,22 @@ class CreateAdCell: UITableViewCell {
                                         imagesData.append(image.jpegData(compressionQuality: 0.1)!)
                                     }
                                     
-                                    self?.delegate.publishAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData)
+                                    if self?.imagesToBeRemoved.count ?? 0 > 0 {
+                                        
+                                        var imagesToBeRemovedData = [Data]()
+                                        
+                                        for image in self?.imagesToBeRemoved ?? [] {
+                                            imagesToBeRemovedData.append(image.jpegData(compressionQuality: 0.1)!)
+                                        }
+                                        
+                                        self?.delegate
+                                        .editAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData, imagesToBeRemoved: imagesToBeRemovedData)
+                                        
+                                    } else {
+                                        self?.delegate.publishAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData)
+                                    }
+                                    
+                                    
                                 }
                             } else {
                                 self?.contentView.makeToast("enterArea".localized())
@@ -184,6 +241,9 @@ class CreateAdCell: UITableViewCell {
 
 extension CreateAdCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if adImages.count > 0 {
+            return adImages.count
+        }
         return selectedImages.count
     }
     
@@ -191,7 +251,18 @@ extension CreateAdCell: UICollectionViewDataSource, UICollectionViewDelegate {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdPhotoCell
             .identifier, for: indexPath) as! AdPhotoCell
         
-        cell.adPhotoImageView.image = selectedImages.get(indexPath.row)
+        if adImages.count > 0 {
+            if let url = URL(string: adImages.get(indexPath.row)?.imageUrl ?? "") {
+                cell.adPhotoImageView.af_setImage(withURL: url)
+            }
+            
+            if indexPath.row == adImages.count - 1 {
+                adImages.removeAll()
+            }
+            
+        } else {
+            cell.adPhotoImageView.image = selectedImages.get(indexPath.row)
+        }
         cell.delegate = self
         cell.index = indexPath.row
         cell.configureRemoveIcon()

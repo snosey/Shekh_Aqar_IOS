@@ -178,6 +178,10 @@ extension CreateAdVC: GMSPlacePickerViewControllerDelegate {
 }
 
 extension CreateAdVC: CreateAdCellDelegate {
+    func editAd(ad: Ad, adDetailsItems: [AdDetailsItem], images: [Data], imagesToBeRemoved: [Data]) {
+        
+    }
+    
     
     func addImages() {
         var alert: UIAlertController!
@@ -212,6 +216,7 @@ extension CreateAdVC: CreateAdCellDelegate {
                             ad.subCategoryId = selectedAdType.id
                             ad.userId = user?.id
                             ad.user = user
+                            ad.adTypeId = 2
                             ad.latitude = String(selectedLatitude)
                             ad.longitude = String(selectedLongitude)
                             ad.viewCount = 0

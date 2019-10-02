@@ -19,6 +19,10 @@ class AdDetailsWithoutSpinnerCell: UITableViewCell {
     
     public func populateData() {
         titleLabel.text = adDetailsItem.name
-        valueTextField.placeholder = "pleaseInsert".localized() + adDetailsItem.name
+        if let value = adDetailsItem.value {
+            valueTextField.text = "\(value)"
+        } else {
+            valueTextField.placeholder = "pleaseInsert".localized() + adDetailsItem.name
+        }
     }
 }

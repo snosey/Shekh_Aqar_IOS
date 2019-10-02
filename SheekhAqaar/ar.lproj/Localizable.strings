@@ -125,3 +125,7 @@
 "chooseLocationFirst" = "من فضلك اختر المكان من خرائط جوجل أولا";
 "requestBuildingSuccess" = "تم ارسال طلبك للعقار بنجاح";
 "enterAdDetails" = "من فضلك أدخل كل تفاصيل المكان";
+"publishAdSuccess" = "تم نشر اعلانك بنجاح";
+"editAdSuccess" = "تم تعديل اعلانك بنجاح";
+"mustBeNumber" = " يجب ان يكون رقم";
+"editAd" = "تعديل الاعلان";

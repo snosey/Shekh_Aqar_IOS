@@ -8,6 +8,7 @@
 
 import UIKit
 import Localize_Swift
+import SwiftyUserDefaults
 
 class AdVC: BaseVC {
     
@@ -15,12 +16,6 @@ class AdVC: BaseVC {
         let storyboard = UIStoryboard(name: "AdStoryboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "AdVC") as! AdVC
         vc.ad = ad
-        vc.adDetails.append(AdDetail(title: "adType".localized(), details: ad.adType.name, imageName: "building"))
-        vc.adDetails.append(AdDetail(title: "location".localized(), details: ad.detailedAddress, imageName: "location"))
-        vc.adDetails.append(AdDetail(title: "area".localized(), details: String(ad.placeArea) + "meter".localized(), imageName: "m2"))
-//        vc.adDetails.append(AdDetail(title: "roomsCount".localized(), details: String(ad.roomsNumber), imageName: "bed"))
-//        vc.adDetails.append(AdDetail(title: "bathroomsCount".localized(), details: String(ad.bathRoomsNumber), imageName: "bathroom"))
-//        vc.adDetails.append(AdDetail(title: "farsh".localized(), details: ad.farshLevel.name, imageName: "farsh"))
         return vc
     }
     
@@ -44,10 +39,9 @@ class AdVC: BaseVC {
         
         setBorders()
         
-        populateData()
-        
         presenter = Injector.provideAdPresenter()
         presenter.setView(view: self)
+        presenter.getAd(adId: ad.id)
     }
     
     private func setBorders() {
@@ -64,10 +58,14 @@ class AdVC: BaseVC {
             self?.navigationController?.popViewController(animated: true)
         }
         
-        if self.ad.isFavourite {
-            addToFavouritesButton.setTitle("removeFromFav".localized(), for: .normal)
+        if let user = User(json: Defaults[.user]!), ad.userId == user.id {
+            addToFavouritesButton.setTitle("editAd".localized(), for: .normal)
         } else {
-            addToFavouritesButton.setTitle("addToFav".localized(), for: .normal)
+            if self.ad.isFavourite {
+                addToFavouritesButton.setTitle("removeFromFav".localized(), for: .normal)
+            } else {
+                addToFavouritesButton.setTitle("addToFav".localized(), for: .normal)
+            }
         }
         
         photosCollectionView.dataSource = self
@@ -96,12 +94,16 @@ class AdVC: BaseVC {
     }
     
     @IBAction func addToFavouritesClicked(_ sender: Any) {
-        if self.ad.isFavourite {
-            presenter.removeFavouriteAd(ad: ad)
+        if let user = User(json: Defaults[.user]!), ad.userId == user.id {
+            self.navigator.navigateToEditAd(ad: ad)
         } else {
-            presenter.saveFavouriteAd(ad: ad)
+            if self.ad.isFavourite {
+                presenter.removeFavouriteAd(ad: ad)
+            } else {
+                presenter.saveFavouriteAd(ad: ad)
+            }
+            self.ad.isFavourite = !self.ad.isFavourite
         }
-        self.ad.isFavourite = !self.ad.isFavourite
     }
     
     @IBAction func makeCallClicked(_ sender: Any) {
@@ -114,6 +116,12 @@ class AdVC: BaseVC {
 }
 
 extension AdVC: AdView {
+    func getAdSuccess(ad: Ad) {
+        self.ad = ad
+        
+        populateData()
+    }
+    
     func saveFavouriteAdSuccess() {
         self.view.makeToast("addedToFavSuccess".localized())
         addToFavouritesButton.setTitle("removeFromFav".localized(), for: .normal)
@@ -152,7 +160,7 @@ extension AdVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension AdVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == adDetailsTableView {
-            return 6
+            return ad.itemMainModelArray.count
         } else if tableView == additionalFacilitiesTableView {
             if ad.additionalFacilities.count % 2 == 0 {
                 return ad.additionalFacilities.count / 2

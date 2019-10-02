@@ -23,7 +23,18 @@ class AdDetailsWithSpinnerCell: UITableViewCell {
     
     public func populateData() {
         titleLabel.text = adDetailsItem.name
-        valueLabel.text = "pleaseInsert".localized() + adDetailsItem.name
+        if let value = adDetailsItem.value {
+            valueLabel.text = adDetailsItem.spinnerDataArray.filter({ (item) -> Bool in
+                return item.id == value
+            })[0].name
+        } else {
+            if #available(iOS 13.0, *) {
+                valueLabel.textColor = .placeholderText
+            } else {
+                valueLabel.textColor = .lightGray
+            }
+            valueLabel.text = "pleaseInsert".localized() + adDetailsItem.name
+        }
         
         valueView.addTapGesture { [weak self] (_) in
             if self?.adDetailsItem.spinnerDataArray.count ?? 0 > 0 {

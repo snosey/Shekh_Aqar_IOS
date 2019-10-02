@@ -77,6 +77,15 @@ extension HomePresenter {
             homeView?.handleNoInternetConnection()
         }
     }
+    
+    public func getAds(latitude: Double, longitude: Double) {
+        if UiHelpers.isInternetAvailable() {
+            UiHelpers.showLoader()
+            homeRepository?.getAds(latitude: latitude, longitude: longitude)
+        } else {
+            homeView?.handleNoInternetConnection()
+        }
+    }
 }
 
 extension HomePresenter: HomePresenterDelegate {

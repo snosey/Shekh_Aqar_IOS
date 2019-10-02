@@ -220,4 +220,37 @@ public class HomeRepository {
                 }
         }
     }
+    
+    public func getAds(latitude: Double, longitude: Double) {
+        let params = ["Fk_ItemType" : 3, "Latitude" : latitude, "Longitude" : longitude] as [String : Any]
+        let url = CommonConstants.BASE_URL + "User/GetAds"
+        
+        Alamofire.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil)
+            .responseJSON { response in
+                
+                switch response.result {
+                case .success(_):
+                    let json = (response.result.value as! Dictionary<String,AnyObject>)
+                    let statusObj = json["Status"] as! Dictionary<String,AnyObject>
+                    
+                    if let id = statusObj["Id"] as? Int, id == 1 {
+                        let adsJsonArray = json["Data"] as! [Dictionary<String,AnyObject>]
+                        var ads = [Ad]()
+                        for adJsonObj in adsJsonArray {
+                            let ad = Ad(json: adJsonObj)
+                            ads.append(ad!)
+                        }
+                        self.delegate.getAdsSuccess(ads: ads)
+                    } else {
+                        self.delegate.failed(errorMessage: statusObj["Message"] as! String)
+                    }
+                    
+                    break
+                    
+                case .failure(let error):
+                    self.delegate.failed(errorMessage: error.localizedDescription)
+                    break
+                }
+        }
+    }
 }

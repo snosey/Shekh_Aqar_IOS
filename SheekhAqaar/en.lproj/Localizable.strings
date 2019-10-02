@@ -125,3 +125,7 @@
 "chooseLocationFirst" = "Please select location from Google Maps firsts";
 "requestBuildingSuccess" = "Your request send successfully";
 "enterAdDetails" = "Please enter all ad details";
+"publishAdSuccess" = "You ad published successfully";
+"editAdSuccess" = "Your ad edited successfully";
+"mustBeNumber" = " must be number";
+"editAd" = "Edit ad";

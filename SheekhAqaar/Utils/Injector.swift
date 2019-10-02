@@ -97,4 +97,12 @@ public class Injector {
     public class func provideRequestBuildingRepository() -> RequestBuildingRepository {
         return RequestBuildingRepository()
     }
+    
+    public class func provideEditAdPresenter() -> EditAdPresenter {
+        return EditAdPresenter(repository: Injector.provideEditAdRepository())
+    }
+    
+    public class func provideEditAdRepository() -> EditAdRepository {
+        return EditAdRepository()
+    }
 }

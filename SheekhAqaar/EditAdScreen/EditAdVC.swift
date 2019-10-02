@@ -1,8 +1,8 @@
 //
-//  RequestBuildingVC.swift
+//  EditAdVC.swift
 //  SheekhAqaar
 //
-//  Created by Hesham Donia on 9/28/19.
+//  Created by Hesham Donia on 10/2/19.
 //  Copyright © 2019 Hesham Donia. All rights reserved.
 //
 
@@ -11,18 +11,21 @@ import DropDown
 import GooglePlacePicker
 import SwiftyUserDefaults
 
-class RequestBuildingVC: BaseVC {
+class EditAdVC: BaseVC {
 
-    public class func buildVC() -> RequestBuildingVC {
-        let storyboard = UIStoryboard(name: "RequestBuildingStoryboard", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "RequestBuildingVC") as! RequestBuildingVC
+    public class func buildVC(ad: Ad) -> EditAdVC {
+        let storyboard = UIStoryboard(name: "EditAdStoryboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "EditAdVC") as! EditAdVC
+        vc.ad = ad
         return vc
     }
     
     @IBOutlet weak var backIcon: UIImageView!
     @IBOutlet weak var adDataTableView: UITableView!
     
-    var presenter: RequestBuildingPresenter!
+    var ad: Ad!
+    
+    var presenter: EditAdPresenter!
     
     var countries = Singleton.getInstance().signUpData.countries
     var selectedCountry: Country!
@@ -47,7 +50,10 @@ class RequestBuildingVC: BaseVC {
     var selectedLatitude: Double!
     var selectedLongitude: Double!
     
-    var cell: RequestBuildingCell!
+    var cell: CreateAdCell!
+    
+    
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,17 +62,55 @@ class RequestBuildingVC: BaseVC {
             self?.navigationController?.popViewController(animated: true)
         }
         
-        presenter = Injector.provideRequestBuildingPresenter()
+        presenter = Injector.provideEditAdPresenter()
         presenter.setView(view: self)
         
         adDataTableView.delegate = self
         adDataTableView.dataSource = self
     }
+    
+    private func openPhotoGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    private func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
 
 }
 
-extension RequestBuildingVC: RequestBuildingView {
-    func getRequestBuildingDataSuccess(createAdData: CreateAdData) {
+extension EditAdVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        imagePicker.dismiss(animated: true, completion: { [weak self]() -> Void in
+            if let chosenImage = info[.originalImage] as? UIImage{
+                //use image
+                self?.cell.selectedImages.append(chosenImage)
+                self?.cell.photosCollectionView.reloadData()
+            }
+        })
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        imagePicker.dismiss(animated: true)
+    }
+}
+
+extension EditAdVC: EditAdView {
+    func getCreateAdDataSuccess(createAdData: CreateAdData) {
         self.adDetailsItems = createAdData.adDetailsItems
         self.currencies = createAdData.currencies
         self.additionalFacilities = createAdData.additionalFacilities
@@ -78,10 +122,18 @@ extension RequestBuildingVC: RequestBuildingView {
         cell.adDetailsTableView.reloadData()
         
         adDataTableView.reloadData()
+        
+        cell.adImages = ad.adImages
+        
+        selectedCountry = countries?[0] // dummy while ask senosy
+        selectedRegion = selectedCountry.regions[0] // dummy while ask senosy
+        
+        
+        cell.showSelectedData(ad: ad, selectedCountry: selectedCountry, selectedRegion: selectedRegion)
     }
     
-    func requestBuildingSuccess() {
-        self.view.makeToast("requestBuildingSuccess".localized(), duration: 2) {
+    func editAdSuccess() {
+        self.view.makeToast("editAdSuccess".localized(), duration: 2) {
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -93,17 +145,15 @@ extension RequestBuildingVC: RequestBuildingView {
     func handleNoInternetConnection() {
         self.view.makeToast("nointernetConnection".localized())
     }
-    
-    
 }
 
-extension RequestBuildingVC: UITableViewDataSource, UITableViewDelegate {
+extension EditAdVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        cell = tableView.dequeueReusableCell(withIdentifier: RequestBuildingCell.identifier, for: indexPath) as! RequestBuildingCell
+        cell = tableView.dequeueReusableCell(withIdentifier: CreateAdCell.identifier, for: indexPath) as! CreateAdCell
         cell.selectionStyle = .none
         cell.delegate = self
         cell.initializeCell()
@@ -122,7 +172,64 @@ extension RequestBuildingVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension RequestBuildingVC: RequestBuildingCellDelegate {
+extension EditAdVC: CreateAdCellDelegate {
+    
+    func addImages() {
+        var alert: UIAlertController!
+        
+        let photoGalleryAction = UIAlertAction(title: "photoGallery".localized(), style: .default) { [weak self](_) in
+            self?.openPhotoGallery()
+        }
+        
+        let cameraAction = UIAlertAction(title: "camera".localized(), style: .cancel) { [weak self](_) in
+            self?.openCamera()
+        }
+        
+        alert = UiHelpers.createAlertView(title: "chooseMediaTitle".localized(), message: "chooseMediaMessage".localized(), actions: [photoGalleryAction, cameraAction])
+        
+        presentVC(alert)
+    }
+    
+    
+    func editAd(ad: Ad, adDetailsItems: [AdDetailsItem], images: [Data], imagesToBeRemoved: [Data]) {
+        if selectedCategory != nil {
+            if selectedAdType != nil {
+                if selectedCurrency != nil {
+                    if selectedRegion != nil {
+                        if selectedLatitude != nil && selectedLongitude != nil {
+                            
+                            let user = User(json: Defaults[.user]!)
+                            
+                            ad.additionalFacilities = self.selectedAddtionalFacilities
+                            ad.detailedAddress = cell.buildingLocationLabel.text
+                            ad.currencyId = selectedCurrency.id
+                            ad.currency = selectedCurrency
+                            ad.subCategory = selectedAdType
+                            ad.subCategoryId = selectedAdType.id
+                            ad.userId = user?.id
+                            ad.user = user
+                            ad.latitude = String(selectedLatitude)
+                            ad.longitude = String(selectedLongitude)
+                            ad.viewCount = 0
+                            
+                            presenter.editAd(ad: ad, adDetailsItems: adDetailsItems, images: images, imagesToBeRemoved: imagesToBeRemoved)
+                        } else {
+                            view.makeToast("chooseLocationFirst".localized())
+                        }
+                    } else {
+                        view.makeToast("selectRegionFirst".localized())
+                    }
+                } else {
+                    view.makeToast("selectCurrencyFirst".localized())
+                }
+            } else {
+                view.makeToast("selectAdTypeFirst".localized())
+            }
+        } else {
+            view.makeToast("selectCategoryFirst".localized())
+        }
+    }
+    
     func showCurrencies() {
         let dropDown = DropDown()
         if currencies.count > 0 {
@@ -143,6 +250,10 @@ extension RequestBuildingVC: RequestBuildingCellDelegate {
         } else {
             view.makeToast("noCurrencies".localized())
         }
+    }
+    
+    func publishAd(ad: Ad, adDetailsItems: [AdDetailsItem], images: [Data]) {
+        
     }
     
     func showCategories() {
@@ -193,7 +304,7 @@ extension RequestBuildingVC: RequestBuildingCellDelegate {
                     self?.cell.adTypeLabel.textColor = .black
                     self?.selectedAdType = self?.adTypes.get(index)
                     
-                    self?.presenter.getRequestBuildingData(subCategoryId: self?.selectedAdType.id ?? 0, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                    self?.presenter.getCreateAdData(subCategoryId: self?.selectedAdType.id ?? 0, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
                     if let _ = self?.selectedAddtionalFacilities {
                         self?.selectedAddtionalFacilities.removeAll()
                     }
@@ -283,49 +394,9 @@ extension RequestBuildingVC: RequestBuildingCellDelegate {
         placePicker.delegate = self
         present(placePicker, animated: true, completion: nil)
     }
-    
-    func requestBuilding(ad: Ad, adDetailsItems: [AdDetailsItem]) {
-        if selectedCategory != nil {
-            if selectedAdType != nil {
-                if selectedCurrency != nil {
-                    if selectedRegion != nil {
-                        if selectedLatitude != nil && selectedLongitude != nil {
-                            
-                            let user = User(json: Defaults[.user]!)
-                            
-                            ad.additionalFacilities = self.selectedAddtionalFacilities
-                            ad.detailedAddress = cell.buildingLocationLabel.text
-                            ad.currencyId = selectedCurrency.id
-                            ad.currency = selectedCurrency
-                            ad.subCategory = selectedAdType
-                            ad.subCategoryId = selectedAdType.id
-                            ad.userId = user?.id
-                            ad.user = user
-                            ad.adTypeId = 3
-                            ad.latitude = String(selectedLatitude)
-                            ad.longitude = String(selectedLongitude)
-                            ad.viewCount = 0
-                            
-                            presenter.requestBuilding(ad: ad, adDetailsItems: adDetailsItems)
-                        } else {
-                            view.makeToast("chooseLocationFirst".localized())
-                        }
-                    } else {
-                        view.makeToast("selectRegionFirst".localized())
-                    }
-                } else {
-                    view.makeToast("selectCurrencyFirst".localized())
-                }
-            } else {
-                view.makeToast("selectAdTypeFirst".localized())
-            }
-        } else {
-            view.makeToast("selectCategoryFirst".localized())
-        }
-    }
 }
 
-extension RequestBuildingVC: GMSPlacePickerViewControllerDelegate {
+extension EditAdVC: GMSPlacePickerViewControllerDelegate {
     func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
         viewController.dismiss(animated: true, completion: nil)
         
