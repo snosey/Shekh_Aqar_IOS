@@ -12,12 +12,13 @@ import SwiftyUserDefaults
 
 class PhoneVerificationVC: BaseVC {
 
-    public class func buildVC(phoneNumber: String, nextPage: Int, country: Country) -> PhoneVerificationVC {
+    public class func buildVC(phoneNumber: String, nextPage: Int, country: Country, userImage: UIImage? = nil, userName: String? = nil) -> PhoneVerificationVC {
         let storyboard = UIStoryboard(name: "PhoneVerificationStoryboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PhoneVerificationVC") as! PhoneVerificationVC
         vc.phoneNumber = phoneNumber
         vc.nextPage = nextPage
         vc.country = country
+        vc.userImage = userImage
         return vc
     }
     
@@ -36,6 +37,10 @@ class PhoneVerificationVC: BaseVC {
     var phoneNumber: String!
     var nextPage: Int!
     var country: Country!
+    var userImage: UIImage!
+    var userName: String!
+    
+    var presenter: PhoneVerificationPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +80,9 @@ class PhoneVerificationVC: BaseVC {
         digit1.becomeFirstResponder()
         
         GradientBG.createGradientLayer(view: confirmButton, cornerRaduis: 4, maskToBounds: true)
+        
+        presenter = Injector.providePhoneVerificationPresenter()
+        presenter.setView(view: self)
     }
 
     @IBAction func confirmClicked(_ sender: Any) {
@@ -99,6 +107,8 @@ class PhoneVerificationVC: BaseVC {
                         self?.navigator.navigateToHome()
                     } else if self?.nextPage == CommonConstants.SIGN_UP_NEXT_PAGE_CODE {
                         self?.navigator.navigateToSignUp1(phoneNumber: self?.phoneNumber ?? "", country: self?.country ?? Country())
+                    } else if self?.nextPage == CommonConstants.EDIT_PROFILE_CODE {
+                        self?.presenter.updateProfile(userImageData: self?.userImage.jpegData(compressionQuality: 0.3) ?? Data(), username: self?.userName ?? "", userPhone: self?.phoneNumber ?? "", countryId: self?.country.id ?? 0)
                     }
                 }
             }
@@ -209,5 +219,10 @@ extension PhoneVerificationVC: PhoneVerificationView {
     
     func handleNoInternetConnection() {
         self.view.makeToast("noInternetConnection".localized())
+    }
+    
+    func updateProfileSuccess(user: User) {
+        Defaults[.user] = user.toJSON()
+        navigator.navigateToHome()
     }
 }

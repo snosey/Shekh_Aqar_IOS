@@ -83,8 +83,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mV5-BK-FD2">
+                                <rect key="frame" x="8" y="327.5" width="398" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NnQ-Fe-hu1">
-                                <rect key="frame" x="8" y="327.5" width="398" height="262"/>
+                                <rect key="frame" x="8" y="353.5" width="398" height="262"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdDetailsCell" rowHeight="38" id="Xex-LT-qVx" customClass="AdDetailsCell" customModule="SheekhAqaar" customModuleProvider="target">
@@ -94,17 +100,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="38"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z63-tR-OSk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="30"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z63-tR-OSk">
+                                                    <rect key="frame" x="0.0" y="8" width="28" height="22"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBc-I8-iow">
-                                                    <rect key="frame" x="40" y="0.0" width="119" height="30"/>
+                                                    <rect key="frame" x="40" y="8" width="119" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiA-Zs-YfG">
-                                                    <rect key="frame" x="167" y="0.0" width="191" height="30"/>
+                                                    <rect key="frame" x="167" y="8" width="191" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -122,7 +128,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="93J-KV-Anw" secondAttribute="bottom" constant="2" id="0fx-CM-uW6"/>
                                                 <constraint firstItem="sBc-I8-iow" firstAttribute="top" secondItem="z63-tR-OSk" secondAttribute="top" id="83m-q9-fw6"/>
                                                 <constraint firstItem="sBc-I8-iow" firstAttribute="leading" secondItem="93J-KV-Anw" secondAttribute="leading" id="K9k-st-bB0"/>
-                                                <constraint firstItem="z63-tR-OSk" firstAttribute="top" secondItem="L70-RW-KvO" secondAttribute="top" id="Nva-ql-Bca"/>
+                                                <constraint firstItem="z63-tR-OSk" firstAttribute="top" secondItem="L70-RW-KvO" secondAttribute="top" constant="8" id="Nva-ql-Bca"/>
                                                 <constraint firstItem="CiA-Zs-YfG" firstAttribute="bottom" secondItem="sBc-I8-iow" secondAttribute="bottom" id="QLD-RX-Adg"/>
                                                 <constraint firstItem="93J-KV-Anw" firstAttribute="width" secondItem="L70-RW-KvO" secondAttribute="width" multiplier="0.8" id="UlQ-0h-NIV"/>
                                                 <constraint firstItem="z63-tR-OSk" firstAttribute="width" secondItem="L70-RW-KvO" secondAttribute="width" multiplier="0.07" id="YRC-Xj-Lfx"/>
@@ -146,7 +152,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saH-g9-7Bo" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
-                                <rect key="frame" x="8" y="597.5" width="398" height="18"/>
+                                <rect key="frame" x="8" y="623.5" width="398" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -155,7 +161,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DDG-xI-jxL">
-                                <rect key="frame" x="8" y="623.5" width="398" height="122.5"/>
+                                <rect key="frame" x="8" y="649.5" width="398" height="122.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdditionalFacilityCell" rowHeight="38" id="mjN-Ve-b2f" customClass="AdditionalFacilityCell" customModule="SheekhAqaar" customModuleProvider="target">
@@ -223,7 +229,7 @@
                                 <rect key="frame" x="8" y="821" width="398" height="41"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeG-ZV-1Ke" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="191" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="41"/>
                                         <color key="backgroundColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -239,7 +245,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3g-3a-Uxm" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
-                                        <rect key="frame" x="207" y="0.0" width="191" height="41"/>
+                                        <rect key="frame" x="138" y="0.0" width="122" height="41"/>
                                         <color key="backgroundColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -252,6 +258,22 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="makeCallClicked:" destination="nZC-lQ-jpN" eventType="touchUpInside" id="3MT-AO-qPR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRQ-JS-1QK" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
+                                        <rect key="frame" x="276" y="0.0" width="122" height="41"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="openMaps"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="openMapsClicked:" destination="nZC-lQ-jpN" eventType="touchUpInside" id="J32-31-bO6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -278,8 +300,11 @@
                             <constraint firstItem="Inq-1t-GV7" firstAttribute="leading" secondItem="jqa-Rm-PGS" secondAttribute="leading" constant="8" id="Les-Ud-ggN"/>
                             <constraint firstItem="jqa-Rm-PGS" firstAttribute="trailing" secondItem="ce5-Au-BLR" secondAttribute="trailing" constant="8" id="SBa-Pk-2tc"/>
                             <constraint firstItem="Inq-1t-GV7" firstAttribute="trailing" secondItem="ce5-Au-BLR" secondAttribute="leading" constant="-16" id="Tey-nL-Mct"/>
+                            <constraint firstItem="mV5-BK-FD2" firstAttribute="top" secondItem="PwQ-fc-aXd" secondAttribute="bottom" constant="8" id="Ubi-9Y-3wX"/>
+                            <constraint firstItem="mV5-BK-FD2" firstAttribute="trailing" secondItem="PwQ-fc-aXd" secondAttribute="trailing" id="VIk-Qt-Ofv"/>
                             <constraint firstItem="jqa-Rm-PGS" firstAttribute="trailing" secondItem="CSf-av-Pog" secondAttribute="trailing" constant="8" id="W3W-UE-dbL"/>
                             <constraint firstItem="CSf-av-Pog" firstAttribute="leading" secondItem="jqa-Rm-PGS" secondAttribute="leading" constant="8" id="YsI-zE-8la"/>
+                            <constraint firstItem="NnQ-Fe-hu1" firstAttribute="top" secondItem="mV5-BK-FD2" secondAttribute="bottom" constant="8" id="cyd-YS-jMY"/>
                             <constraint firstItem="eF1-0l-B3W" firstAttribute="top" secondItem="jqa-Rm-PGS" secondAttribute="top" id="ez1-VV-N5W"/>
                             <constraint firstItem="CSf-av-Pog" firstAttribute="bottom" secondItem="jqa-Rm-PGS" secondAttribute="bottom" id="gIy-5U-ewI"/>
                             <constraint firstItem="saH-g9-7Bo" firstAttribute="leading" secondItem="NnQ-Fe-hu1" secondAttribute="leading" id="gQG-VH-wbp"/>
@@ -291,9 +316,9 @@
                             <constraint firstItem="DDG-xI-jxL" firstAttribute="trailing" secondItem="saH-g9-7Bo" secondAttribute="trailing" id="p73-7F-E4a"/>
                             <constraint firstItem="jqa-Rm-PGS" firstAttribute="trailing" secondItem="8ha-XL-2TH" secondAttribute="trailing" id="t6r-wb-Yiy"/>
                             <constraint firstItem="DDG-xI-jxL" firstAttribute="height" secondItem="jqa-Rm-PGS" secondAttribute="height" multiplier="0.15" id="uxM-uh-9kc"/>
-                            <constraint firstItem="NnQ-Fe-hu1" firstAttribute="top" secondItem="PwQ-fc-aXd" secondAttribute="bottom" constant="8" id="vGz-lV-saQ"/>
                             <constraint firstItem="saH-g9-7Bo" firstAttribute="top" secondItem="NnQ-Fe-hu1" secondAttribute="bottom" constant="8" id="w7m-GJ-Zn6"/>
                             <constraint firstItem="vee-v4-cVv" firstAttribute="height" secondItem="CSf-av-Pog" secondAttribute="height" id="xjt-rc-wyD"/>
+                            <constraint firstItem="mV5-BK-FD2" firstAttribute="leading" secondItem="PwQ-fc-aXd" secondAttribute="leading" id="xuQ-Zj-iiD"/>
                             <constraint firstItem="DDG-xI-jxL" firstAttribute="leading" secondItem="saH-g9-7Bo" secondAttribute="leading" id="yLL-r2-zIP"/>
                             <constraint firstItem="PwQ-fc-aXd" firstAttribute="top" secondItem="Inq-1t-GV7" secondAttribute="bottom" constant="8" id="yts-uG-1Lx"/>
                             <constraint firstItem="ce5-Au-BLR" firstAttribute="width" secondItem="jqa-Rm-PGS" secondAttribute="width" multiplier="0.4" id="z16-7K-Mm5"/>
@@ -301,6 +326,7 @@
                         <viewLayoutGuide key="safeArea" id="jqa-Rm-PGS"/>
                     </view>
                     <connections>
+                        <outlet property="adAboutLabel" destination="mV5-BK-FD2" id="vHz-4b-XhJ"/>
                         <outlet property="adDetailsTableView" destination="NnQ-Fe-hu1" id="Lai-Ko-QQ1"/>
                         <outlet property="adNameLabel" destination="Inq-1t-GV7" id="5nm-MC-OTJ"/>
                         <outlet property="adPriceLabel" destination="vee-v4-cVv" id="Dge-uz-a1F"/>

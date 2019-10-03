@@ -14,5 +14,6 @@ class CommonConstants {
     public static let GOOGLE_MAPS_KEY = "AIzaSyAvK6a3rFCAyeY36fY7xN0xZDqLTDoktHQ"
     public static let HOME_NEXT_PAGE_CODE = 1
     public static let SIGN_UP_NEXT_PAGE_CODE = 2
+    public static let EDIT_PROFILE_CODE = 3
     
 }

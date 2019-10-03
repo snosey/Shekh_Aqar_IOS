@@ -24,7 +24,9 @@ class MyAdsVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UIView.animate(withDuration: 0) {
+            self.backIcon.transform = CGAffineTransform(rotationAngle: .pi)
+        }
         backIcon.addTapGesture { [weak self] (_) in
             self?.navigationController?.popViewController(animated: true)
         }

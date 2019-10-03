@@ -31,8 +31,8 @@ public class Navigator {
         }
     }
     
-    public func navigateToPhoneVerification(phoneNumber: String, nextPage: Int, country: Country) {
-        weak var vc = PhoneVerificationVC.buildVC(phoneNumber: phoneNumber, nextPage: nextPage, country: country)
+    public func navigateToPhoneVerification(phoneNumber: String, nextPage: Int, country: Country, userImage: UIImage? = nil, username: String? = nil) {
+        weak var vc = PhoneVerificationVC.buildVC(phoneNumber: phoneNumber, nextPage: nextPage, country: country, userImage: userImage, userName: username)
         if let vc = vc {
             self.navigationController.pushViewController(vc, animated: true)
         }
@@ -103,6 +103,13 @@ public class Navigator {
     
     public func navigateToMyAds() {
         weak var vc = MyAdsVC.buildVC()
+        if let vc = vc {
+            self.navigationController.pushViewController(vc, animated: true)
+        }
+    }
+    
+    public func navigateToEditProfile() {
+        weak var vc = EditProfileVC.buildVC()
         if let vc = vc {
             self.navigationController.pushViewController(vc, animated: true)
         }

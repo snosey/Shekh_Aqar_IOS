@@ -20,6 +20,7 @@ class AdVC: BaseVC {
     }
     
     
+    @IBOutlet weak var adAboutLabel: UILabel!
     @IBOutlet weak var backIcon: UIImageView!
     @IBOutlet weak var photosCollectionView: UICollectionView!
     @IBOutlet weak var adNameLabel: UILabel!
@@ -72,18 +73,19 @@ class AdVC: BaseVC {
         photosCollectionView.delegate = self
         if let layout = photosCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
-            layout.minimumInteritemSpacing = 0
-            layout.minimumLineSpacing = 0
+            layout.minimumInteritemSpacing = 16
+            layout.minimumLineSpacing = 16
             layout.itemSize = CGSize(width: UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH
-                , relativeView: nil, percentage: 80), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 20))
+                , relativeView: nil, percentage: 100), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 20))
         }
         
         adNameLabel.text = ad.name
+        adAboutLabel.text = ad.details
         let date = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/yyyy hh:mm a")
         if let _ = ad.company.name {
             companyAndTimeLabel.text = ad.company.name + " | " + date.timeAgoDisplay()
         } else {
-            companyAndTimeLabel.text = date.timeAgoDisplay()
+            companyAndTimeLabel.text = ad.user.name + " | " + date.timeAgoDisplay()
         }
         
         
@@ -129,6 +131,10 @@ class AdVC: BaseVC {
         } else {
             self.view.makeToast("phoneNotAvailable".localized())
         }
+    }
+    
+    @IBAction func openMapsClicked(_ sender: Any) {
+        UiHelpers.openGoogleMaps(view: self.view, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
     }
 }
 

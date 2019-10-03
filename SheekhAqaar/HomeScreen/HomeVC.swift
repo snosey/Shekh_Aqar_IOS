@@ -591,6 +591,7 @@ extension HomeVC: SideMenuCellDelegate {
             
             if let _ = Defaults[.user] {
                 // go to edit profile
+                navigator.navigateToEditProfile()
             } else {
                 navigator.navigateToSignUp()
             }

@@ -93,7 +93,14 @@ public class AdRepository {
                     if let id = statusObj["Id"] as? Int, id == 1 {
                         
                         let dataObj = json["Data"] as! Dictionary<String,AnyObject>
-                        self.delegate.getAdSuccess(ad: Ad(json: dataObj)!)
+                        let ad = Ad(json: dataObj)!
+                        var count = 0
+                        
+                        for facility in ad.additionalFacilities {
+                            facility.itemFeatureModel = ItemFeatureModel(json: ((dataObj["UserItemFeaturesModel"] as! [Dictionary<String, AnyObject>])[count])["ItemFeatureModel"] as! Dictionary<String, AnyObject>)
+                            count = count + 1
+                        }
+                        self.delegate.getAdSuccess(ad: ad)
                     } else {
                         self.delegate.failed(errorMessage: statusObj["Message"] as! String)
                     }
