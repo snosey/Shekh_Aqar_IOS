@@ -1,27 +1,22 @@
 //
-//  AdditionalFacility.swift
+//  ItemFeatureModel.swift
 //  SheekhAqaar
 //
-//  Created by Hesham Donia on 8/26/19.
+//  Created by Hesham Donia on 10/3/19.
 //  Copyright © 2019 Hesham Donia. All rights reserved.
 //
 
 import Foundation
 import Gloss
 
-public class AdditionalFacility: DataType {
-    
+public class ItemFeatureModel {
     var name : String!
     var id : Int!
-    var itemFeatureModel: ItemFeatureModel!
-    
-    var isChecked = false
-    
+        
     //MARK: Decodable
     required public init?(json: JSON){
         name = "Name" <~~ json
         id = "Id" <~~ json
-        itemFeatureModel = "ItemFeatureModel" <~~ json
     }
     
     public init() {
@@ -38,8 +33,6 @@ public class AdditionalFacility: DataType {
         return jsonify([
             "Name" ~~> name,
             "Id" ~~> id,
-            "ItemFeatureModel" ~~> itemFeatureModel,
             ])
     }
-    
 }

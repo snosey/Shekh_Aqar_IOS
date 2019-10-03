@@ -335,7 +335,6 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                     } else {
                         self?.navigator.navigateToSignUp()
                     }
-                    
                     break
                     
                 case -3:
@@ -474,7 +473,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         if selectedCategoryPosition == 1 {
             return companies.count
         } else if selectedCategoryPosition == 2 || selectedCategoryPosition == 3 {
-            return 0//selectedCategory.ads.count
+            return ads.count
         }
         return 0
     }
@@ -597,15 +596,15 @@ extension HomeVC: SideMenuCellDelegate {
             }
             break
             
-//        case 2:
-//
-//            if let _ = Defaults[.user] {
-//                // go to add ad
-//                navigator.navigateToCreateAd()
-//            } else {
-//                navigator.navigateToSignUp()
-//            }
-//            break
+        case 2:
+
+            if let _ = Defaults[.user] {
+                // go to add ad
+                navigator.navigateToMyAds()
+            } else {
+                navigator.navigateToSignUp()
+            }
+            break
             
         case sideMenuVC.menuStringsDataSource.count - 3:
             navigator.navigateToFavourites()

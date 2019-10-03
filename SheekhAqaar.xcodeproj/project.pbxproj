@@ -158,6 +158,10 @@
 		E8BD7F3223129D65003B6829 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8BD7F3123129D65003B6829 /* GoogleService-Info.plist */; };
 		E8BD7F342312D886003B6829 /* CompanyServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7F332312D886003B6829 /* CompanyServicesCell.swift */; };
 		E8BD7F362312DA58003B6829 /* CompanyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7F352312DA58003B6829 /* CompanyService.swift */; };
+		E8C5232D2345FB6A00B86C0C /* MyAdsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C523292345FB6A00B86C0C /* MyAdsRepository.swift */; };
+		E8C5232E2345FB6A00B86C0C /* MyAdsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C5232A2345FB6A00B86C0C /* MyAdsStoryboard.storyboard */; };
+		E8C5232F2345FB6A00B86C0C /* MyAdsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C5232B2345FB6A00B86C0C /* MyAdsPresenter.swift */; };
+		E8C523302345FB6A00B86C0C /* MyAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C5232C2345FB6A00B86C0C /* MyAdsVC.swift */; };
 		E8CBCF9723155A08005F91BE /* CompanyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBCF9623155A08005F91BE /* CompanyPresenter.swift */; };
 		E8CBCF9923155A15005F91BE /* CompanyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBCF9823155A15005F91BE /* CompanyRepository.swift */; };
 		E8CBCF9F23156D56005F91BE /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBCF9E23156D56005F91BE /* HelpVC.swift */; };
@@ -180,6 +184,7 @@
 		E8E4E6292314065600A46C99 /* FarshLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6282314065600A46C99 /* FarshLevel.swift */; };
 		E8E4E62B2314069300A46C99 /* AdditionalFacility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E62A2314069300A46C99 /* AdditionalFacility.swift */; };
 		E8E4E62D231408EE00A46C99 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E62C231408EE00A46C99 /* Currency.swift */; };
+		E8E7F3372346558700CA3DA7 /* ItemFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E7F3362346558700CA3DA7 /* ItemFeatureModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -363,6 +368,10 @@
 		E8BD7F3123129D65003B6829 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8BD7F332312D886003B6829 /* CompanyServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyServicesCell.swift; sourceTree = "<group>"; };
 		E8BD7F352312DA58003B6829 /* CompanyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyService.swift; sourceTree = "<group>"; };
+		E8C523292345FB6A00B86C0C /* MyAdsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdsRepository.swift; sourceTree = "<group>"; };
+		E8C5232A2345FB6A00B86C0C /* MyAdsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyAdsStoryboard.storyboard; sourceTree = "<group>"; };
+		E8C5232B2345FB6A00B86C0C /* MyAdsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdsPresenter.swift; sourceTree = "<group>"; };
+		E8C5232C2345FB6A00B86C0C /* MyAdsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdsVC.swift; sourceTree = "<group>"; };
 		E8CBCF9623155A08005F91BE /* CompanyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPresenter.swift; sourceTree = "<group>"; };
 		E8CBCF9823155A15005F91BE /* CompanyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyRepository.swift; sourceTree = "<group>"; };
 		E8CBCF9E23156D56005F91BE /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
@@ -385,6 +394,7 @@
 		E8E4E6282314065600A46C99 /* FarshLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarshLevel.swift; sourceTree = "<group>"; };
 		E8E4E62A2314069300A46C99 /* AdditionalFacility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalFacility.swift; sourceTree = "<group>"; };
 		E8E4E62C231408EE00A46C99 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		E8E7F3362346558700CA3DA7 /* ItemFeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFeatureModel.swift; sourceTree = "<group>"; };
 		ED4B22E181EC1FC845445EAE /* Pods-SheekhAqaarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheekhAqaarUITests.debug.xcconfig"; path = "Target Support Files/Pods-SheekhAqaarUITests/Pods-SheekhAqaarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -625,6 +635,7 @@
 				E84CCCBF233951A700A9829A /* SpinnerData.swift */,
 				E84CCCC12339533100A9829A /* CreateAdData.swift */,
 				E80044442344A64D002D56C2 /* ItemMainModel.swift */,
+				E8E7F3362346558700CA3DA7 /* ItemFeatureModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -681,6 +692,7 @@
 				E81C0E6F23350F8A002B3A92 /* RequestBuilding */,
 				E8CBCF9D23156D35005F91BE /* HelpScreen */,
 				E8245C382318B40B0021729B /* FavouritesScreen */,
+				E8C523262345FB0F00B86C0C /* MyAdsScreen */,
 				E82474D323083D1000211FDB /* SideMenu */,
 				E82474B82308393F00211FDB /* Utils */,
 				E86FA0D7230EAB11005A88D2 /* Models */,
@@ -781,6 +793,17 @@
 				E8E4E61E2313FA8000A46C99 /* RegisterCompanyRepository.swift */,
 			);
 			path = RegisterCompanyScreen;
+			sourceTree = "<group>";
+		};
+		E8C523262345FB0F00B86C0C /* MyAdsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E8C5232C2345FB6A00B86C0C /* MyAdsVC.swift */,
+				E8C5232A2345FB6A00B86C0C /* MyAdsStoryboard.storyboard */,
+				E8C5232B2345FB6A00B86C0C /* MyAdsPresenter.swift */,
+				E8C523292345FB6A00B86C0C /* MyAdsRepository.swift */,
+			);
+			path = MyAdsScreen;
 			sourceTree = "<group>";
 		};
 		E8CBCF9D23156D35005F91BE /* HelpScreen */ = {
@@ -921,6 +944,7 @@
 				E89340EE2308265F00F37DCE /* Assets.xcassets in Resources */,
 				E8CBCFA123156D6A005F91BE /* HelpStoryboard.storyboard in Resources */,
 				E89CBAF323097AFE000B6BB7 /* HomeStoryboard.storyboard in Resources */,
+				E8C5232E2345FB6A00B86C0C /* MyAdsStoryboard.storyboard in Resources */,
 				E82474842308278800211FDB /* README.md in Resources */,
 				E89CBB0423097F30000B6BB7 /* TheSans-Bold.otf in Resources */,
 				E84161B7233FA64E00D93DBF /* RequestBuildingStoryboard.storyboard in Resources */,
@@ -1067,6 +1091,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E82474AD2308278800211FDB /* NSObjectExtensions.swift in Sources */,
+				E8C5232F2345FB6A00B86C0C /* MyAdsPresenter.swift in Sources */,
 				E89CBAF123097AF3000B6BB7 /* SignUpVC.swift in Sources */,
 				E8245C402318B6390021729B /* AdRepository.swift in Sources */,
 				E84CCCC6233972AD00A9829A /* AdDetailsWithSpinnerCell.swift in Sources */,
@@ -1086,6 +1111,7 @@
 				E82474A72308278800211FDB /* UIWindowExtensions.swift in Sources */,
 				E824749B2308278800211FDB /* URLExtensions.swift in Sources */,
 				E82474C223083A1300211FDB /* UIDevice+extensions.swift in Sources */,
+				E8E7F3372346558700CA3DA7 /* ItemFeatureModel.swift in Sources */,
 				E8245C3A2318B44B0021729B /* FavouritesPresenter.swift in Sources */,
 				E8E4E61B2313F72500A46C99 /* User.swift in Sources */,
 				E8E4E623231402AE00A46C99 /* HomeRepository.swift in Sources */,
@@ -1138,6 +1164,7 @@
 				E82474A02308278800211FDB /* UIViewExtensions.swift in Sources */,
 				E848315A2318509B009C7BE9 /* AdVC.swift in Sources */,
 				E847DD33231DB3E30063CC8F /* CreateAdRepository.swift in Sources */,
+				E8C5232D2345FB6A00B86C0C /* MyAdsRepository.swift in Sources */,
 				E83CC32223142871009A307F /* AdCell.swift in Sources */,
 				E82474A52308278800211FDB /* NSDictionaryExtensions.swift in Sources */,
 				E86FA0DD230EABEE005A88D2 /* Region.swift in Sources */,
@@ -1145,6 +1172,7 @@
 				E82474A22308278800211FDB /* CharacterExtensions.swift in Sources */,
 				E8E4E6152313F27000A46C99 /* SignUpRepository.swift in Sources */,
 				E82474BC2308398F00211FDB /* CommonConstants.swift in Sources */,
+				E8C523302345FB6A00B86C0C /* MyAdsVC.swift in Sources */,
 				E8E4E627231405A600A46C99 /* AdType.swift in Sources */,
 				E82474952308278800211FDB /* BlockButton.swift in Sources */,
 				E84161B9233FA67000D93DBF /* RequestBuildingVC.swift in Sources */,

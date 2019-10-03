@@ -64,6 +64,7 @@ class EditAdVC: BaseVC {
         
         presenter = Injector.provideEditAdPresenter()
         presenter.setView(view: self)
+        presenter.getCreateAdData(subCategoryId: ad.subCategoryId, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
         
         adDataTableView.delegate = self
         adDataTableView.dataSource = self

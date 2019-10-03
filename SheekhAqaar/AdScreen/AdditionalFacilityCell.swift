@@ -20,9 +20,18 @@ class AdditionalFacilityCell: UITableViewCell {
     @IBOutlet weak var facility2Label: UILabel!
     
     public func populateData() {
-        facility1Label.text = additionalFacility1.name
+        if let name1 = additionalFacility1.name {
+            facility1Label.text = name1
+        } else if let itemFeatureModel = additionalFacility1.itemFeatureModel, let name1 = itemFeatureModel.name {
+            facility1Label.text = name1
+        }
+        
         if let additionalFacility2 = additionalFacility2 {
-            facility2Label.text = additionalFacility2.name
+            if let name2 = additionalFacility2.name {
+                facility2Label.text = name2
+            } else if let name2 = additionalFacility2.itemFeatureModel.name {
+                facility2Label.text = name2
+            }
         }
     }
 }

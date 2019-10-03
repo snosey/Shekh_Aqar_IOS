@@ -105,4 +105,12 @@ public class Injector {
     public class func provideEditAdRepository() -> EditAdRepository {
         return EditAdRepository()
     }
+    
+    public class func provideMyAdsPresenter() -> MyAdsPresenter {
+        return MyAdsPresenter(repository: Injector.provideMyAdsRepository())
+    }
+    
+    public class func provideMyAdsRepository() -> MyAdsRepository {
+        return MyAdsRepository()
+    }
 }
