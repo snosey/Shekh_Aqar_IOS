@@ -20,7 +20,7 @@ class SideMenuVC : BaseVC {
     var sideMenuCellDelegate: SideMenuCellDelegate!
     var sideMenuHeaderDelegate: SideMenuHeaderDelegate!
     
-    var menuStringsDataSource: [String] = ["homeScreen".localized(), "editProfile".localized(), "favourites".localized(), "help".localized()]
+    var menuStringsDataSource: [String] = ["homeScreen".localized(), "editProfile".localized(), "myAds".localized(), "favourites".localized(), "help".localized()]
     
     
     static func buildVC() -> SideMenuVC {

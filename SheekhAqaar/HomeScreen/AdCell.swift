@@ -41,8 +41,8 @@ class AdCell: UITableViewCell {
         
         titleLabel.text = ad.name
         addressLabel.text = ad.detailedAddress
-        areaLabel.text = "\(ad.placeArea)"
-        var roomWord = ""
+        areaLabel.text = "\(ad.placeArea!)"
+//        var roomWord = ""
 //        if ad.roomsNumber > 1 {
 //            roomWord = "rooms".localized()
 //        } else {
@@ -50,6 +50,6 @@ class AdCell: UITableViewCell {
 //        }
 //        roomsNumberLabel.text = "\(ad.roomsNumber!) \(roomWord)"
 //        bathroomsNumberLabel.text = "\(ad.bathRoomsNumber!) \("bathroom".localized())"
-        creationTimeLabel.text = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/YYYY").timeAgoDisplay()
+        creationTimeLabel.text = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/yyyy hh:mm a").timeAgoDisplay()
     }
 }

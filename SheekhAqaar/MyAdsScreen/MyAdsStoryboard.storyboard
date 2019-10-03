@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--FavouritesVC-->
+        <!--My AdsVC-->
         <scene sceneID="0vp-mQ-LVa">
             <objects>
-                <viewController storyboardIdentifier="FavouritesVC" id="6Bl-GV-r09" customClass="FavouritesVC" customModule="SheekhAqaar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyAdsVC" id="6Bl-GV-r09" customClass="MyAdsVC" customModule="SheekhAqaar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uGn-tf-oXx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +71,7 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="m2" translatesAutoresizingMaskIntoConstraints="NO" id="BHu-Iy-iAj">
                                                                     <rect key="frame" x="32.5" y="66.5" width="14" height="15"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgv-WO-4Ze">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgv-WO-4Ze">
                                                                     <rect key="frame" x="8" y="66.5" width="24.5" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -118,7 +118,6 @@
                                                                 <constraint firstItem="Osc-tI-4Ra" firstAttribute="trailing" secondItem="gKc-Mh-0Br" secondAttribute="leading" constant="8" id="D5E-dF-xQ0"/>
                                                                 <constraint firstItem="gKc-Mh-0Br" firstAttribute="top" secondItem="7JQ-nh-rdu" secondAttribute="top" constant="8" id="EIJ-5e-f6M"/>
                                                                 <constraint firstItem="7ZQ-NH-5XN" firstAttribute="top" secondItem="Osc-tI-4Ra" secondAttribute="bottom" constant="8" id="FAH-Oo-IJd"/>
-                                                                <constraint firstItem="gwr-Fk-IR9" firstAttribute="leading" secondItem="BHu-Iy-iAj" secondAttribute="trailing" constant="8" id="FOw-J9-7Hx"/>
                                                                 <constraint firstAttribute="trailing" secondItem="gKc-Mh-0Br" secondAttribute="trailing" id="FmI-QM-Kbh"/>
                                                                 <constraint firstItem="Osc-tI-4Ra" firstAttribute="leading" secondItem="7JQ-nh-rdu" secondAttribute="leading" constant="8" id="Gvg-LR-ne9"/>
                                                                 <constraint firstItem="0pd-3d-kQR" firstAttribute="bottom" secondItem="tRp-UN-8vm" secondAttribute="bottom" id="IW6-1e-Ely"/>
@@ -146,6 +145,7 @@
                                                                 <constraint firstItem="gwr-Fk-IR9" firstAttribute="bottom" secondItem="MnO-ve-AgB" secondAttribute="bottom" id="kt7-tL-5Kk"/>
                                                                 <constraint firstItem="1ry-hI-zk5" firstAttribute="height" secondItem="7ZQ-NH-5XN" secondAttribute="height" multiplier="0.75" id="noL-89-Git"/>
                                                                 <constraint firstItem="7ZQ-NH-5XN" firstAttribute="leading" secondItem="Osc-tI-4Ra" secondAttribute="leading" id="nsG-2J-8CK"/>
+                                                                <constraint firstItem="gwr-Fk-IR9" firstAttribute="leading" secondItem="BHu-Iy-iAj" secondAttribute="trailing" constant="8" id="qoK-bI-7J4"/>
                                                                 <constraint firstItem="7ZQ-NH-5XN" firstAttribute="height" secondItem="Osc-tI-4Ra" secondAttribute="height" id="rHw-3s-69G"/>
                                                                 <constraint firstItem="1ry-hI-zk5" firstAttribute="top" secondItem="7ZQ-NH-5XN" secondAttribute="top" id="raW-dX-TW8"/>
                                                                 <constraint firstItem="BHu-Iy-iAj" firstAttribute="height" secondItem="zgv-WO-4Ze" secondAttribute="height" id="uAy-jK-dek"/>
@@ -210,8 +210,8 @@
                         <viewLayoutGuide key="safeArea" id="laX-68-Fgb"/>
                     </view>
                     <connections>
-                        <outlet property="backIcon" destination="GTc-Jt-Omu" id="l5D-WN-WOH"/>
-                        <outlet property="favouritesTableView" destination="Kaf-bH-NTn" id="tmO-MM-TWA"/>
+                        <outlet property="backIcon" destination="GTc-Jt-Omu" id="EZo-kg-Ojs"/>
+                        <outlet property="myAdsTableView" destination="Kaf-bH-NTn" id="iF9-mV-iVe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRF-bA-BZR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

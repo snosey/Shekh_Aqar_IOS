@@ -79,8 +79,13 @@ class AdVC: BaseVC {
         }
         
         adNameLabel.text = ad.name
-        let date = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/YYYY")
-        companyAndTimeLabel.text = ad.companyName + " | " + date.timeAgoDisplay()
+        let date = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/yyyy hh:mm a")
+        if let _ = ad.company.name {
+            companyAndTimeLabel.text = ad.company.name + " | " + date.timeAgoDisplay()
+        } else {
+            companyAndTimeLabel.text = date.timeAgoDisplay()
+        }
+        
         
         adDetailsTableView.dataSource = self
         adDetailsTableView.delegate = self
@@ -90,7 +95,7 @@ class AdVC: BaseVC {
         additionalFacilitiesTableView.delegate = self
         additionalFacilitiesTableView.reloadData()
         
-        adPriceLabel.text = String(ad.price) + " " + ad.currency.name
+        adPriceLabel.text = String(ad.price) + " " + ad.currency.name!
     }
     
     @IBAction func addToFavouritesClicked(_ sender: Any) {
@@ -107,11 +112,23 @@ class AdVC: BaseVC {
     }
     
     @IBAction func makeCallClicked(_ sender: Any) {
-        UiHelpers.makeCall(phoneNumber: ad.phoneNumber)
+        if let phoneNumber = ad.user.phoneNumber {
+            UiHelpers.makeCall(phoneNumber: phoneNumber)
+        } else if let phoneNumber = ad.company.phoneNumber {
+             UiHelpers.makeCall(phoneNumber: phoneNumber)
+        } else {
+            self.view.makeToast("phoneNotAvailable".localized())
+        }
     }
 
     @IBAction func openWhatsAppClicked(_ sender: Any) {
-        UiHelpers.openWahtsApp(view: self.view, phoneNumber: ad.phoneNumber)
+        if let phoneNumber = ad.user.phoneNumber {
+            UiHelpers.openWahtsApp(view: self.view, phoneNumber: phoneNumber)
+        } else if let phoneNumber = ad.company.phoneNumber {
+            UiHelpers.openWahtsApp(view: self.view, phoneNumber: phoneNumber)
+        } else {
+            self.view.makeToast("phoneNotAvailable".localized())
+        }
     }
 }
 
@@ -174,7 +191,7 @@ extension AdVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == adDetailsTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: AdDetailsCell.identifier, for: indexPath) as! AdDetailsCell
-            cell.adDetail = adDetails.get(indexPath.row)
+            cell.itemMainModel = ad.itemMainModelArray.get(indexPath.row)
             cell.populateData()
             cell.selectionStyle = .none
             return cell
@@ -188,7 +205,6 @@ extension AdVC: UITableViewDataSource, UITableViewDelegate {
                     cell.additionalFacility1 = ad.additionalFacilities.get(indexPath.row + 1)
                     cell.additionalFacility2 = ad.additionalFacilities.get(indexPath.row + 2)
                 }
-                
             } else {
                 if indexPath.row == 0 {
                     cell.additionalFacility1 = ad.additionalFacilities.get(indexPath.row)

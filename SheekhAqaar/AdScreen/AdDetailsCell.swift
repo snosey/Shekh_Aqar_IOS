@@ -12,15 +12,18 @@ class AdDetailsCell: UITableViewCell {
 
     public static let identifier = "AdDetailsCell"
     
-    public var adDetail: AdDetail!
-
+//    public var adDetail: AdDetail!
+    public var itemMainModel: ItemMainModel!
+    
     @IBOutlet weak var adDetailImageView: UIImageView!
     @IBOutlet weak var adDetailTitleLabel: UILabel!
     @IBOutlet weak var adDetailDescLabel: UILabel!
     
     public func populateData() {
-        adDetailTitleLabel.text = adDetail.title
-        adDetailDescLabel.text = adDetail.details
-        adDetailImageView.image = UIImage(named: adDetail.imageName)
+        adDetailTitleLabel.text = itemMainModel.name
+        adDetailDescLabel.text = "\(itemMainModel.value!)"
+        if let imageUrl = itemMainModel.imageUrl, let url = URL(string: imageUrl) {
+            adDetailImageView.af_setImage(withURL: url)
+        }
     }
 }

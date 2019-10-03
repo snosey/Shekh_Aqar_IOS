@@ -129,3 +129,5 @@
 "editAdSuccess" = "Your ad edited successfully";
 "mustBeNumber" = " must be number";
 "editAd" = "Edit ad";
+"myAds" = "My ads";
+"phoneNotAvailable" = "Phone number is not available";

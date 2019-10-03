@@ -100,4 +100,11 @@ public class Navigator {
             self.navigationController.pushViewController(vc, animated: true)
         }
     }
+    
+    public func navigateToMyAds() {
+        weak var vc = MyAdsVC.buildVC()
+        if let vc = vc {
+            self.navigationController.pushViewController(vc, animated: true)
+        }
+    }
 }

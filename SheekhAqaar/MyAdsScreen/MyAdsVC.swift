@@ -8,18 +8,18 @@
 
 import UIKit
 
-class FavouritesVC: BaseVC {
+class MyAdsVC: BaseVC {
 
-    public class func buildVC() -> FavouritesVC {
-        let storyboard = UIStoryboard(name: "FavouritesStoryboard", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "FavouritesVC") as! FavouritesVC
+    public class func buildVC() -> MyAdsVC {
+        let storyboard = UIStoryboard(name: "MyAdsStoryboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MyAdsVC") as! MyAdsVC
         return vc
     }
     
-    @IBOutlet weak var favouritesTableView: UITableView!
+    @IBOutlet weak var myAdsTableView: UITableView!
     @IBOutlet weak var backIcon: UIImageView!
     
-    var presenter: FavouritesPresenter!
+    var presenter: MyAdsPresenter!
     var favourites = [Ad]()
     
     override func viewDidLoad() {
@@ -29,19 +29,19 @@ class FavouritesVC: BaseVC {
             self?.navigationController?.popViewController(animated: true)
         }
         
-        presenter = Injector.provideFavouritesPresenter()
+        presenter = Injector.provideMyAdsPresenter()
         presenter.setView(view: self)
-        presenter.getFavouriteAds()
+        presenter.getMyAds()
     }
 
 }
 
-extension FavouritesVC: FavouritesView {
-    func getFavouriteAdsSuccess(ads: [Ad]) {
+extension MyAdsVC: MyAdsView {
+    func getMyAdsSuccess(ads: [Ad]) {
         favourites = ads
-        favouritesTableView.dataSource = self
-        favouritesTableView.delegate = self
-        favouritesTableView.reloadData()
+        myAdsTableView.dataSource = self
+        myAdsTableView.delegate = self
+        myAdsTableView.reloadData()
     }
     
     func failed(errorMessage: String) {
@@ -53,7 +53,7 @@ extension FavouritesVC: FavouritesView {
     }
 }
 
-extension FavouritesVC: UITableViewDataSource, UITableViewDelegate {
+extension MyAdsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favourites.count
     }

@@ -36,8 +36,11 @@ public class HomeRepository {
                 switch response.result {
                 case .success(_):
                     let json = (response.result.value as! Dictionary<String,AnyObject>)
-                    let entity = Entity<User>(json: json)
-                    self.delegate.loginSuccess(user: entity?.data, isExist: entity?.status.id == 1)
+                    if let data = json["Data"] as? Dictionary<String,AnyObject>, let statusJsonObj = json["Status"] as? Dictionary<String,AnyObject> {
+                        let user = User(json: data)!
+                        let status = Status(json: statusJsonObj)!
+                        self.delegate.loginSuccess(user: user, isExist: status.id == 1)
+                    }
                     break
                     
                 case .failure(let error):
