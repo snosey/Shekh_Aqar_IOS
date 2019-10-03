@@ -15,12 +15,13 @@ public class Category: DataType {
     var id : Int!
     var hexCode: String!
     
+    var subCategories: [Category]!
+    
     var isClicked = false
     
     //MARK: Decodable
     required public init?(json: JSON){
         name = "Name" <~~ json
-//        name = name + "    "
         id = "Id" <~~ json
         hexCode = "HexColor" <~~ json
     }
@@ -36,10 +37,7 @@ public class Category: DataType {
     
     public init(id : Int, nameEn: String, nameAr: String, key: String, ads: [Ad]) {
         self.id = id
-//        self.nameEn = nameEn
         self.name = nameEn
-//        self.key = key
-//        self.ads = ads
     }
     
     //MARK: Encodable

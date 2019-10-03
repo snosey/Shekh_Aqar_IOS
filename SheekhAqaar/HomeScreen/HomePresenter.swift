@@ -12,6 +12,7 @@ public protocol HomeView: class {
     func getCategoriesSuccess(firstRowCategories: [Category], secondRowCategories: [Category], thirdRowCategories: [Category])
     func loginSuccess(user: User?, isExist: Bool)
     func getCompaniesSuccess(companies: [Company])
+    func getAdsSuccess(ads: [Ad])
     func failed(errorMessage: String)
     func handleNoInternetConnection()
 }
@@ -67,6 +68,24 @@ extension HomePresenter {
             homeView?.handleNoInternetConnection()
         }
     }
+    
+    public func getAds(subCategoryId: Int, latitude: Double, longitude: Double) {
+        if UiHelpers.isInternetAvailable() {
+            UiHelpers.showLoader()
+            homeRepository?.getAds(subCategoryId: subCategoryId, latitude: latitude, longitude: longitude)
+        } else {
+            homeView?.handleNoInternetConnection()
+        }
+    }
+    
+    public func getAds(latitude: Double, longitude: Double) {
+        if UiHelpers.isInternetAvailable() {
+            UiHelpers.showLoader()
+            homeRepository?.getAds(latitude: latitude, longitude: longitude)
+        } else {
+            homeView?.handleNoInternetConnection()
+        }
+    }
 }
 
 extension HomePresenter: HomePresenterDelegate {
@@ -78,6 +97,11 @@ extension HomePresenter: HomePresenterDelegate {
     public func getCategoriesSuccess(firstRowCategories: [Category], secondRowCategories: [Category], thirdRowCategories: [Category]) {
         UiHelpers.hideLoader()
         homeView?.getCategoriesSuccess(firstRowCategories: firstRowCategories, secondRowCategories: secondRowCategories, thirdRowCategories: thirdRowCategories)
+    }
+    
+    public func getAdsSuccess(ads: [Ad]) {
+         UiHelpers.hideLoader()
+        homeView?.getAdsSuccess(ads: ads)
     }
     
     public func loginSuccess(user: User?, isExist: Bool) {

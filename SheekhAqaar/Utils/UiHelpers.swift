@@ -188,6 +188,29 @@ class UiHelpers {
         UIApplication.shared.open(url)
     }
     
+    class func openWahtsApp(view: UIView, phoneNumber: String) {
+        let appURL = NSURL(string: "https://api.whatsapp.com/send?phone=\(phoneNumber)")!
+        if UIApplication.shared.canOpenURL(appURL as URL) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(appURL as URL, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(appURL as URL)
+            }
+        } else {
+            view.makeToast("downloadWhatsApp".localized())
+        }
+    }
+    
+    class func openMail(email: String) {
+        if let url = URL(string: "mailto:\(email)") {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+    
     class func setupSideMenu(delegate: UISideMenuNavigationControllerDelegate, viewToPresent: UIView, viewToEdge: UIView, sideMenuCellDelegate: SideMenuCellDelegate?, sideMenuHeaderDelegate: SideMenuHeaderDelegate?) -> SideMenuVC {
         
         let sideMenuVC = SideMenuVC.buildVC()
@@ -222,6 +245,13 @@ class UiHelpers {
         let formatter = DateFormatter()
         formatter.dateFormat = dateFormat
         return formatter.string(from: date)
+    }
+    
+    public class func convertStringToDate(string: String, dateFormat: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        let date = dateFormatter.date(from:string)!
+        return date
     }
     
     class func makeLabelUnderlined(label: UILabel) {

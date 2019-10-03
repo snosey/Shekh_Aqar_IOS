@@ -11,17 +11,15 @@ import Gloss
 
 public class AdditionalFacility: DataType {
     
-    var nameAr : String!
-    var nameEn : String!
+    var name : String!
     var id : Int!
     
     var isChecked = false
     
     //MARK: Decodable
     required public init?(json: JSON){
-        nameAr = "name_ar" <~~ json
-        nameEn = "name_en" <~~ json
-        id = "id" <~~ json
+        name = "Name" <~~ json
+        id = "Id" <~~ json
     }
     
     public init() {
@@ -30,16 +28,14 @@ public class AdditionalFacility: DataType {
     
     public init(id : Int, nameEn: String, nameAr: String) {
         self.id = id
-        self.nameEn = nameEn
-        self.nameAr = nameAr
+        self.name = nameAr
     }
     
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "name_ar" ~~> nameAr,
-            "name_en" ~~> nameEn,
-            "id" ~~> id,
+            "Name" ~~> name,
+            "Id" ~~> id,
             ])
     }
     

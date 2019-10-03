@@ -38,13 +38,13 @@
                                 <rect key="frame" x="8" y="182.5" width="398" height="49.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="na3-gs-5rq">
-                                        <rect key="frame" x="0.0" y="0.0" width="191" height="49.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="49.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maps2" translatesAutoresizingMaskIntoConstraints="NO" id="PPG-9f-bfk">
-                                                <rect key="frame" x="32" y="7.5" width="38" height="34.5"/>
+                                                <rect key="frame" x="16" y="7.5" width="24.5" height="34.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xW9-7P-yNX" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
-                                                <rect key="frame" x="78" y="7.5" width="105" height="34.5"/>
+                                                <rect key="frame" x="48.5" y="7.5" width="65.5" height="34.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                                         <constraints>
                                             <constraint firstItem="PPG-9f-bfk" firstAttribute="centerY" secondItem="na3-gs-5rq" secondAttribute="centerY" id="IMo-VZ-jHe"/>
                                             <constraint firstItem="PPG-9f-bfk" firstAttribute="width" secondItem="na3-gs-5rq" secondAttribute="width" multiplier="0.2" id="Qbs-bU-jjN"/>
-                                            <constraint firstItem="PPG-9f-bfk" firstAttribute="leading" secondItem="na3-gs-5rq" secondAttribute="leading" constant="32" id="Uu5-bY-nzU"/>
+                                            <constraint firstItem="PPG-9f-bfk" firstAttribute="leading" secondItem="na3-gs-5rq" secondAttribute="leading" constant="16" id="Uu5-bY-nzU"/>
                                             <constraint firstAttribute="trailing" secondItem="xW9-7P-yNX" secondAttribute="trailing" constant="8" id="YUz-ZN-0Tr"/>
                                             <constraint firstItem="xW9-7P-yNX" firstAttribute="leading" secondItem="PPG-9f-bfk" secondAttribute="trailing" constant="8" id="i0X-IZ-IfG"/>
                                             <constraint firstItem="xW9-7P-yNX" firstAttribute="bottom" secondItem="PPG-9f-bfk" secondAttribute="bottom" id="iDx-Do-rLj"/>
@@ -70,14 +70,47 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3n5-87-U8z">
+                                        <rect key="frame" x="138" y="0.0" width="122" height="49.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whatsapp_icon" translatesAutoresizingMaskIntoConstraints="NO" id="rvt-b6-mfY">
+                                                <rect key="frame" x="16" y="7.5" width="24.5" height="34.5"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAy-BE-0wD" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                <rect key="frame" x="48.5" y="7.5" width="65.5" height="34.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="whatsApp"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.80000000000000004" green="0.65490196079999996" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="rvt-b6-mfY" firstAttribute="width" secondItem="3n5-87-U8z" secondAttribute="width" multiplier="0.2" id="0nv-Ru-Is4"/>
+                                            <constraint firstAttribute="trailing" secondItem="FAy-BE-0wD" secondAttribute="trailing" constant="8" id="3II-ep-8xc"/>
+                                            <constraint firstItem="rvt-b6-mfY" firstAttribute="leading" secondItem="3n5-87-U8z" secondAttribute="leading" constant="16" id="HTi-fZ-8vE"/>
+                                            <constraint firstItem="FAy-BE-0wD" firstAttribute="bottom" secondItem="rvt-b6-mfY" secondAttribute="bottom" id="OeH-Fk-Ha8"/>
+                                            <constraint firstItem="rvt-b6-mfY" firstAttribute="height" secondItem="3n5-87-U8z" secondAttribute="height" multiplier="0.7" id="Xlu-2t-vxF"/>
+                                            <constraint firstItem="rvt-b6-mfY" firstAttribute="centerY" secondItem="3n5-87-U8z" secondAttribute="centerY" id="gY4-kz-p54"/>
+                                            <constraint firstItem="FAy-BE-0wD" firstAttribute="leading" secondItem="rvt-b6-mfY" secondAttribute="trailing" constant="8" id="q56-V3-Nu5"/>
+                                            <constraint firstItem="FAy-BE-0wD" firstAttribute="top" secondItem="rvt-b6-mfY" secondAttribute="top" id="ruS-rk-Pi8"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2O-W8-f7w">
-                                        <rect key="frame" x="207" y="0.0" width="191" height="49.5"/>
+                                        <rect key="frame" x="276" y="0.0" width="122" height="49.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone_ic" translatesAutoresizingMaskIntoConstraints="NO" id="LKw-VG-x8s">
-                                                <rect key="frame" x="32" y="7.5" width="38" height="34.5"/>
+                                                <rect key="frame" x="16" y="7.5" width="24.5" height="34.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bq5-C2-P3y" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
-                                                <rect key="frame" x="78" y="7.5" width="105" height="34.5"/>
+                                                <rect key="frame" x="48.5" y="7.5" width="65.5" height="34.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -90,7 +123,7 @@
                                         <constraints>
                                             <constraint firstItem="LKw-VG-x8s" firstAttribute="centerY" secondItem="s2O-W8-f7w" secondAttribute="centerY" id="MgT-3I-Xn7"/>
                                             <constraint firstItem="bq5-C2-P3y" firstAttribute="leading" secondItem="LKw-VG-x8s" secondAttribute="trailing" constant="8" id="P6I-om-VeY"/>
-                                            <constraint firstItem="LKw-VG-x8s" firstAttribute="leading" secondItem="s2O-W8-f7w" secondAttribute="leading" constant="32" id="WIh-KO-4Gv"/>
+                                            <constraint firstItem="LKw-VG-x8s" firstAttribute="leading" secondItem="s2O-W8-f7w" secondAttribute="leading" constant="16" id="WIh-KO-4Gv"/>
                                             <constraint firstAttribute="trailing" secondItem="bq5-C2-P3y" secondAttribute="trailing" constant="8" id="X5l-cs-jSa"/>
                                             <constraint firstItem="bq5-C2-P3y" firstAttribute="top" secondItem="LKw-VG-x8s" secondAttribute="top" id="ltA-Ei-I1K"/>
                                             <constraint firstItem="bq5-C2-P3y" firstAttribute="bottom" secondItem="LKw-VG-x8s" secondAttribute="bottom" id="owz-fU-xdx"/>
@@ -330,6 +363,7 @@
                         <outlet property="companyNameLabel" destination="WEg-KV-U0U" id="l9g-Jf-Vaa"/>
                         <outlet property="companyNumberOfAdsLabel" destination="O55-HL-jOe" id="dsI-62-SQr"/>
                         <outlet property="companyPhotoImageView" destination="Et7-m5-VZb" id="kER-bk-Blr"/>
+                        <outlet property="whatsAppView" destination="3n5-87-U8z" id="zez-oa-CFC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAt-dF-fQl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -345,5 +379,6 @@
         <image name="m2" width="8" height="9"/>
         <image name="maps2" width="23" height="23"/>
         <image name="phone_ic" width="24" height="24"/>
+        <image name="whatsapp_icon" width="900" height="900"/>
     </resources>
 </document>

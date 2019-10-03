@@ -20,17 +20,9 @@ class AdditionalFacilityCell: UITableViewCell {
     @IBOutlet weak var facility2Label: UILabel!
     
     public func populateData() {
-        if Localize.currentLanguage() == "en" {
-            facility1Label.text = additionalFacility1.nameEn
-            if let additionalFacility2 = additionalFacility2 {
-                facility2Label.text = additionalFacility2.nameEn
-            }
-        } else {
-            facility1Label.text = additionalFacility1.nameAr
-            if let additionalFacility2 = additionalFacility2 {
-                facility2Label.text = additionalFacility2.nameAr
-            }
+        facility1Label.text = additionalFacility1.name
+        if let additionalFacility2 = additionalFacility2 {
+            facility2Label.text = additionalFacility2.name
         }
-        
     }
 }

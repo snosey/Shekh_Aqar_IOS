@@ -27,29 +27,29 @@ class AdCell: UITableViewCell {
     
     
     public func populateData() {
-        if let urls = ad.imagesUrls, urls.count > 0, let photoUrl = URL(string: urls[0]) {
+        if let urls = ad.adImages, urls.count > 0, let photoUrl = URL(string: urls[0].imageUrl) {
             adPhotoImageView.af_setImage(withURL: photoUrl)
         }
         
-        if Localize.currentLanguage() == "ar" {
-            priceLabel.text = "\(ad.price!) \(ad.currency.nameAr!)"
-            farshLevelLabel.text = ad.farshLevel.nameAr
-        } else {
-            priceLabel.text = "\(ad.price!) \(ad.currency.nameEn!)"
-            farshLevelLabel.text = ad.farshLevel.nameEn
-        }
+//        if Localize.currentLanguage() == "ar" {
+//            priceLabel.text = "\(ad.price!) \(ad.currency.name!)"
+//            farshLevelLabel.text = ad.farshLevel.name
+//        } else {
+//            priceLabel.text = "\(ad.price!) \(ad.currency.name!)"
+//            farshLevelLabel.text = ad.farshLevel.name
+//        }
         
         titleLabel.text = ad.name
         addressLabel.text = ad.detailedAddress
         areaLabel.text = "\(ad.placeArea)"
         var roomWord = ""
-        if ad.roomsNumber > 1 {
-            roomWord = "rooms".localized()
-        } else {
-            roomWord = "room".localized()
-        }
-        roomsNumberLabel.text = "\(ad.roomsNumber!) \(roomWord)"
-        bathroomsNumberLabel.text = "\(ad.bathRoomsNumber!) \("bathroom".localized())"
-        creationTimeLabel.text = Date(milliseconds: Int(ad.creationTime) * 1000).timeAgoDisplay()
+//        if ad.roomsNumber > 1 {
+//            roomWord = "rooms".localized()
+//        } else {
+//            roomWord = "room".localized()
+//        }
+//        roomsNumberLabel.text = "\(ad.roomsNumber!) \(roomWord)"
+//        bathroomsNumberLabel.text = "\(ad.bathRoomsNumber!) \("bathroom".localized())"
+        creationTimeLabel.text = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/YYYY").timeAgoDisplay()
     }
 }

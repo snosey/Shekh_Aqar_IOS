@@ -10,6 +10,7 @@ import Foundation
 public protocol AdView: class {
     func saveFavouriteAdSuccess()
     func removeFavouriteAdSuccess()
+    func getAdSuccess(ad: Ad)
     func failed(errorMessage: String)
     func handleNoInternetConnection()
 }
@@ -47,6 +48,15 @@ extension AdPresenter {
             adView?.handleNoInternetConnection()
         }
     }
+    
+    public func getAd(adId: Int) {
+        if UiHelpers.isInternetAvailable() {
+            UiHelpers.showLoader()
+            adRepository?.getAd(adId: adId)
+        } else {
+            adView?.handleNoInternetConnection()
+        }
+    }
 }
 
 extension AdPresenter: AdPresenterDelegate {
@@ -58,6 +68,11 @@ extension AdPresenter: AdPresenterDelegate {
     public func removeFavouriteAdSuccess() {
         UiHelpers.hideLoader()
         adView?.removeFavouriteAdSuccess()
+    }
+    
+    public func getAdSuccess(ad: Ad) {
+        UiHelpers.hideLoader()
+        adView?.getAdSuccess(ad: ad)
     }
     
     public func failed(errorMessage: String) {

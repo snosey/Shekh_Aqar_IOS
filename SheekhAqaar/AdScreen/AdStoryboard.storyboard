@@ -84,7 +84,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NnQ-Fe-hu1">
-                                <rect key="frame" x="8" y="327.5" width="398" height="327.5"/>
+                                <rect key="frame" x="8" y="327.5" width="398" height="262"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdDetailsCell" rowHeight="38" id="Xex-LT-qVx" customClass="AdDetailsCell" customModule="SheekhAqaar" customModuleProvider="target">
@@ -146,7 +146,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saH-g9-7Bo" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
-                                <rect key="frame" x="8" y="663" width="398" height="18"/>
+                                <rect key="frame" x="8" y="597.5" width="398" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -155,7 +155,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DDG-xI-jxL">
-                                <rect key="frame" x="8" y="689" width="398" height="122.5"/>
+                                <rect key="frame" x="8" y="623.5" width="398" height="122.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdditionalFacilityCell" rowHeight="38" id="mjN-Ve-b2f" customClass="AdditionalFacilityCell" customModule="SheekhAqaar" customModuleProvider="target">
@@ -208,21 +208,38 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vee-v4-cVv">
+                                <rect key="frame" x="8" y="772" width="398" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CSf-av-Pog">
                                 <rect key="frame" x="8" y="821" width="398" height="41"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vee-v4-cVv">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeG-ZV-1Ke" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="191" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="whatsApp"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeG-ZV-1Ke" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
+                                        <connections>
+                                            <action selector="makeCallClicked:" destination="nZC-lQ-jpN" eventType="touchUpInside" id="U47-YC-Vmm"/>
+                                            <action selector="openWhatsAppClicked:" destination="nZC-lQ-jpN" eventType="touchUpInside" id="FuI-bM-Zqa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3g-3a-Uxm" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
                                         <rect key="frame" x="207" y="0.0" width="191" height="41"/>
                                         <color key="backgroundColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button">
@@ -235,7 +252,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="makeCallClicked:" destination="nZC-lQ-jpN" eventType="touchUpInside" id="U47-YC-Vmm"/>
+                                            <action selector="makeCallClicked:" destination="nZC-lQ-jpN" eventType="touchUpInside" id="3MT-AO-qPR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -245,8 +262,10 @@
                         <constraints>
                             <constraint firstItem="eF1-0l-B3W" firstAttribute="height" secondItem="jqa-Rm-PGS" secondAttribute="height" multiplier="0.04" id="0VL-Az-yl3"/>
                             <constraint firstItem="NnQ-Fe-hu1" firstAttribute="leading" secondItem="PwQ-fc-aXd" secondAttribute="leading" id="26a-ew-8gX"/>
+                            <constraint firstItem="vee-v4-cVv" firstAttribute="bottom" secondItem="CSf-av-Pog" secondAttribute="top" constant="-8" id="2ct-Xi-sfX"/>
                             <constraint firstItem="saH-g9-7Bo" firstAttribute="trailing" secondItem="NnQ-Fe-hu1" secondAttribute="trailing" id="69p-zT-1d4"/>
                             <constraint firstItem="PwQ-fc-aXd" firstAttribute="leading" secondItem="Inq-1t-GV7" secondAttribute="leading" id="6AS-Ve-qC4"/>
+                            <constraint firstItem="vee-v4-cVv" firstAttribute="trailing" secondItem="DDG-xI-jxL" secondAttribute="trailing" id="7h1-Ha-BdG"/>
                             <constraint firstItem="CSf-av-Pog" firstAttribute="height" secondItem="jqa-Rm-PGS" secondAttribute="height" multiplier="0.05" id="9AD-55-Wil"/>
                             <constraint firstItem="Inq-1t-GV7" firstAttribute="height" relation="greaterThanOrEqual" secondItem="ce5-Au-BLR" secondAttribute="height" id="9Eo-c9-lCC"/>
                             <constraint firstItem="jqa-Rm-PGS" firstAttribute="trailing" secondItem="eF1-0l-B3W" secondAttribute="trailing" id="9sV-dd-AKn"/>
@@ -266,14 +285,16 @@
                             <constraint firstItem="CSf-av-Pog" firstAttribute="bottom" secondItem="jqa-Rm-PGS" secondAttribute="bottom" id="gIy-5U-ewI"/>
                             <constraint firstItem="saH-g9-7Bo" firstAttribute="leading" secondItem="NnQ-Fe-hu1" secondAttribute="leading" id="gQG-VH-wbp"/>
                             <constraint firstItem="Inq-1t-GV7" firstAttribute="top" secondItem="ce5-Au-BLR" secondAttribute="top" id="hC7-VI-ukt"/>
+                            <constraint firstItem="vee-v4-cVv" firstAttribute="leading" secondItem="DDG-xI-jxL" secondAttribute="leading" id="iGg-kH-RXH"/>
                             <constraint firstItem="8ha-XL-2TH" firstAttribute="top" secondItem="eF1-0l-B3W" secondAttribute="bottom" id="iXe-kt-gu9"/>
-                            <constraint firstItem="NnQ-Fe-hu1" firstAttribute="height" secondItem="jqa-Rm-PGS" secondAttribute="height" multiplier="0.4" id="msJ-Uf-P5Z"/>
+                            <constraint firstItem="NnQ-Fe-hu1" firstAttribute="height" secondItem="jqa-Rm-PGS" secondAttribute="height" multiplier="0.32" id="msJ-Uf-P5Z"/>
                             <constraint firstItem="8ha-XL-2TH" firstAttribute="height" secondItem="jqa-Rm-PGS" secondAttribute="height" multiplier="0.2" id="oD8-XW-rW9"/>
                             <constraint firstItem="DDG-xI-jxL" firstAttribute="trailing" secondItem="saH-g9-7Bo" secondAttribute="trailing" id="p73-7F-E4a"/>
                             <constraint firstItem="jqa-Rm-PGS" firstAttribute="trailing" secondItem="8ha-XL-2TH" secondAttribute="trailing" id="t6r-wb-Yiy"/>
                             <constraint firstItem="DDG-xI-jxL" firstAttribute="height" secondItem="jqa-Rm-PGS" secondAttribute="height" multiplier="0.15" id="uxM-uh-9kc"/>
                             <constraint firstItem="NnQ-Fe-hu1" firstAttribute="top" secondItem="PwQ-fc-aXd" secondAttribute="bottom" constant="8" id="vGz-lV-saQ"/>
                             <constraint firstItem="saH-g9-7Bo" firstAttribute="top" secondItem="NnQ-Fe-hu1" secondAttribute="bottom" constant="8" id="w7m-GJ-Zn6"/>
+                            <constraint firstItem="vee-v4-cVv" firstAttribute="height" secondItem="CSf-av-Pog" secondAttribute="height" id="xjt-rc-wyD"/>
                             <constraint firstItem="DDG-xI-jxL" firstAttribute="leading" secondItem="saH-g9-7Bo" secondAttribute="leading" id="yLL-r2-zIP"/>
                             <constraint firstItem="PwQ-fc-aXd" firstAttribute="top" secondItem="Inq-1t-GV7" secondAttribute="bottom" constant="8" id="yts-uG-1Lx"/>
                             <constraint firstItem="ce5-Au-BLR" firstAttribute="width" secondItem="jqa-Rm-PGS" secondAttribute="width" multiplier="0.4" id="z16-7K-Mm5"/>
