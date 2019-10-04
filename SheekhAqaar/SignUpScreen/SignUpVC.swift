@@ -106,27 +106,29 @@ extension SignUpVC: SignUpView {
         let phone = "\(code)\(userPhone)"
         if isExist {
             Defaults[.user] = user!.toJSON()
-            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
-                if let error = error {
-                    print("error :: \(error.localizedDescription)")
-                    return
-                }
-
-                Defaults[.authVerificationID] = verificationID
-
-                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.HOME_NEXT_PAGE_CODE, country: self!.selectedCountry)
-            }
+            navigator.navigateToHome()
+//            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
+//                if let error = error {
+//                    print("error :: \(error.localizedDescription)")
+//                    return
+//                }
+//
+//                Defaults[.authVerificationID] = verificationID
+//
+//                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.HOME_NEXT_PAGE_CODE, country: self!.selectedCountry)
+//            }
         } else {
-            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
-                if let error = error {
-                    print("error :: \(error.localizedDescription)")
-                    return
-                }
-
-                Defaults[.authVerificationID] = verificationID
-
-                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.SIGN_UP_NEXT_PAGE_CODE, country: self!.selectedCountry)
-            }
+            navigator.navigateToSignUp1(phoneNumber: userPhone, country: selectedCountry)
+//            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
+//                if let error = error {
+//                    print("error :: \(error.localizedDescription)")
+//                    return
+//                }
+//
+//                Defaults[.authVerificationID] = verificationID
+//
+//                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.SIGN_UP_NEXT_PAGE_CODE, country: self!.selectedCountry)
+//            }
         }
     }
     
