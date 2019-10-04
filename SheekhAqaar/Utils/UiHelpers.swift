@@ -211,6 +211,15 @@ class UiHelpers {
         }
     }
     
+    class func openGoogleMaps(view: UIView, latitude: Double, longitude: Double) {
+        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://") as! URL)) {
+            UIApplication.shared.openURL(NSURL(string:
+                "comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving") as! URL)
+        } else {
+           view.makeToast("downloadGoogleMaps".localized())
+        }
+    }
+    
     class func setupSideMenu(delegate: UISideMenuNavigationControllerDelegate, viewToPresent: UIView, viewToEdge: UIView, sideMenuCellDelegate: SideMenuCellDelegate?, sideMenuHeaderDelegate: SideMenuHeaderDelegate?) -> SideMenuVC {
         
         let sideMenuVC = SideMenuVC.buildVC()

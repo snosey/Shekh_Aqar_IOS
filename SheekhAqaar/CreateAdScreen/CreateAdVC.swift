@@ -203,30 +203,26 @@ extension CreateAdVC: CreateAdCellDelegate {
         if selectedCategory != nil {
             if selectedAdType != nil {
                 if selectedCurrency != nil {
-                    if selectedRegion != nil {
-                        if selectedLatitude != nil && selectedLongitude != nil {
+                    if selectedLatitude != nil && selectedLongitude != nil {
                             
-                            let user = User(json: Defaults[.user]!)
-                            
-                            ad.additionalFacilities = self.selectedAddtionalFacilities
-                            ad.detailedAddress = cell.buildingLocationLabel.text
-                            ad.currencyId = selectedCurrency.id
-                            ad.currency = selectedCurrency
-                            ad.subCategory = selectedAdType
-                            ad.subCategoryId = selectedAdType.id
-                            ad.userId = user?.id
-                            ad.user = user
-                            ad.adTypeId = 2
-                            ad.latitude = String(selectedLatitude)
-                            ad.longitude = String(selectedLongitude)
-                            ad.viewCount = 0
-                            
-                            presenter.publishAd(ad: ad, adDetailsItems: adDetailsItems, images: images)
-                        } else {
-                           view.makeToast("chooseLocationFirst".localized())
-                        }
+                        let user = User(json: Defaults[.user]!)
+                        
+                        ad.additionalFacilities = self.selectedAddtionalFacilities
+                        ad.detailedAddress = cell.buildingLocationLabel.text
+                        ad.currencyId = selectedCurrency.id
+                        ad.currency = selectedCurrency
+                        ad.subCategory = selectedAdType
+                        ad.subCategoryId = selectedAdType.id
+                        ad.userId = user?.id
+                        ad.user = user
+                        ad.adTypeId = 2
+                        ad.latitude = String(selectedLatitude)
+                        ad.longitude = String(selectedLongitude)
+                        ad.viewCount = 0
+                      
+                        presenter.publishAd(ad: ad, adDetailsItems: adDetailsItems, images: images)
                     } else {
-                        view.makeToast("selectRegionFirst".localized())
+                        view.makeToast("chooseLocationFirst".localized())
                     }
                 } else {
                     view.makeToast("selectCurrencyFirst".localized())

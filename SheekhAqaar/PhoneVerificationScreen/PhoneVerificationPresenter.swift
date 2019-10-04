@@ -9,6 +9,7 @@
 import Foundation
 public protocol PhoneVerificationView : class {
     func loginSuccess(user: User)
+    func updateProfileSuccess(user: User)
     func failed(errorMessage: String)
     func handleNoInternetConnection()
 }
@@ -37,12 +38,26 @@ extension PhoneVerificationPresenter {
             phoneVerificationView?.handleNoInternetConnection()
         }
     }
+    
+    public func updateProfile(userImageData: Data, username: String, userPhone: String, countryId: Int) {
+        if UiHelpers.isInternetAvailable() {
+            UiHelpers.showLoader()
+            phoneVerificationRepository?.updateProfile(userImageData: userImageData, username: username, userPhone: userPhone, countryId: countryId)
+        } else {
+            phoneVerificationView?.handleNoInternetConnection()
+        }
+    }
 }
 
 extension PhoneVerificationPresenter: PhoneVerificationPresenterDelegate {
     public func loginSuccess(user: User) {
         UiHelpers.hideLoader()
         self.phoneVerificationView?.loginSuccess(user: user)
+    }
+    
+    public func updateProfileSuccess(user: User) {
+        UiHelpers.hideLoader()
+        self.phoneVerificationView?.updateProfileSuccess(user: user)
     }
     
     public func failed(errorMessage: String) {

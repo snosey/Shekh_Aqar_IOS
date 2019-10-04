@@ -54,9 +54,13 @@ class CreateAdCell: UITableViewCell {
     @IBOutlet weak var addImagesButton: LocalizedButton!
     var delegate: CreateAdCellDelegate!
     
+    var isEditAd = false
+    
     var selectedImages = [UIImage]()
     var adImages = [AdImage]()
     var imagesToBeRemoved = [UIImage]()
+    
+    var cellsWithSpinnerCount = 0
     
     public func showSelectedData(ad: Ad, selectedCountry: Country, selectedRegion: Region) {
         adTitleTextField.text = ad.name
@@ -70,6 +74,19 @@ class CreateAdCell: UITableViewCell {
         cityLabel.text = selectedRegion.name
         buildingLocationLabel.text = ad.detailedAddress
         
+        cellsWithSpinnerCount = 0
+        for detail in adDetailsItems {
+            if detail.spinnerDataArray.count > 0 {
+                cellsWithSpinnerCount = cellsWithSpinnerCount + 1
+            }
+            for itemModel in ad.itemMainModelArray {
+                if detail.id == itemModel.adDetailsItem.id {
+                   detail.value = itemModel.value
+                }
+            }
+        }
+        adDetailsTableView.reloadData()
+        
         for facility in additionalFacilities {
             for adFacility in ad.additionalFacilities {
                 if adFacility.id == facility.id {
@@ -79,16 +96,6 @@ class CreateAdCell: UITableViewCell {
         }
         
         additionalFacilitiesTableView.reloadData()
-        
-        var index = 0
-        
-        for _ in adImages {
-            if let cell = photosCollectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? AdPhotoCell {
-                selectedImages.append(cell.adPhotoImageView.image!)
-                imagesToBeRemoved.append(cell.adPhotoImageView.image!)
-            }
-            index = index + 1
-        }
     }
     
     public func initializeCell() {
@@ -103,6 +110,12 @@ class CreateAdCell: UITableViewCell {
         additionalFacilitiesTableView.dataSource = self
         additionalFacilitiesTableView.delegate = self
         additionalFacilitiesTableView.reloadData()
+        
+        for item in adDetailsItems {
+            if item.spinnerDataArray.count > 0 {
+                cellsWithSpinnerCount = cellsWithSpinnerCount + 1
+            }
+        }
         
         adDetailsTableView.dataSource = self
         adDetailsTableView.delegate = self
@@ -134,6 +147,10 @@ class CreateAdCell: UITableViewCell {
         
         detectLocationOnGoogleMaps.addTapGesture { [weak self](_) in
             self?.delegate.getLocationFromGoogleMaps()
+        }
+        
+        if isEditAd {
+            publishAddButton.setTitle("editAd".localized(), for: .normal)
         }
         
         publishAddButton.addTapGesture { [weak self](_) in
@@ -189,7 +206,9 @@ class CreateAdCell: UITableViewCell {
                                                 return
                                             }
                                         } else if (cell as? AdDetailsWithSpinnerCell) != nil {
-                                            item.dataSpinnerFK = item.spinnerDataArray[index].id
+                                            
+                                            item.dataSpinnerFK = item.spinnerDataArray[self?.cellsWithSpinnerCount ?? 0 - 1].id
+                                            self?.cellsWithSpinnerCount = self?.cellsWithSpinnerCount ?? 0 - 1
                                         }
                                         index = index + 1
                                     }
@@ -210,7 +229,8 @@ class CreateAdCell: UITableViewCell {
                                         .editAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData, imagesToBeRemoved: imagesToBeRemovedData)
                                         
                                     } else {
-                                        self?.delegate.publishAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData)
+                                        self?.delegate
+                                            .editAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData, imagesToBeRemoved: [])
                                     }
                                     
                                     
@@ -253,7 +273,10 @@ extension CreateAdCell: UICollectionViewDataSource, UICollectionViewDelegate {
         
         if adImages.count > 0 {
             if let url = URL(string: adImages.get(indexPath.row)?.imageUrl ?? "") {
-                cell.adPhotoImageView.af_setImage(withURL: url)
+                cell.adPhotoImageView.af_setImage(withURL: url, completion: { (dataResponse) in
+                    self.selectedImages.append(dataResponse.value!)
+                    self.imagesToBeRemoved.append(dataResponse.value!)
+                })
             }
             
             if indexPath.row == adImages.count - 1 {

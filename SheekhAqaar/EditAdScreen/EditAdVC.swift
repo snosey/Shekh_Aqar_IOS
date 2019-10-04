@@ -156,6 +156,7 @@ extension EditAdVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell(withIdentifier: CreateAdCell.identifier, for: indexPath) as! CreateAdCell
         cell.selectionStyle = .none
+        cell.isEditAd = true
         cell.delegate = self
         cell.initializeCell()
         return cell
@@ -196,30 +197,26 @@ extension EditAdVC: CreateAdCellDelegate {
         if selectedCategory != nil {
             if selectedAdType != nil {
                 if selectedCurrency != nil {
-                    if selectedRegion != nil {
-                        if selectedLatitude != nil && selectedLongitude != nil {
-                            
-                            let user = User(json: Defaults[.user]!)
-                            
-                            ad.additionalFacilities = self.selectedAddtionalFacilities
-                            ad.detailedAddress = cell.buildingLocationLabel.text
-                            ad.currencyId = selectedCurrency.id
-                            ad.currency = selectedCurrency
-                            ad.subCategory = selectedAdType
-                            ad.subCategoryId = selectedAdType.id
-                            ad.userId = user?.id
-                            ad.user = user
-                            ad.latitude = String(selectedLatitude)
-                            ad.longitude = String(selectedLongitude)
-                            ad.viewCount = 0
-                            
-                            presenter.editAd(ad: ad, adDetailsItems: adDetailsItems, images: images, imagesToBeRemoved: imagesToBeRemoved)
-                        } else {
-                            view.makeToast("chooseLocationFirst".localized())
-                        }
-                    } else {
-                        view.makeToast("selectRegionFirst".localized())
-                    }
+                   if selectedLatitude != nil && selectedLongitude != nil {
+                    
+                       let user = User(json: Defaults[.user]!)
+                    
+                       ad.additionalFacilities = self.selectedAddtionalFacilities
+                       ad.detailedAddress = cell.buildingLocationLabel.text
+                       ad.currencyId = selectedCurrency.id
+                       ad.currency = selectedCurrency
+                       ad.subCategory = selectedAdType
+                       ad.subCategoryId = selectedAdType.id
+                       ad.userId = user?.id
+                       ad.user = user
+                       ad.latitude = String(selectedLatitude)
+                       ad.longitude = String(selectedLongitude)
+                       ad.viewCount = 0
+                    
+                       presenter.editAd(ad: ad, adDetailsItems: adDetailsItems, images: images, imagesToBeRemoved: imagesToBeRemoved)
+                   } else {
+                       view.makeToast("chooseLocationFirst".localized())
+                   }
                 } else {
                     view.makeToast("selectCurrencyFirst".localized())
                 }

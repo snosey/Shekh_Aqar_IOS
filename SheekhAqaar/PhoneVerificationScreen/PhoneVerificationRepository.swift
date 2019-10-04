@@ -11,6 +11,7 @@ import Alamofire
 
 public protocol PhoneVerificationPresenterDelegate: class {
     func loginSuccess(user: User)
+    func updateProfileSuccess(user: User)
     func failed(errorMessage: String)
 }
 
@@ -23,5 +24,9 @@ public class PhoneVerificationRepository {
     
     public func login(phoneNumber: String, password: String) {
 //        self.delegate.loginSuccess(user: User(imageUrl: "alksjdlksjdk", name: "Hesham Donia", token: "laksjdaskjd123", phoneNumber: "+201119993362"))
+    }
+    
+    public func updateProfile(userImageData: Data, username: String, userPhone: String, countryId: Int) {
+        self.delegate.updateProfileSuccess(user: User())
     }
 }

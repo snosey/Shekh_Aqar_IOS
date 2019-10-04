@@ -20,9 +20,9 @@ class AdDetailsCell: UITableViewCell {
     @IBOutlet weak var adDetailDescLabel: UILabel!
     
     public func populateData() {
-        adDetailTitleLabel.text = itemMainModel.name
+        adDetailTitleLabel.text = itemMainModel.adDetailsItem.name
         adDetailDescLabel.text = "\(itemMainModel.value!)"
-        if let imageUrl = itemMainModel.imageUrl, let url = URL(string: imageUrl) {
+        if let imageUrl = itemMainModel.adDetailsItem.imageUrl, let url = URL(string: imageUrl) {
             adDetailImageView.af_setImage(withURL: url)
         }
     }

@@ -27,7 +27,7 @@ class AdDetailsWithSpinnerCell: UITableViewCell {
             valueLabel.text = adDetailsItem.spinnerDataArray.filter({ (item) -> Bool in
                 return item.id == value
             })[0].name
-        } else {
+        } else if valueLabel.text == "pleaseInsert".localized() + adDetailsItem.name || valueLabel.text?.isEmpty ?? true  {
             if #available(iOS 13.0, *) {
                 valueLabel.textColor = .placeholderText
             } else {

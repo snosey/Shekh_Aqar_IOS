@@ -6,7 +6,8 @@
 //  Copyright © 2019 Hesham Donia. All rights reserved.
 //
 
-import UIKit 
+import UIKit
+import FirebaseAuth
 import SwiftyUserDefaults
 import FirebaseAuth
 class SignUpVC: BaseVC {
@@ -69,18 +70,13 @@ class SignUpVC: BaseVC {
     }
     
     @IBAction func loginClicked(_ sender: Any) {
+        
         if selectedCountry != nil {
             if let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty {
                 if phoneNumber.isNumber() {
                     print(phoneNumber)
                     userPhone = phoneNumber
-//                    if userPhone.first != "0" {
-//                        userPhone = "0" + userPhone
-//                    }
-//                    userPhone = "\(code)\(userPhone)"
-                    print(userPhone)
                     presenter.login(phoneNumber: userPhone, countryId: self.selectedCountry.id)
-                    
                 } else {
                     self.view.makeToast("enterValidPhoneNumber".localized())
                 }
@@ -110,29 +106,27 @@ extension SignUpVC: SignUpView {
         let phone = "\(code)\(userPhone)"
         if isExist {
             Defaults[.user] = user!.toJSON()
-            self.navigator.navigateToHome()
-            //            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
-//                if let error = error {
-//                    print("error :: \(error.localizedDescription)")
-//                    return
-//                }
-//
-//                Defaults[.authVerificationID] = verificationID
-//
-//                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.HOME_NEXT_PAGE_CODE, country: self!.selectedCountry)
-//            }
+            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
+                if let error = error {
+                    print("error :: \(error.localizedDescription)")
+                    return
+                }
+
+                Defaults[.authVerificationID] = verificationID
+
+                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.HOME_NEXT_PAGE_CODE, country: self!.selectedCountry)
+            }
         } else {
-            self.navigator.navigateToHome()
-//            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
-//                if let error = error {
-//                    print("error :: \(error.localizedDescription)")
-//                    return
-//                }
-//
-//                Defaults[.authVerificationID] = verificationID
-//
-//                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.SIGN_UP_NEXT_PAGE_CODE, country: self!.selectedCountry)
-//            }
+            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
+                if let error = error {
+                    print("error :: \(error.localizedDescription)")
+                    return
+                }
+
+                Defaults[.authVerificationID] = verificationID
+
+                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.SIGN_UP_NEXT_PAGE_CODE, country: self!.selectedCountry)
+            }
         }
     }
     

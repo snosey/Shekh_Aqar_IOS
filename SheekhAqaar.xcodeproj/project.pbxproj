@@ -169,6 +169,8 @@
 		E8DAFE892311855400C2F005 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE882311855400C2F005 /* CategoryCell.swift */; };
 		E8DAFE8B2311859E00C2F005 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE8A2311859E00C2F005 /* Company.swift */; };
 		E8DAFE8D231185A600C2F005 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE8C231185A600C2F005 /* Category.swift */; };
+		E8E469352346A37600C02FD7 /* EditProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8E469342346A37600C02FD7 /* EditProfileStoryboard.storyboard */; };
+		E8E469372346A48200C02FD7 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E469362346A48200C02FD7 /* EditProfileVC.swift */; };
 		E8E4E6132313F26500A46C99 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6122313F26500A46C99 /* SignUpPresenter.swift */; };
 		E8E4E6152313F27000A46C99 /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6142313F27000A46C99 /* SignUpRepository.swift */; };
 		E8E4E6172313F62400A46C99 /* SignUp1Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6162313F62400A46C99 /* SignUp1Presenter.swift */; };
@@ -392,6 +394,8 @@
 		E8DAFE882311855400C2F005 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E8DAFE8A2311859E00C2F005 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		E8DAFE8C231185A600C2F005 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		E8E469342346A37600C02FD7 /* EditProfileStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfileStoryboard.storyboard; sourceTree = "<group>"; };
+		E8E469362346A48200C02FD7 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		E8E4E6122313F26500A46C99 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		E8E4E6142313F27000A46C99 /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
 		E8E4E6162313F62400A46C99 /* SignUp1Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp1Presenter.swift; sourceTree = "<group>"; };
@@ -695,6 +699,7 @@
 				E89CBAEC23097A89000B6BB7 /* SignUpScreen */,
 				E89CBB112309B83D000B6BB7 /* PhoneVerificationScreen */,
 				E89CBB102309B7FD000B6BB7 /* SignUp1Screen */,
+				E8E469332346A33600C02FD7 /* EditProfileScreen */,
 				E89CBB122309B85B000B6BB7 /* RegisterCompanyScreen */,
 				E89CBAED23097A9E000B6BB7 /* HomeScreen */,
 				E81232C323153BAE00ECDDFB /* CompanyScreen */,
@@ -827,6 +832,15 @@
 				E84CCCB92339450800A9829A /* HelpRepository.swift */,
 			);
 			path = HelpScreen;
+			sourceTree = "<group>";
+		};
+		E8E469332346A33600C02FD7 /* EditProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E8E469342346A37600C02FD7 /* EditProfileStoryboard.storyboard */,
+				E8E469362346A48200C02FD7 /* EditProfileVC.swift */,
+			);
+			path = EditProfileScreen;
 			sourceTree = "<group>";
 		};
 		EFD2FD269832BDC832A98A6F /* Pods */ = {
@@ -966,6 +980,7 @@
 				E8245C442318B9FA0021729B /* FavouritesStoryboard.storyboard in Resources */,
 				E89CBB0323097F30000B6BB7 /* TheSans-Plain.otf in Resources */,
 				E8AE744A23214DB400AA177D /* CountriesListStoryboard.storyboard in Resources */,
+				E8E469352346A37600C02FD7 /* EditProfileStoryboard.storyboard in Resources */,
 				E89CBAF523097B09000B6BB7 /* SignUpStoryboard.storyboard in Resources */,
 				E8245C492318BD8F0021729B /* CreateAdStoryboard.storyboard in Resources */,
 				E89CBB162309B89C000B6BB7 /* SignUp1Storyboard.storyboard in Resources */,
@@ -1289,6 +1304,7 @@
 				E82474A32308278800211FDB /* BlockTap.swift in Sources */,
 				E84CCCBA2339450800A9829A /* HelpRepository.swift in Sources */,
 				E8AE744C23214F2900AA177D /* CountriesListCell.swift in Sources */,
+				E8E469372346A48200C02FD7 /* EditProfileVC.swift in Sources */,
 				E82474B02308278800211FDB /* UIImageViewExtensions.swift in Sources */,
 				E82474CC23083C1F00211FDB /* Navigator.swift in Sources */,
 				E8E4E6192313F63400A46C99 /* SignUp1Repository.swift in Sources */,
