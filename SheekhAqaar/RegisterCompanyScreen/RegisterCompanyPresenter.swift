@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol RegisterCompanyView : class {
-    func registerCompanySuccess(company: Company)
+    func registerCompanySuccess(user: User)
     func failed(errorMessage: String)
     func handleNoInternetConnection()
 }
@@ -43,9 +43,9 @@ extension RegisterCompanyPresenter {
 }
 
 extension RegisterCompanyPresenter: RegisterCompanyPresenterDelegate {
-    public func registerCompanySuccess(company: Company) {
+    public func registerCompanySuccess(user: User) {
         UiHelpers.hideLoader()
-        self.registerCompanyView?.registerCompanySuccess(company: company)
+        self.registerCompanyView?.registerCompanySuccess(user: user)
     }
     
     public func failed(errorMessage: String) {

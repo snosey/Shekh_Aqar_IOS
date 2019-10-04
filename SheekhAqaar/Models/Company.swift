@@ -23,6 +23,7 @@ public class Company: DataType {
     var email: String!
     var phoneNumber: String!
     var numberOfAds: Int!
+    var companyTypes: [CompanyType]!
     
     //MARK: Decodable
     required public init?(json: JSON){
@@ -38,6 +39,7 @@ public class Company: DataType {
         longitude = "Longitude" <~~ json
         phoneNumber = "Phone" <~~ json
         email = "Email" <~~ json
+        companyTypes = "CompanyTypesModel" <~~ json
     }
     
     public init() {
@@ -66,6 +68,7 @@ public class Company: DataType {
             "Longitude" ~~> longitude,
             "Phone" ~~> phoneNumber,
             "Email" ~~> email,
+            "CompanyTypesModel" ~~> companyTypes,
             ])
     }
     

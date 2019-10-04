@@ -152,7 +152,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="continueClicked:" destination="YWI-eZ-Gct" eventType="touchUpInside" id="Cus-eD-gOQ"/>
                                     <action selector="editClicked:" destination="YWI-eZ-Gct" eventType="touchUpInside" id="MWC-wA-3x4"/>
                                 </connections>
                             </button>

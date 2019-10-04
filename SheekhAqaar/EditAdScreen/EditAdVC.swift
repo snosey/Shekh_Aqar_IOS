@@ -144,7 +144,7 @@ extension EditAdVC: EditAdView {
     }
     
     func handleNoInternetConnection() {
-        self.view.makeToast("nointernetConnection".localized())
+        self.view.makeToast("noInternetConnection".localized())
     }
 }
 

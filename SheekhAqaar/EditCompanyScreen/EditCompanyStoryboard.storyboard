@@ -9,10 +9,10 @@
         <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
     <scenes>
-        <!--Register CompanyVC-->
+        <!--Edit CompanyVC-->
         <scene sceneID="wSe-Mu-7Xb">
             <objects>
-                <viewController storyboardIdentifier="RegisterCompanyVC" id="rSX-fP-4cG" customClass="RegisterCompanyVC" customModule="SheekhAqaar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditCompanyVC" id="rSX-fP-4cG" customClass="EditCompanyVC" customModule="SheekhAqaar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JyW-O7-NC9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -685,7 +685,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="1400"/>
                     <connections>
-                        <outlet property="companyDataTableView" destination="R5s-3M-XxQ" id="yZg-m0-IJG"/>
+                        <outlet property="companyDataTableView" destination="R5s-3M-XxQ" id="11E-RH-ft1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CTt-8C-fuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

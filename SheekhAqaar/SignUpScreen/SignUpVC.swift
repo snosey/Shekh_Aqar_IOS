@@ -106,6 +106,10 @@ extension SignUpVC: SignUpView {
         let phone = "\(code)\(userPhone)"
         if isExist {
             Defaults[.user] = user!.toJSON()
+            if let companies = user?.companies, companies.count > 0 {
+                let company = companies[0]
+                Defaults[.company] = company.toJSON()
+            }
             navigator.navigateToHome()
 //            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
 //                if let error = error {

@@ -436,12 +436,6 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 cell.populateData()
                 self?.selectedIndex = indexPath.row
                 
-//                if self?.viewingMode == 1 {
-//                    self?.showAdsOnMap(category: cell.category)
-//                } else if self?.viewingMode == 2 {
-//                    self?.tableView.reloadData()
-//                }
-                
                 self?.presenter.getAds(subCategoryId: cell.category.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
                 
                 var indexPathes2 = [IndexPath]()
@@ -590,8 +584,11 @@ extension HomeVC: SideMenuCellDelegate {
         case 1:
             
             if let _ = Defaults[.user] {
-                // go to edit profile
-                navigator.navigateToEditProfile()
+                if let _ = Defaults[.company] {
+                    navigator.navigateToEditCompany()
+                } else {
+                    navigator.navigateToEditProfile()
+                }
             } else {
                 navigator.navigateToSignUp()
             }
@@ -616,9 +613,9 @@ extension HomeVC: SideMenuCellDelegate {
             break
             
         case sideMenuVC.menuStringsDataSource.count - 1:
-            if let _ = Defaults[.user] {
-                Defaults.remove(.user)
-            }
+            Defaults[.user] = nil
+            Defaults[.company] = nil
+            Defaults[.isSkipped] = nil
             navigator.navigateToSignUp()
             break
         default:

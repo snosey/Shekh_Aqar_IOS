@@ -114,4 +114,11 @@ public class Navigator {
             self.navigationController.pushViewController(vc, animated: true)
         }
     }
+    
+    public func navigateToEditCompany() {
+        weak var vc = EditCompanyVC.buildVC()
+        if let vc = vc {
+            self.navigationController.pushViewController(vc, animated: true)
+        }
+    }
 }
