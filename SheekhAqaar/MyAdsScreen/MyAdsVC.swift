@@ -24,9 +24,6 @@ class MyAdsVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIView.animate(withDuration: 0) {
-            self.backIcon.transform = CGAffineTransform(rotationAngle: .pi)
-        }
         backIcon.addTapGesture { [weak self] (_) in
             self?.navigationController?.popViewController(animated: true)
         }
@@ -72,6 +69,6 @@ extension MyAdsVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 10)
+        return UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 14)
     }
 }

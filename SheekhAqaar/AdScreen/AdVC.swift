@@ -183,7 +183,7 @@ extension AdVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension AdVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == adDetailsTableView {
-            return ad.itemMainModelArray.count
+            return ad.itemMainModelArray.count + 3
         } else if tableView == additionalFacilitiesTableView {
             if ad.additionalFacilities.count % 2 == 0 {
                 return ad.additionalFacilities.count / 2
@@ -197,8 +197,25 @@ extension AdVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == adDetailsTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: AdDetailsCell.identifier, for: indexPath) as! AdDetailsCell
-            cell.itemMainModel = ad.itemMainModelArray.get(indexPath.row)
-            cell.populateData()
+            switch  indexPath.row {
+            case 0:
+                cell.populateFirst3Rows(title: "adType".localized(), value: ad.subCategory.name, image: UIImage(named: "building")!)
+                break
+                
+            case 1:
+                cell.populateFirst3Rows(title: "detailedLocation".localized(), value: ad.detailedAddress, image: UIImage(named: "location")!)
+                break
+                
+            case 2:
+                cell.populateFirst3Rows(title: "aream2".localized(), value: String(ad.placeArea), image: UIImage(named: "m2")!)
+                break
+            
+            default:
+                cell.itemMainModel = ad.itemMainModelArray.get(indexPath.row - 3)
+                cell.populateData()
+                
+                break
+            }
             cell.selectionStyle = .none
             return cell
         } else if tableView == additionalFacilitiesTableView {

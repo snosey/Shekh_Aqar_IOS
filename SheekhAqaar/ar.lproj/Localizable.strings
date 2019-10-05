@@ -131,6 +131,7 @@
 "editAd" = "تعديل الاعلان";
 "myAds" = "عقاراتي";
 "phoneNotAvailable" = "رقم الهاتف غير متاح";
-"openMaps" = "العنوان في الخريطه";
+"openMaps" = "العنوان";
 "editCompanySuccess" = "تم تعديل بيانات شركتك بنجاح";
 "editCompany" = "تعديل البيانات";
+"detailedLocation" = "موقع العقار بالتفصيل";
