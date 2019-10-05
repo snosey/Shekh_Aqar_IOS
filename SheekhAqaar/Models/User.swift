@@ -21,6 +21,7 @@ public class User: DataType {
     var countryId: Int!
     var regionId: Int!
     var userType: Int!
+    var companies: [Company]!
     
     //MARK: Decodable
     required public init?(json: JSON){
@@ -34,6 +35,7 @@ public class User: DataType {
         regionId = "Fk_UserState" <~~ json
         userType = "Fk_UserType" <~~ json
         fcmToken = "OneSiganlToken" <~~ json
+        companies = "CompaniesModel" <~~ json
     }
     
     public init() {
@@ -53,6 +55,7 @@ public class User: DataType {
             "Fk_UserState" ~~> regionId,
             "Fk_UserType" ~~> userType,
             "OneSiganlToken" ~~> fcmToken,
+            "CompaniesModel" ~~> companies,
             ])
     }
     

@@ -22,34 +22,47 @@ public class SignUp1Repository {
     }
     
     public func registerUser(phoneNumber: String, userName: String, image: Data, countryId: Int) {
-        
-        let params = ["Fk_Country" : countryId, "Fk_Language" : 0, "Fk_UserState" : 0, "Fk_UserType" : UserType.USER.rawValue, "Name" : userName, "Phone" : phoneNumber] as [String : Any]
-        
         let url = CommonConstants.BASE_URL + "User/SignUp"
+
+        let user = User()
+        user.countryId = countryId
+        user.name = userName
+        user.phoneNumber = phoneNumber
+        user.language = 0
+        user.userType = UserType.USER.rawValue
         
-        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
-            .responseJSON { response in
+        Alamofire.upload(
+            multipartFormData: { MultipartFormData in
+                 MultipartFormData.append(image, withName: "ImgFile", fileName: "file.jpg", mimeType:"image/*")
                 
-                switch response.result {
-                case .success(_):
+                let userJsonObject = try? JSONSerialization.data(withJSONObject: user.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
+                MultipartFormData.append(userJsonObject!, withName: "UserModel")
+                
+        }, to: url) { (result) in
+            
+            switch result {
+            case .success(let upload, _, _):
+                print(result)
+                upload.responseJSON { response in
                     let json = (response.result.value as! Dictionary<String,AnyObject>)
-                    let entity = Entity<User>(json: json)
-                    if entity?.status.id == 1 {
+                    let status = Status(json: json["Status"] as! Dictionary<String, AnyObject>)!
+                    if status.id == 1 {
                         if let user = User(json: json["Data"] as! Dictionary<String,AnyObject>) {
                             self.delegate.registerUserSuccess(user: user)
                         } else {
                             self.delegate.failed(errorMessage: "Parsing error in user")
                         }
                     } else {
-                        self.delegate.failed(errorMessage: (entity?.status.message)!)
+                        self.delegate.failed(errorMessage: (status.message)!)
                     }
-                    
-                    break
-                    
-                case .failure(let error):
-                    self.delegate.failed(errorMessage: error.localizedDescription)
-                    break
                 }
+                break
+                
+            case .failure(let error):
+                self.delegate.failed(errorMessage: error.localizedDescription)
+                break
+            }
+            
         }
     }
 }

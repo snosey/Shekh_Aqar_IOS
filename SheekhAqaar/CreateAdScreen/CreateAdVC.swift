@@ -131,7 +131,7 @@ extension CreateAdVC: CreateAdView {
     }
     
     func handleNoInternetConnection() {
-        self.view.makeToast("nointernetConnection".localized())
+        self.view.makeToast("noInternetConnection".localized())
     }
 }
 

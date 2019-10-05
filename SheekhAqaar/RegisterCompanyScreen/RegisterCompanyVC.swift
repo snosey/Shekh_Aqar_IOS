@@ -96,8 +96,14 @@ class RegisterCompanyVC: BaseVC {
 }
 
 extension RegisterCompanyVC: RegisterCompanyView {
-    func registerCompanySuccess(company: Company) {
-        Defaults[.company] = company.toJSON()
+    func registerCompanySuccess(user: User) {
+        Defaults[.user] = user.toJSON()
+        if let companies = user.companies, companies.count > 0 {
+            let company = companies[0]
+            Defaults[.company] = company.toJSON()
+        }
+        
+        navigator.navigateToHome()
     }
     
     func failed(errorMessage: String) {

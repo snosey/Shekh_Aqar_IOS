@@ -69,6 +69,47 @@ class RegisterCompanyCell: UITableViewCell {
     public var userSelectedCountry: Country!
     public var companySelectedCountry: Country!
     
+    public func showCompanyData(company: Company) {
+       
+        if let url = URL(string: company.imageUrl) {
+            companyAvatar.af_setImage(withURL: url)
+        }
+        
+        companyNameTextField.text = company.name
+        traditionalNumberTextField.text = String(company.commercialNumber)
+        
+        for category in categories {
+            for companyType in company.companyTypes {
+                if companyType.companyService.id == category.id {
+                    category.isClicked = true
+                }
+            }
+        }
+        companyServicesTableView.reloadData()
+        
+        companyPhoneNumberTextField.text = company.phoneNumber
+        companyCountryCodeLabel.text = "+" + companySelectedCountry.code
+       
+        if let url = URL(string: companySelectedCountry.imageUrl) {
+            companyCountryCodeFlag.af_setImage(withURL: url)
+        }
+        
+        companyEmail.text = company.email
+        
+        for region in companySelectedCountry.regions {
+            if region.id == company.regionId {
+                regionNameLabel.text = region.name
+                regionNameLabel.textColor = .black
+            }
+        }
+        
+        detailedAddressTextField.text = company.address
+        
+        companyImageChoosen = true
+        registerButton.setTitle("editCompany".localized(), for: .normal)
+        
+    }
+    
     public func initializeCell() {
         changeAvatarImageView.addTapGesture { [weak self] (_) in
             self?.delegate.changeUserAvatar()
@@ -172,16 +213,6 @@ extension RegisterCompanyCell: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5)
     }
-    
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let label = UILabel()
-//        label.backgroundColor = .clear
-//        label.text = "companyServices".localized()
-//        label.textAlignment = .natural
-//        label.textColor = .white
-//        return label
-//    }
 }
 
 extension RegisterCompanyCell: CompanyServicesCellDelegate {

@@ -132,3 +132,5 @@
 "myAds" = "My ads";
 "phoneNotAvailable" = "Phone number is not available";
 "openMaps" = "Address on map";
+"editCompanySuccess" = "Your company data edited successfully";
+"editCompany" = "Edit company data";
