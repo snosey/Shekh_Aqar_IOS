@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="GTc-Jt-Omu">
-                                <rect key="frame" x="352" y="44" width="54" height="32.5"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="GTc-Jt-Omu">
+                                <rect key="frame" x="8" y="44" width="54" height="32.5"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kaf-bH-NTn">
                                 <rect key="frame" x="0.0" y="84.5" width="414" height="777.5"/>
@@ -198,7 +198,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="laX-68-Fgb" firstAttribute="trailing" secondItem="GTc-Jt-Omu" secondAttribute="trailing" constant="8" id="6fY-fJ-JJB"/>
+                            <constraint firstItem="laX-68-Fgb" firstAttribute="leading" secondItem="GTc-Jt-Omu" secondAttribute="leading" constant="-8" id="6fY-fJ-JJB"/>
                             <constraint firstItem="laX-68-Fgb" firstAttribute="top" secondItem="GTc-Jt-Omu" secondAttribute="top" id="GBh-x8-DMV"/>
                             <constraint firstItem="GTc-Jt-Omu" firstAttribute="height" secondItem="laX-68-Fgb" secondAttribute="height" multiplier="0.04" id="Ib0-qj-e0U"/>
                             <constraint firstItem="Kaf-bH-NTn" firstAttribute="leading" secondItem="laX-68-Fgb" secondAttribute="leading" id="Lj1-bd-rcP"/>
@@ -220,10 +220,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="24" height="24"/>
         <image name="bathroom" width="10" height="10"/>
         <image name="bed" width="10" height="10"/>
         <image name="clock" width="10" height="10"/>
         <image name="m2" width="8" height="9"/>
+        <image name="right_arrow" width="48" height="48"/>
     </resources>
 </document>

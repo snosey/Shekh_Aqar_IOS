@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="lyo-5C-w4v">
-                                <rect key="frame" x="344" y="44" width="62" height="32.5"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="lyo-5C-w4v">
+                                <rect key="frame" x="8" y="44" width="62" height="32.5"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Et7-m5-VZb">
                                 <rect key="frame" x="8" y="84.5" width="90" height="90"/>
@@ -351,15 +351,15 @@
                             <constraint firstItem="Et7-m5-VZb" firstAttribute="leading" secondItem="gLI-zC-NcQ" secondAttribute="leading" constant="8" id="Cj8-4J-HBC"/>
                             <constraint firstItem="lyo-5C-w4v" firstAttribute="height" secondItem="gLI-zC-NcQ" secondAttribute="height" multiplier="0.04" id="Dd6-s2-sFP"/>
                             <constraint firstItem="lyo-5C-w4v" firstAttribute="width" secondItem="gLI-zC-NcQ" secondAttribute="width" multiplier="0.15" id="F3e-DX-dLg"/>
+                            <constraint firstItem="BOb-po-Jb6" firstAttribute="trailing" secondItem="gLI-zC-NcQ" secondAttribute="trailing" constant="-8" id="FzO-8N-AFZ"/>
                             <constraint firstItem="gLI-zC-NcQ" firstAttribute="bottom" secondItem="7Lh-mX-OV2" secondAttribute="bottom" id="Gwl-7P-RJ9"/>
                             <constraint firstItem="O55-HL-jOe" firstAttribute="trailing" secondItem="WEg-KV-U0U" secondAttribute="trailing" id="KQo-ne-zTZ"/>
                             <constraint firstItem="7Lh-mX-OV2" firstAttribute="trailing" secondItem="h3n-Oz-Jk4" secondAttribute="trailing" id="KYz-Oo-VOF"/>
-                            <constraint firstItem="gLI-zC-NcQ" firstAttribute="trailing" secondItem="lyo-5C-w4v" secondAttribute="trailing" constant="8" id="Ne7-Lf-FxC"/>
                             <constraint firstItem="WEg-KV-U0U" firstAttribute="bottom" secondItem="Et7-m5-VZb" secondAttribute="centerY" constant="-4" id="Psm-SF-F8U"/>
                             <constraint firstItem="WEg-KV-U0U" firstAttribute="leading" secondItem="Et7-m5-VZb" secondAttribute="trailing" constant="8" id="RRj-cf-AqH"/>
                             <constraint firstItem="lyo-5C-w4v" firstAttribute="top" secondItem="gLI-zC-NcQ" secondAttribute="top" id="RZT-PN-NH9"/>
+                            <constraint firstItem="lyo-5C-w4v" firstAttribute="leading" secondItem="gLI-zC-NcQ" secondAttribute="leading" constant="8" id="Tlr-Tm-4lT"/>
                             <constraint firstItem="h3n-Oz-Jk4" firstAttribute="top" secondItem="BOb-po-Jb6" secondAttribute="bottom" constant="8" id="WS9-FD-2g4"/>
-                            <constraint firstItem="BOb-po-Jb6" firstAttribute="trailing" secondItem="lyo-5C-w4v" secondAttribute="trailing" id="YBo-fp-W2V"/>
                             <constraint firstItem="h3n-Oz-Jk4" firstAttribute="leading" secondItem="BOb-po-Jb6" secondAttribute="leading" id="bnK-1w-pYn"/>
                             <constraint firstItem="BOb-po-Jb6" firstAttribute="height" secondItem="gLI-zC-NcQ" secondAttribute="height" multiplier="0.06" id="i3c-cp-JQx"/>
                             <constraint firstItem="7Lh-mX-OV2" firstAttribute="leading" secondItem="h3n-Oz-Jk4" secondAttribute="leading" id="kCG-cl-iMF"/>
@@ -387,7 +387,6 @@
     </scenes>
     <resources>
         <image name="ad_placeholder" width="678" height="452"/>
-        <image name="back" width="24" height="24"/>
         <image name="bathroom" width="10" height="10"/>
         <image name="bed" width="10" height="10"/>
         <image name="building" width="13" height="13"/>
@@ -395,6 +394,7 @@
         <image name="m2" width="8" height="9"/>
         <image name="maps2" width="23" height="23"/>
         <image name="phone_ic" width="24" height="24"/>
+        <image name="right_arrow" width="48" height="48"/>
         <image name="whatsapp_icon" width="900" height="900"/>
     </resources>
 </document>

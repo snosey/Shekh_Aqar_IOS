@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="mu2-H3-GHp">
-                                <rect key="frame" x="344.5" y="44" width="49.5" height="32.5"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="mu2-H3-GHp">
+                                <rect key="frame" x="20" y="44" width="49.5" height="32.5"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FKG-4G-3Lj">
                                 <rect key="frame" x="83" y="108.5" width="248" height="164"/>
@@ -144,7 +144,7 @@
                             <constraint firstItem="3SI-1G-KVJ" firstAttribute="top" secondItem="sc8-72-doL" secondAttribute="bottom" constant="8" id="kBh-QD-cBX"/>
                             <constraint firstItem="Xah-Jk-iGg" firstAttribute="height" secondItem="EBa-cS-JGG" secondAttribute="height" id="mgT-59-NEc"/>
                             <constraint firstItem="sc8-72-doL" firstAttribute="leading" secondItem="0fE-13-m11" secondAttribute="leading" constant="8" id="miR-96-sln"/>
-                            <constraint firstItem="0fE-13-m11" firstAttribute="trailing" secondItem="mu2-H3-GHp" secondAttribute="trailing" constant="20" id="rfg-2K-iWt"/>
+                            <constraint firstItem="0fE-13-m11" firstAttribute="leading" secondItem="mu2-H3-GHp" secondAttribute="leading" constant="-20" id="rfg-2K-iWt"/>
                             <constraint firstItem="0fE-13-m11" firstAttribute="trailing" secondItem="sc8-72-doL" secondAttribute="trailing" constant="8" id="rmg-9g-YGp"/>
                             <constraint firstItem="Xah-Jk-iGg" firstAttribute="leading" secondItem="EBa-cS-JGG" secondAttribute="leading" id="y2v-TD-Gs5"/>
                             <constraint firstItem="mu2-H3-GHp" firstAttribute="height" secondItem="0fE-13-m11" secondAttribute="height" multiplier="0.04" id="y4C-Wr-dPy"/>
@@ -167,9 +167,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="24" height="24"/>
         <image name="facebook" width="255" height="202"/>
         <image name="instagram" width="274" height="202"/>
+        <image name="right_arrow" width="48" height="48"/>
         <image name="splash_icon" width="596" height="468"/>
         <image name="twitter" width="243" height="202"/>
     </resources>

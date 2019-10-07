@@ -239,25 +239,24 @@
                                 <rect key="frame" x="0.0" y="248" width="414" height="573"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vi2-FX-YV2">
-                                <rect key="frame" x="274" y="761.5" width="124" height="51.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiZ-8u-6Xu">
-                                        <rect key="frame" x="0.0" y="0.0" width="58" height="51.5"/>
-                                        <state key="normal" image="google_earth"/>
-                                        <connections>
-                                            <action selector="googleEarthClicked:" destination="Mqh-lu-JgB" eventType="touchUpInside" id="hAN-f5-kSI"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHw-ko-op3">
-                                        <rect key="frame" x="66" y="0.0" width="58" height="51.5"/>
-                                        <state key="normal" image="google_map"/>
-                                        <connections>
-                                            <action selector="googleMapsClicked:" destination="Mqh-lu-JgB" eventType="touchUpInside" id="wNb-bq-2cs"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiZ-8u-6Xu">
+                                <rect key="frame" x="310" y="765" width="40" height="40"/>
+                                <state key="normal" image="google_earth"/>
+                                <connections>
+                                    <action selector="googleEarthClicked:" destination="Mqh-lu-JgB" eventType="touchUpInside" id="hAN-f5-kSI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHw-ko-op3">
+                                <rect key="frame" x="358" y="765" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="vbK-xb-tmk"/>
+                                    <constraint firstAttribute="width" constant="40" id="zce-zT-luC"/>
+                                </constraints>
+                                <state key="normal" image="google_map"/>
+                                <connections>
+                                    <action selector="googleMapsClicked:" destination="Mqh-lu-JgB" eventType="touchUpInside" id="wNb-bq-2cs"/>
+                                </connections>
+                            </button>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p6h-mB-fTQ">
                                 <rect key="frame" x="0.0" y="248" width="414" height="573"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -569,8 +568,10 @@
                             <constraint firstItem="p6h-mB-fTQ" firstAttribute="leading" secondItem="T7Y-Jj-lGe" secondAttribute="leading" id="0hh-ND-hLs"/>
                             <constraint firstItem="jiK-Ff-Bko" firstAttribute="trailing" secondItem="p6h-mB-fTQ" secondAttribute="trailing" id="0qC-W5-Fgz"/>
                             <constraint firstItem="T7Y-Jj-lGe" firstAttribute="trailing" secondItem="LEk-XP-VKx" secondAttribute="trailing" id="14C-7r-E29"/>
+                            <constraint firstItem="wiZ-8u-6Xu" firstAttribute="height" secondItem="IHw-ko-op3" secondAttribute="height" id="34g-3N-pzH"/>
                             <constraint firstItem="nFc-QX-XQu" firstAttribute="leading" secondItem="bh2-eV-AE8" secondAttribute="trailing" id="3D5-wu-5Yn"/>
                             <constraint firstItem="Qts-g0-DDA" firstAttribute="leading" secondItem="LEk-XP-VKx" secondAttribute="leading" id="3tv-w5-WdR"/>
+                            <constraint firstItem="wiZ-8u-6Xu" firstAttribute="width" secondItem="IHw-ko-op3" secondAttribute="width" id="45E-IR-duB"/>
                             <constraint firstItem="bh2-eV-AE8" firstAttribute="height" secondItem="QSc-tD-J61" secondAttribute="height" id="6La-Pf-Gv4"/>
                             <constraint firstItem="SA1-T5-gze" firstAttribute="trailing" secondItem="LEk-XP-VKx" secondAttribute="leading" id="6tC-Hn-Dx6"/>
                             <constraint firstItem="5ep-07-ETX" firstAttribute="leading" secondItem="Qts-g0-DDA" secondAttribute="leading" id="7j7-Ha-OMb"/>
@@ -582,6 +583,7 @@
                             <constraint firstItem="jHw-cA-GeX" firstAttribute="trailing" secondItem="bh2-eV-AE8" secondAttribute="trailing" id="Eqg-nm-eBV"/>
                             <constraint firstItem="s8a-9f-Udv" firstAttribute="height" secondItem="T7Y-Jj-lGe" secondAttribute="height" multiplier="0.05" id="GPv-gi-kjg"/>
                             <constraint firstItem="s8a-9f-Udv" firstAttribute="leading" secondItem="5HF-Hs-XJa" secondAttribute="leading" constant="8" id="GuH-E1-hjw"/>
+                            <constraint firstItem="wiZ-8u-6Xu" firstAttribute="top" secondItem="IHw-ko-op3" secondAttribute="top" id="Hp1-KI-fZQ"/>
                             <constraint firstItem="nFc-QX-XQu" firstAttribute="trailing" secondItem="Qts-g0-DDA" secondAttribute="leading" id="ICE-Th-Npt"/>
                             <constraint firstItem="nFc-QX-XQu" firstAttribute="top" secondItem="bh2-eV-AE8" secondAttribute="top" id="JXv-5N-4xq"/>
                             <constraint firstItem="DYa-f5-UK7" firstAttribute="top" secondItem="jHw-cA-GeX" secondAttribute="top" id="KRV-3V-gvW"/>
@@ -590,7 +592,6 @@
                             <constraint firstItem="nFc-QX-XQu" firstAttribute="bottom" secondItem="bh2-eV-AE8" secondAttribute="bottom" id="Max-Q9-lRq"/>
                             <constraint firstItem="LEk-XP-VKx" firstAttribute="top" secondItem="QSc-tD-J61" secondAttribute="top" id="Ncj-zr-zOR"/>
                             <constraint firstItem="DYa-f5-UK7" firstAttribute="bottom" secondItem="jHw-cA-GeX" secondAttribute="bottom" id="O18-1S-0he"/>
-                            <constraint firstItem="Vi2-FX-YV2" firstAttribute="bottom" secondItem="jiK-Ff-Bko" secondAttribute="bottom" constant="-8" id="Oi5-0Q-XUx"/>
                             <constraint firstItem="5ep-07-ETX" firstAttribute="bottom" secondItem="jHw-cA-GeX" secondAttribute="bottom" id="QjG-ZX-QXk"/>
                             <constraint firstItem="5ep-07-ETX" firstAttribute="trailing" secondItem="Qts-g0-DDA" secondAttribute="trailing" id="Reb-Vd-Amc"/>
                             <constraint firstItem="QSc-tD-J61" firstAttribute="width" secondItem="T7Y-Jj-lGe" secondAttribute="width" multiplier="0.07" id="UcG-Sx-ahB"/>
@@ -599,14 +600,16 @@
                             <constraint firstItem="QSc-tD-J61" firstAttribute="height" secondItem="T7Y-Jj-lGe" secondAttribute="height" multiplier="0.05" id="XIp-wr-3yX"/>
                             <constraint firstItem="jiK-Ff-Bko" firstAttribute="bottom" secondItem="p6h-mB-fTQ" secondAttribute="bottom" id="ZU3-GL-fNT"/>
                             <constraint firstItem="s8a-9f-Udv" firstAttribute="top" secondItem="5HF-Hs-XJa" secondAttribute="bottom" constant="16" id="ZXJ-nu-6WR"/>
-                            <constraint firstItem="Vi2-FX-YV2" firstAttribute="width" secondItem="jiK-Ff-Bko" secondAttribute="width" multiplier="0.3" id="aX3-HQ-z6O"/>
+                            <constraint firstItem="wiZ-8u-6Xu" firstAttribute="trailing" secondItem="IHw-ko-op3" secondAttribute="leading" constant="-8" id="b2X-2K-bgK"/>
                             <constraint firstItem="SA1-T5-gze" firstAttribute="top" secondItem="QSc-tD-J61" secondAttribute="top" id="b8C-Rr-T9x"/>
                             <constraint firstItem="5HF-Hs-XJa" firstAttribute="top" secondItem="T7Y-Jj-lGe" secondAttribute="top" id="cfW-NB-SgJ"/>
                             <constraint firstItem="SA1-T5-gze" firstAttribute="bottom" secondItem="QSc-tD-J61" secondAttribute="bottom" id="dNw-Dt-0Na"/>
+                            <constraint firstItem="IHw-ko-op3" firstAttribute="bottom" secondItem="jiK-Ff-Bko" secondAttribute="bottom" constant="-16" id="dbc-Ob-Qgz"/>
                             <constraint firstItem="Qts-g0-DDA" firstAttribute="top" secondItem="bh2-eV-AE8" secondAttribute="top" id="eVM-Dg-4f4"/>
                             <constraint firstItem="T7Y-Jj-lGe" firstAttribute="trailing" secondItem="p6h-mB-fTQ" secondAttribute="trailing" id="ff7-MK-VXG"/>
                             <constraint firstItem="QSc-tD-J61" firstAttribute="top" secondItem="s8a-9f-Udv" secondAttribute="bottom" constant="16" id="gH7-WA-z0y"/>
                             <constraint firstItem="DYa-f5-UK7" firstAttribute="trailing" secondItem="nFc-QX-XQu" secondAttribute="trailing" id="gJU-de-Je4"/>
+                            <constraint firstItem="IHw-ko-op3" firstAttribute="trailing" secondItem="jiK-Ff-Bko" secondAttribute="trailing" constant="-16" id="gP1-hO-4PR"/>
                             <constraint firstItem="bh2-eV-AE8" firstAttribute="top" secondItem="QSc-tD-J61" secondAttribute="bottom" id="gT3-ob-PGC"/>
                             <constraint firstItem="LEk-XP-VKx" firstAttribute="bottom" secondItem="QSc-tD-J61" secondAttribute="bottom" id="hC6-92-Rdt"/>
                             <constraint firstItem="p6h-mB-fTQ" firstAttribute="bottom" secondItem="jHw-cA-GeX" secondAttribute="top" id="iEI-V0-2vZ"/>
@@ -614,9 +617,7 @@
                             <constraint firstItem="DYa-f5-UK7" firstAttribute="leading" secondItem="nFc-QX-XQu" secondAttribute="leading" id="ipu-kE-mnv"/>
                             <constraint firstItem="5HF-Hs-XJa" firstAttribute="height" secondItem="T7Y-Jj-lGe" secondAttribute="height" multiplier="0.06" id="jLe-Qm-64L"/>
                             <constraint firstItem="s8a-9f-Udv" firstAttribute="trailing" secondItem="5HF-Hs-XJa" secondAttribute="trailing" constant="-8" id="k3t-fV-uT9"/>
-                            <constraint firstItem="Vi2-FX-YV2" firstAttribute="trailing" secondItem="jiK-Ff-Bko" secondAttribute="trailing" constant="-16" id="lNy-mi-f0L"/>
                             <constraint firstItem="jHw-cA-GeX" firstAttribute="height" secondItem="bh2-eV-AE8" secondAttribute="height" id="nDB-hD-FRa"/>
-                            <constraint firstItem="Vi2-FX-YV2" firstAttribute="height" secondItem="jiK-Ff-Bko" secondAttribute="height" multiplier="0.09" id="olj-xb-6cR"/>
                             <constraint firstItem="SA1-T5-gze" firstAttribute="leading" secondItem="QSc-tD-J61" secondAttribute="trailing" id="t63-c7-SPf"/>
                             <constraint firstItem="5ep-07-ETX" firstAttribute="height" secondItem="Qts-g0-DDA" secondAttribute="height" id="tMg-yF-rED"/>
                             <constraint firstItem="bh2-eV-AE8" firstAttribute="leading" secondItem="QSc-tD-J61" secondAttribute="leading" id="xES-SU-gOs"/>

@@ -23,7 +23,16 @@ class AdDetailsCell: UITableViewCell {
         adDetailTitleLabel.text = itemMainModel.adDetailsItem.name
         adDetailDescLabel.text = "\(itemMainModel.value!)"
         if let imageUrl = itemMainModel.adDetailsItem.imageUrl, let url = URL(string: imageUrl) {
-            adDetailImageView.af_setImage(withURL: url)
+            adDetailImageView.af_setImage(withURL: url, placeholderImage: UIImage(named: "splash_icon"))
+            if adDetailImageView.image == UIImage(named: "splash_icon") {
+                adDetailImageView.contentMode = .scaleToFill
+            }
         }
+    }
+    
+    public func populateFirst3Rows(title: String, value: String, image: UIImage) {
+        adDetailTitleLabel.text = title
+        adDetailDescLabel.text = value
+        adDetailImageView.image = image
     }
 }
