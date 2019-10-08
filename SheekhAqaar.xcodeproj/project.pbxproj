@@ -159,6 +159,12 @@
 		E8AE744823214DA100AA177D /* CountriesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AE744723214DA100AA177D /* CountriesListVC.swift */; };
 		E8AE744A23214DB400AA177D /* CountriesListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8AE744923214DB400AA177D /* CountriesListStoryboard.storyboard */; };
 		E8AE744C23214F2900AA177D /* CountriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AE744B23214F2900AA177D /* CountriesListCell.swift */; };
+		E8AEE4B2234CF4620016D81F /* AddressPickerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8AEE4B1234CF4620016D81F /* AddressPickerStoryboard.storyboard */; };
+		E8AEE4B7234CF61F0016D81F /* AddressPickerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AEE4B3234CF61F0016D81F /* AddressPickerRepository.swift */; };
+		E8AEE4B8234CF61F0016D81F /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AEE4B4234CF61F0016D81F /* AddressCell.swift */; };
+		E8AEE4B9234CF61F0016D81F /* AddressPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AEE4B5234CF61F0016D81F /* AddressPickerPresenter.swift */; };
+		E8AEE4BA234CF61F0016D81F /* AddressPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AEE4B6234CF61F0016D81F /* AddressPickerVC.swift */; };
+		E8AEE4BC234CF6520016D81F /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AEE4BB234CF6520016D81F /* Address.swift */; };
 		E8BD7F3223129D65003B6829 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8BD7F3123129D65003B6829 /* GoogleService-Info.plist */; };
 		E8BD7F342312D886003B6829 /* CompanyServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7F332312D886003B6829 /* CompanyServicesCell.swift */; };
 		E8BD7F362312DA58003B6829 /* CompanyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7F352312DA58003B6829 /* CompanyService.swift */; };
@@ -389,6 +395,12 @@
 		E8AE744723214DA100AA177D /* CountriesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListVC.swift; sourceTree = "<group>"; };
 		E8AE744923214DB400AA177D /* CountriesListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CountriesListStoryboard.storyboard; sourceTree = "<group>"; };
 		E8AE744B23214F2900AA177D /* CountriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListCell.swift; sourceTree = "<group>"; };
+		E8AEE4B1234CF4620016D81F /* AddressPickerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddressPickerStoryboard.storyboard; sourceTree = "<group>"; };
+		E8AEE4B3234CF61F0016D81F /* AddressPickerRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPickerRepository.swift; sourceTree = "<group>"; };
+		E8AEE4B4234CF61F0016D81F /* AddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
+		E8AEE4B5234CF61F0016D81F /* AddressPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPickerPresenter.swift; sourceTree = "<group>"; };
+		E8AEE4B6234CF61F0016D81F /* AddressPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPickerVC.swift; sourceTree = "<group>"; };
+		E8AEE4BB234CF6520016D81F /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		E8BD7F3123129D65003B6829 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8BD7F332312D886003B6829 /* CompanyServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyServicesCell.swift; sourceTree = "<group>"; };
 		E8BD7F352312DA58003B6829 /* CompanyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyService.swift; sourceTree = "<group>"; };
@@ -674,6 +686,7 @@
 				E80044442344A64D002D56C2 /* ItemMainModel.swift */,
 				E8E7F3362346558700CA3DA7 /* ItemFeatureModel.swift */,
 				E85AAFEE234803A40064D872 /* CompanyType.swift */,
+				E8AEE4BB234CF6520016D81F /* Address.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -724,6 +737,7 @@
 				E8E469332346A33600C02FD7 /* EditProfileScreen */,
 				E89CBB122309B85B000B6BB7 /* RegisterCompanyScreen */,
 				E85AAFE92347FCA20064D872 /* EditCompanyScreen */,
+				E8AEE4B0234CF4460016D81F /* AddressPicker */,
 				E89CBAED23097A9E000B6BB7 /* HomeScreen */,
 				E81232C323153BAE00ECDDFB /* CompanyScreen */,
 				E81232C423153BE800ECDDFB /* AdScreen */,
@@ -833,6 +847,18 @@
 				E8E4E61E2313FA8000A46C99 /* RegisterCompanyRepository.swift */,
 			);
 			path = RegisterCompanyScreen;
+			sourceTree = "<group>";
+		};
+		E8AEE4B0234CF4460016D81F /* AddressPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E8AEE4B1234CF4620016D81F /* AddressPickerStoryboard.storyboard */,
+				E8AEE4B6234CF61F0016D81F /* AddressPickerVC.swift */,
+				E8AEE4B4234CF61F0016D81F /* AddressCell.swift */,
+				E8AEE4B5234CF61F0016D81F /* AddressPickerPresenter.swift */,
+				E8AEE4B3234CF61F0016D81F /* AddressPickerRepository.swift */,
+			);
+			path = AddressPicker;
 			sourceTree = "<group>";
 		};
 		E8C523262345FB0F00B86C0C /* MyAdsScreen */ = {
@@ -994,6 +1020,7 @@
 				E89340EE2308265F00F37DCE /* Assets.xcassets in Resources */,
 				E8CBCFA123156D6A005F91BE /* HelpStoryboard.storyboard in Resources */,
 				E89CBAF323097AFE000B6BB7 /* HomeStoryboard.storyboard in Resources */,
+				E8AEE4B2234CF4620016D81F /* AddressPickerStoryboard.storyboard in Resources */,
 				E8C5232E2345FB6A00B86C0C /* MyAdsStoryboard.storyboard in Resources */,
 				E85AAFEB2347FCD30064D872 /* EditCompanyStoryboard.storyboard in Resources */,
 				E82474842308278800211FDB /* README.md in Resources */,
@@ -1217,6 +1244,7 @@
 				E847DD37231DC5A30063CC8F /* ChooseAdditionalFacilityCell.swift in Sources */,
 				E89CBB182309B8B5000B6BB7 /* PhoneVerificationVC.swift in Sources */,
 				E84CCCBC2339454700A9829A /* HelpData.swift in Sources */,
+				E8AEE4BC234CF6520016D81F /* Address.swift in Sources */,
 				E82474922308278800211FDB /* ErrorTypeExtensions.swift in Sources */,
 				E82474A82308278800211FDB /* BlockLongPress.swift in Sources */,
 				E8E4E6252314048400A46C99 /* Ad.swift in Sources */,
@@ -1233,6 +1261,7 @@
 				E84CCCB8233944FE00A9829A /* HelpPresenter.swift in Sources */,
 				E86FA0D9230EABBA005A88D2 /* DataType.swift in Sources */,
 				E824748A2308278800211FDB /* BlockWebView.swift in Sources */,
+				E8AEE4B8234CF61F0016D81F /* AddressCell.swift in Sources */,
 				E87A9009230B365D0020BAA2 /* RegisterCompanyCell.swift in Sources */,
 				E824748F2308278800211FDB /* DictionaryExtensions.swift in Sources */,
 				E8DAFE892311855400C2F005 /* CategoryCell.swift in Sources */,
@@ -1285,12 +1314,14 @@
 				E86FA0DD230EABEE005A88D2 /* Region.swift in Sources */,
 				E8245C422318B9EE0021729B /* FavouritesVC.swift in Sources */,
 				E82474A22308278800211FDB /* CharacterExtensions.swift in Sources */,
+				E8AEE4BA234CF61F0016D81F /* AddressPickerVC.swift in Sources */,
 				E8E4E6152313F27000A46C99 /* SignUpRepository.swift in Sources */,
 				E82474BC2308398F00211FDB /* CommonConstants.swift in Sources */,
 				E8C523302345FB6A00B86C0C /* MyAdsVC.swift in Sources */,
 				E8E4E627231405A600A46C99 /* AdType.swift in Sources */,
 				E82474952308278800211FDB /* BlockButton.swift in Sources */,
 				E84161B9233FA67000D93DBF /* RequestBuildingVC.swift in Sources */,
+				E8AEE4B9234CF61F0016D81F /* AddressPickerPresenter.swift in Sources */,
 				E8E4E62D231408EE00A46C99 /* Currency.swift in Sources */,
 				E824749C2308278800211FDB /* UIViewControllerExtensions.swift in Sources */,
 				E8CBCF9723155A08005F91BE /* CompanyPresenter.swift in Sources */,
@@ -1319,6 +1350,7 @@
 				E824748B2308278800211FDB /* CGPointExtensions.swift in Sources */,
 				E824749F2308278800211FDB /* UIImageExtensions.swift in Sources */,
 				E8AE744823214DA100AA177D /* CountriesListVC.swift in Sources */,
+				E8AEE4B7234CF61F0016D81F /* AddressPickerRepository.swift in Sources */,
 				E824748D2308278800211FDB /* BlockSwipe.swift in Sources */,
 				E89CBB0F23099640000B6BB7 /* GradientBG.swift in Sources */,
 				E8CBCF9923155A15005F91BE /* CompanyRepository.swift in Sources */,
@@ -1548,6 +1580,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 8F876M528R;
 				INFOPLIST_FILE = SheekhAqaar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1569,6 +1602,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 8F876M528R;
 				INFOPLIST_FILE = SheekhAqaar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -33,6 +33,7 @@ class EditProfileVC: BaseVC {
     var code = ""
     var selectedCountry: Country!
     var imageChoosen = false
+    let user = User(json: Defaults[.user]!)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,17 +79,21 @@ class EditProfileVC: BaseVC {
                    if phoneNumber.isNumber() {
                        self.phoneNumber = phoneNumber
                        let phone = "\(code)\(phoneNumber)"
-                    PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
-                        if let error = error {
-                            print("error :: \(error.localizedDescription)")
-                            return
-                        }
-                        
-                        Defaults[.authVerificationID] = verificationID
-                        if let _ = self?.imageChoosen {
-                            self?.navigator.navigateToPhoneVerification(phoneNumber: self?.phoneNumber ?? "", nextPage: CommonConstants.EDIT_PROFILE_CODE, country: self!.selectedCountry, userImage: self?.changeAvatarImageView.image, username: username)
-                        } else {
-                            self?.navigator.navigateToPhoneVerification(phoneNumber: self?.phoneNumber ?? "", nextPage: CommonConstants.EDIT_PROFILE_CODE, country: self!.selectedCountry, userImage: nil, username: username)
+                    if phoneNumber == user.phoneNumber && user.name == username && !imageChoosen {
+                        self.view.makeToast("noDataChanged".localized())
+                    } else {
+                        PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
+                            if let error = error {
+                                print("error :: \(error.localizedDescription)")
+                                return
+                            }
+
+                            Defaults[.authVerificationID] = verificationID
+                            if let _ = self?.imageChoosen {
+                                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.phoneNumber ?? "", nextPage: CommonConstants.EDIT_PROFILE_CODE, country: self!.selectedCountry, userImage: self?.changeAvatarImageView.image, username: username)
+                            } else {
+                                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.phoneNumber ?? "", nextPage: CommonConstants.EDIT_PROFILE_CODE, country: self!.selectedCountry, userImage: nil, username: username)
+                            }
                         }
                      }
                    } else {
@@ -132,9 +137,9 @@ class EditProfileVC: BaseVC {
     }
     
     private func populateDefaultData() {
-        let user = User(json: Defaults[.user]!)!
+        
         usernameTextfield.text = user.name
-        if let url = URL(string: user.imageUrl) {
+        if let imgUrl = user.imageUrl, let url = URL(string: imgUrl) {
             userAvatarImageView.af_setImage(withURL: url)
         }
         phoneNumberTextField.text = user.phoneNumber

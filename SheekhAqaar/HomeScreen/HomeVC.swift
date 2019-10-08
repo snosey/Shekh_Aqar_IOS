@@ -46,6 +46,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     var categories1 = [Category]()
     var categories2 = [Category]()
     var categories3 = [Category]()
+    var alert: UIAlertController!
     
     var selectedIndex = 0
     
@@ -69,63 +70,57 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         showImagesButton.setTitleColor(UIColor.AppColors.textColor, for: .normal)
         
         searchIcon.addTapGesture { [weak self] (_) in
-            let autocompleteController = GMSAutocompleteViewController()
-            autocompleteController.delegate = self
-            
-            let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-                UInt(GMSPlaceField.placeID.rawValue))!
-            autocompleteController.placeFields = fields
-            
-            let filter = GMSAutocompleteFilter()
-            filter.type = .address
-            autocompleteController.autocompleteFilter = filter
-            
-            self?.present(autocompleteController, animated: true, completion: nil)
+            self?.navigator.navigateToAddressPicker(delegate: self!)
         }
         
         showMapButton.addTapGesture { [weak self] (_) in
-            GradientBG.createGradientLayer(view: self?.showMapButton ?? UIView(), cornerRaduis: 4, maskToBounds: true)
-            self?.showMapButton.setTitleColor(UIColor.black, for: .normal)
             
-            self?.showImagesButton.layer.sublayers?.remove(at: 0)
-            self?.showImagesButton.layer.borderColor = UIColor.AppColors.textColor.cgColor
-            self?.showImagesButton.layer.borderWidth = 1
-            self?.showImagesButton.setTitleColor(UIColor.AppColors.textColor, for: .normal)
-            
-            self?.tableView.isHidden = true
-            self?.googleMapView.isHidden = false
-            
-            self?.viewingMode = 1
-            
-            if let category = self?.selectedCategory {
-                if self?.selectedCategoryPosition == 1 {
-                    self?.showCompaniesOnMap()
-                } else if self?.selectedCategoryPosition == 2 || self?.selectedCategoryPosition == 3 {
-                    self?.presenter.getAds(subCategoryId: category.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+            if self?.viewingMode != 1 {
+                GradientBG.createGradientLayer(view: self?.showMapButton ?? UIView(), cornerRaduis: 4, maskToBounds: true)
+                self?.showMapButton.setTitleColor(UIColor.black, for: .normal)
+                
+                self?.showImagesButton.layer.sublayers?.remove(at: 0)
+                self?.showImagesButton.layer.borderColor = UIColor.AppColors.textColor.cgColor
+                self?.showImagesButton.layer.borderWidth = 1
+                self?.showImagesButton.setTitleColor(UIColor.AppColors.textColor, for: .normal)
+                
+                self?.tableView.isHidden = true
+                self?.googleMapView.isHidden = false
+                
+                self?.viewingMode = 1
+                
+                if let category = self?.selectedCategory {
+                    if self?.selectedCategoryPosition == 1 {
+                        self?.showCompaniesOnMap()
+                    } else if self?.selectedCategoryPosition == 2 || self?.selectedCategoryPosition == 3 {
+                        self?.presenter.getAds(subCategoryId: category.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                    }
                 }
+                
+                self?.normalMapButton.isHidden = false
+                self?.googleEarthButton.isHidden = false
             }
-            
-            self?.normalMapButton.isHidden = false
-            self?.googleEarthButton.isHidden = false
         }
         
         showImagesButton.addTapGesture { [weak self] (_) in
-            GradientBG.createGradientLayer(view: self?.showImagesButton ?? UIView(), cornerRaduis: 4, maskToBounds: true)
-            self?.showImagesButton.setTitleColor(UIColor.black, for: .normal)
-            
-            self?.showMapButton.layer.sublayers?.remove(at: 0)
-            self?.showMapButton.layer.borderColor = UIColor.AppColors.textColor.cgColor
-            self?.showMapButton.layer.borderWidth = 1
-            self?.showMapButton.setTitleColor(UIColor.AppColors.textColor, for: .normal)
-            
-            self?.tableView.isHidden = false
-            self?.googleMapView.isHidden = true
-            
-            self?.viewingMode = 2
-            
-            self?.tableView.reloadData()
-            self?.normalMapButton.isHidden = true
-            self?.googleEarthButton.isHidden = true
+            if self?.viewingMode != 2 {
+                GradientBG.createGradientLayer(view: self?.showImagesButton ?? UIView(), cornerRaduis: 4, maskToBounds: true)
+                self?.showImagesButton.setTitleColor(UIColor.black, for: .normal)
+                
+                self?.showMapButton.layer.sublayers?.remove(at: 0)
+                self?.showMapButton.layer.borderColor = UIColor.AppColors.textColor.cgColor
+                self?.showMapButton.layer.borderWidth = 1
+                self?.showMapButton.setTitleColor(UIColor.AppColors.textColor, for: .normal)
+                
+                self?.tableView.isHidden = false
+                self?.googleMapView.isHidden = true
+                
+                self?.viewingMode = 2
+                
+                self?.tableView.reloadData()
+                self?.normalMapButton.isHidden = true
+                self?.googleEarthButton.isHidden = true
+            }
         }
         
         changeArrows()
@@ -139,6 +134,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         presenter = Injector.provideHomePresenter()
         presenter.setView(view: self)
         presenter.getHomeCategories()
+        
         if let _ = Defaults[.user] {
             presenter.getUserData()
         }
@@ -146,7 +142,6 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         if Singleton.getInstance().signUpData == nil {
             presenter.getSignUpData()
         }
-        
     }
     
     func getCurrentLocation() {
@@ -242,7 +237,32 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     
 }
 
+extension HomeVC: LocationSelectionDelegate {
+    func locationSelected(address: Address) {
+        Singleton.getInstance().currentLatitude = address.latitude
+        Singleton.getInstance().currentLongitude = address.longitude
+        createMapView(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+        if let _ = selectedCategory {
+            presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+}
+
 extension HomeVC: HomeView {
+    func showDownloadingAlert() {
+        alert = UiHelpers.createAlertView(title: "downloading".localized(), message: "downloadingMessage".localized(), actions: [UIAlertAction(title: "ok".localized(), style: .default
+            , handler: { (_) in
+                self.alert.dismissVC(completion: nil)
+        })])
+        presentVC(alert)
+    }
+    
+    func hideDownloadingAlert() {
+        self.alert.dismissVC(completion: nil)
+    }
+    
     
     func getCompaniesSuccess(companies: [Company]) {
         self.companies = companies
@@ -397,12 +417,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 
                 cell.populateData()
                 self?.selectedIndex = indexPath.row
-                
-//                if self?.viewingMode == 1 {
-//                    self?.showAdsOnMap(category: cell.category)
-//                } else if self?.viewingMode == 2 {
-//                    self?.tableView.reloadData()
-//                }
+    
                 self?.presenter.getAds(subCategoryId: cell.category.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
                 
                 var indexPathes2 = [IndexPath]()
@@ -644,38 +659,6 @@ extension HomeVC: GMSMapViewDelegate {
         if let _ = selectedCategory {
             presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
         }
-    }
-}
-
-extension HomeVC: GMSAutocompleteViewControllerDelegate {
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        Singleton.getInstance().currentLatitude = place.coordinate.latitude
-        Singleton.getInstance().currentLongitude = place.coordinate.longitude
-        createMapView(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
-        if let _ = selectedCategory {
-            presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
-    }
-    
-    // User canceled the operation.
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
 

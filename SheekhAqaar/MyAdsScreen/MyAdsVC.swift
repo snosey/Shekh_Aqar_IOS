@@ -37,10 +37,17 @@ class MyAdsVC: BaseVC {
 
 extension MyAdsVC: MyAdsView {
     func getMyAdsSuccess(ads: [Ad]) {
-        favourites = ads
-        myAdsTableView.dataSource = self
-        myAdsTableView.delegate = self
-        myAdsTableView.reloadData()
+        if ads.count > 0 {
+            favourites = ads
+            myAdsTableView.dataSource = self
+            myAdsTableView.delegate = self
+            myAdsTableView.reloadData()
+        } else {
+            self.view.makeToast("noDataAvailable".localized(), duration: 3) {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
     }
     
     func failed(errorMessage: String) {

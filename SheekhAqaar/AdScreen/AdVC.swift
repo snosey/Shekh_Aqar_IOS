@@ -30,6 +30,7 @@ class AdVC: BaseVC {
     @IBOutlet weak var additionalFacilitiesTableView: UITableView!
     @IBOutlet weak var adPriceLabel: UILabel!
    
+    @IBOutlet weak var ownerNameLabel: UILabel!
     
     var ad: Ad!
     var adDetails = [AdDetail]()
@@ -71,22 +72,31 @@ class AdVC: BaseVC {
         
         photosCollectionView.dataSource = self
         photosCollectionView.delegate = self
+        photosCollectionView.reloadData()
         if let layout = photosCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
             layout.minimumInteritemSpacing = 16
             layout.minimumLineSpacing = 16
             layout.itemSize = CGSize(width: UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH
-                , relativeView: nil, percentage: 100), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 20))
+                , relativeView: nil, percentage: 80), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 20))
         }
         
         adNameLabel.text = ad.name
         adAboutLabel.text = ad.details
         let date = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/yyyy hh:mm a")
+        companyAndTimeLabel.text = " | " + date.timeAgoDisplay()
         if let _ = ad.company.name {
-            companyAndTimeLabel.text = ad.company.name + " | " + date.timeAgoDisplay()
+            ownerNameLabel.text = ad.company.name
+            ownerNameLabel.addTapGesture { (_) in
+                self.navigator.navigateToCompany(company: self.ad.company)
+            }
         } else {
-            companyAndTimeLabel.text = ad.user.name + " | " + date.timeAgoDisplay()
+            ownerNameLabel.text = ad.user.name
+            ownerNameLabel.addTapGesture { (_) in
+                self.navigator.navigateToEditProfile()
+            }
         }
+        
         
         
         adDetailsTableView.dataSource = self
@@ -98,6 +108,7 @@ class AdVC: BaseVC {
         additionalFacilitiesTableView.reloadData()
         
         adPriceLabel.text = String(ad.price) + " " + ad.currency.name!
+        
     }
     
     @IBAction func addToFavouritesClicked(_ sender: Any) {
@@ -143,6 +154,18 @@ extension AdVC: AdView {
         self.ad = ad
         
         populateData()
+        
+        if ad.adImages.count == 0 {
+            photosCollectionView.isHidden =  true
+            addToFavouritesButton.snp.remakeConstraints { (maker) in
+                maker.top.equalTo(photosCollectionView)
+                maker.trailing.equalTo(self.view).offset(-8)
+                maker.width.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH, relativeView: nil, percentage: 0.4))
+                maker.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 0.05))
+            }
+        } else {
+            photosCollectionView.isHidden = false
+        }
     }
     
     func saveFavouriteAdSuccess() {
@@ -157,6 +180,9 @@ extension AdVC: AdView {
     
     func failed(errorMessage: String) {
         self.view.makeToast(errorMessage)
+        //, duration: 2) {
+//            self.navigationController?.popViewController(animated: true)
+//        }
     }
     
     func handleNoInternetConnection() {

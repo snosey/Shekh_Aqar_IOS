@@ -75,6 +75,5 @@ public class PhoneVerificationRepository {
             }
             
         }
-        self.delegate.updateProfileSuccess(user: User())
     }
 }

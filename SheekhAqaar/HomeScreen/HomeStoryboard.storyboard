@@ -271,7 +271,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KdS-Ge-ZiR">
                                                     <rect key="frame" x="8" y="8" width="398" height="94"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ciG-de-O8I">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ciG-de-O8I">
                                                             <rect key="frame" x="0.0" y="0.0" width="119.5" height="94"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -668,6 +668,7 @@
         <image name="menu_ic" width="36" height="36"/>
         <image name="right_arrow" width="48" height="48"/>
         <image name="search" width="24" height="24"/>
+        <image name="splash_icon" width="596" height="468"/>
         <image name="top_icon" width="332" height="172"/>
     </resources>
 </document>

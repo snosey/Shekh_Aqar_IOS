@@ -67,7 +67,6 @@ class CreateAdCell: UITableViewCell {
         priceTextField.text = "\(ad.price!)"
         currencyLabel.text = ad.currency.name
         adDetailsTextField.text = ad.details
-//        categoryLabel.te
         adTypeLabel.text = ad.subCategory.name
         areaTextField.text = "\(ad.placeArea!)"
         countryLabel.text = selectedCountry.name

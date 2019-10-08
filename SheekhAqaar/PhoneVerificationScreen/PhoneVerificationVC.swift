@@ -102,7 +102,7 @@ class PhoneVerificationVC: BaseVC {
                         print("error :: \(error.localizedDescription)")
                         return
                     }
-                    
+
                     if self?.nextPage == CommonConstants.HOME_NEXT_PAGE_CODE {
                         self?.navigator.navigateToHome()
                     } else if self?.nextPage == CommonConstants.SIGN_UP_NEXT_PAGE_CODE {
@@ -214,7 +214,12 @@ extension PhoneVerificationVC: PhoneVerificationView {
     }
     
     func failed(errorMessage: String) {
-        self.view.makeToast(errorMessage)
+        self.view.makeToast(errorMessage, duration: 2) {
+            if self.nextPage == CommonConstants.EDIT_PROFILE_CODE {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
     }
     
     func handleNoInternetConnection() {

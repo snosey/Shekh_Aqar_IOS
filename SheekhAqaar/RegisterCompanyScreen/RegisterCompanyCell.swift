@@ -155,10 +155,8 @@ class RegisterCompanyCell: UITableViewCell {
         }
         
         userAvatarImageView.layer.masksToBounds = true
-        userAvatarImageView.layer.cornerRadius = UiHelpers.getLengthAccordingTo(relation: .VIEW_HEIGHT, relativeView: topView, percentage: 45) / 2
         
         companyAvatar.layer.masksToBounds = true
-        companyAvatar.layer.cornerRadius = UiHelpers.getLengthAccordingTo(relation: .VIEW_HEIGHT, relativeView: bottomView, percentage: 15) / 2
         
         companyServicesTableView.backgroundColor = .clear
         companyServicesTableView.dataSource = self
