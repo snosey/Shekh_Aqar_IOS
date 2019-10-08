@@ -121,4 +121,12 @@ public class Injector {
     public class func provideEditCompanyRepository() -> EditCompanyRepository {
         return EditCompanyRepository()
     }
+    
+    public class func provideAddressPickerPresenter() -> AddressPickerPresenter {
+        return AddressPickerPresenter(repository: Injector.provideAddressPickerRepository())
+    }
+    
+    public class func provideAddressPickerRepository() -> AddressPickerRepository {
+        return AddressPickerRepository()
+    }
 }

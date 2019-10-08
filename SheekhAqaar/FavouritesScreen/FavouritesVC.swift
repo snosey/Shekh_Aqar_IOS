@@ -38,10 +38,17 @@ class FavouritesVC: BaseVC {
 
 extension FavouritesVC: FavouritesView {
     func getFavouriteAdsSuccess(ads: [Ad]) {
-        favourites = ads
-        favouritesTableView.dataSource = self
-        favouritesTableView.delegate = self
-        favouritesTableView.reloadData()
+        if ads.count > 0 {
+            favourites = ads
+            favouritesTableView.dataSource = self
+            favouritesTableView.delegate = self
+            favouritesTableView.reloadData()
+        } else {
+            self.view.makeToast("noDataAvailable".localized(), duration: 3) {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
     }
     
     func failed(errorMessage: String) {

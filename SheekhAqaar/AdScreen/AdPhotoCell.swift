@@ -23,8 +23,7 @@ class AdPhotoCell: UICollectionViewCell {
     public var delegate: AdPhotoCellDelegate!
     public func populateData() {
         if let url = URL(string: imageUrl) {
-            adPhotoImageView.af_setImage(withURL: url)
-            
+            adPhotoImageView.af_setImage(withURL: url, placeholderImage: UIImage(named: "top_icon"))
         }
     }
     

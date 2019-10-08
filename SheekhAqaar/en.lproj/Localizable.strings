@@ -135,3 +135,10 @@
 "editCompanySuccess" = "Your company data edited successfully";
 "editCompany" = "Edit company data";
 "detailedLocation" = "Building detailed location";
+"noDataChanged" = "No data changed.";
+"noDataAvailable" = "No data available";
+"downloading" = "Downloading ...";
+"downloadingMessage" = "Downloading data please wait ...";
+"ok" = "OK";
+"searchPlaceHolder" = "Location name";
+"search" = "Search";

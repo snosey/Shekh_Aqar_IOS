@@ -278,10 +278,7 @@ extension RequestBuildingVC: RequestBuildingCellDelegate {
     }
     
     func getLocationFromGoogleMaps() {
-        let config = GMSPlacePickerConfig(viewport: nil)
-        let placePicker = GMSPlacePickerViewController(config: config)
-        placePicker.delegate = self
-        present(placePicker, animated: true, completion: nil)
+        self.navigator.navigateToAddressPicker(delegate: self)
     }
     
     func requestBuilding(ad: Ad, adDetailsItems: [AdDetailsItem]) {
@@ -325,19 +322,10 @@ extension RequestBuildingVC: RequestBuildingCellDelegate {
     }
 }
 
-extension RequestBuildingVC: GMSPlacePickerViewControllerDelegate {
-    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
-        viewController.dismiss(animated: true, completion: nil)
-        
-        cell.buildingLocationLabel.text = place.formattedAddress
-        self.selectedLatitude = place.coordinate.latitude
-        self.selectedLongitude = place.coordinate.longitude
-    }
-    
-    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
-        // Dismiss the place picker, as it cannot dismiss itself.
-        viewController.dismiss(animated: true, completion: nil)
-        
-        print("No place selected")
+extension RequestBuildingVC: LocationSelectionDelegate {
+    func locationSelected(address: Address) {
+        cell.buildingLocationLabel.text = address.addressName
+        self.selectedLatitude = address.latitude
+        self.selectedLongitude = address.longitude
     }
 }

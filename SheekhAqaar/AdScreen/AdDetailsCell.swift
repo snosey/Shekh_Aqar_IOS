@@ -21,7 +21,10 @@ class AdDetailsCell: UITableViewCell {
     
     public func populateData() {
         adDetailTitleLabel.text = itemMainModel.adDetailsItem.name
-        adDetailDescLabel.text = "\(itemMainModel.value!)"
+        if let value = itemMainModel.value {
+            adDetailDescLabel.text = "\(value)"
+        }
+        
         if let imageUrl = itemMainModel.adDetailsItem.imageUrl, let url = URL(string: imageUrl) {
             adDetailImageView.af_setImage(withURL: url, placeholderImage: UIImage(named: "splash_icon"))
             if adDetailImageView.image == UIImage(named: "splash_icon") {

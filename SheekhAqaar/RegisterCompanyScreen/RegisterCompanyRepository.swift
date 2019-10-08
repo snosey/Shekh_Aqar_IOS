@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyUserDefaults
 
 public protocol RegisterCompanyPresenterDelegate: class {
     func registerCompanySuccess(user: User)
@@ -26,6 +27,7 @@ public class RegisterCompanyRepository {
         let url = CommonConstants.BASE_URL + "Company/SignUp"
 
         let user = User()
+        user.id = User(json: Defaults[.user]!)?.id
         user.countryId = userSelectedCountry.id
         user.name = userName
         user.phoneNumber = userPhoneNumber

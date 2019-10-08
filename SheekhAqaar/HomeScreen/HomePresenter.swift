@@ -14,6 +14,8 @@ public protocol HomeView: class {
     func getCompaniesSuccess(companies: [Company])
     func getAdsSuccess(ads: [Ad])
     func failed(errorMessage: String)
+    func showDownloadingAlert()
+    func hideDownloadingAlert()
     func handleNoInternetConnection()
 }
 
@@ -35,7 +37,7 @@ public class HomePresenter {
 extension HomePresenter {
     public func getHomeCategories() {
         if UiHelpers.isInternetAvailable() {
-            UiHelpers.showLoader()
+            homeView?.showDownloadingAlert()
             homeRepository?.getHomeCategories()
         } else {
             homeView?.handleNoInternetConnection()
@@ -95,7 +97,7 @@ extension HomePresenter: HomePresenterDelegate {
     }
     
     public func getCategoriesSuccess(firstRowCategories: [Category], secondRowCategories: [Category], thirdRowCategories: [Category]) {
-        UiHelpers.hideLoader()
+        homeView?.hideDownloadingAlert()
         homeView?.getCategoriesSuccess(firstRowCategories: firstRowCategories, secondRowCategories: secondRowCategories, thirdRowCategories: thirdRowCategories)
     }
     
