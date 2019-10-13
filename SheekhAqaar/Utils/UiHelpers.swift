@@ -14,6 +14,7 @@ import SystemConfiguration
 import SideMenu
 import Localize_Swift
 import GoogleMaps
+import Alamofire
 
 class UiHelpers {
 
@@ -173,6 +174,55 @@ class UiHelpers {
         // present the view controller
         vc.present(activityViewController, animated: true, completion: nil)
         
+    }
+    
+    class func getAddressFromLocation(latitude: Double, longitude: Double, completion: @escaping (String, String?, Bool)->()) {
+        let parameters = [
+            "latlng" : "\(latitude),\(longitude)",
+            "sensor" : true,
+            "language" : Localize.currentLanguage(),
+            "key" : CommonConstants.GOOGLE_MAPS_KEY] as [String : Any]
+        
+        Alamofire.request("https://maps.googleapis.com/maps/api/geocode/json", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+            
+            switch response.result {
+            case .success(_):
+                if let json = (response.result.value as? Dictionary<String,AnyObject>) {
+                    if let results = json["results"] as? [Dictionary<String,AnyObject>], results.count > 0 {
+                        var address = ""
+                        var country: String?
+                        let result = results[0]
+                        if let address1 = result["formatted_address"] as? String {
+                            address = address1
+                        }
+                        if let addressComponents = json["address_components"] as? [Dictionary<String,AnyObject>] {
+                            for addressComponent in addressComponents {
+                                if let types = addressComponent["types"] as? [String] {
+                                    for type in types {
+                                        if type == "country" {
+                                            country = addressComponent["short_name"] as? String
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        if country == "" {
+                            completion(address, nil, true)
+                        } else {
+                            completion(address, country, true)
+                        }
+                    }
+                } else {
+                    completion("", nil, false)
+                }
+                break
+                
+            case .failure(let error):
+                completion(error.localizedDescription, nil, false)
+                break
+            }
+        }
     }
     
     class func shareImage(sharableImage: UIImage, sourceView: UIView, vc: BaseVC) {

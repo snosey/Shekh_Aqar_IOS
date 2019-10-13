@@ -278,7 +278,7 @@ extension RequestBuildingVC: RequestBuildingCellDelegate {
     }
     
     func getLocationFromGoogleMaps() {
-        self.navigator.navigateToAddressPicker(delegate: self)
+        self.navigator.navigateToAddressPickerWithMap(delegate: self)
     }
     
     func requestBuilding(ad: Ad, adDetailsItems: [AdDetailsItem]) {
