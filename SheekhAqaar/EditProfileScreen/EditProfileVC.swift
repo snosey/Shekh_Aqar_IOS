@@ -79,23 +79,23 @@ class EditProfileVC: BaseVC {
                    if phoneNumber.isNumber() {
                        self.phoneNumber = phoneNumber
                        let phone = "\(code)\(phoneNumber)"
-                    if phoneNumber == user.phoneNumber && user.name == username && !imageChoosen {
-                        self.view.makeToast("noDataChanged".localized())
-                    } else {
-                        PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
-                            if let error = error {
-                                print("error :: \(error.localizedDescription)")
-                                return
-                            }
+                        if phoneNumber == user.phoneNumber && user.name == username && !imageChoosen {
+                            self.view.makeToast("noDataChanged".localized())
+                        } else {
+                            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [weak self] (verificationID, error) in
+                                if let error = error {
+                                    print("error :: \(error.localizedDescription)")
+                                    return
+                                }
 
-                            Defaults[.authVerificationID] = verificationID
-                            if let _ = self?.imageChoosen {
-                                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.phoneNumber ?? "", nextPage: CommonConstants.EDIT_PROFILE_CODE, country: self!.selectedCountry, userImage: self?.changeAvatarImageView.image, username: username)
-                            } else {
-                                self?.navigator.navigateToPhoneVerification(phoneNumber: self?.phoneNumber ?? "", nextPage: CommonConstants.EDIT_PROFILE_CODE, country: self!.selectedCountry, userImage: nil, username: username)
+                                Defaults[.authVerificationID] = verificationID
+                                if let _ = self?.imageChoosen {
+                                    self?.navigator.navigateToPhoneVerification(phoneNumber: self?.phoneNumber ?? "", nextPage: CommonConstants.EDIT_PROFILE_CODE, country: self!.selectedCountry, userImage: self?.changeAvatarImageView.image, username: username)
+                                } else {
+                                    self?.navigator.navigateToPhoneVerification(phoneNumber: self?.phoneNumber ?? "", nextPage: CommonConstants.EDIT_PROFILE_CODE, country: self!.selectedCountry, userImage: nil, username: username)
+                                }
                             }
                         }
-                     }
                    } else {
                        self.view.makeToast("enterValidPhoneNumber".localized())
                    }

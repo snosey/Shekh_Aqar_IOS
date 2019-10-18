@@ -24,25 +24,35 @@ public class RegisterCompanyRepository {
     
     public func registerCompany(userPhoneNumber: String, userName: String, userImage: Data, companyImage: Data, companyServices: [Category], companyName: String, companyTraditionalNumber: String, companyPhoneNumber: String, companyEmail: String, companyCountry: Country, companyRegion: Region, detailedAddress: String, companyLatitude: Double, companyLongitude: Double, userSelectedCountry: Country, companySelectedCountry: Country) {
         
-        let url = CommonConstants.BASE_URL + "Company/SignUp"
+        
+        
+        /*
+         {"CompanyModel":{"Address":"تيتيتبت","AdsCount":0,"CommercialNumber":616494,"CompanyTypesModel":[],"Email":"7aseboty@gmail.com","Fk_Location":2,"Fk_User":0,"Id":0,"Latitude":"30.4731088","Longitude":"31.1970606","Name":"ابو الخير","Phone":"61618151"},"OrgTypeModel":[{"Id":3,"Name":"مزادات","OrgLanguagesModel":[]},{"Id":1,"Name":"ادارة املاك","OrgLanguagesModel":[]},{"Id":9,"Name":"مطور عقاري","OrgLanguagesModel":[]},{"Id":6,"Name":"شركات عقاريه","OrgLanguagesModel":[]},{"Id":10,"Name":"استشارات عقارية","OrgLanguagesModel":[]},{"Id":2,"Name":"مثمن عقاري","OrgLanguagesModel":[]}],"UserModel":{"AppVersion":"","Fk_Country":2,"Fk_Language":2,"Fk_UserState":1,"Fk_UserType":1,"Id":69,"ImageUrl":".","MobileOS":"","MobileVersion":"","Name":"احمد السنوسي","OneSiganlToken":".","Password":".","Phone":"1222272346","Token":"2f451e41-9e94-4b22-a8ee-1d5d1cafb1d2"}}
+         */
 
         let user = User()
         user.id = User(json: Defaults[.user]!)?.id
         user.countryId = userSelectedCountry.id
         user.name = userName
-        user.phoneNumber = userPhoneNumber
+        user.phoneNumber = "+" + userSelectedCountry.code + userPhoneNumber
         user.language = 0
         user.userType = UserType.USER.rawValue
+        user.token = User(json: Defaults[.user]!)?.token
         
         let company = Company()
         company.regionId = companyRegion.id
         company.name = companyName
         company.commercialNumber = Int(companyTraditionalNumber)!
-        company.phoneNumber = companyPhoneNumber
+        company.phoneNumber =  "+" + companySelectedCountry.code + companyPhoneNumber
         company.email = companyEmail
         company.address = detailedAddress
         company.latitude = String(companyLatitude)
         company.longitude = String(companyLongitude)
+        company.numberOfAds = 0
+        company.companyTypes = []
+        company.userId = user.id
+        
+        let url = CommonConstants.BASE_URL + "Company/SignUp?token=\(user.token!)"
         
         Alamofire.upload(
             multipartFormData: { MultipartFormData in

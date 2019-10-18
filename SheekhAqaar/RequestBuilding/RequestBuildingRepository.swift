@@ -55,44 +55,58 @@ public class RequestBuildingRepository {
     }
     
     public func requestBuilding(ad: Ad, adDetailsItems: [AdDetailsItem]) {
-        let url = CommonConstants.BASE_URL + "User/AddAds"
+        let url = CommonConstants.BASE_URL + "User/AddAds?token=\(User(json: Defaults[.user]!)!.token!)"
         
-        var facilitiesJsonArray = [Dictionary<String, Any>]()
-        
-        var adDetailsItemsJsonArray = [Dictionary<String, Any>]()
-        
-        for facility in ad.additionalFacilities {
-            facilitiesJsonArray.append(facility.toJSON()!)
-        }
-        
-        for item in adDetailsItems {
-            adDetailsItemsJsonArray.append(item.toJSON()!)
-        }
-        
-        let parameters = ["UserItemString" : ad.toJSON()!, "UserItemFeatureString" : facilitiesJsonArray, "UserItemMainString" : adDetailsItemsJsonArray] as [String : Any]
-        
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
-            .responseJSON { response in
+        Alamofire.upload(
+            multipartFormData: { MultipartFormData in
+//                if images.count == 1 {
+//                    let data = images[0]
+//                    MultipartFormData.append(data, withName: "ImgFile", fileName: "file.jpg", mimeType:"image/*")
+//                } else if images.count > 1 {
+//                    for (index, img) in images.enumerated() {
+//                        let data = img
+//                        MultipartFormData.append(data, withName: "ImgFile", fileName: "file\(index).jpg", mimeType:"image/*")
+//                    }
+//                }else {}
+                let adJsonObject = try? JSONSerialization.data(withJSONObject: ad.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
+                MultipartFormData.append(adJsonObject!, withName: "UserItemString")
                 
-                switch response.result {
-                case .success(_):
-                    let json = (response.result.value as! Dictionary<String,AnyObject>)
-                    let statusObj = json["Status"] as! Dictionary<String,AnyObject>
+                let additionalFacilities = ad.additionalFacilities
+                
+                var additionalFacilitiesJsonArray = [Data]()
+                var adDetailsItemsJsonArray = [Data]()
+                
+                for facility in additionalFacilities ?? [] {
+                    let facilityJsonObject = try? JSONSerialization.data(withJSONObject: facility.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
+                    additionalFacilitiesJsonArray.append(facilityJsonObject!)
                     
-                    if let id = statusObj["Id"] as? Int, id == 1 {
-                            self.delegate.requestBuildingSuccess()
-                    } else {
-                        self.delegate.failed(errorMessage: statusObj["Message"] as! String)
-                    }
-                    break
-                    
-                case .failure(let error):
-                    self.delegate.failed(errorMessage: error.localizedDescription)
-                    break
                 }
+                
+                for adDetailsItem in adDetailsItems {
+                    let itemJsonObject = try? JSONSerialization.data(withJSONObject: adDetailsItem.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
+                    adDetailsItemsJsonArray.append(itemJsonObject!)
+                }
+                
+                let jsonArr1 = try? JSONEncoder().encode(additionalFacilitiesJsonArray)
+                MultipartFormData.append(jsonArr1!, withName: "UserItemFeatureString")
+                
+                let jsonArr2 = try? JSONEncoder().encode(adDetailsItemsJsonArray)
+                MultipartFormData.append(jsonArr2!, withName: "UserItemMainString")
+                
+        }, to: url) { (result) in
+            
+            switch result {
+            case .success(_, _, _):
+                print(result)
+                self.delegate.requestBuildingSuccess()
+                break
+                
+            case .failure(let error):
+                self.delegate.failed(errorMessage: error.localizedDescription)
+                break
+            }
+            
         }
-        
-
     }
 }
 

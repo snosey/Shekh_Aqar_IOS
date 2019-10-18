@@ -206,8 +206,8 @@ class CreateAdCell: UITableViewCell {
                                             }
                                         } else if (cell as? AdDetailsWithSpinnerCell) != nil {
                                             
-                                            item.dataSpinnerFK = item.spinnerDataArray[self?.cellsWithSpinnerCount ?? 0 - 1].id
-                                            self?.cellsWithSpinnerCount = self?.cellsWithSpinnerCount ?? 0 - 1
+                                            item.dataSpinnerFK = item.spinnerDataArray[(self?.cellsWithSpinnerCount ?? 0) - 1].id
+                                            self?.cellsWithSpinnerCount = (self?.cellsWithSpinnerCount ?? 0) - 1
                                         }
                                         index = index + 1
                                     }
@@ -224,15 +224,20 @@ class CreateAdCell: UITableViewCell {
                                             imagesToBeRemovedData.append(image.jpegData(compressionQuality: 0.1)!)
                                         }
                                         
-                                        self?.delegate
-                                        .editAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData, imagesToBeRemoved: imagesToBeRemovedData)
-                                        
+                                        if self?.isEditAd ?? false {
+                                            self?.delegate
+                                                .editAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData, imagesToBeRemoved: imagesToBeRemovedData)
+                                        } else {
+                                            self?.delegate.publishAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData)
+                                        }
                                     } else {
-                                        self?.delegate
-                                            .editAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData, imagesToBeRemoved: [])
+                                        if self?.isEditAd ?? false {
+                                            self?.delegate
+                                                .editAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData, imagesToBeRemoved: [])
+                                        } else {
+                                            self?.delegate.publishAd(ad: ad, adDetailsItems: self?.adDetailsItems ?? [], images: imagesData)
+                                        }
                                     }
-                                    
-                                    
                                 }
                             } else {
                                 self?.contentView.makeToast("enterArea".localized())

@@ -212,7 +212,7 @@ extension CreateAdVC: CreateAdCellDelegate {
                         ad.subCategoryId = selectedAdType.id
                         ad.userId = user?.id
                         ad.user = user
-                        ad.adTypeId = 2
+                        ad.adTypeId = 3
                         ad.latitude = String(selectedLatitude)
                         ad.longitude = String(selectedLongitude)
                         ad.viewCount = 0

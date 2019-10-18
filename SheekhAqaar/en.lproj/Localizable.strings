@@ -72,7 +72,7 @@
 "downloadWhatsApp" = "Please download WhatsApp application.";
 "homeScreen" = "Home";
 "editProfile" = "Edit profile";
-"help" = "Help";
+"help" = "Contact us";
 "logout" = "Logout";
 "login" = "Login";
 "addToFav" = "Add to favourites";
@@ -142,3 +142,4 @@
 "ok" = "OK";
 "searchPlaceHolder" = "Location name";
 "search" = "Search";
+"phoneAlreadyRegistered" = "This phone is duplicated";

@@ -155,8 +155,10 @@ class RegisterCompanyCell: UITableViewCell {
         }
         
         userAvatarImageView.layer.masksToBounds = true
+        userAvatarImageView.layer.cornerRadius = 50
         
         companyAvatar.layer.masksToBounds = true
+        companyAvatar.layer.cornerRadius = 50
         
         companyServicesTableView.backgroundColor = .clear
         companyServicesTableView.dataSource = self
@@ -167,6 +169,13 @@ class RegisterCompanyCell: UITableViewCell {
             userDataTitleLabel.isHidden = true
             topView.isHidden = true
             
+            for country in Singleton.getInstance().signUpData.countries {
+                if country.id == User(json: Defaults[.user]!)?.countryId {
+                    userSelectedCountry = country
+                    break
+                }
+            }
+                        
             companyDataTitleLabel.snp.remakeConstraints { (maker) in
                 maker.top.equalTo(self.contentView).offset(8)
                 maker.leading.equalTo(self.contentView).offset(8)
