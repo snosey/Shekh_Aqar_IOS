@@ -100,7 +100,7 @@ public class Ad: DataType {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "id" ~~> id,
+            "Id" ~~> id,
             "Title" ~~> name,
             "Fk_User" ~~> userId,
             "Fk_Company" ~~> companyId,

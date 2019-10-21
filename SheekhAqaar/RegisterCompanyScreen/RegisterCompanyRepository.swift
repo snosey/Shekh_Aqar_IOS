@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyUserDefaults
+import Localize_Swift
 
 public protocol RegisterCompanyPresenterDelegate: class {
     func registerCompanySuccess(user: User)
@@ -24,12 +25,6 @@ public class RegisterCompanyRepository {
     
     public func registerCompany(userPhoneNumber: String, userName: String, userImage: Data, companyImage: Data, companyServices: [Category], companyName: String, companyTraditionalNumber: String, companyPhoneNumber: String, companyEmail: String, companyCountry: Country, companyRegion: Region, detailedAddress: String, companyLatitude: Double, companyLongitude: Double, userSelectedCountry: Country, companySelectedCountry: Country) {
         
-        
-        
-        /*
-         {"CompanyModel":{"Address":"تيتيتبت","AdsCount":0,"CommercialNumber":616494,"CompanyTypesModel":[],"Email":"7aseboty@gmail.com","Fk_Location":2,"Fk_User":0,"Id":0,"Latitude":"30.4731088","Longitude":"31.1970606","Name":"ابو الخير","Phone":"61618151"},"OrgTypeModel":[{"Id":3,"Name":"مزادات","OrgLanguagesModel":[]},{"Id":1,"Name":"ادارة املاك","OrgLanguagesModel":[]},{"Id":9,"Name":"مطور عقاري","OrgLanguagesModel":[]},{"Id":6,"Name":"شركات عقاريه","OrgLanguagesModel":[]},{"Id":10,"Name":"استشارات عقارية","OrgLanguagesModel":[]},{"Id":2,"Name":"مثمن عقاري","OrgLanguagesModel":[]}],"UserModel":{"AppVersion":"","Fk_Country":2,"Fk_Language":2,"Fk_UserState":1,"Fk_UserType":1,"Id":69,"ImageUrl":".","MobileOS":"","MobileVersion":"","Name":"احمد السنوسي","OneSiganlToken":".","Password":".","Phone":"1222272346","Token":"2f451e41-9e94-4b22-a8ee-1d5d1cafb1d2"}}
-         */
-
         let user = User()
         user.id = User(json: Defaults[.user]!)?.id
         user.countryId = userSelectedCountry.id
@@ -52,29 +47,30 @@ public class RegisterCompanyRepository {
         company.companyTypes = []
         company.userId = user.id
         
-        let url = CommonConstants.BASE_URL + "Company/SignUp?token=\(user.token!)"
+        let url = CommonConstants.BASE_URL + "Company/SignUp"
         
         Alamofire.upload(
             multipartFormData: { MultipartFormData in
                 MultipartFormData.append(userImage, withName: "ImgFile", fileName: "file1.jpg", mimeType:"image/*")
                 MultipartFormData.append(companyImage, withName: "ImgFile2", fileName: "file2.jpg", mimeType:"image/*")
+               
+                let userDic = user.toJSON()!
+                MultipartFormData.append((userDic.toString().data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"UserModel")
                 
-                let userJsonObject = try? JSONSerialization.data(withJSONObject: user.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                MultipartFormData.append(userJsonObject!, withName: "UserModel")
+                let companyDic = company.toJSON()!
+                MultipartFormData.append((companyDic.toString().data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"CompanyModel")
                 
-                let companyJsonObject = try? JSONSerialization.data(withJSONObject: company.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                MultipartFormData.append(companyJsonObject!, withName: "CompanyModel")
-                
-                var servicesJsonArray = [Data]()
-                
+                var jsonArrayResult = "["
                 for service in companyServices {
-                    let serviceJsonObject = try? JSONSerialization.data(withJSONObject: service.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                    servicesJsonArray.append(serviceJsonObject!)
-                    
+                    let serviceDic = service.toJSON()! as! Dictionary<String, AnyObject>
+                    jsonArrayResult = jsonArrayResult + serviceDic.toString() + ","
                 }
+
+                jsonArrayResult.removeLast()
+                jsonArrayResult = jsonArrayResult + "]"
+                jsonArrayResult = jsonArrayResult.replacingOccurrences(of: "\\", with: "")
                 
-                let jsonArr = try? JSONEncoder().encode(servicesJsonArray)
-                MultipartFormData.append(jsonArr!, withName: "OrgTypeModel")
+                MultipartFormData.append((jsonArrayResult.data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"OrgTypeModel")
                 
         }, to: url) { (result) in
             

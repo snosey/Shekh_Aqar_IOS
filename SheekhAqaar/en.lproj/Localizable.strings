@@ -143,3 +143,9 @@
 "searchPlaceHolder" = "Location name";
 "search" = "Search";
 "phoneAlreadyRegistered" = "This phone is duplicated";
+"delete" = "Clear";
+"alreadyHaveCompany" = "You already have a company";
+"companyCreated" = "Your company created successfully";
+/*
+ "[{"Fk_DataSpinner":0,"Fk_TypeData":2,"Fk_ItemMain":0,"ImgURL":"https://aqaradmin.d-innova.com/UploudImages/ItemMain/60603123-ad01-4db5-957b-89467515c703-6.png","DataSpinnerModel":[],"Name":"عمر العقار","Fk_UserItem":0,"Id":6,"Value":2}]"
+ */

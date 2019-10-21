@@ -35,8 +35,8 @@ public class SignUp1Repository {
             multipartFormData: { MultipartFormData in
                  MultipartFormData.append(image, withName: "ImgFile", fileName: "file.jpg", mimeType:"image/*")
                 
-                let userJsonObject = try? JSONSerialization.data(withJSONObject: user.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                MultipartFormData.append(userJsonObject!, withName: "UserModel")
+                let userDic = user.toJSON()!
+                MultipartFormData.append((userDic.toString().data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"UserModel")
                 
         }, to: url) { (result) in
             

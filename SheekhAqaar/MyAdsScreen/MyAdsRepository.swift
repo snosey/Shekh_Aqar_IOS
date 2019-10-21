@@ -25,7 +25,7 @@ public class MyAdsRepository {
     
     public func getMyAds() {
         let user = User(json: Defaults[.user]!)!
-        let params = ["Fk_User" : user.id] as [String : Any]
+        let params = ["Fk_User" : user.id, "token" : user.token!] as [String : Any]
         let url = CommonConstants.BASE_URL + "User/GetAds"
         
         Alamofire.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil)

@@ -358,7 +358,12 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                     break
                     
                 case -3:
-                    self?.navigator.navigateToRegisterAsCompany()
+                    if let _ = Defaults[.company] {
+                        self?.view.makeToast("alreadyHaveCompany".localized())
+                    } else {
+                        self?.navigator.navigateToRegisterAsCompany()
+                    }
+                    
                     break
                     
                 case -4:

@@ -37,7 +37,7 @@ public class AdditionalFacility: DataType {
     public func toJSON() -> JSON? {
         return jsonify([
             "Name" ~~> name,
-            "Id" ~~> id,
+            "FK_ItemFeature" ~~> id,
             "ItemFeatureModel" ~~> itemFeatureModel,
             ])
     }

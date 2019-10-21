@@ -46,6 +46,31 @@ public class SignUpRepository {
         }
     }
     
+    public func login(token: String) {
+        let params = ["token" : token] as [String : Any]
+        let url = CommonConstants.BASE_URL + "User/Login"
+        
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
+            .responseJSON { response in
+                
+                switch response.result {
+                case .success(_):
+                    let json = (response.result.value as! Dictionary<String,AnyObject>)
+                    if let data = json["Data"] as? Dictionary<String,AnyObject>, let statusJsonObj = json["Status"] as? Dictionary<String,AnyObject> {
+                        let user = User(json: data)!
+                        let status = Status(json: statusJsonObj)!
+                        self.delegate.loginSuccess(user: user, isExist: status.id == 1)
+                    }
+                    break
+                    
+                case .failure(let error):
+                    self.delegate.failed(errorMessage: error.localizedDescription)
+                    self.delegate.loginSuccess(user: nil, isExist: false)
+                    break
+                }
+        }
+    }
+    
     public func getSignUpData() {
         let url = CommonConstants.BASE_URL + "User/SignUp"
         

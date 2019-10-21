@@ -361,3 +361,44 @@ extension Date {
         return "\("from".localized()) \(diff) \("weeks".localized())"
     }
 }
+
+extension Dictionary {
+    public func toString() -> String {
+        
+        var result = "{"
+        
+        for (key, value) in self {
+            if value is String {
+                result = result + "\"\(key)\"" + ":" + "\"\(value)\"" + ","
+            } else if value is [Dictionary] {
+                var jsonArrayString = "["
+                if (value as! [Dictionary]).count > 0 {
+                    for dict in (value as! [Dictionary]) {
+                        jsonArrayString = jsonArrayString + dict.toString() + ","
+                    }
+                    jsonArrayString.removeLast()
+                }
+                jsonArrayString = jsonArrayString + "]"
+                result = result + "\"\(key)\"" + ":" + "\(jsonArrayString)" + ","
+            } else if value is Dictionary {
+                let jsonObjectString = (value as! Dictionary).toString()
+                result = result + "\"\(key)\"" + ":" + jsonObjectString + ","
+            } else if value is DataType {
+                let dic = (value as! DataType).toJSON()!
+                let jsonObjectString = (dic as! Dictionary).toString()
+                result = result + "\"\(key)\"" + ":" + jsonObjectString + ","
+            } else {
+                result = result + "\"\(key)\"" + ":" + "\(value)" + ","
+            }
+            
+        }
+        
+        result.removeLast()
+        
+        result = result + "}"
+        result = result.replacingOccurrences(of: "(", with: "[")
+        result = result.replacingOccurrences(of: ")", with: "]")
+//        print(result)
+        return result
+    }
+}

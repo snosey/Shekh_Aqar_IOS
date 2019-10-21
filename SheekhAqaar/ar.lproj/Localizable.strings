@@ -143,3 +143,6 @@
 "searchPlaceHolder" = "اسم المكان";
 "search" = "بحث";
 "phoneAlreadyRegistered" = "رقم الهاتف مسجل مسبقا";
+"delete" = "مسح";
+"alreadyHaveCompany" = "لديك شركة مربوطه بحسابك";
+"companyCreated" = "تم انشاء شركتك بنجاح";

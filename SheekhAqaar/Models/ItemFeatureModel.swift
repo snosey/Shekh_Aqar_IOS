@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public class ItemFeatureModel {
+public class ItemFeatureModel: DataType {
     var name : String!
     var id : Int!
         

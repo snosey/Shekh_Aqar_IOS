@@ -160,21 +160,6 @@ extension CreateAdVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-//extension CreateAdVC: GMSPlacePickerViewControllerDelegate {
-//    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
-//        viewController.dismiss(animated: true, completion: nil)
-//
-//
-//    }
-//
-//    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
-//        // Dismiss the place picker, as it cannot dismiss itself.
-//        viewController.dismiss(animated: true, completion: nil)
-//
-//        print("No place selected")
-//    }
-//}
-
 extension CreateAdVC: CreateAdCellDelegate {
     func editAd(ad: Ad, adDetailsItems: [AdDetailsItem], images: [Data], imagesToBeRemoved: [Data]) {
         

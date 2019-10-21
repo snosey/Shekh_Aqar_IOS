@@ -16,6 +16,8 @@ public class AdDetailsItem: DataType {
     var spinnerDataArray: [SpinnerData]!
     var imageUrl: String!
     var dataSpinnerFK: Int!
+    var typeDataFK: Int!
+    var userItemFK: Int!
     
     //MARK: Decodable
     required public init?(json: JSON){
@@ -25,6 +27,8 @@ public class AdDetailsItem: DataType {
         imageUrl = "ImgURL" <~~ json
         spinnerDataArray = "DataSpinnerModel" <~~ json
         dataSpinnerFK = "Fk_DataSpinner" <~~ json
+        typeDataFK = "Fk_TypeData" <~~ json
+        userItemFK = "Fk_UserItem" <~~ json
     }
     
     public init() {
@@ -34,12 +38,14 @@ public class AdDetailsItem: DataType {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "Id" ~~> id,
+            "Fk_ItemMain" ~~> id,
             "Name" ~~> name,
             "Value" ~~> value,
             "ImgURL" ~~> imageUrl,
             "DataSpinnerModel" ~~> spinnerDataArray,
-            "Fk_DataSpinner" ~~> dataSpinnerFK
+            "Fk_DataSpinner" ~~> (dataSpinnerFK ?? 0),
+            "Fk_TypeData" ~~> typeDataFK,
+            "Fk_UserItem" ~~> (userItemFK ?? 0),
             ])
     }
 }

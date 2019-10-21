@@ -113,7 +113,10 @@ extension RegisterCompanyVC: RegisterCompanyView {
             Defaults[.company] = company.toJSON()
         }
         
-        navigator.navigateToHome()
+        self.view.makeToast("companyCreated".localized(), duration: 3) {
+            self.navigator.navigateToHome()
+        }
+        
     }
     
     func failed(errorMessage: String) {

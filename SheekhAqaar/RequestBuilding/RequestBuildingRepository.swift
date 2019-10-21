@@ -59,46 +59,49 @@ public class RequestBuildingRepository {
         
         Alamofire.upload(
             multipartFormData: { MultipartFormData in
-//                if images.count == 1 {
-//                    let data = images[0]
-//                    MultipartFormData.append(data, withName: "ImgFile", fileName: "file.jpg", mimeType:"image/*")
-//                } else if images.count > 1 {
-//                    for (index, img) in images.enumerated() {
-//                        let data = img
-//                        MultipartFormData.append(data, withName: "ImgFile", fileName: "file\(index).jpg", mimeType:"image/*")
-//                    }
-//                }else {}
-                let adJsonObject = try? JSONSerialization.data(withJSONObject: ad.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                MultipartFormData.append(adJsonObject!, withName: "UserItemString")
+                let adDic = ad.toJSON()!
+                MultipartFormData.append((adDic.toString().data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"UserItemString")
                 
                 let additionalFacilities = ad.additionalFacilities
                 
-                var additionalFacilitiesJsonArray = [Data]()
-                var adDetailsItemsJsonArray = [Data]()
                 
+                var additionalFacilitiesJsonArrayResult = "["
                 for facility in additionalFacilities ?? [] {
-                    let facilityJsonObject = try? JSONSerialization.data(withJSONObject: facility.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                    additionalFacilitiesJsonArray.append(facilityJsonObject!)
-                    
+                    let facilityDic = facility.toJSON()!
+                    additionalFacilitiesJsonArrayResult = additionalFacilitiesJsonArrayResult + facilityDic.toString() + ","
                 }
                 
+                additionalFacilitiesJsonArrayResult.removeLast()
+                additionalFacilitiesJsonArrayResult = additionalFacilitiesJsonArrayResult + "]"
+                additionalFacilitiesJsonArrayResult = additionalFacilitiesJsonArrayResult.replacingOccurrences(of: "\\", with: "")
+                
+                MultipartFormData.append((additionalFacilitiesJsonArrayResult.data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"UserItemFeatureString")
+                
+                var adDetailsItemsJsonArrayResult = "["
                 for adDetailsItem in adDetailsItems {
-                    let itemJsonObject = try? JSONSerialization.data(withJSONObject: adDetailsItem.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                    adDetailsItemsJsonArray.append(itemJsonObject!)
+                    let adDetailsItemDic = adDetailsItem.toJSON()!
+                    adDetailsItemsJsonArrayResult = adDetailsItemsJsonArrayResult + adDetailsItemDic.toString() + ","
                 }
                 
-                let jsonArr1 = try? JSONEncoder().encode(additionalFacilitiesJsonArray)
-                MultipartFormData.append(jsonArr1!, withName: "UserItemFeatureString")
+                adDetailsItemsJsonArrayResult.removeLast()
+                adDetailsItemsJsonArrayResult = adDetailsItemsJsonArrayResult + "]"
+                adDetailsItemsJsonArrayResult = adDetailsItemsJsonArrayResult.replacingOccurrences(of: "\\", with: "")
                 
-                let jsonArr2 = try? JSONEncoder().encode(adDetailsItemsJsonArray)
-                MultipartFormData.append(jsonArr2!, withName: "UserItemMainString")
+                MultipartFormData.append((adDetailsItemsJsonArrayResult.data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"UserItemMainString")
                 
         }, to: url) { (result) in
             
             switch result {
-            case .success(_, _, _):
-                print(result)
-                self.delegate.requestBuildingSuccess()
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    let json = (response.result.value as! Dictionary<String,AnyObject>)
+                    let status = Status(json: json["Status"] as! Dictionary<String, AnyObject>)!
+                    if status.id == 1 {
+                        self.delegate.requestBuildingSuccess()
+                    } else {
+                        self.delegate.failed(errorMessage: (status.message)!)
+                    }
+                }
                 break
                 
             case .failure(let error):

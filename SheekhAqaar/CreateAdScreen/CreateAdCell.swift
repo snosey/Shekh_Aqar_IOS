@@ -61,12 +61,15 @@ class CreateAdCell: UITableViewCell {
     var imagesToBeRemoved = [UIImage]()
     
     var cellsWithSpinnerCount = 0
+    var adId: Int!
     
-    public func showSelectedData(ad: Ad, selectedCountry: Country, selectedRegion: Region) {
+    public func showSelectedData(ad: Ad, selectedCountry: Country, selectedRegion: Region, mainCategoryName: String) {
+        self.adId = ad.id
         adTitleTextField.text = ad.name
         priceTextField.text = "\(ad.price!)"
         currencyLabel.text = ad.currency.name
         adDetailsTextField.text = ad.details
+        categoryLabel.text = mainCategoryName
         adTypeLabel.text = ad.subCategory.name
         areaTextField.text = "\(ad.placeArea!)"
         countryLabel.text = selectedCountry.name
@@ -161,6 +164,7 @@ class CreateAdCell: UITableViewCell {
                                 var imagesData = [Data]()
                                 
                                 let ad = Ad()
+                                ad.id = self?.adId ?? 0
                                 ad.name = adTitle
                                 ad.price = Int(price) ?? 0
                                 ad.details = details
