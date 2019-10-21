@@ -160,21 +160,6 @@ extension CreateAdVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-//extension CreateAdVC: GMSPlacePickerViewControllerDelegate {
-//    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
-//        viewController.dismiss(animated: true, completion: nil)
-//
-//
-//    }
-//
-//    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
-//        // Dismiss the place picker, as it cannot dismiss itself.
-//        viewController.dismiss(animated: true, completion: nil)
-//
-//        print("No place selected")
-//    }
-//}
-
 extension CreateAdVC: CreateAdCellDelegate {
     func editAd(ad: Ad, adDetailsItems: [AdDetailsItem], images: [Data], imagesToBeRemoved: [Data]) {
         
@@ -212,7 +197,7 @@ extension CreateAdVC: CreateAdCellDelegate {
                         ad.subCategoryId = selectedAdType.id
                         ad.userId = user?.id
                         ad.user = user
-                        ad.adTypeId = 2
+                        ad.adTypeId = 3
                         ad.latitude = String(selectedLatitude)
                         ad.longitude = String(selectedLongitude)
                         ad.viewCount = 0
@@ -387,7 +372,7 @@ extension CreateAdVC: CreateAdCellDelegate {
     }
     
     func getLocationFromGoogleMaps() {
-        self.navigator.navigateToAddressPicker(delegate: self)
+        self.navigator.navigateToAddressPickerWithMap(delegate: self)
 //        let config = GMSPlacePickerConfig(viewport: nil)
 //        let placePicker = GMSPlacePickerViewController(config: config)
 //        placePicker.delegate = self

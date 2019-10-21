@@ -46,8 +46,17 @@ class RequestBuildingCell: UITableViewCell {
     
     var adDetailsItems = [AdDetailsItem]()
     var additionalFacilities = [AdditionalFacility]()
-    
+    var cellsWithSpinnerCount = 0
     public var delegate: RequestBuildingCellDelegate!
+    
+    func resetCellsWithSpinnerCount() {
+        cellsWithSpinnerCount = 0
+        for item in adDetailsItems {
+            if item.spinnerDataArray.count > 0 {
+                cellsWithSpinnerCount = cellsWithSpinnerCount + 1
+            }
+        }
+    }
 
     public func initializeCell() {
         
@@ -58,6 +67,8 @@ class RequestBuildingCell: UITableViewCell {
         adDetailsTableView.dataSource = self
         adDetailsTableView.delegate = self
         adDetailsTableView.reloadData()
+        
+        resetCellsWithSpinnerCount()
         
         currencyView.addTapGesture { [weak self] (_) in
             self?.delegate.showCurrencies()
@@ -136,12 +147,14 @@ class RequestBuildingCell: UITableViewCell {
                                                 return
                                             }
                                         } else if (cell as? AdDetailsWithSpinnerCell) != nil {
-                                            item.dataSpinnerFK = item.spinnerDataArray[index].id
+                                            item.dataSpinnerFK = item.spinnerDataArray[(self?.cellsWithSpinnerCount ?? 0) - 1].id
+                                            self?.cellsWithSpinnerCount = (self?.cellsWithSpinnerCount ?? 0) - 1
                                         }
                                         index = index + 1
                                     }
                                     
                                     self?.delegate.requestBuilding(ad: ad, adDetailsItems: self?.adDetailsItems ?? [])
+                                    self?.resetCellsWithSpinnerCount()
                                 }
                                 
                                 

@@ -29,6 +29,7 @@ class PhoneVerificationVC: BaseVC {
     @IBOutlet weak var digit5: UITextField!
     @IBOutlet weak var digit6: UITextField!
     
+    @IBOutlet weak var clearDigitsLabel: LocalizedLabel!
     @IBOutlet weak var resendCodeLabel: LocalizedLabel!
     @IBOutlet weak var backLabel: LocalizedLabel!
     @IBOutlet weak var confirmButton: LocalizedButton!
@@ -47,6 +48,15 @@ class PhoneVerificationVC: BaseVC {
         
         UiHelpers.makeLabelUnderlined(label: resendCodeLabel)
         UiHelpers.makeLabelUnderlined(label: backLabel)
+        
+        clearDigitsLabel.addTapGesture { [weak self](_) in
+            self?.digit1.text = ""
+            self?.digit2.text = ""
+            self?.digit3.text = ""
+            self?.digit4.text = ""
+            self?.digit5.text = ""
+            self?.digit6.text = ""
+        }
         
         resendCodeLabel.addTapGesture { [weak self](_) in
             self?.digit1.text = ""

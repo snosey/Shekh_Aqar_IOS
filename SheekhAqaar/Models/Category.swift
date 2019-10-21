@@ -14,7 +14,7 @@ public class Category: DataType {
     var name : String!
     var id : Int!
     var hexCode: String!
-    
+    var mainCategoryId: Int!
     var subCategories: [Category]!
     
     var isClicked = false
@@ -24,6 +24,7 @@ public class Category: DataType {
         name = "Name" <~~ json
         id = "Id" <~~ json
         hexCode = "HexColor" <~~ json
+        mainCategoryId = "Fk_MainCategory" <~~ json
     }
     
     public init() {
@@ -46,6 +47,7 @@ public class Category: DataType {
             "Name" ~~> name,
             "Id" ~~> id,
             "HexColor" ~~> hexCode,
+            "Fk_MainCategory" ~~> mainCategoryId,
             ])
     }
     

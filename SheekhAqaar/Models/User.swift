@@ -22,6 +22,10 @@ public class User: DataType {
     var regionId: Int!
     var userType: Int!
     var companies: [Company]!
+    var appVersion: String!
+    var mobileOS: String!
+    var password: String!
+    var mobileOSVersion: String!
     
     //MARK: Decodable
     required public init?(json: JSON){
@@ -36,6 +40,10 @@ public class User: DataType {
         userType = "Fk_UserType" <~~ json
         fcmToken = "OneSiganlToken" <~~ json
         companies = "CompaniesModel" <~~ json
+        appVersion = "AppVersion" <~~ json
+        mobileOS = "MobileOS" <~~ json
+        password = "Password" <~~ json
+        mobileOSVersion = "MobileVersion" <~~ json
     }
     
     public init() {
@@ -56,6 +64,10 @@ public class User: DataType {
             "Fk_UserType" ~~> userType,
             "OneSiganlToken" ~~> fcmToken,
             "CompaniesModel" ~~> companies,
+            "AppVersion" ~~> appVersion,
+            "MobileOS" ~~> mobileOS,
+            "Password" ~~> password,
+            "MobileVersion" ~~> mobileOSVersion,
             ])
     }
     

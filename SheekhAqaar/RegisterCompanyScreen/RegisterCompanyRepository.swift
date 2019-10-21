@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyUserDefaults
+import Localize_Swift
 
 public protocol RegisterCompanyPresenterDelegate: class {
     func registerCompanySuccess(user: User)
@@ -24,47 +25,52 @@ public class RegisterCompanyRepository {
     
     public func registerCompany(userPhoneNumber: String, userName: String, userImage: Data, companyImage: Data, companyServices: [Category], companyName: String, companyTraditionalNumber: String, companyPhoneNumber: String, companyEmail: String, companyCountry: Country, companyRegion: Region, detailedAddress: String, companyLatitude: Double, companyLongitude: Double, userSelectedCountry: Country, companySelectedCountry: Country) {
         
-        let url = CommonConstants.BASE_URL + "Company/SignUp"
-
         let user = User()
         user.id = User(json: Defaults[.user]!)?.id
         user.countryId = userSelectedCountry.id
         user.name = userName
-        user.phoneNumber = userPhoneNumber
+        user.phoneNumber = "+" + userSelectedCountry.code + userPhoneNumber
         user.language = 0
         user.userType = UserType.USER.rawValue
+        user.token = User(json: Defaults[.user]!)?.token
         
         let company = Company()
         company.regionId = companyRegion.id
         company.name = companyName
         company.commercialNumber = Int(companyTraditionalNumber)!
-        company.phoneNumber = companyPhoneNumber
+        company.phoneNumber =  "+" + companySelectedCountry.code + companyPhoneNumber
         company.email = companyEmail
         company.address = detailedAddress
         company.latitude = String(companyLatitude)
         company.longitude = String(companyLongitude)
+        company.numberOfAds = 0
+        company.companyTypes = []
+        company.userId = user.id
+        
+        let url = CommonConstants.BASE_URL + "Company/SignUp"
         
         Alamofire.upload(
             multipartFormData: { MultipartFormData in
                 MultipartFormData.append(userImage, withName: "ImgFile", fileName: "file1.jpg", mimeType:"image/*")
                 MultipartFormData.append(companyImage, withName: "ImgFile2", fileName: "file2.jpg", mimeType:"image/*")
+               
+                let userDic = user.toJSON()!
+                MultipartFormData.append((userDic.toString().data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"UserModel")
                 
-                let userJsonObject = try? JSONSerialization.data(withJSONObject: user.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                MultipartFormData.append(userJsonObject!, withName: "UserModel")
+                let companyDic = company.toJSON()!
+                MultipartFormData.append((companyDic.toString().data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"CompanyModel")
                 
-                let companyJsonObject = try? JSONSerialization.data(withJSONObject: company.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                MultipartFormData.append(companyJsonObject!, withName: "CompanyModel")
-                
-                var servicesJsonArray = [Data]()
-                
+                var jsonArrayResult = "["
                 for service in companyServices {
-                    let serviceJsonObject = try? JSONSerialization.data(withJSONObject: service.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                    servicesJsonArray.append(serviceJsonObject!)
-                    
+                    let serviceDic = service.toJSON()! as! Dictionary<String, AnyObject>
+                    jsonArrayResult = jsonArrayResult + serviceDic.toString() + ","
                 }
+
+                jsonArrayResult.removeLast()
+                jsonArrayResult = jsonArrayResult + "]"
+                jsonArrayResult = jsonArrayResult.replacingOccurrences(of: "\\", with: "")
                 
-                let jsonArr = try? JSONEncoder().encode(servicesJsonArray)
-                MultipartFormData.append(jsonArr!, withName: "OrgTypeModel")
+                MultipartFormData.append((jsonArrayResult.data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"OrgTypeModel")
                 
         }, to: url) { (result) in
             

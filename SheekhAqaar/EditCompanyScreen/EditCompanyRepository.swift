@@ -97,22 +97,23 @@ public class EditCompanyRepository {
                 MultipartFormData.append(userImage, withName: "ImgFile", fileName: "file1.jpg", mimeType:"image/*")
                 MultipartFormData.append(companyImage, withName: "ImgFile2", fileName: "file2.jpg", mimeType:"image/*")
                 
-                let userJsonObject = try? JSONSerialization.data(withJSONObject: user.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                MultipartFormData.append(userJsonObject!, withName: "UserModel")
+                let userDic = user.toJSON()!
+                MultipartFormData.append((userDic.toString().data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"UserModel")
                 
-                let companyJsonObject = try? JSONSerialization.data(withJSONObject: company.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                MultipartFormData.append(companyJsonObject!, withName: "CompanyModel")
+                let companyDic = company.toJSON()!
+                MultipartFormData.append((companyDic.toString().data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"CompanyModel")
                 
-                var servicesJsonArray = [Data]()
-                
+                var jsonArrayResult = "["
                 for service in companyServices {
-                    let serviceJsonObject = try? JSONSerialization.data(withJSONObject: service.toJSON()!, options: JSONSerialization.WritingOptions(rawValue: 0))
-                    servicesJsonArray.append(serviceJsonObject!)
-                    
+                    let serviceDic = service.toJSON()!
+                    jsonArrayResult = jsonArrayResult + serviceDic.toString() + ","
                 }
                 
-                let jsonArr = try? JSONEncoder().encode(servicesJsonArray)
-                MultipartFormData.append(jsonArr!, withName: "OrgTypeModel")
+                jsonArrayResult.removeLast()
+                jsonArrayResult = jsonArrayResult + "]"
+                jsonArrayResult = jsonArrayResult.replacingOccurrences(of: "\\", with: "")
+                
+                MultipartFormData.append((jsonArrayResult.data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"OrgTypeModel")
                 
         }, to: url) { (result) in
             

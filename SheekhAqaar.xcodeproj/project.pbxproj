@@ -182,6 +182,7 @@
 		E8DAFE8D231185A600C2F005 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE8C231185A600C2F005 /* Category.swift */; };
 		E8E469352346A37600C02FD7 /* EditProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8E469342346A37600C02FD7 /* EditProfileStoryboard.storyboard */; };
 		E8E469372346A48200C02FD7 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E469362346A48200C02FD7 /* EditProfileVC.swift */; };
+		E8E4BB682353226A004CC699 /* AddressPickerWithMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4BB672353226A004CC699 /* AddressPickerWithMapVC.swift */; };
 		E8E4E6132313F26500A46C99 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6122313F26500A46C99 /* SignUpPresenter.swift */; };
 		E8E4E6152313F27000A46C99 /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6142313F27000A46C99 /* SignUpRepository.swift */; };
 		E8E4E6172313F62400A46C99 /* SignUp1Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E6162313F62400A46C99 /* SignUp1Presenter.swift */; };
@@ -418,6 +419,7 @@
 		E8DAFE8C231185A600C2F005 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E8E469342346A37600C02FD7 /* EditProfileStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		E8E469362346A48200C02FD7 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		E8E4BB672353226A004CC699 /* AddressPickerWithMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPickerWithMapVC.swift; sourceTree = "<group>"; };
 		E8E4E6122313F26500A46C99 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		E8E4E6142313F27000A46C99 /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
 		E8E4E6162313F62400A46C99 /* SignUp1Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp1Presenter.swift; sourceTree = "<group>"; };
@@ -852,6 +854,7 @@
 		E8AEE4B0234CF4460016D81F /* AddressPicker */ = {
 			isa = PBXGroup;
 			children = (
+				E8E4BB6623532253004CC699 /* AddressPickerWithMap */,
 				E8AEE4B1234CF4620016D81F /* AddressPickerStoryboard.storyboard */,
 				E8AEE4B6234CF61F0016D81F /* AddressPickerVC.swift */,
 				E8AEE4B4234CF61F0016D81F /* AddressCell.swift */,
@@ -890,6 +893,14 @@
 				E8E469362346A48200C02FD7 /* EditProfileVC.swift */,
 			);
 			path = EditProfileScreen;
+			sourceTree = "<group>";
+		};
+		E8E4BB6623532253004CC699 /* AddressPickerWithMap */ = {
+			isa = PBXGroup;
+			children = (
+				E8E4BB672353226A004CC699 /* AddressPickerWithMapVC.swift */,
+			);
+			path = AddressPickerWithMap;
 			sourceTree = "<group>";
 		};
 		EFD2FD269832BDC832A98A6F /* Pods */ = {
@@ -1259,6 +1270,7 @@
 				E8E4E61B2313F72500A46C99 /* User.swift in Sources */,
 				E8E4E623231402AE00A46C99 /* HomeRepository.swift in Sources */,
 				E84CCCB8233944FE00A9829A /* HelpPresenter.swift in Sources */,
+				E8E4BB682353226A004CC699 /* AddressPickerWithMapVC.swift in Sources */,
 				E86FA0D9230EABBA005A88D2 /* DataType.swift in Sources */,
 				E824748A2308278800211FDB /* BlockWebView.swift in Sources */,
 				E8AEE4B8234CF61F0016D81F /* AddressCell.swift in Sources */,

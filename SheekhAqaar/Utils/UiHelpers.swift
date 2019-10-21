@@ -14,6 +14,7 @@ import SystemConfiguration
 import SideMenu
 import Localize_Swift
 import GoogleMaps
+import Alamofire
 
 class UiHelpers {
 
@@ -175,6 +176,55 @@ class UiHelpers {
         
     }
     
+    class func getAddressFromLocation(latitude: Double, longitude: Double, completion: @escaping (String, String?, Bool)->()) {
+        let parameters = [
+            "latlng" : "\(latitude),\(longitude)",
+            "sensor" : true,
+            "language" : Localize.currentLanguage(),
+            "key" : CommonConstants.GOOGLE_MAPS_KEY] as [String : Any]
+        
+        Alamofire.request("https://maps.googleapis.com/maps/api/geocode/json", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+            
+            switch response.result {
+            case .success(_):
+                if let json = (response.result.value as? Dictionary<String,AnyObject>) {
+                    if let results = json["results"] as? [Dictionary<String,AnyObject>], results.count > 0 {
+                        var address = ""
+                        var country: String?
+                        let result = results[0]
+                        if let address1 = result["formatted_address"] as? String {
+                            address = address1
+                        }
+                        if let addressComponents = json["address_components"] as? [Dictionary<String,AnyObject>] {
+                            for addressComponent in addressComponents {
+                                if let types = addressComponent["types"] as? [String] {
+                                    for type in types {
+                                        if type == "country" {
+                                            country = addressComponent["short_name"] as? String
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        if country == "" {
+                            completion(address, nil, true)
+                        } else {
+                            completion(address, country, true)
+                        }
+                    }
+                } else {
+                    completion("", nil, false)
+                }
+                break
+                
+            case .failure(let error):
+                completion(error.localizedDescription, nil, false)
+                break
+            }
+        }
+    }
+    
     class func shareImage(sharableImage: UIImage, sourceView: UIView, vc: BaseVC) {
         let activityViewController = UIActivityViewController(activityItems : [sharableImage], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = sourceView
@@ -309,5 +359,46 @@ extension Date {
         }
         let diff = Calendar.current.dateComponents([.weekOfYear], from: self, to: Date()).weekOfYear ?? 0
         return "\("from".localized()) \(diff) \("weeks".localized())"
+    }
+}
+
+extension Dictionary {
+    public func toString() -> String {
+        
+        var result = "{"
+        
+        for (key, value) in self {
+            if value is String {
+                result = result + "\"\(key)\"" + ":" + "\"\(value)\"" + ","
+            } else if value is [Dictionary] {
+                var jsonArrayString = "["
+                if (value as! [Dictionary]).count > 0 {
+                    for dict in (value as! [Dictionary]) {
+                        jsonArrayString = jsonArrayString + dict.toString() + ","
+                    }
+                    jsonArrayString.removeLast()
+                }
+                jsonArrayString = jsonArrayString + "]"
+                result = result + "\"\(key)\"" + ":" + "\(jsonArrayString)" + ","
+            } else if value is Dictionary {
+                let jsonObjectString = (value as! Dictionary).toString()
+                result = result + "\"\(key)\"" + ":" + jsonObjectString + ","
+            } else if value is DataType {
+                let dic = (value as! DataType).toJSON()!
+                let jsonObjectString = (dic as! Dictionary).toString()
+                result = result + "\"\(key)\"" + ":" + jsonObjectString + ","
+            } else {
+                result = result + "\"\(key)\"" + ":" + "\(value)" + ","
+            }
+            
+        }
+        
+        result.removeLast()
+        
+        result = result + "}"
+        result = result.replacingOccurrences(of: "(", with: "[")
+        result = result.replacingOccurrences(of: ")", with: "]")
+//        print(result)
+        return result
     }
 }

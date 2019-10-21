@@ -17,11 +17,17 @@ import GooglePlaces
 
 public class ApplicationStarter {
     
+    
+    var window: UIWindow?
+    
     func startApplication(window: UIWindow?) {
         
         FirebaseApp.configure()
         
         Localize.setCurrentLanguage("ar")
+        
+        self.window = window
+        
         
         GMSServices.provideAPIKey(CommonConstants.GOOGLE_MAPS_KEY)
         GMSPlacesClient.provideAPIKey(CommonConstants.GOOGLE_MAPS_KEY)
@@ -44,30 +50,35 @@ public class ApplicationStarter {
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.AppColors.primaryColor, NSAttributedString.Key.font: AppFont.font(type: .Bold, size: 12)], for: .selected)
         
+        checkUserExistAndDecideTheWay()
         
-        
+    }
+    
+    private func checkUserExistAndDecideTheWay() {
+        let repo = Injector.provideSignUpRepository()
         var vc: UIViewController!
         vc = SignUpVC.buildVC()
         if let _ = Defaults[.user] {
-            vc = HomeVC.buildVC()
+            let user = User(json: Defaults[.user]!)!
+            repo.setDelegate(delegate: self)
+            repo.login(token: user.token)
         } else {
             if let isSkipped = Defaults[.isSkipped], isSkipped {
                 vc = HomeVC.buildVC()
             } else {
                 vc = SignUpVC.buildVC()
             }
+            
+            navigateToSpecificScreen(vc: vc)
         }
-        
+    }
+
+    private func navigateToSpecificScreen(vc: UIViewController) {
         let navigationController = UINavigationController(rootViewController: vc)
         navigationController.navigationBar.barStyle = .black
-//        navigationController.navigationBar.setStyle(style: .solid, tintColor: UIColor.white, forgroundColor: .white)
-        
-        //navigationController.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "back"), for: UIBarMetrics.default)
-        //navigationController.navigationBar.setStyle(style: .solid, tintColor: UIColor.AppColors., forgroundColor: .white)
         navigationController.navigationBar.isHidden = true
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        
     }
     
     private func setSemanticContentAttributeAndContentHorizontalAlignment(semanticContentAttribute: UISemanticContentAttribute,contentHorizontalAlignment: UIControl.ContentHorizontalAlignment) {
@@ -93,5 +104,28 @@ public class ApplicationStarter {
         UISearchBar.appearance().semanticContentAttribute = semanticContentAttribute
         UIProgressView.appearance().semanticContentAttribute = semanticContentAttribute
         UITextField.appearance().semanticContentAttribute = semanticContentAttribute
+    }
+}
+
+extension ApplicationStarter: SignUpPresenterDelegate {
+    public func loginSuccess(user: User?, isExist: Bool) {
+        
+        var vc: UIViewController!
+        
+        if isExist {
+            vc = HomeVC.buildVC()
+        } else {
+            vc = SignUpVC.buildVC()
+        }
+        
+        navigateToSpecificScreen(vc: vc)
+    }
+    
+    public func getSignUpDataSuccess(signUpData: SignUpData) {
+        
+    }
+    
+    public func failed(errorMessage: String) {
+        print(errorMessage)
     }
 }

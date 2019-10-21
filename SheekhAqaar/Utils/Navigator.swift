@@ -128,4 +128,11 @@ public class Navigator {
             self.navigationController.pushViewController(vc, animated: true)
         }
     }
+    
+    public func navigateToAddressPickerWithMap(delegate: LocationSelectionDelegate) {
+        weak var vc = AddressPickerWithMapVC.buildVC(delegate: delegate)
+        if let vc = vc {
+            self.navigationController.pushViewController(vc, animated: true)
+        }
+    }
 }

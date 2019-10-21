@@ -151,6 +151,15 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="resendCode"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fus-3u-CgQ" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                <rect key="frame" x="41.5" y="350.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="delete"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -165,7 +174,9 @@
                             <constraint firstItem="l97-Pq-Y20" firstAttribute="trailing" secondItem="Czf-uK-lzo" secondAttribute="trailing" id="Kb6-o2-bfh"/>
                             <constraint firstItem="h4w-4O-nLQ" firstAttribute="centerX" secondItem="l97-Pq-Y20" secondAttribute="centerX" id="Obz-XI-xG4"/>
                             <constraint firstItem="l97-Pq-Y20" firstAttribute="trailing" secondItem="Izb-Hd-eV2" secondAttribute="trailing" id="OzC-GJ-907"/>
+                            <constraint firstItem="Fus-3u-CgQ" firstAttribute="top" secondItem="0eh-3b-A7C" secondAttribute="bottom" constant="16" id="RbK-gS-PlE"/>
                             <constraint firstItem="cRa-Uk-9HY" firstAttribute="height" secondItem="l97-Pq-Y20" secondAttribute="height" multiplier="0.05" id="Uyr-JO-ngC"/>
+                            <constraint firstItem="Fus-3u-CgQ" firstAttribute="leading" secondItem="0eh-3b-A7C" secondAttribute="leading" id="WWd-gd-j8k"/>
                             <constraint firstItem="0eh-3b-A7C" firstAttribute="width" secondItem="l97-Pq-Y20" secondAttribute="width" multiplier="0.8" id="bQ6-CV-u3R"/>
                             <constraint firstItem="cRa-Uk-9HY" firstAttribute="centerX" secondItem="l97-Pq-Y20" secondAttribute="centerX" id="cBV-kW-ins"/>
                             <constraint firstItem="Cd2-s9-CqS" firstAttribute="top" secondItem="h4w-4O-nLQ" secondAttribute="bottom" constant="24" id="fGZ-xv-62p"/>
@@ -186,6 +197,7 @@
                     </view>
                     <connections>
                         <outlet property="backLabel" destination="Izb-Hd-eV2" id="xfU-4x-9q0"/>
+                        <outlet property="clearDigitsLabel" destination="Fus-3u-CgQ" id="cP5-9l-23l"/>
                         <outlet property="confirmButton" destination="cRa-Uk-9HY" id="chB-pn-ch7"/>
                         <outlet property="digit1" destination="qrB-3f-wEb" id="z9a-UA-aRy"/>
                         <outlet property="digit2" destination="zzP-fQ-gVe" id="4Ex-zQ-ROz"/>

@@ -148,20 +148,26 @@ extension EditCompanyVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension EditCompanyVC: GMSPlacePickerViewControllerDelegate {
-    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
-        viewController.dismiss(animated: true, completion: nil)
-        
-        cell.addressOnMapLabel.text = place.formattedAddress
-        self.selectedLatitude = place.coordinate.latitude
-        self.selectedLongitude = place.coordinate.longitude
-    }
-    
-    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
-        // Dismiss the place picker, as it cannot dismiss itself.
-        viewController.dismiss(animated: true, completion: nil)
-        
-        print("No place selected")
+//extension EditCompanyVC: GMSPlacePickerViewControllerDelegate {
+//    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+//        viewController.dismiss(animated: true, completion: nil)
+//
+
+//    }
+//
+//    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+//        // Dismiss the place picker, as it cannot dismiss itself.
+//        viewController.dismiss(animated: true, completion: nil)
+//
+//        print("No place selected")
+//    }
+//}
+
+extension EditCompanyVC: LocationSelectionDelegate {
+    func locationSelected(address: Address) {
+        cell.addressOnMapLabel.text = address.addressName
+        self.selectedLatitude = address.latitude
+        self.selectedLongitude = address.longitude
     }
 }
 
@@ -225,10 +231,11 @@ extension EditCompanyVC: CountriesListDelegate {
 
 extension EditCompanyVC: RegisterCompanyCellDelegate {
     func pickPlaceClicked() {
-        let config = GMSPlacePickerConfig(viewport: nil)
-        let placePicker = GMSPlacePickerViewController(config: config)
-        placePicker.delegate = self
-        present(placePicker, animated: true, completion: nil)
+        self.navigator.navigateToAddressPickerWithMap(delegate: self)
+//        let config = GMSPlacePickerConfig(viewport: nil)
+//        let placePicker = GMSPlacePickerViewController(config: config)
+//        placePicker.delegate = self
+//        present(placePicker, animated: true, completion: nil)
     }
     
     func serviceChecked(checked: Bool, index: Int) {

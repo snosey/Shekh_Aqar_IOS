@@ -70,7 +70,7 @@
 "downloadGoogleMaps" = "من فضلك قم بتنزيل تطبيق خرائط جوجل";
 "whatsappChat" = "محادثة عبر واتساب";
 "downloadWhatsApp" = "من فضلك قم بتنزيل تطبيق واتس اب";
-"help" = "المساعدة";
+"help" = "تواصل معنا";
 "logout" = "تسجيل الخروج";
 "homeScreen" = "الصفحة الرئيسية";
 "editProfile" = "تعديل الصفحة الشخصية";
@@ -142,3 +142,7 @@
 "ok" = "أوك";
 "searchPlaceHolder" = "اسم المكان";
 "search" = "بحث";
+"phoneAlreadyRegistered" = "رقم الهاتف مسجل مسبقا";
+"delete" = "مسح";
+"alreadyHaveCompany" = "لديك شركة مربوطه بحسابك";
+"companyCreated" = "تم انشاء شركتك بنجاح";

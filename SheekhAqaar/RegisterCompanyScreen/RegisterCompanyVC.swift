@@ -49,6 +49,16 @@ class RegisterCompanyVC: BaseVC {
         presenter = Injector.provideRegisterCompanyPresenter()
         presenter.setView(view: self)
         
+        if let _ = Defaults[.user] {
+            
+            for country in Singleton.getInstance().signUpData.countries {
+                if country.id == User(json: Defaults[.user]!)?.countryId {
+                    userSelectedCountry = country
+                    break
+                }
+            }
+        }
+        
         companyDataTableView.dataSource = self
         companyDataTableView.delegate = self
         companyDataTableView.reloadData()
@@ -103,7 +113,10 @@ extension RegisterCompanyVC: RegisterCompanyView {
             Defaults[.company] = company.toJSON()
         }
         
-        navigator.navigateToHome()
+        self.view.makeToast("companyCreated".localized(), duration: 3) {
+            self.navigator.navigateToHome()
+        }
+        
     }
     
     func failed(errorMessage: String) {
@@ -141,21 +154,6 @@ extension RegisterCompanyVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-//extension RegisterCompanyVC: GMSPlacePickerViewControllerDelegate {
-//    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
-//        viewController.dismiss(animated: true, completion: nil)
-//
-//
-//    }
-//
-//    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
-//        // Dismiss the place picker, as it cannot dismiss itself.
-//        viewController.dismiss(animated: true, completion: nil)
-//
-//        print("No place selected")
-//    }
-//}
-
 extension RegisterCompanyVC: LocationSelectionDelegate {
     func locationSelected(address: Address) {
         cell.addressOnMapLabel.text = address.addressName
@@ -166,11 +164,7 @@ extension RegisterCompanyVC: LocationSelectionDelegate {
 
 extension RegisterCompanyVC: RegisterCompanyCellDelegate {
     func pickPlaceClicked() {
-        self.navigator.navigateToAddressPicker(delegate: self)
-//        let config = GMSPlacePickerConfig(viewport: nil)
-//        let placePicker = GMSPlacePickerViewController(config: config)
-//        placePicker.delegate = self
-//        present(placePicker, animated: true, completion: nil)
+        self.navigator.navigateToAddressPickerWithMap(delegate: self)
     }
     
     func serviceChecked(checked: Bool, index: Int) {
@@ -250,12 +244,12 @@ extension RegisterCompanyVC: RegisterCompanyCellDelegate {
     }
     
     func changeRegion() {
-        if let _ = userSelectedCountry {
+        if let _ = companySelectedCountry {
             let dropDown = DropDown()
-            if let regions = userSelectedCountry?.regions, regions.count > 0 {
+            if let regions = companySelectedCountry?.regions, regions.count > 0 {
                 dropDown.anchorView = weakSelf?.cell.regionView
                 var dataSource = [String]()
-                for region in userSelectedCountry?.regions ?? [] {
+                for region in regions {
                     dataSource.append(region.name)
                 }
                 
@@ -263,7 +257,7 @@ extension RegisterCompanyVC: RegisterCompanyCellDelegate {
                 dropDown.selectionAction = { [weak self] (index: Int, item: String) in
                     self?.cell.regionNameLabel.text = item
                     self?.cell.regionNameLabel.textColor = .black
-                    self?.selectedRegion = self?.userSelectedCountry?.regions.get(index)
+                    self?.selectedRegion = self?.companySelectedCountry?.regions.get(index)
                 }
                 dropDown.direction = .any
                 dropDown.show()
@@ -493,6 +487,14 @@ extension RegisterCompanyVC: CountriesListDelegate {
                 companyCountryCode =  "+" + country.code
                 companySelectedCountry = country
                 cell.companySelectedCountry = country
+                
+                selectedRegion = nil
+                cell.regionNameLabel.text = "region".localized()
+                if #available(iOS 13.0, *) {
+                    cell.regionNameLabel.textColor = .placeholderText
+                } else {
+                    cell.regionNameLabel.textColor = .lightGray
+                }
             }
         }
     }

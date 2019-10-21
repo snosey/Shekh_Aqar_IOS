@@ -42,7 +42,7 @@ class EditAdVC: BaseVC {
     var selectedCurrency: Currency!
     
     var additionalFacilities = [AdditionalFacility]()
-    var selectedAddtionalFacilities: [AdditionalFacility] = [AdditionalFacility]()
+    var selectedAddtionalFacilities = [AdditionalFacility]()
     
     var regions = [Region]()
     var selectedRegion: Region!
@@ -126,11 +126,32 @@ extension EditAdVC: EditAdView {
         
         cell.adImages = ad.adImages
         
-        selectedCountry = countries?[0] // dummy while ask senosy
-        selectedRegion = selectedCountry.regions[0] // dummy while ask senosy
         
+        for country in countries ?? [] {
+            for region in country.regions {
+                if ad.company.regionId == region.id {
+                    selectedRegion = region
+                    selectedCountry = country
+                }
+            }
+        }
         
-        cell.showSelectedData(ad: ad, selectedCountry: selectedCountry, selectedRegion: selectedRegion)
+        selectedAdType = ad.subCategory
+        selectedCurrency = ad.currency
+        selectedLatitude = Double(ad.latitude)
+        selectedLongitude = Double(ad.longitude)
+        selectedAddtionalFacilities = ad.additionalFacilities
+        
+        var mainCategoryName = ""
+        
+        for category in categories {
+            if category.id == ad.subCategory.mainCategoryId {
+                mainCategoryName = category.name
+                selectedCategory = category
+            }
+        }
+        
+        cell.showSelectedData(ad: ad, selectedCountry: selectedCountry, selectedRegion: selectedRegion, mainCategoryName: mainCategoryName)
     }
     
     func editAdSuccess() {
@@ -387,7 +408,7 @@ extension EditAdVC: CreateAdCellDelegate {
     }
     
     func getLocationFromGoogleMaps() {
-        self.navigator.navigateToAddressPicker(delegate: self)
+        self.navigator.navigateToAddressPickerWithMap(delegate: self)
 //        let config = GMSPlacePickerConfig(viewport: nil)
 //        let placePicker = GMSPlacePickerViewController(config: config)
 //        placePicker.delegate = self

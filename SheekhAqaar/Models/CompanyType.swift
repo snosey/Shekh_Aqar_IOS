@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public class CompanyType {
+public class CompanyType: DataType {
     var companyId : Int!
     var id : Int!
     var serviceId: Int!
