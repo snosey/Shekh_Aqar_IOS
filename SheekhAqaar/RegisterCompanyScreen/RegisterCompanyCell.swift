@@ -61,6 +61,7 @@ class RegisterCompanyCell: UITableViewCell {
     @IBOutlet weak var backLabel: LocalizedLabel!
     @IBOutlet weak var companyServicesTableView: UITableView!
     
+    @IBOutlet weak var companyServicesTitleLabel: LocalizedLabel!
     var userImageChoosen: Bool = false
     var companyImageChoosen: Bool = false
     
@@ -87,8 +88,10 @@ class RegisterCompanyCell: UITableViewCell {
         }
         companyServicesTableView.reloadData()
         
-        companyPhoneNumberTextField.text = company.phoneNumber
-        companyCountryCodeLabel.text = "+" + companySelectedCountry.code
+        let countryCode = "+" + companySelectedCountry.code
+        
+        companyPhoneNumberTextField.text = company.phoneNumber.replacingOccurrences(of: countryCode, with: "")
+        companyCountryCodeLabel.text = countryCode
        
         if let url = URL(string: companySelectedCountry.imageUrl) {
             companyCountryCodeFlag.af_setImage(withURL: url)
@@ -159,6 +162,20 @@ class RegisterCompanyCell: UITableViewCell {
         
         companyAvatar.layer.masksToBounds = true
         companyAvatar.layer.cornerRadius = 50
+        
+        
+        companyServicesTableView.snp.remakeConstraints { (maker) in
+            maker.top.equalTo(companyServicesTitleLabel.snp.bottom).offset(8)
+            maker.leading.equalTo(bottomView).offset(8)
+            maker.trailing.equalTo(bottomView).offset(-8)
+            maker.height.equalTo(CGFloat(categories.count) * UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5))
+        }
+        
+        bottomView.snp.remakeConstraints { (maker) in
+            maker.top.equalTo(companyDataTitleLabel.snp.bottom).offset(8)
+            maker.leading.trailing.equalTo(topView)
+            maker.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 73) + (CGFloat(categories.count) * UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5)))
+        }
         
         companyServicesTableView.backgroundColor = .clear
         companyServicesTableView.dataSource = self

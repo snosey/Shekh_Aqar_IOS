@@ -79,10 +79,6 @@ public class HomeRepository {
                         requestAd.id = -2
                         requestAd.name = "أطلب عقار" + "    "
                         
-                        let registerAsCompany = Category()
-                        registerAsCompany.id = -3
-                        registerAsCompany.name = "أضف شركتك" + "    "
-                        
                         let requestedAds = Category()
                         requestedAds.id = -4
                         requestedAds.name = "العقارات المطلوبة" + "    "
@@ -90,8 +86,15 @@ public class HomeRepository {
                         firstCategories.append(requestedAds)
                         firstCategories.append(addAd)
                         firstCategories.append(requestAd)
-                        firstCategories.append(registerAsCompany)
                         
+                        if let _ = Defaults[.company] {
+                            
+                        } else {
+                            let registerAsCompany = Category()
+                            registerAsCompany.id = -3
+                            registerAsCompany.name = "أضف شركتك" + "    "
+                            firstCategories.append(registerAsCompany)
+                        }                        
                         
                         var secondCategories = [Category]()
                         var thirdCategories = [Category]()

@@ -66,7 +66,9 @@ class PhoneVerificationVC: BaseVC {
             self?.digit5.text = ""
             self?.digit6.text = ""
             
-            PhoneAuthProvider.provider().verifyPhoneNumber(self?.phoneNumber ?? "", uiDelegate: nil) { (verificationID, error) in
+            let phone = "\(self?.country.code ?? "")\(self?.phoneNumber ?? "")"
+            
+            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { (verificationID, error) in
                 if let error = error {
                     print("error :: \(error.localizedDescription)")
                     return

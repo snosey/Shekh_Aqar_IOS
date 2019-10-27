@@ -243,7 +243,11 @@ extension HomeVC: LocationSelectionDelegate {
         Singleton.getInstance().currentLongitude = address.longitude
         createMapView(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
         if let _ = selectedCategory {
-            presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+            if self.selectedCategoryPosition == 2 || self.selectedCategoryPosition == 3 {
+                self.presenter.getAds(subCategoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+            } else {
+                presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+            }
         }
         
         dismiss(animated: true, completion: nil)
@@ -662,7 +666,11 @@ extension HomeVC: GMSMapViewDelegate {
         Singleton.getInstance().currentLatitude = position.target.latitude
         Singleton.getInstance().currentLongitude = position.target.longitude
         if let _ = selectedCategory {
-            presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+            if self.selectedCategoryPosition == 2 || self.selectedCategoryPosition == 3 {
+                self.presenter.getAds(subCategoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+            } else {
+               presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+            }
         }
     }
 }

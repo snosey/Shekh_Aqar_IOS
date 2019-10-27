@@ -104,12 +104,16 @@ extension EditCompanyVC: EditCompanyView {
         selectedLatitude = Double(company.latitude)!
         selectedLongitude = Double(company.longitude)!
         
-        for region in companySelectedCountry!.regions {
-            if region.id == company.regionId {
-                selectedRegion = region
+        for country in Singleton.getInstance().signUpData.countries {
+            for region in country.regions {
+                if region.id == company.regionId {
+                    selectedRegion = region
+                    companySelectedCountry = country
+                }
             }
         }
         
+        cell.companySelectedCountry = companySelectedCountry
         cell.showCompanyData(company: company)
     }
     

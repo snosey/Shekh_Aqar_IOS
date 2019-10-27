@@ -31,7 +31,7 @@ class CreateAdCell: UITableViewCell {
     @IBOutlet weak var priceTextField: LocalizedTextField!
     @IBOutlet weak var currencyView: UIView!
     @IBOutlet weak var currencyLabel: LocalizedLabel!
-    @IBOutlet weak var adDetailsTextField: LocalizedTextField!
+    @IBOutlet weak var adDetailsTextView: LocalizedTextView!
     @IBOutlet weak var categoryView: UIView!
     @IBOutlet weak var categoryLabel: LocalizedLabel!
     @IBOutlet weak var adTypeView: UIView!
@@ -48,6 +48,7 @@ class CreateAdCell: UITableViewCell {
     @IBOutlet weak var additionalFacilitiesTableView: UITableView!
     @IBOutlet weak var publishAddButton: UIButton!
 
+    @IBOutlet weak var additionalFacilitiesTitleLabel: LocalizedLabel!
     var adDetailsItems = [AdDetailsItem]()
     var additionalFacilities = [AdditionalFacility]()
     
@@ -68,7 +69,7 @@ class CreateAdCell: UITableViewCell {
         adTitleTextField.text = ad.name
         priceTextField.text = "\(ad.price!)"
         currencyLabel.text = ad.currency.name
-        adDetailsTextField.text = ad.details
+        adDetailsTextView.text = ad.details
         categoryLabel.text = mainCategoryName
         adTypeLabel.text = ad.subCategory.name
         areaTextField.text = "\(ad.placeArea!)"
@@ -109,19 +110,33 @@ class CreateAdCell: UITableViewCell {
         photosCollectionView.delegate = self
         photosCollectionView.reloadData()
         
-        additionalFacilitiesTableView.dataSource = self
-        additionalFacilitiesTableView.delegate = self
-        additionalFacilitiesTableView.reloadData()
-        
         for item in adDetailsItems {
             if item.spinnerDataArray.count > 0 {
                 cellsWithSpinnerCount = cellsWithSpinnerCount + 1
             }
         }
         
+        adDetailsTableView.snp.remakeConstraints { (maker) in
+            maker.top.equalTo(detectLocationOnGoogleMaps.snp.bottom
+            ).offset(8)
+            maker.leading.trailing.equalTo(detectLocationOnGoogleMaps)
+            maker.height.equalTo(CGFloat(adDetailsItems.count) * UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 4))
+        }
+        
         adDetailsTableView.dataSource = self
         adDetailsTableView.delegate = self
         adDetailsTableView.reloadData()
+        
+        additionalFacilitiesTableView.snp.remakeConstraints { (maker) in
+            maker.top.equalTo(additionalFacilitiesTitleLabel.snp.bottom
+                ).offset(8)
+            maker.leading.trailing.equalTo(additionalFacilitiesTitleLabel)
+            maker.height.equalTo(CGFloat(additionalFacilities.count) * UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 4))
+        }
+        
+        additionalFacilitiesTableView.dataSource = self
+        additionalFacilitiesTableView.delegate = self
+        additionalFacilitiesTableView.reloadData()
         
         currencyView.addTapGesture { [weak self] (_) in
             self?.delegate.showCurrencies()
@@ -159,7 +174,7 @@ class CreateAdCell: UITableViewCell {
             if self?.selectedImages.count ?? 0 >= 3 {
                 if let adTitle = self?.adTitleTextField.text, !adTitle.isEmpty {
                     if let price = self?.priceTextField.text, !price.isEmpty {
-                        if let details = self?.adDetailsTextField.text, !details.isEmpty {
+                        if let details = self?.adDetailsTextView.text, !details.isEmpty {
                             if let area = self?.areaTextField.text, !area.isEmpty {
                                 var imagesData = [Data]()
                                 
