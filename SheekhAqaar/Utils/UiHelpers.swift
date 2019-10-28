@@ -18,48 +18,56 @@ import Alamofire
 
 class UiHelpers {
 
-    class func makeMarkerView(sourceView: UIView, companyName: String, adsNumber: Int, companyColorCode: String) -> UIView {
+    class func makeMarkerView(sourceView: UIView, companyName: String, secondLabelString: String, companyColorCode: String) -> UIView {
+        
+        
+//        let markerView = MarkerView()
+//        markerView.topLabel.text = companyName
+//        markerView.bottomLabel.text = secondLabelString
+//        markerView.topView.backgroundColor = UIColor(hexString: companyColorCode)
+//        sourceView.addSubview(markerView.sourceView)
+        
         
         let topView = UIView()
         let bottomImageView = UIImageView(image: UIImage(named: "marker_bottom"))
-        
+
         let companyNameLabel = UILabel()
         companyNameLabel.backgroundColor = .clear
         companyNameLabel.text = companyName
         companyNameLabel.textAlignment = .center
         companyNameLabel.textColor = UIColor(hexString: "#1E1C21")
         companyNameLabel.fontSize = 10
-        
+
         let adsNumberLabel = UILabel()
         adsNumberLabel.backgroundColor = .clear
-        adsNumberLabel.text = "\("adsNumber".localized()) \(adsNumber)"
+        adsNumberLabel.text = secondLabelString
         adsNumberLabel.textAlignment = .center
         adsNumberLabel.textColor = UIColor(hexString: "#1E1C21")
         adsNumberLabel.fontSize = 10
-        
+
         let sourceView = UIView(superView: sourceView, padding: 0)
         sourceView.backgroundColor = .clear
-        
+
         sourceView.addSubviews([topView, bottomImageView, companyNameLabel, adsNumberLabel])
-        sourceView.size.width = UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH, relativeView: nil, percentage: 22)
-        sourceView.size.height = UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 10)
+        sourceView.size.width = 120
+        sourceView.size.height = 100
 
 
         topView.clipsToBounds = true
         topView.layer.cornerRadius = 8
         topView.backgroundColor = UIColor(hexString: companyColorCode)
-        
+
         topView.addSubview(companyNameLabel)
-        
+
         bottomImageView.addSubview(adsNumberLabel)
-        
+
         topView.snp.makeConstraints { (maker) in
-            maker.top.equalTo(sourceView)
-            maker.centerX.equalTo(sourceView)
-            maker.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5))
-            maker.width.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH, relativeView: nil, percentage: 21))
+            maker.top.equalTo(sourceView).offset(10)
+            maker.leading.equalTo(sourceView).offset(4)
+            maker.trailing.equalTo(sourceView).offset(-4)
+            maker.height.equalTo(50)
         }
-        
+
         companyNameLabel.snp.makeConstraints { (maker) in
             maker.top.equalTo(topView)
             maker.centerX.equalTo(topView)
@@ -68,28 +76,26 @@ class UiHelpers {
         }
 
         bottomImageView.snp.makeConstraints { (maker) in
-            maker.top.equalTo(topView.snp.bottom).offset(-8)
-            maker.centerX.equalTo(sourceView)
-            maker.height.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 5))
-            maker.width.equalTo(sourceView)
+            maker.bottom.leading.trailing.equalTo(sourceView)
+            maker.height.equalTo(50)
         }
-        
+
         adsNumberLabel.snp.makeConstraints { (maker) in
             maker.top.equalTo(bottomImageView).offset(-8)
             maker.centerX.equalTo(sourceView)
             maker.height.equalTo(bottomImageView)
             maker.width.equalTo(bottomImageView)
         }
-        
+
         sourceView.bringSubviewToFront(bottomImageView)
         return sourceView
     }
     
-    class func addCompanyMarker(sourceView: UIView, latitude: Double, longitude: Double, title: String, adsNumber: Int, mapView: GMSMapView, companyMarkerColor: String) -> GMSMarker {
+    class func addCompanyMarker(sourceView: UIView, latitude: Double, longitude: Double, title: String, secondLabelTitle: String, mapView: GMSMapView, companyMarkerColor: String) -> GMSMarker {
         let locationMarker = GMSMarker()
         locationMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         locationMarker.title = title
-        locationMarker.iconView = UiHelpers.makeMarkerView(sourceView: sourceView, companyName: title, adsNumber: adsNumber, companyColorCode: companyMarkerColor)
+        locationMarker.iconView = UiHelpers.makeMarkerView(sourceView: sourceView, companyName: title, secondLabelString: secondLabelTitle, companyColorCode: companyMarkerColor)
         locationMarker.map = mapView
         return locationMarker
     }

@@ -140,9 +140,13 @@
 "downloading" = "تحميل بيانات ...";
 "downloadingMessage" = "جاري تحميل البيانات برجاء الانتظار ...";
 "ok" = "حسنا";
-"searchPlaceHolder" = "اسم المكان";
+"searchPlaceHolder" = "ادخل المكان الذي تريد البحث عنه هنا";
 "search" = "بحث";
 "phoneAlreadyRegistered" = "رقم الهاتف مسجل مسبقا";
 "delete" = "مسح";
 "alreadyHaveCompany" = "لديك شركة مربوطه بحسابك";
 "companyCreated" = "تم انشاء شركتك بنجاح";
+"wrongCodeEntered" = "لقد قمت بادخال كود خاطئ. من فضلك ادخل الكود المرسل اليك في رسالة علي جوالك";
+"price:" = "السعر: ";
+"noCompaniesInThisArea" = "لا يوجد شركات في هذه المنطقة";
+"noAdsInThisArea" = "لا يوجد اعلانات في هذه المنطقة";

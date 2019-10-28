@@ -163,18 +163,28 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     
     func showCompaniesOnMap() {
         googleMapView.clear()
-        for company in companies {
-            let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(company.latitude)!, longitude: Double(company.longitude)!, title: company.name, adsNumber: company.numberOfAds, mapView: googleMapView, companyMarkerColor: "#eede71")
-            marker.userData = company
+        if companies.count > 0 {
+            for company in companies {
+                let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(company.latitude)!, longitude: Double(company.longitude)!, title: company.name, secondLabelTitle: "\("adsNumber".localized()) \(company.numberOfAds!)", mapView: googleMapView, companyMarkerColor: "#eede71")
+                marker.userData = company
+            }
+        } else {
+            self.view.makeToast("noCompaniesInThisArea".localized())
         }
+        
     }
     
     func showAdsOnMap() {
         googleMapView.clear()
-        for ad in ads {
-            let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, adsNumber: ads.count, mapView: googleMapView, companyMarkerColor: "#ffffff")
-            marker.userData = ad
+        if ads.count > 0 {
+            for ad in ads {
+                let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, secondLabelTitle: "\("price:".localized()) \(ad.price!) \(ad.currency.name!)", mapView: googleMapView, companyMarkerColor: ad.subCategory.hexCode ?? "#eede71")
+                marker.userData = ad
+            }
+        } else {
+             self.view.makeToast("noAdsInThisArea".localized())
         }
+        
     }
     
     private func changeArrows() {

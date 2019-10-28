@@ -32,7 +32,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="faB-xd-xLY" firstAttribute="leading" secondItem="rhJ-a3-fzQ" secondAttribute="leading" constant="8" id="06d-lL-HVT"/>
                                     <constraint firstItem="2Fa-P3-dKZ" firstAttribute="top" secondItem="faB-xd-xLY" secondAttribute="top" id="6iz-UX-3Fw"/>
@@ -156,7 +156,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="nI9-3z-oQi" firstAttribute="leading" secondItem="Gfk-0L-GNo" secondAttribute="leading" constant="8" id="Ath-Aw-udV"/>
                                     <constraint firstAttribute="bottom" secondItem="nI9-3z-oQi" secondAttribute="bottom" constant="14.5" id="QBE-Vd-OCZ"/>

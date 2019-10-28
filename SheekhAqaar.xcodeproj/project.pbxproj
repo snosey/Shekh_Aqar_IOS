@@ -139,7 +139,6 @@
 		E89340FC2308265F00F37DCE /* SheekhAqaarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89340FB2308265F00F37DCE /* SheekhAqaarTests.swift */; };
 		E89341072308265F00F37DCE /* SheekhAqaarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89341062308265F00F37DCE /* SheekhAqaarUITests.swift */; };
 		E89CBAEF23097AD1000B6BB7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CBAEE23097AD1000B6BB7 /* HomeVC.swift */; };
-		E89CBAF123097AF3000B6BB7 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CBAF023097AF3000B6BB7 /* SignUpVC.swift */; };
 		E89CBAF323097AFE000B6BB7 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89CBAF223097AFE000B6BB7 /* HomeStoryboard.storyboard */; };
 		E89CBAF523097B09000B6BB7 /* SignUpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89CBAF423097B09000B6BB7 /* SignUpStoryboard.storyboard */; };
 		E89CBAFF23097DD9000B6BB7 /* ApplicationStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CBAFE23097DD9000B6BB7 /* ApplicationStarter.swift */; };
@@ -177,6 +176,7 @@
 		E8CBCF9923155A15005F91BE /* CompanyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBCF9823155A15005F91BE /* CompanyRepository.swift */; };
 		E8CBCF9F23156D56005F91BE /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBCF9E23156D56005F91BE /* HelpVC.swift */; };
 		E8CBCFA123156D6A005F91BE /* HelpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8CBCFA023156D6A005F91BE /* HelpStoryboard.storyboard */; };
+		E8D8942523674A8500753C4B /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D8942423674A8500753C4B /* SignUpVC.swift */; };
 		E8DAFE872311853F00C2F005 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE862311853F00C2F005 /* CompanyCell.swift */; };
 		E8DAFE892311855400C2F005 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE882311855400C2F005 /* CategoryCell.swift */; };
 		E8DAFE8B2311859E00C2F005 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAFE8A2311859E00C2F005 /* Company.swift */; };
@@ -362,7 +362,6 @@
 		E89341062308265F00F37DCE /* SheekhAqaarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheekhAqaarUITests.swift; sourceTree = "<group>"; };
 		E89341082308265F00F37DCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E89CBAEE23097AD1000B6BB7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		E89CBAF023097AF3000B6BB7 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		E89CBAF223097AFE000B6BB7 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		E89CBAF423097B09000B6BB7 /* SignUpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpStoryboard.storyboard; sourceTree = "<group>"; };
 		E89CBAFE23097DD9000B6BB7 /* ApplicationStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationStarter.swift; sourceTree = "<group>"; };
@@ -401,6 +400,7 @@
 		E8CBCF9823155A15005F91BE /* CompanyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyRepository.swift; sourceTree = "<group>"; };
 		E8CBCF9E23156D56005F91BE /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
 		E8CBCFA023156D6A005F91BE /* HelpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HelpStoryboard.storyboard; sourceTree = "<group>"; };
+		E8D8942423674A8500753C4B /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		E8DAFE862311853F00C2F005 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		E8DAFE882311855400C2F005 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E8DAFE8A2311859E00C2F005 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
@@ -773,10 +773,10 @@
 		E89CBAEC23097A89000B6BB7 /* SignUpScreen */ = {
 			isa = PBXGroup;
 			children = (
-				E89CBAF023097AF3000B6BB7 /* SignUpVC.swift */,
 				E89CBAF423097B09000B6BB7 /* SignUpStoryboard.storyboard */,
 				E8E4E6122313F26500A46C99 /* SignUpPresenter.swift */,
 				E8E4E6142313F27000A46C99 /* SignUpRepository.swift */,
+				E8D8942423674A8500753C4B /* SignUpVC.swift */,
 			);
 			path = SignUpScreen;
 			sourceTree = "<group>";
@@ -1169,7 +1169,6 @@
 			files = (
 				E82474AD2308278800211FDB /* NSObjectExtensions.swift in Sources */,
 				E8C5232F2345FB6A00B86C0C /* MyAdsPresenter.swift in Sources */,
-				E89CBAF123097AF3000B6BB7 /* SignUpVC.swift in Sources */,
 				E8245C402318B6390021729B /* AdRepository.swift in Sources */,
 				E84CCCC6233972AD00A9829A /* AdDetailsWithSpinnerCell.swift in Sources */,
 				E89CBAEF23097AD1000B6BB7 /* HomeVC.swift in Sources */,
@@ -1273,6 +1272,7 @@
 				E82474A12308278800211FDB /* BundleExtensions.swift in Sources */,
 				E856968023271493004C0F03 /* AdImage.swift in Sources */,
 				E8E4E621231402A400A46C99 /* HomePresenter.swift in Sources */,
+				E8D8942523674A8500753C4B /* SignUpVC.swift in Sources */,
 				E8245C3E2318B6300021729B /* AdPresenter.swift in Sources */,
 				E82474BA2308396800211FDB /* Colors.swift in Sources */,
 				E84CCCC42339729A00A9829A /* AdDetailsWithoutSpinnerCell.swift in Sources */,

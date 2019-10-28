@@ -66,7 +66,7 @@ class PhoneVerificationVC: BaseVC {
             self?.digit5.text = ""
             self?.digit6.text = ""
             
-            let phone = "\(self?.country.code ?? "")\(self?.phoneNumber ?? "")"
+            let phone = "+\(self?.country.code ?? "")\(self?.phoneNumber ?? "")"
             
             PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { (verificationID, error) in
                 if let error = error {
@@ -111,6 +111,7 @@ class PhoneVerificationVC: BaseVC {
                 
                 Auth.auth().signIn(with: credential) { [weak self] (authResult, error) in
                     if let error = error {
+                        self?.view.makeToast("wrongCodeEntered".localized())
                         print("error :: \(error.localizedDescription)")
                         return
                     }
