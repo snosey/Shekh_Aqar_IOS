@@ -373,10 +373,6 @@ extension CreateAdVC: CreateAdCellDelegate {
     
     func getLocationFromGoogleMaps() {
         self.navigator.navigateToAddressPickerWithMap(delegate: self)
-//        let config = GMSPlacePickerConfig(viewport: nil)
-//        let placePicker = GMSPlacePickerViewController(config: config)
-//        placePicker.delegate = self
-//        present(placePicker, animated: true, completion: nil)
     }
 }
 

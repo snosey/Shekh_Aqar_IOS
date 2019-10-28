@@ -25,14 +25,22 @@ public class RegisterCompanyRepository {
     
     public func registerCompany(userPhoneNumber: String, userName: String, userImage: Data, companyImage: Data, companyServices: [Category], companyName: String, companyTraditionalNumber: String, companyPhoneNumber: String, companyEmail: String, companyCountry: Country, companyRegion: Region, detailedAddress: String, companyLatitude: Double, companyLongitude: Double, userSelectedCountry: Country, companySelectedCountry: Country) {
         
+        var url = CommonConstants.BASE_URL
+        
         let user = User()
-        user.id = User(json: Defaults[.user]!)?.id
+        if let _ = Defaults[.user] {
+            user.id = User(json: Defaults[.user]!)?.id
+            user.token = User(json: Defaults[.user]!)?.token
+            url = url + "Company/SignUp"
+        } else {
+            url = url + "Company/SignUpWithoutUser"
+        }
         user.countryId = userSelectedCountry.id
         user.name = userName
         user.phoneNumber = "+" + userSelectedCountry.code + userPhoneNumber
         user.language = 0
         user.userType = UserType.USER.rawValue
-        user.token = User(json: Defaults[.user]!)?.token
+        
         
         let company = Company()
         company.regionId = companyRegion.id
@@ -45,9 +53,7 @@ public class RegisterCompanyRepository {
         company.longitude = String(companyLongitude)
         company.numberOfAds = 0
         company.companyTypes = []
-        company.userId = user.id
-        
-        let url = CommonConstants.BASE_URL + "Company/SignUp"
+        company.userId = user.id        
         
         Alamofire.upload(
             multipartFormData: { MultipartFormData in

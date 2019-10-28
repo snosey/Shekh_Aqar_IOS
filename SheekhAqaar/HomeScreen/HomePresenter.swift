@@ -97,6 +97,7 @@ extension HomePresenter: HomePresenterDelegate {
     }
     
     public func getCategoriesSuccess(firstRowCategories: [Category], secondRowCategories: [Category], thirdRowCategories: [Category]) {
+         UiHelpers.hideLoader()
         homeView?.hideDownloadingAlert()
         homeView?.getCategoriesSuccess(firstRowCategories: firstRowCategories, secondRowCategories: secondRowCategories, thirdRowCategories: thirdRowCategories)
     }

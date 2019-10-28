@@ -79,8 +79,8 @@ class AddressPickerWithMapVC: BaseVC {
         }
     }
     
-    func createMapView(latitude: Double, longitude: Double) {
-        let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude), zoom: 12)
+    func createMapView(latitude: Double, longitude: Double, zoomLeve: Float = 12) {
+        let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude), zoom: zoomLeve)
         mapView.camera = camera
         mapView.animate(to: camera)
         mapView.delegate = self
@@ -158,7 +158,7 @@ extension AddressPickerWithMapVC: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         mapView.clear()
-        createMapView(latitude: position.target.latitude, longitude: position.target.longitude)
+        createMapView(latitude: position.target.latitude, longitude: position.target.longitude, zoomLeve: mapView.camera.zoom)
         UiHelpers.addMarker(latitude: position.target.latitude, longitude: position.target.longitude, title: "", markerView: nil, mapView: mapView)
         
         self.selectedAddress = Address(addressId: "", addressName: "\(position.target.latitude), \(position.target.longitude)", addressCityName: "\(position.target.latitude), \(position.target.longitude)", latitude: position.target.latitude, longitude: position.target.longitude)

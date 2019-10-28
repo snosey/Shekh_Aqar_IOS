@@ -28,8 +28,10 @@ public class AdRepository {
     public func saveFavouriteAd(ad: Ad) {
         let params = ["Fk_UserItem" : ad.id!, "Token" : User(json: Defaults[.user]!)!.token!] as [String : Any]
         let url = CommonConstants.BASE_URL + "User/AddFavourite"
+        let headers = ["Content-Type" : "application/json"]
         
-        Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
+        
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
                 
                 switch response.result {
@@ -56,7 +58,7 @@ public class AdRepository {
         let params = ["Fk_UserItem" : ad.id!, "Token" : User(json: Defaults[.user]!)!.token!] as [String : Any]
         let url = CommonConstants.BASE_URL + "User/RemoveFavourite"
         
-        Alamofire.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil)
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in
                 
                 switch response.result {

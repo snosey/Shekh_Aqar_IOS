@@ -73,9 +73,10 @@ public class EditCompanyRepository {
     
     public func editCompany(userPhoneNumber: String, userName: String, userImage: Data, companyImage: Data, companyServices: [Category], companyName: String, companyTraditionalNumber: String, companyPhoneNumber: String, companyEmail: String, companyCountry: Country, companyRegion: Region, detailedAddress: String, companyLatitude: Double, companyLongitude: Double, userSelectedCountry: Country, companySelectedCountry: Country) {
         
-        let url = CommonConstants.BASE_URL + "Company/SignUp"
+        let url = CommonConstants.BASE_URL + "Company/EditCompany"
         
         let user = User()
+        user.id = User(json: Defaults[.user]!)?.id
         user.countryId = userSelectedCountry.id
         user.name = userName
         user.phoneNumber = userPhoneNumber
@@ -83,6 +84,7 @@ public class EditCompanyRepository {
         user.userType = UserType.USER.rawValue
         
         let company = Company()
+        company.id = Company(json: Defaults[.company]!)?.id
         company.regionId = companyRegion.id
         company.name = companyName
         company.commercialNumber = Int(companyTraditionalNumber)!
@@ -109,7 +111,10 @@ public class EditCompanyRepository {
                     jsonArrayResult = jsonArrayResult + serviceDic.toString() + ","
                 }
                 
-                jsonArrayResult.removeLast()
+                if companyServices.count > 0 {
+                    jsonArrayResult.removeLast()
+                }
+                
                 jsonArrayResult = jsonArrayResult + "]"
                 jsonArrayResult = jsonArrayResult.replacingOccurrences(of: "\\", with: "")
                 
