@@ -43,7 +43,7 @@ class SignUpVC: BaseVC {
             Defaults[.isSkipped] = true
             self?.navigator.navigateToHome()
         }
-                
+        
         registerAsCompany.addTapGesture { [weak self] (_) in
             // go to register company screen
             self?.navigator.navigateToRegisterAsCompany()
@@ -115,9 +115,9 @@ extension SignUpVC: SignUpView {
                     print("error :: \(error.localizedDescription)")
                     return
                 }
-
+                
                 Defaults[.authVerificationID] = verificationID
-
+                
                 self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.HOME_NEXT_PAGE_CODE, country: self!.selectedCountry)
             }
         } else {
@@ -126,9 +126,9 @@ extension SignUpVC: SignUpView {
                     print("error :: \(error.localizedDescription)")
                     return
                 }
-
+                
                 Defaults[.authVerificationID] = verificationID
-
+                
                 self?.navigator.navigateToPhoneVerification(phoneNumber: self?.userPhone ?? "", nextPage: CommonConstants.SIGN_UP_NEXT_PAGE_CODE, country: self!.selectedCountry)
             }
         }

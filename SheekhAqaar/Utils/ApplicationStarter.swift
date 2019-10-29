@@ -48,7 +48,7 @@ public class ApplicationStarter {
         // setting the font and text color for tab bar items
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.AppColors.darkGray, NSAttributedString.Key.font: AppFont.font(type: .Bold, size: 12)], for: .normal)
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.AppColors.primaryColor, NSAttributedString.Key.font: AppFont.font(type: .Bold, size: 12)], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(hexString: "#1E1C21")!, NSAttributedString.Key.font: AppFont.font(type: .Bold, size: 12)], for: .selected)
         
         checkUserExistAndDecideTheWay()
         
