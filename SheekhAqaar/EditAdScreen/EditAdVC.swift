@@ -126,15 +126,23 @@ extension EditAdVC: EditAdView {
         
         cell.adImages = ad.adImages
         
-        
-        for country in countries ?? [] {
-            for region in country.regions {
-                if ad.company.regionId == region.id {
-                    selectedRegion = region
-                    selectedCountry = country
+        if ad.company.id != 0 {
+            for country in countries ?? [] {
+                for region in country.regions {
+                    if ad.company.regionId == region.id {
+                        selectedRegion = region
+                        selectedCountry = country
+                    }
                 }
             }
-        }
+        } else {
+            for country in countries ?? [] {
+                if country.id == ad.user.countryId {
+                    selectedCountry = country
+                    selectedRegion = country.regions[0]
+                }
+            }
+        }        
         
         selectedAdType = ad.subCategory
         selectedCurrency = ad.currency

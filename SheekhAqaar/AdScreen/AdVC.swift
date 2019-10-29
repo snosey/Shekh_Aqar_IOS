@@ -20,6 +20,7 @@ class AdVC: BaseVC {
     }
     
     
+    @IBOutlet weak var photosPageIndicator: UIPageControl!
     @IBOutlet weak var adAboutLabel: UILabel!
     @IBOutlet weak var backIcon: UIImageView!
     @IBOutlet weak var photosCollectionView: UICollectionView!
@@ -75,11 +76,13 @@ class AdVC: BaseVC {
         photosCollectionView.reloadData()
         if let layout = photosCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
-            layout.minimumInteritemSpacing = 16
-            layout.minimumLineSpacing = 16
-            layout.itemSize = CGSize(width: UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH
-                , relativeView: nil, percentage: 80), height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 20))
+//            layout.minimumInteritemSpacing = 16
+//            layout.minimumLineSpacing = 16
+            layout.itemSize = CGSize(width: photosCollectionView.bounds.size.width, height: UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 20))
         }
+        
+        photosPageIndicator.currentPage = ad.adImages.count - 1
+        photosPageIndicator.numberOfPages = ad.adImages.count
         
         adNameLabel.text = ad.name
         adAboutLabel.text = ad.details
@@ -201,6 +204,50 @@ extension AdVC: UICollectionViewDataSource, UICollectionViewDelegate {
         cell.imageUrl = ad.adImages.get(indexPath.row)?.imageUrl
         cell.populateData()
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
+        
+        photosPageIndicator.currentPage = ad.adImages.count - Int(pageIndex) - 1
+    }
+    
+    func scrollView(_ scrollView: UIScrollView, didScrollToPercentageOffset percentageHorizontalOffset: CGFloat) {
+        if(photosPageIndicator.currentPage == 0) {
+            //Change background color to toRed: 103/255, fromGreen: 58/255, fromBlue: 183/255, fromAlpha: 1
+            //Change pageControl selected color to toRed: 103/255, toGreen: 58/255, toBlue: 183/255, fromAlpha: 0.2
+            //Change pageControl unselected color to toRed: 255/255, toGreen: 255/255, toBlue: 255/255, fromAlpha: 1
+            
+            let pageUnselectedColor: UIColor = fade(fromRed: 255/255, fromGreen: 255/255, fromBlue: 255/255, fromAlpha: 1, toRed: 103/255, toGreen: 58/255, toBlue: 183/255, toAlpha: 1, withPercentage: percentageHorizontalOffset * 3)
+            photosPageIndicator.pageIndicatorTintColor = pageUnselectedColor
+            
+            
+//            let bgColor: UIColor = fade(fromRed: 103/255, fromGreen: 58/255, fromBlue: 183/255, fromAlpha: 1, toRed: 255/255, toGreen: 255/255, toBlue: 255/255, toAlpha: 1, withPercentage: percentageHorizontalOffset * 3)
+//            slides[photosPageIndicator.currentPage].backgroundColor = bgColor
+            
+            let pageSelectedColor: UIColor = fade(fromRed: 81/255, fromGreen: 36/255, fromBlue: 152/255, fromAlpha: 1, toRed: 103/255, toGreen: 58/255, toBlue: 183/255, toAlpha: 1, withPercentage: percentageHorizontalOffset * 3)
+            photosPageIndicator.currentPageIndicatorTintColor = pageSelectedColor
+        }
+    }
+    
+    
+    func fade(fromRed: CGFloat,
+              fromGreen: CGFloat,
+              fromBlue: CGFloat,
+              fromAlpha: CGFloat,
+              toRed: CGFloat,
+              toGreen: CGFloat,
+              toBlue: CGFloat,
+              toAlpha: CGFloat,
+              withPercentage percentage: CGFloat) -> UIColor {
+        
+        let red: CGFloat = (toRed - fromRed) * percentage + fromRed
+        let green: CGFloat = (toGreen - fromGreen) * percentage + fromGreen
+        let blue: CGFloat = (toBlue - fromBlue) * percentage + fromBlue
+        let alpha: CGFloat = (toAlpha - fromAlpha) * percentage + fromAlpha
+        
+        // return the fade colour
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
     
     
