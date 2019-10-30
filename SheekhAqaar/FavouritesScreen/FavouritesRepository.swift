@@ -26,7 +26,7 @@ public class FavouritesRepository {
     
     public func getFavouriteAds() {
         let user = User(json: Defaults[.user]!)!
-        let params = ["token" : user.token!, "IsFavourite" : true] as [String : Any]
+        let params = ["token" : user.token!, "IsFavourite" : "true"] as [String : Any]
         let url = CommonConstants.BASE_URL + "User/GetAds"
         
         Alamofire.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil)

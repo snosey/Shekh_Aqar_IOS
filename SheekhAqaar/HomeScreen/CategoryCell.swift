@@ -42,4 +42,9 @@ class CategoryCell: UICollectionViewCell {
         categoryNameButton.layer.borderWidth = 1
         categoryNameButton.setTitleColor(UIColor.AppColors.textColor, for: .normal)
     }
+    
+    override func prepareForReuse() {
+        categoryNameButton.setTitle("", for: .normal)
+        changeLabelToBeUnclicked()
+    }
 }

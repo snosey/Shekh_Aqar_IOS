@@ -61,7 +61,7 @@ class CreateAdCell: UITableViewCell {
     var adImages = [AdImage]()
     var imagesToBeRemoved = [UIImage]()
     
-    var cellsWithSpinnerCount = 0
+    var cellsWithSpinnerCount = -1
     var adId: Int!
     
     public func showSelectedData(ad: Ad, selectedCountry: Country, selectedRegion: Region, mainCategoryName: String) {
@@ -77,7 +77,7 @@ class CreateAdCell: UITableViewCell {
         cityLabel.text = selectedRegion.name
         buildingLocationLabel.text = ad.detailedAddress
         
-        cellsWithSpinnerCount = 0
+        cellsWithSpinnerCount = -1
         for detail in adDetailsItems {
             if detail.spinnerDataArray.count > 0 {
                 cellsWithSpinnerCount = cellsWithSpinnerCount + 1
@@ -138,6 +138,8 @@ class CreateAdCell: UITableViewCell {
         additionalFacilitiesTableView.delegate = self
         additionalFacilitiesTableView.reloadData()
         
+    
+        
         currencyView.addTapGesture { [weak self] (_) in
             self?.delegate.showCurrencies()
         }
@@ -169,6 +171,9 @@ class CreateAdCell: UITableViewCell {
         if isEditAd {
             publishAddButton.setTitle("editAd".localized(), for: .normal)
         }
+        
+        
+        adDetailsTextView.delegate = self
         
         publishAddButton.addTapGesture { [weak self](_) in
             if self?.selectedImages.count ?? 0 >= 3 {
@@ -225,7 +230,7 @@ class CreateAdCell: UITableViewCell {
                                             }
                                         } else if (cell as? AdDetailsWithSpinnerCell) != nil {
                                             
-                                            item.dataSpinnerFK = item.spinnerDataArray[(self?.cellsWithSpinnerCount ?? 0) - 1].id
+                                            item.dataSpinnerFK = item.spinnerDataArray[(self?.cellsWithSpinnerCount ?? 0)].id
                                             self?.cellsWithSpinnerCount = (self?.cellsWithSpinnerCount ?? 0) - 1
                                         }
                                         index = index + 1
@@ -370,3 +375,21 @@ extension CreateAdCell: AdPhotoCellDelegate {
         photosCollectionView.reloadData()
     }
 }
+
+extension CreateAdCell: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "details".localized()
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        if textView.textColor != UIColor.black {
+            textView.text = ""
+            textView.textColor = UIColor.black
+        }
+    }
+}
+
