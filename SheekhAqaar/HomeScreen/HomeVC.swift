@@ -256,10 +256,13 @@ extension HomeVC: LocationSelectionDelegate {
             if self.selectedCategoryPosition == 2 || self.selectedCategoryPosition == 3 {
                 self.presenter.getAds(subCategoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
             } else {
-                presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                if selectedCategory.id == -4 {
+                    presenter.getAds(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                } else {
+                    presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                }
             }
         }
-        
         dismiss(animated: true, completion: nil)
     }
 }
@@ -382,6 +385,9 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                     
                 case -4:
                     self?.presenter.getAds(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                    let dummayCategory = Category()
+                    dummayCategory.id = -4
+                    self?.selectedCategory = dummayCategory
                     break
                     
                 default:
@@ -679,7 +685,11 @@ extension HomeVC: GMSMapViewDelegate {
             if self.selectedCategoryPosition == 2 || self.selectedCategoryPosition == 3 {
                 self.presenter.getAds(subCategoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
             } else {
-               presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                if selectedCategory.id == -4 {
+                    presenter.getAds(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                } else {
+                    presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                }
             }
         }
     }
