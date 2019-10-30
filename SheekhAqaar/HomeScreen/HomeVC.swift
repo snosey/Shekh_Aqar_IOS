@@ -48,7 +48,9 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     var categories3 = [Category]()
     var alert: UIAlertController!
     
-    var selectedIndex = 0
+    var selectedIndex1 = 0
+    var selectedIndex2 = 0
+    var selectedIndex3 = 0
     
     var companies = [Company]()
     var ads = [Ad]()
@@ -401,14 +403,14 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 }
                 
                 self?.selectedCategoryPosition = 1
-                self?.categories1[self?.selectedIndex ?? 0].isClicked = false
+                self?.categories1[self?.selectedIndex1 ?? 0].isClicked = false
                 self?.categories1[indexPath.row].isClicked = true
-                if let oldCell = self?.collectionView1.cellForItem(at: IndexPath(item: self?.selectedIndex ?? 0, section: 0)) as? CategoryCell {
+                if let oldCell = self?.collectionView1.cellForItem(at: IndexPath(item: self?.selectedIndex1 ?? 0, section: 0)) as? CategoryCell {
                     oldCell.populateData()
                 }
                 
                 cell.populateData()
-                self?.selectedIndex = indexPath.row
+                self?.selectedIndex1 = indexPath.row
                 
                 
                 var indexPathes2 = [IndexPath]()
@@ -434,14 +436,14 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 
                 self?.selectedCategoryPosition = 2
                 self?.selectedCategory = cell.category
-                self?.categories2[self?.selectedIndex ?? 0].isClicked = false
+                self?.categories2[self?.selectedIndex2 ?? 0].isClicked = false
                 self?.categories2[indexPath.row].isClicked = true
-                if let oldCell = self?.collectionView2.cellForItem(at: IndexPath(item: self?.selectedIndex ?? 0, section: 0)) as? CategoryCell {
+                if let oldCell = self?.collectionView2.cellForItem(at: IndexPath(item: self?.selectedIndex2 ?? 0, section: 0)) as? CategoryCell {
                     oldCell.populateData()
                 }
                 
                 cell.populateData()
-                self?.selectedIndex = indexPath.row
+                self?.selectedIndex2 = indexPath.row
     
                 self?.presenter.getAds(subCategoryId: cell.category.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
                 
@@ -467,14 +469,14 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 
                 self?.selectedCategoryPosition = 3
                 self?.selectedCategory = cell.category
-                self?.categories3[self?.selectedIndex ?? 0].isClicked = false
+                self?.categories3[self?.selectedIndex3 ?? 0].isClicked = false
                 self?.categories3[indexPath.row].isClicked = true
-                if let oldCell = self?.collectionView3.cellForItem(at: IndexPath(item: self?.selectedIndex ?? 0, section: 0)) as? CategoryCell {
+                if let oldCell = self?.collectionView3.cellForItem(at: IndexPath(item: self?.selectedIndex3 ?? 0, section: 0)) as? CategoryCell {
                     oldCell.populateData()
                 }
                 
                 cell.populateData()
-                self?.selectedIndex = indexPath.row
+                self?.selectedIndex3 = indexPath.row
                 
                 self?.presenter.getAds(subCategoryId: cell.category.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
                 
@@ -683,12 +685,12 @@ extension HomeVC: GMSMapViewDelegate {
         Singleton.getInstance().currentLongitude = position.target.longitude
         if let _ = selectedCategory {
             if self.selectedCategoryPosition == 2 || self.selectedCategoryPosition == 3 {
-                self.presenter.getAds(subCategoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                self.presenter.getAds(subCategoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude, showLoader: false)
             } else {
                 if selectedCategory.id == -4 {
-                    presenter.getAds(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                    presenter.getAds(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude, showLoader: false)
                 } else {
-                    presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+                    presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude, showLoader: false)
                 }
             }
         }
