@@ -413,23 +413,25 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 self?.selectedIndex1 = indexPath.row
                 
                 
-                var indexPathes2 = [IndexPath]()
-                var count2 = 0
+//                var indexPathes2 = [IndexPath]()
+//                var count2 = 0
                 for category in self?.categories2 ?? [] {
                     category.isClicked = false
-                    indexPathes2.append(IndexPath(item: count2, section: 0))
-                    count2 = count2 + 1
+//                    indexPathes2.append(IndexPath(item: count2, section: 0))
+//                    count2 = count2 + 1
                 }
-                self?.collectionView2.reloadItems(at: indexPathes2)
+//                self?.collectionView2.reloadItems(at: indexPathes2)
+                 self?.collectionView2.reloadData()
 
-                var indexPathes3 = [IndexPath]()
-                var count3 = 0
+//                var indexPathes3 = [IndexPath]()
+//                var count3 = 0
                 for category in self?.categories3 ?? [] {
                     category.isClicked = false
-                    indexPathes3.append(IndexPath(item: count3, section: 0))
-                    count3 = count3 + 1
+//                    indexPathes3.append(IndexPath(item: count3, section: 0))
+//                    count3 = count3 + 1
                 }
-                self?.collectionView3.reloadItems(at: indexPathes3)
+//                self?.collectionView3.reloadItems(at: indexPathes3)
+                self?.collectionView3.reloadData()
                 
             } else if collectionView == self?.collectionView2 {
                 
@@ -447,23 +449,25 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     
                 self?.presenter.getAds(subCategoryId: cell.category.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
                 
-                var indexPathes2 = [IndexPath]()
-                var count2 = 0
+//                var indexPathes2 = [IndexPath]()
+//                var count2 = 0
                 for category in self?.categories1 ?? [] {
                     category.isClicked = false
-                    indexPathes2.append(IndexPath(item: count2, section: 0))
-                    count2 = count2 + 1
+//                    indexPathes2.append(IndexPath(item: count2, section: 0))
+//                    count2 = count2 + 1
                 }
-                self?.collectionView1.reloadItems(at: indexPathes2)
+//                self?.collectionView1.reloadItems(at: indexPathes2)
+                self?.collectionView1.reloadData()
 
-                var indexPathes3 = [IndexPath]()
-                var count3 = 0
+//                var indexPathes3 = [IndexPath]()
+//                var count3 = 0
                 for category in self?.categories3 ?? [] {
                     category.isClicked = false
-                    indexPathes3.append(IndexPath(item: count3, section: 0))
-                    count3 = count3 + 1
+//                    indexPathes3.append(IndexPath(item: count3, section: 0))
+//                    count3 = count3 + 1
                 }
-                self?.collectionView3.reloadItems(at: indexPathes3)
+//                self?.collectionView3.reloadItems(at: indexPathes3)
+                self?.collectionView3.reloadData()
                 
             } else if collectionView == self?.collectionView3 {
                 
@@ -480,27 +484,33 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
                 
                 self?.presenter.getAds(subCategoryId: cell.category.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
                 
-                var indexPathes2 = [IndexPath]()
-                var count2 = 0
+//                var indexPathes2 = [IndexPath]()
+//                var count2 = 0
                 for category in self?.categories1 ?? [] {
                     category.isClicked = false
-                    indexPathes2.append(IndexPath(item: count2, section: 0))
-                    count2 = count2 + 1
+//                    indexPathes2.append(IndexPath(item: count2, section: 0))
+//                    count2 = count2 + 1
                 }
-                self?.collectionView1.reloadItems(at: indexPathes2)
+//                self?.collectionView1.reloadItems(at: indexPathes2)
+                self?.collectionView1.reloadData()
                 
-                var indexPathes3 = [IndexPath]()
-                var count3 = 0
+//                var indexPathes3 = [IndexPath]()
+//                var count3 = 0
                 for category in self?.categories2 ?? [] {
                     category.isClicked = false
-                    indexPathes3.append(IndexPath(item: count3, section: 0))
-                    count3 = count3 + 1
+//                    indexPathes3.append(IndexPath(item: count3, section: 0))
+//                    count3 = count3 + 1
                 }
-                self?.collectionView2.reloadItems(at: indexPathes3)
+//                self?.collectionView2.reloadItems(at: indexPathes3)
+                self?.collectionView2.reloadData()
             }
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 120, height: 30)
     }
 }
 
