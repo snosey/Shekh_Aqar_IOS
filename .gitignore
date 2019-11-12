@@ -2186,3 +2186,16 @@ Pods/UICircularProgressRing/src/UICircularProgressRing/UICircularProgressRingDel
 Pods/UICircularProgressRing/src/UICircularProgressRing/UICircularProgressRingGradientPosition.swift
 Pods/UICircularProgressRing/src/UICircularProgressRing/UICircularProgressRingLayer.swift
 Pods/UICircularProgressRing/src/UICircularProgressRing/UICircularProgressRingStyle.swift
+Pods/OneSignal/LICENSE
+Pods/OneSignal/README.md
+Pods/OneSignal/iOS_SDK/OneSignalSDK/Framework/OneSignal.framework/Headers
+Pods/OneSignal/iOS_SDK/OneSignalSDK/Framework/OneSignal.framework/Modules
+Pods/OneSignal/iOS_SDK/OneSignalSDK/Framework/OneSignal.framework/OneSignal
+Pods/OneSignal/iOS_SDK/OneSignalSDK/Framework/OneSignal.framework/Resources
+Pods/OneSignal/iOS_SDK/OneSignalSDK/Framework/OneSignal.framework/Versions/Current
+Pods/OneSignal/iOS_SDK/OneSignalSDK/Framework/OneSignal.framework/Versions/A/OneSignal
+Pods/OneSignal/iOS_SDK/OneSignalSDK/Framework/OneSignal.framework/Versions/A/Headers/OneSignal.h
+Pods/OneSignal/iOS_SDK/OneSignalSDK/Framework/OneSignal.framework/Versions/A/Modules/module.modulemap
+Pods/OneSignal/iOS_SDK/OneSignalSDK/Framework/OneSignal.framework/Versions/A/Resources/Info.plist
+Pods/Pods.xcodeproj/xcuserdata/hesham.xcuserdatad/xcschemes/OneSignal.xcscheme
+Pods/Target Support Files/OneSignal/OneSignal.xcconfig

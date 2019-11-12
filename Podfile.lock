@@ -88,6 +88,7 @@ PODS:
   - NVActivityIndicatorView (4.6.1):
     - NVActivityIndicatorView/Presenter (= 4.6.1)
   - NVActivityIndicatorView/Presenter (4.6.1)
+  - OneSignal (2.11.2)
   - Result (3.2.4)
   - SideMenu (5.0.3)
   - SnapKit (4.2.0)
@@ -112,6 +113,7 @@ DEPENDENCIES:
   - MICountryPicker (from `https://github.com/mustafaibrahim989/MICountryPicker.git`, branch `master`)
   - Moya-Gloss (= 3.0.0)
   - NVActivityIndicatorView (= 4.6.1)
+  - OneSignal (< 3.0, >= 2.6.2)
   - SideMenu (= 5.0.3)
   - SnapKit (= 4.2.0)
   - SwiftyBeaver (= 1.7.0)
@@ -149,6 +151,7 @@ SPEC REPOS:
     - Moya-Gloss
     - nanopb
     - NVActivityIndicatorView
+    - OneSignal
     - Result
     - SideMenu
     - SnapKit
@@ -197,6 +200,7 @@ SPEC CHECKSUMS:
   Moya-Gloss: d39b3efacd3ee8f08485f62bc46306b2157e82b4
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
+  OneSignal: 4e3e68bb6c29975286a2fa910cb49132bc6e20bb
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
@@ -206,6 +210,6 @@ SPEC CHECKSUMS:
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   UICircularProgressRing: 5a32c01f54474571b1e66e8fa050c0f83d6d981b
 
-PODFILE CHECKSUM: def88de45d87ef44a87b836b40da1b539130aefc
+PODFILE CHECKSUM: 768791cdb4d8b05c5fd951d9c3afe213c353a896
 
 COCOAPODS: 1.7.5
