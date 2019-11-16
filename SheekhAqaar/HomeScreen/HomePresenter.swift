@@ -44,7 +44,7 @@ extension HomePresenter {
         }
     }
     
-    public func getCompanies(categoryId: Int, latitude: Double, longitude: Double, showLoader: Bool = true) {
+    public func getCompanies(categoryId: Int, latitude: Double, longitude: Double, showLoader: Bool = false) {
         if UiHelpers.isInternetAvailable() {
             if showLoader {
                 UiHelpers.showLoader()
@@ -73,7 +73,7 @@ extension HomePresenter {
         }
     }
     
-    public func getAds(subCategoryId: Int, latitude: Double, longitude: Double, showLoader: Bool = true) {
+    public func getAds(subCategoryId: Int, latitude: Double, longitude: Double, showLoader: Bool = false) {
         if UiHelpers.isInternetAvailable() {
             if showLoader {
                 UiHelpers.showLoader()
@@ -84,7 +84,7 @@ extension HomePresenter {
         }
     }
     
-    public func getAds(latitude: Double, longitude: Double, showLoader: Bool = true) {
+    public func getAds(latitude: Double, longitude: Double, showLoader: Bool = false) {
         if UiHelpers.isInternetAvailable() {
             if showLoader {
                 UiHelpers.showLoader()

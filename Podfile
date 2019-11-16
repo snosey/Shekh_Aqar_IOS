@@ -28,6 +28,7 @@ target 'SheekhAqaar' do
   pod 'Moya-Gloss', '3.0.0'
   pod 'DropDown', '2.3.2'
   pod 'Firebase/Auth'
+  pod 'OneSignal', '>= 2.6.2', '< 3.0'
   
   target 'SheekhAqaarTests' do
     inherit! :search_paths
