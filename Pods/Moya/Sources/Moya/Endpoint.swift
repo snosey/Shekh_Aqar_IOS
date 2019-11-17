@@ -19,15 +19,16 @@ open class Endpoint<Target> {
 
     /// A string representation of the URL for the request.
     public let url: String
+    
 
     /// A closure responsible for returning an `EndpointSampleResponse`.
-    public let sampleResponseClosure: SampleResponseClosure
+    public var sampleResponseClosure: SampleResponseClosure
 
     /// The HTTP method for the request.
-    public let method: Moya.Method
+    open var method: Moya.Method
 
     /// The `Task` for the request.
-    public let task: Task
+    open var task: Task
 
     /// The HTTP header fields for the request.
     public let httpHeaderFields: [String: String]?
@@ -46,12 +47,12 @@ open class Endpoint<Target> {
     }
 
     /// Convenience method for creating a new `Endpoint` with the same properties as the receiver, but with added HTTP header fields.
-    public func adding(newHTTPHeaderFields: [String: String]) -> Endpoint<Target> {
+    open func adding(newHTTPHeaderFields: [String: String]) -> Endpoint<Target> {
         return Endpoint(url: url, sampleResponseClosure: sampleResponseClosure, method: method, task: task, httpHeaderFields: add(httpHeaderFields: newHTTPHeaderFields))
     }
 
     /// Convenience method for creating a new `Endpoint` with the same properties as the receiver, but with replaced `task` parameter.
-    public func replacing(task: Task) -> Endpoint<Target> {
+    open func replacing(task: Task) -> Endpoint<Target> {
         return Endpoint(url: url, sampleResponseClosure: sampleResponseClosure, method: method, task: task, httpHeaderFields: httpHeaderFields)
     }
 
