@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7238F82989579517264D9A240F3FA388"
+               BlueprintIdentifier = "D11A79F103F6E67EC92B372B99E7CEB2"
                BuildableName = "Pods_SheekhAqaarTests.framework"
                BlueprintName = "Pods-SheekhAqaarTests"
                ReferencedContainer = "container:Pods.xcodeproj">

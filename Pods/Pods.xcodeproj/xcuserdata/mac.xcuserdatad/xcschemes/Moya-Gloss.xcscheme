@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7F35A1827090B778835C2200DF455D06"
+               BlueprintIdentifier = "B5120F0EDEF1A5654E64F5E4DA93EE75"
                BuildableName = "Moya_Gloss.framework"
                BlueprintName = "Moya-Gloss"
                ReferencedContainer = "container:Pods.xcodeproj">
