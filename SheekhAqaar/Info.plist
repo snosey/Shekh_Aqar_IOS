@@ -41,11 +41,11 @@
 	<key>NSCameraUsageDescription - 2</key>
 	<string>Need Photo Library access</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Sheekh Aqaar needs to access your location.</string>
+	<string>Sheekh Aqaar needs to access your location to show you the nearest ads and companies</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Sheekh Aqaar needs to access your location.</string>
+	<string>Sheekh Aqaar needs to access your location to show you the nearest ads and companies</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Sheekh Aqaar needs to access your location.</string>
+	<string>Sheekh Aqaar needs to access your location to show you the nearest ads and companies</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need to access your Photo Library</string>
 	<key>UIAppFonts</key>

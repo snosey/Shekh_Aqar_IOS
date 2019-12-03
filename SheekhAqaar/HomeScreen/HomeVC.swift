@@ -619,11 +619,7 @@ extension HomeVC: CompanyCellDelegate {
     }
     
     func openMapsClicked(latitude: Double, longitude: Double) {
-        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-        UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(latitude),\(longitude)&zoom=14&views=traffic&q=\(latitude),\(longitude)")!, options: [:], completionHandler: nil)
-        } else {
-            self.view.makeToast("downloadGoogleMaps".localized())
-        }
+        UiHelpers.openGoogleMaps(latitude: latitude, longitude: longitude)
     }
 }
 

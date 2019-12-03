@@ -60,11 +60,7 @@ class CompanyVC: BaseVC {
         companyNumberOfAdsLabel.text = "\("adsNumber".localized()) \(company.numberOfAds!)"
         
         addressView.addTapGesture { [weak self] (_) in
-            if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-                UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(Double(self?.company.latitude ?? "") ?? 0),\(Double(self?.company.longitude ?? "") ?? 0)&zoom=14&views=traffic&q=\(Double(self?.company.latitude ?? "") ?? 0),\(Double(self?.company.longitude ?? "") ?? 0)")!, options: [:], completionHandler: nil)
-            } else {
-                self?.view.makeToast("downloadGoogleMaps".localized())
-            }
+            UiHelpers.openGoogleMaps(latitude: Double(self?.company.latitude ?? "") ?? 0, longitude: Double(self?.company.longitude ?? "") ?? 0)
         }
         
         callView.addTapGesture { [weak self] (_) in

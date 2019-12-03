@@ -15,6 +15,8 @@ import SideMenu
 import Localize_Swift
 import GoogleMaps
 import Alamofire
+import CoreLocation
+import MapKit
 
 class UiHelpers {
 
@@ -267,13 +269,28 @@ class UiHelpers {
         }
     }
     
-    class func openGoogleMaps(view: UIView, latitude: Double, longitude: Double) {
+    class func openGoogleMaps(latitude: Double, longitude: Double) {
         if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://") as! URL)) {
             UIApplication.shared.openURL(NSURL(string:
                 "comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving") as! URL)
         } else {
-           view.makeToast("downloadGoogleMaps".localized())
+           
+            UiHelpers.openAppleMaps(latitude: latitude, longitude: longitude)
         }
+    }
+    
+    class func openAppleMaps(latitude: Double, longitude: Double) {
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = ""
+        mapItem.openInMaps(launchOptions: options)
     }
     
     class func setupSideMenu(delegate: UISideMenuNavigationControllerDelegate, viewToPresent: UIView, viewToEdge: UIView, sideMenuCellDelegate: SideMenuCellDelegate?, sideMenuHeaderDelegate: SideMenuHeaderDelegate?) -> SideMenuVC {
