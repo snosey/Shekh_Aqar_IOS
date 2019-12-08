@@ -127,6 +127,14 @@ class UiHelpers {
         return alert
     }
     
+    class func showActionSheet(title: String, message: String, actions: [UIAlertAction]) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        for action in actions {
+            alert.addAction(action)
+        }
+        return alert
+    }
+    
     class func getLengthAccordingTo(relation: LengthRelation, relativeView: UIView?, percentage: CGFloat) -> CGFloat {
         
         switch relation {
@@ -268,6 +276,8 @@ class UiHelpers {
             }
         }
     }
+    
+    
     
     class func openGoogleMaps(latitude: Double, longitude: Double) {
         if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://") as! URL)) {

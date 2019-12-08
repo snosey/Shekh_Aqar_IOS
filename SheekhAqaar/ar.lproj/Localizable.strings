@@ -150,3 +150,7 @@
 "price:" = "السعر: ";
 "noCompaniesInThisArea" = "لا يوجد شركات في هذه المنطقة";
 "noAdsInThisArea" = "لا يوجد اعلانات في هذه المنطقة";
+"googleMaps" = "خرائط جوجل";
+"appleMaps" = "خرائط ابل";
+"mapChooseTitle" = "اختر نوع الخريطة";
+"mapChooseMessage" = "من فضلك اختر نوع الخريطه لعرض المكان";

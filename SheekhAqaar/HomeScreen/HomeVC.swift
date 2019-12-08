@@ -619,7 +619,20 @@ extension HomeVC: CompanyCellDelegate {
     }
     
     func openMapsClicked(latitude: Double, longitude: Double) {
-        UiHelpers.openGoogleMaps(latitude: latitude, longitude: longitude)
+        
+        var actionSheet: UIAlertController!
+        
+        let googleMapsAction = UIAlertAction(title: "googleMaps".localized(), style: .default) { (_) in
+            UiHelpers.openGoogleMaps(latitude: latitude, longitude: longitude)
+        }
+        
+        let appleMapsAction = UIAlertAction(title: "appleMaps".localized(), style: .default) { (_) in
+            UiHelpers.openAppleMaps(latitude: latitude, longitude: longitude)
+        }
+        
+        actionSheet = UiHelpers.showActionSheet(title: "mapChooseTitle".localized(), message: "mapChooseMessage".localized(), actions: [googleMapsAction, appleMapsAction])
+        
+        presentVC(actionSheet)
     }
 }
 

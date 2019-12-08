@@ -60,7 +60,19 @@ class CompanyVC: BaseVC {
         companyNumberOfAdsLabel.text = "\("adsNumber".localized()) \(company.numberOfAds!)"
         
         addressView.addTapGesture { [weak self] (_) in
-            UiHelpers.openGoogleMaps(latitude: Double(self?.company.latitude ?? "") ?? 0, longitude: Double(self?.company.longitude ?? "") ?? 0)
+            var actionSheet: UIAlertController!
+            
+            let googleMapsAction = UIAlertAction(title: "googleMaps".localized(), style: .default) { (_) in
+                UiHelpers.openGoogleMaps(latitude: Double(self?.company.latitude ?? "") ?? 0, longitude: Double(self?.company.longitude ?? "") ?? 0)
+            }
+            
+            let appleMapsAction = UIAlertAction(title: "appleMaps".localized(), style: .default) { (_) in
+                UiHelpers.openAppleMaps(latitude: Double(self?.company.latitude ?? "") ?? 0, longitude: Double(self?.company.longitude ?? "") ?? 0)
+            }
+            
+            actionSheet = UiHelpers.showActionSheet(title: "".localized(), message: "".localized(), actions: [googleMapsAction, appleMapsAction])
+            
+            self?.presentVC(actionSheet)
         }
         
         callView.addTapGesture { [weak self] (_) in

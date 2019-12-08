@@ -155,7 +155,19 @@ class AdVC: BaseVC {
     }
     
     @IBAction func openMapsClicked(_ sender: Any) {
-        UiHelpers.openGoogleMaps(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+        var actionSheet: UIAlertController!
+        
+        let googleMapsAction = UIAlertAction(title: "googleMaps".localized(), style: .default) { (_) in
+            UiHelpers.openGoogleMaps(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+        }
+        
+        let appleMapsAction = UIAlertAction(title: "appleMaps".localized(), style: .default) { (_) in
+            UiHelpers.openAppleMaps(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+        }
+        
+        actionSheet = UiHelpers.showActionSheet(title: "".localized(), message: "".localized(), actions: [googleMapsAction, appleMapsAction])
+        
+        presentVC(actionSheet)
     }
 }
 

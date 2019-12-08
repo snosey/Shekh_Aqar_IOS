@@ -150,6 +150,11 @@
 "wrongCodeEntered" = "You entered wrong code. Please click resend code to recieve the right code and try again";
 "noCompaniesInThisArea" = "No companies in this area";
 "noAdsInThisArea" = "No ads in this area";
+"googleMaps" = "Google Maps";
+"appleMaps" = "Apple Maps";
+"mapChooseTitle" = "Map chooser";
+"mapChooseMessage" = "Choose a map to view the location";
+
 
 
 
