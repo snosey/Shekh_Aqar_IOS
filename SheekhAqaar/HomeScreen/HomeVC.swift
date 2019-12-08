@@ -653,7 +653,12 @@ extension HomeVC: SideMenuCellDelegate {
             break
             
         case sideMenuVC.menuStringsDataSource.count - 3:
-            navigator.navigateToFavourites()
+            
+            if let _ = Defaults[.user] {
+                navigator.navigateToFavourites()
+            } else {
+                navigator.navigateToSignUp()
+            }
             break
             
         case sideMenuVC.menuStringsDataSource.count - 2:

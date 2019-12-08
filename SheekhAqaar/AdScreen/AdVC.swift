@@ -61,7 +61,7 @@ class AdVC: BaseVC {
             self?.navigationController?.popViewController(animated: true)
         }
         
-        if let user = User(json: Defaults[.user]!), ad.userId == user.id {
+        if let user = User(json: Defaults[.user] ?? [:]), ad.userId == user.id {
             addToFavouritesButton.setTitle("editAd".localized(), for: .normal)
         } else {
             if self.ad.isFavourite {
@@ -115,16 +115,23 @@ class AdVC: BaseVC {
     }
     
     @IBAction func addToFavouritesClicked(_ sender: Any) {
-        if let user = User(json: Defaults[.user]!), ad.userId == user.id {
-            self.navigator.navigateToEditAd(ad: ad)
-        } else {
-            if self.ad.isFavourite {
-                presenter.removeFavouriteAd(ad: ad)
+        
+        if let userDic = Defaults[.user] {
+            if let user = User(json: userDic), ad.userId == user.id {
+                self.navigator.navigateToEditAd(ad: ad)
             } else {
-                presenter.saveFavouriteAd(ad: ad)
+                if self.ad.isFavourite {
+                    presenter.removeFavouriteAd(ad: ad)
+                } else {
+                    presenter.saveFavouriteAd(ad: ad)
+                }
+                self.ad.isFavourite = !self.ad.isFavourite
             }
-            self.ad.isFavourite = !self.ad.isFavourite
+        } else {
+            self.navigator.navigateToSignUp()
         }
+        
+        
     }
     
     @IBAction func makeCallClicked(_ sender: Any) {
@@ -148,7 +155,7 @@ class AdVC: BaseVC {
     }
     
     @IBAction func openMapsClicked(_ sender: Any) {
-        UiHelpers.openGoogleMaps(view: self.view, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
+        UiHelpers.openGoogleMaps(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude)
     }
 }
 

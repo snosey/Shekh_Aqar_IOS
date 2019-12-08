@@ -81,7 +81,7 @@ public class AdRepository {
     }
     
     public func getAd(adId: Int) {
-        let params = ["Fk_UserItem" : adId, "Token" : User(json: Defaults[.user]!)!.token!] as [String : Any]
+        let params = ["Fk_UserItem" : adId] as [String : Any]
         let url = CommonConstants.BASE_URL + "User/GetAd"
         
         Alamofire.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil)
