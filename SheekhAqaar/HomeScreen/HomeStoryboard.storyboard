@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -235,6 +235,9 @@
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="5ep-07-ETX">
                                 <rect key="frame" x="385" y="821" width="29" height="41"/>
                             </imageView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7h2-qt-ves">
+                                <rect key="frame" x="0.0" y="248" width="414" height="573"/>
+                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiK-Ff-Bko" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="248" width="414" height="573"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -575,11 +578,13 @@
                             <constraint firstItem="bh2-eV-AE8" firstAttribute="height" secondItem="QSc-tD-J61" secondAttribute="height" id="6La-Pf-Gv4"/>
                             <constraint firstItem="SA1-T5-gze" firstAttribute="trailing" secondItem="LEk-XP-VKx" secondAttribute="leading" id="6tC-Hn-Dx6"/>
                             <constraint firstItem="5ep-07-ETX" firstAttribute="leading" secondItem="Qts-g0-DDA" secondAttribute="leading" id="7j7-Ha-OMb"/>
+                            <constraint firstItem="7h2-qt-ves" firstAttribute="bottom" secondItem="jiK-Ff-Bko" secondAttribute="bottom" id="7qW-wY-PKf"/>
                             <constraint firstItem="jHw-cA-GeX" firstAttribute="leading" secondItem="bh2-eV-AE8" secondAttribute="leading" id="8V3-kO-EPJ"/>
                             <constraint firstItem="LEk-XP-VKx" firstAttribute="width" secondItem="QSc-tD-J61" secondAttribute="width" id="9r5-CE-TNP"/>
                             <constraint firstItem="Qts-g0-DDA" firstAttribute="width" secondItem="bh2-eV-AE8" secondAttribute="width" id="A1y-iy-QZw"/>
                             <constraint firstItem="T7Y-Jj-lGe" firstAttribute="bottom" secondItem="jHw-cA-GeX" secondAttribute="bottom" id="AQY-M4-DrH"/>
                             <constraint firstItem="5HF-Hs-XJa" firstAttribute="leading" secondItem="T7Y-Jj-lGe" secondAttribute="leading" id="Beq-uM-GrQ"/>
+                            <constraint firstItem="7h2-qt-ves" firstAttribute="top" secondItem="jiK-Ff-Bko" secondAttribute="top" id="CKX-4s-5Nb"/>
                             <constraint firstItem="jHw-cA-GeX" firstAttribute="trailing" secondItem="bh2-eV-AE8" secondAttribute="trailing" id="Eqg-nm-eBV"/>
                             <constraint firstItem="s8a-9f-Udv" firstAttribute="height" secondItem="T7Y-Jj-lGe" secondAttribute="height" multiplier="0.05" id="GPv-gi-kjg"/>
                             <constraint firstItem="s8a-9f-Udv" firstAttribute="leading" secondItem="5HF-Hs-XJa" secondAttribute="leading" constant="8" id="GuH-E1-hjw"/>
@@ -587,6 +592,7 @@
                             <constraint firstItem="nFc-QX-XQu" firstAttribute="trailing" secondItem="Qts-g0-DDA" secondAttribute="leading" id="ICE-Th-Npt"/>
                             <constraint firstItem="nFc-QX-XQu" firstAttribute="top" secondItem="bh2-eV-AE8" secondAttribute="top" id="JXv-5N-4xq"/>
                             <constraint firstItem="DYa-f5-UK7" firstAttribute="top" secondItem="jHw-cA-GeX" secondAttribute="top" id="KRV-3V-gvW"/>
+                            <constraint firstItem="7h2-qt-ves" firstAttribute="leading" secondItem="jiK-Ff-Bko" secondAttribute="leading" id="Lzm-b0-hfA"/>
                             <constraint firstItem="QSc-tD-J61" firstAttribute="leading" secondItem="T7Y-Jj-lGe" secondAttribute="leading" id="M35-AG-NpC"/>
                             <constraint firstItem="jiK-Ff-Bko" firstAttribute="leading" secondItem="p6h-mB-fTQ" secondAttribute="leading" id="MPr-MT-rvz"/>
                             <constraint firstItem="nFc-QX-XQu" firstAttribute="bottom" secondItem="bh2-eV-AE8" secondAttribute="bottom" id="Max-Q9-lRq"/>
@@ -597,6 +603,7 @@
                             <constraint firstItem="QSc-tD-J61" firstAttribute="width" secondItem="T7Y-Jj-lGe" secondAttribute="width" multiplier="0.07" id="UcG-Sx-ahB"/>
                             <constraint firstItem="Qts-g0-DDA" firstAttribute="bottom" secondItem="bh2-eV-AE8" secondAttribute="bottom" id="Uxn-vx-Ed5"/>
                             <constraint firstItem="bh2-eV-AE8" firstAttribute="trailing" secondItem="QSc-tD-J61" secondAttribute="trailing" id="VOe-WQ-Mh2"/>
+                            <constraint firstItem="7h2-qt-ves" firstAttribute="trailing" secondItem="jiK-Ff-Bko" secondAttribute="trailing" id="WCv-6h-V6k"/>
                             <constraint firstItem="QSc-tD-J61" firstAttribute="height" secondItem="T7Y-Jj-lGe" secondAttribute="height" multiplier="0.05" id="XIp-wr-3yX"/>
                             <constraint firstItem="jiK-Ff-Bko" firstAttribute="bottom" secondItem="p6h-mB-fTQ" secondAttribute="bottom" id="ZU3-GL-fNT"/>
                             <constraint firstItem="s8a-9f-Udv" firstAttribute="top" secondItem="5HF-Hs-XJa" secondAttribute="bottom" constant="16" id="ZXJ-nu-6WR"/>
@@ -627,6 +634,7 @@
                         <viewLayoutGuide key="safeArea" id="T7Y-Jj-lGe"/>
                     </view>
                     <connections>
+                        <outlet property="appleMapView" destination="7h2-qt-ves" id="Oh5-yF-T4u"/>
                         <outlet property="collectionView1" destination="SA1-T5-gze" id="B9e-GO-W7d"/>
                         <outlet property="collectionView2" destination="nFc-QX-XQu" id="mdP-8G-eiW"/>
                         <outlet property="collectionView3" destination="DYa-f5-UK7" id="SLv-bj-5U3"/>

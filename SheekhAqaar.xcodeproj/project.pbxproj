@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		44C8872ED56168421941451A /* Pods_SheekhAqaarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8E23C36455B3A6876DFFFC /* Pods_SheekhAqaarTests.framework */; };
+		542D3FEE239D27BB009C192C /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542D3FED239D27BB009C192C /* CustomAnnotation.swift */; };
 		54F3B7D1237AADE400BA798E /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B79E237AADE300BA798E /* NSAttributedStringExtensions.swift */; };
 		54F3B7D2237AADE400BA798E /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B79F237AADE300BA798E /* FloatingPointExtensions.swift */; };
 		54F3B7D3237AADE400BA798E /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B7A0237AADE300BA798E /* DateExtensions.swift */; };
@@ -232,6 +233,7 @@
 /* Begin PBXFileReference section */
 		168FA21D35A8BEE5F932A07F /* Pods_SheekhAqaar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SheekhAqaar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31C428658298834381E0A576 /* Pods-SheekhAqaar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheekhAqaar.release.xcconfig"; path = "Target Support Files/Pods-SheekhAqaar/Pods-SheekhAqaar.release.xcconfig"; sourceTree = "<group>"; };
+		542D3FED239D27BB009C192C /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		54F3B79E237AADE300BA798E /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		54F3B79F237AADE300BA798E /* FloatingPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointExtensions.swift; sourceTree = "<group>"; };
 		54F3B7A0237AADE300BA798E /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
@@ -621,6 +623,7 @@
 				E82474CF23083C6B00211FDB /* UIExtensions.swift */,
 				E89CBAFE23097DD9000B6BB7 /* ApplicationStarter.swift */,
 				E89CBB0E23099640000B6BB7 /* GradientBG.swift */,
+				542D3FED239D27BB009C192C /* CustomAnnotation.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1185,6 +1188,7 @@
 				E848316223185D36009C7BE9 /* AdditionalFacilityCell.swift in Sources */,
 				E85AAFEF234803A40064D872 /* CompanyType.swift in Sources */,
 				E847DD37231DC5A30063CC8F /* ChooseAdditionalFacilityCell.swift in Sources */,
+				542D3FEE239D27BB009C192C /* CustomAnnotation.swift in Sources */,
 				54F3B802237AADE400BA798E /* UILabelExtensions.swift in Sources */,
 				E89CBB182309B8B5000B6BB7 /* PhoneVerificationVC.swift in Sources */,
 				E84CCCBC2339454700A9829A /* HelpData.swift in Sources */,

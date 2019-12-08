@@ -12,6 +12,7 @@ import GoogleMaps
 import SideMenu
 import SwiftyUserDefaults
 import GooglePlaces
+import MapKit
 
 class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
 
@@ -38,6 +39,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     @IBOutlet weak var googleMapView: GMSMapView!
     @IBOutlet weak var googleEarthButton: UIButton!
     @IBOutlet weak var normalMapButton: UIButton!
+    @IBOutlet weak var appleMapView: MKMapView!
     
     
     
@@ -61,6 +63,8 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     var alertController: UIAlertController!
     var presenter: HomePresenter!
     
+    var choosenMapType: MapType!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GradientBG.createGradientLayer(view: topView, cornerRaduis: 0, maskToBounds: false)
@@ -77,6 +81,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         
         showMapButton.addTapGesture { [weak self] (_) in
             
+            
             if self?.viewingMode != 1 {
                 GradientBG.createGradientLayer(view: self?.showMapButton ?? UIView(), cornerRaduis: 4, maskToBounds: true)
                 self?.showMapButton.setTitleColor(UIColor.black, for: .normal)
@@ -87,7 +92,8 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
                 self?.showImagesButton.setTitleColor(UIColor.AppColors.textColor, for: .normal)
                 
                 self?.tableView.isHidden = true
-                self?.googleMapView.isHidden = false
+//                self?.googleMapView.isHidden = false
+                self?.showMapTypeChooser()
                 
                 self?.viewingMode = 1
                 
@@ -116,6 +122,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
                 
                 self?.tableView.isHidden = false
                 self?.googleMapView.isHidden = true
+                self?.appleMapView.isHidden = true
                 
                 self?.viewingMode = 2
                 
@@ -125,13 +132,15 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
             }
         }
         
+        appleMapView.delegate = self
+        
         changeArrows()
         
         setupScrollableViews()
         
         setupSideMenu()
         
-        getCurrentLocation()
+        checkMapTypeSelection()
         
         presenter = Injector.provideHomePresenter()
         presenter.setView(view: self)
@@ -144,6 +153,54 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         if Singleton.getInstance().signUpData == nil {
             presenter.getSignUpData()
         }
+        
+        
+    }
+    
+    func checkMapTypeSelection() {
+        if let choosenMapType = Defaults[.choosenMapType] {
+            self.choosenMapType = MapType(rawValue: choosenMapType)
+            switch self.choosenMapType {
+            case .Google:
+                googleMapView.isHidden = false
+                appleMapView.isHidden = true
+                break
+                
+            case .Apple:
+                googleMapView.isHidden = true
+                appleMapView.isHidden = false
+                break
+                
+            default:
+                break
+            }
+        } else {
+            showMapTypeChooser()
+        }
+        
+        getCurrentLocation()
+    }
+    
+    func showMapTypeChooser() {
+        var alertController: UIAlertController!
+        
+        let googleMapsAction = UIAlertAction(title: "googleMaps".localized(), style: .default) { [weak self] _ in
+            Defaults[.choosenMapType] = MapType.Google.rawValue
+            self?.choosenMapType = .Google
+            self?.googleMapView.isHidden = false
+            self?.appleMapView.isHidden = true
+        }
+        
+        let appleMapsAction = UIAlertAction(title: "appleMaps".localized(), style: .default) { [weak self] _ in
+            Defaults[.choosenMapType] = MapType.Apple.rawValue
+            self?.choosenMapType = .Apple
+            self?.googleMapView.isHidden = true
+            self?.appleMapView.isHidden = false
+        }
+        
+        alertController = UiHelpers.createAlertView(title: "mapChooseTitle".localized(), message: "mapChooseMessage".localized(), actions: [googleMapsAction, appleMapsAction])
+        
+        presentVC(alertController)
     }
     
     func getCurrentLocation() {
@@ -161,14 +218,22 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         googleMapView.delegate = self
         googleMapView.isMyLocationEnabled = true
         googleMapView.settings.myLocationButton = true
+        
+        let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
+        let viewRegion = MKCoordinateRegion(center: location, latitudinalMeters: 200, longitudinalMeters: 200)//MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: location.latitude, longitudeDelta: location.longitude))
+        appleMapView.setRegion(viewRegion, animated: true)
+        appleMapView.showsUserLocation = true
     }
     
     func showCompaniesOnMap() {
         googleMapView.clear()
+        self.appleMapView.removeAnnotations(self.appleMapView.annotations)
         if companies.count > 0 {
             for company in companies {
                 let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(company.latitude)!, longitude: Double(company.longitude)!, title: company.name, secondLabelTitle: "\("adsNumber".localized()) \(company.numberOfAds!)", mapView: googleMapView, companyMarkerColor: "#eede71")
                 marker.userData = company
+                
+                UiHelpers.addMarkerToAppleMaps(sourceView: self.view, latitude: Double(company.latitude)!, longitude: Double(company.longitude)!, title: company.name, secondLabelTitle: "\("adsNumber".localized()) \(company.numberOfAds!)", mapView: self.appleMapView, companyMarkerColor: "#eede71", company: company, ad: nil)
             }
         } else {
             self.view.makeToast("noCompaniesInThisArea".localized())
@@ -178,10 +243,13 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     
     func showAdsOnMap() {
         googleMapView.clear()
+        self.appleMapView.removeAnnotations(self.appleMapView.annotations)
         if ads.count > 0 {
             for ad in ads {
                 let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, secondLabelTitle: "\("price:".localized()) \(ad.price!) \(ad.currency.name!)", mapView: googleMapView, companyMarkerColor: ad.subCategory.hexCode ?? "#eede71")
                 marker.userData = ad
+                
+                UiHelpers.addMarkerToAppleMaps(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, secondLabelTitle: "\("price:".localized()) \(ad.price!) \(ad.currency.name!)", mapView: self.appleMapView, companyMarkerColor: ad.subCategory.hexCode ?? "#eede71", company: nil, ad: ad)
             }
         } else {
              self.view.makeToast("noAdsInThisArea".localized())
@@ -241,10 +309,12 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     
     @IBAction func googleEarthClicked(_ sender: Any) {
         googleMapView.mapType = .satellite
+        appleMapView.mapType = .satellite
     }
     
     @IBAction func googleMapsClicked(_ sender: Any) {
         googleMapView.mapType = .normal
+        appleMapView.mapType = .standard
     }
     
 }
@@ -705,6 +775,7 @@ extension HomeVC: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         mapView.clear()
+        self.appleMapView.removeAnnotations(self.appleMapView.annotations)
         Singleton.getInstance().currentLatitude = position.target.latitude
         Singleton.getInstance().currentLongitude = position.target.longitude
         if let _ = selectedCategory {
@@ -716,6 +787,53 @@ extension HomeVC: GMSMapViewDelegate {
                 } else {
                     presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude, showLoader: false)
                 }
+            }
+        }
+    }
+}
+
+extension HomeVC: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseId = "\(annotation.coordinate.latitude)-\(annotation.coordinate.longitude)"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        if let customPointAnnotation = annotation as? CustomAnnotation {
+            annotationView?.image = customPointAnnotation.image
+        }
+        
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        Singleton.getInstance().currentLatitude = mapView.centerCoordinate.latitude
+        Singleton.getInstance().currentLongitude = mapView.centerCoordinate.longitude
+        self.googleMapView.clear()
+        if let _ = selectedCategory {
+            if self.selectedCategoryPosition == 2 || self.selectedCategoryPosition == 3 {
+                self.presenter.getAds(subCategoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude, showLoader: false)
+            } else {
+                if selectedCategory.id == -4 {
+                    presenter.getAds(latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude, showLoader: false)
+                } else {
+                    presenter.getCompanies(categoryId: selectedCategory.id, latitude: Singleton.getInstance().currentLatitude, longitude: Singleton.getInstance().currentLongitude, showLoader: false)
+                }
+            }
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotation = view.annotation as? CustomAnnotation {
+            if let company = annotation.company {
+                self.navigator.navigateToCompany(company: company)
+            } else if let ad = annotation.ad {
+                self.navigator.navigateToAdDetails(ad: ad)
             }
         }
     }

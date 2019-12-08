@@ -40,3 +40,8 @@ extension UIDevice {
         }
     }
 }
+
+public enum MapType: Int {
+    case Google = 1
+    case Apple = 2
+}

@@ -110,6 +110,20 @@ class UiHelpers {
         locationMarker.map = mapView
     }
     
+    class func addMarkerToAppleMaps(sourceView: UIView, latitude: Double, longitude: Double, title: String, secondLabelTitle: String, mapView: MKMapView, companyMarkerColor: String, company: Company?, ad: Ad?) {
+        let annotation = CustomAnnotation()
+        annotation.title = title
+        annotation.subtitle = secondLabelTitle
+        annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        annotation.image = UiHelpers.makeMarkerView(sourceView: sourceView, companyName: title, secondLabelString: secondLabelTitle, companyColorCode: companyMarkerColor).asImage()
+        annotation.company = company
+        annotation.ad = ad
+        
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "\(latitude)-\(longitude)")
+        mapView.addAnnotation(annotationView.annotation!)
+        
+    }
+    
     class func showLoader() {
         let activityData = ActivityData(size: nil, message: nil, messageFont: nil, messageSpacing: nil, type: nil, color: UIColor.AppColors.darkGray, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: nil, backgroundColor: nil, textColor: nil)
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
