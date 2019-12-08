@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E89340E22308265E00F37DCE"
-               BuildableName = "SheekhAqaar.app"
+               BuildableName = "sheikh alaqar.app"
                BlueprintName = "SheekhAqaar"
                ReferencedContainer = "container:SheekhAqaar.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E89340E22308265E00F37DCE"
-            BuildableName = "SheekhAqaar.app"
+            BuildableName = "sheikh alaqar.app"
             BlueprintName = "SheekhAqaar"
             ReferencedContainer = "container:SheekhAqaar.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E89340E22308265E00F37DCE"
-            BuildableName = "SheekhAqaar.app"
+            BuildableName = "sheikh alaqar.app"
             BlueprintName = "SheekhAqaar"
             ReferencedContainer = "container:SheekhAqaar.xcodeproj">
          </BuildableReference>

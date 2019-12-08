@@ -360,7 +360,7 @@
 		E8784F4523402EF80036F8D0 /* RequestBuildingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuildingPresenter.swift; sourceTree = "<group>"; };
 		E8784F4723402F050036F8D0 /* RequestBuildingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuildingRepository.swift; sourceTree = "<group>"; };
 		E87A9008230B365D0020BAA2 /* RegisterCompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompanyCell.swift; sourceTree = "<group>"; };
-		E89340E32308265E00F37DCE /* SheekhAqaar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SheekhAqaar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E89340E32308265E00F37DCE /* sheikh alaqar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sheikh alaqar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89340E62308265E00F37DCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E89340E82308265F00F37DCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E89340EB2308265F00F37DCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -719,7 +719,7 @@
 		E89340E42308265E00F37DCE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E89340E32308265E00F37DCE /* SheekhAqaar.app */,
+				E89340E32308265E00F37DCE /* sheikh alaqar.app */,
 				E89340F72308265F00F37DCE /* SheekhAqaarTests.xctest */,
 				E89341022308265F00F37DCE /* SheekhAqaarUITests.xctest */,
 			);
@@ -936,7 +936,7 @@
 			);
 			name = SheekhAqaar;
 			productName = SheekhAqaar;
-			productReference = E89340E32308265E00F37DCE /* SheekhAqaar.app */;
+			productReference = E89340E32308265E00F37DCE /* sheikh alaqar.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E89340F62308265F00F37DCE /* SheekhAqaarTests */ = {
@@ -1535,8 +1535,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dinnova.SheekhAqaar;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dinnova.shekhaqar;
+				PRODUCT_NAME = "sheikh alaqar";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1557,8 +1557,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dinnova.SheekhAqaar;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dinnova.shekhaqar;
+				PRODUCT_NAME = "sheikh alaqar";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

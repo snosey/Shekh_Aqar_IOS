@@ -37,9 +37,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>We need to access your camera</string>
+	<string>We need to access your camera to take photos for your ads or updating your profile picture</string>
 	<key>NSCameraUsageDescription - 2</key>
-	<string>Need Photo Library access</string>
+	<string>Need Photo Library access to take photos for your ads or updating your profile picture</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Sheekh Aqaar needs to access your location to show you the nearest ads and companies</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -47,7 +47,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Sheekh Aqaar needs to access your location to show you the nearest ads and companies</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need to access your Photo Library</string>
+	<string>We need to access your Photo Library to take photos for your ads or updating your profile picture</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>TheSans-Bold.otf</string>
