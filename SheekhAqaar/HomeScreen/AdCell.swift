@@ -34,7 +34,7 @@ class AdCell: UITableViewCell {
         priceLabel.text = "\(ad.price!) \(ad.currency.name!)"
         titleLabel.text = ad.name
         addressLabel.text = ad.detailedAddress
-        areaLabel.text = "\(ad.placeArea!)"
+        areaLabel.text = "\(ad.placeArea ?? 0)"
         adTypeLabel.text = ad.subCategory.name
         creationTimeLabel.text = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/yyyy hh:mm a").timeAgoDisplay()
     }

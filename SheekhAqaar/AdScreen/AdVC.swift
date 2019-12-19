@@ -299,7 +299,7 @@ extension AdVC: UITableViewDataSource, UITableViewDelegate {
                 break
                 
             case 2:
-                cell.populateFirst3Rows(title: "aream2".localized(), value: String(ad.placeArea), image: UIImage(named: "m2")!)
+                cell.populateFirst3Rows(title: "aream2".localized(), value: String(ad.placeArea ?? 0), image: UIImage(named: "m2")!)
                 break
             
             default:

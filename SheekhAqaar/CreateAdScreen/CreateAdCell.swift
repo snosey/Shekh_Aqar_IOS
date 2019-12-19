@@ -176,7 +176,7 @@ class CreateAdCell: UITableViewCell {
         adDetailsTextView.delegate = self
         
         publishAddButton.addTapGesture { [weak self](_) in
-            if self?.selectedImages.count ?? 0 >= 3 {
+//            if self?.selectedImages.count ?? 0 >= 3 {
                 if let adTitle = self?.adTitleTextField.text, !adTitle.isEmpty {
                     if let price = self?.priceTextField.text, !price.isEmpty {
                         if let details = self?.adDetailsTextView.text, !details.isEmpty {
@@ -275,9 +275,9 @@ class CreateAdCell: UITableViewCell {
                 } else {
                     self?.contentView.makeToast("enterAdTitle".localized())
                 }
-            } else {
-                self?.contentView.makeToast("atLeast3Images".localized())
-            }
+//            } else {
+//                self?.contentView.makeToast("atLeast3Images".localized())
+//            }
         }
         
         addImagesButton.addTapGesture { [weak self](_) in
