@@ -19,16 +19,15 @@ open class Endpoint<Target> {
 
     /// A string representation of the URL for the request.
     public let url: String
-    
 
     /// A closure responsible for returning an `EndpointSampleResponse`.
-    public var sampleResponseClosure: SampleResponseClosure
+    public let sampleResponseClosure: SampleResponseClosure
 
     /// The HTTP method for the request.
-    open var method: Moya.Method
+    public let method: Moya.Method
 
     /// The `Task` for the request.
-    open var task: Task
+    public let task: Task
 
     /// The HTTP header fields for the request.
     public let httpHeaderFields: [String: String]?

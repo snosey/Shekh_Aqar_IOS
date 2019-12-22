@@ -93,7 +93,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
                 
                 self?.tableView.isHidden = true
 //                self?.googleMapView.isHidden = false
-                self?.showMapTypeChooser()
+                self?.checkMapTypeSelection()
                 
                 self?.viewingMode = 1
                 

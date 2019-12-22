@@ -1118,8 +1118,7 @@ extension DropDown {
 			self,
 			selector: #selector(keyboardUpdate),
             name: UIResponder.keyboardWillShowNotification,
-            object: nil)
-        
+			object: nil)
 		NotificationCenter.default.addObserver(
 			self,
 			selector: #selector(keyboardUpdate),
