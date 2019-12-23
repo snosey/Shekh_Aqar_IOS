@@ -93,7 +93,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
                 
                 self?.tableView.isHidden = true
 //                self?.googleMapView.isHidden = false
-                self?.showMapTypeChooser()
+                self?.checkMapTypeSelection()
                 
                 self?.viewingMode = 1
                 
@@ -212,7 +212,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
     }
     
     func createMapView(latitude: Double, longitude: Double) {
-        let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude), zoom: 12)
+        let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude), zoom: 14)
         googleMapView.camera = camera
         googleMapView.animate(to: camera)
         googleMapView.delegate = self
@@ -246,7 +246,7 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         self.appleMapView.removeAnnotations(self.appleMapView.annotations)
         if ads.count > 0 {
             for ad in ads {
-                let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, secondLabelTitle: "\("price:".localized()) \(ad.price!) \(ad.currency.name!)", mapView: googleMapView, companyMarkerColor: ad.subCategory.hexCode ?? "#eede71")
+                let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, secondLabelTitle: "\("price:".localized()) \(ad.price!) \(ad.currency.name!)", mapView: googleMapView, companyMarkerColor:  "#eede71")
                 marker.userData = ad
                 
                 UiHelpers.addMarkerToAppleMaps(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, secondLabelTitle: "\("price:".localized()) \(ad.price!) \(ad.currency.name!)", mapView: self.appleMapView, companyMarkerColor: ad.subCategory.hexCode ?? "#eede71", company: nil, ad: ad)
