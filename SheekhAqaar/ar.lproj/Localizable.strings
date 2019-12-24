@@ -154,3 +154,5 @@
 "appleMaps" = "خرائط ابل";
 "mapChooseTitle" = "اختر نوع الخريطة";
 "mapChooseMessage" = "من فضلك اختر نوع الخريطه لعرض المكان";
+"otherDetails" = "تفاصيل أخري";
+"totalArea" = "المساحه الاجماليه";

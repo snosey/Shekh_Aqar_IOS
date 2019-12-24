@@ -13,6 +13,7 @@ class AdDetailsWithSpinnerCell: UITableViewCell {
 
     public static let identifier = "AdDetailsWithSpinnerCell"
     
+    @IBOutlet weak var detailsImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueView: UIView!
     @IBOutlet weak var valueLabel: UILabel!
@@ -22,6 +23,11 @@ class AdDetailsWithSpinnerCell: UITableViewCell {
     let dropDown = DropDown()
     
     public func populateData() {
+        
+        if let imageUrl = adDetailsItem.imageUrl, let url = URL(string: imageUrl) {
+            detailsImageView.af_setImage(withURL: url)
+        }
+        
         titleLabel.text = adDetailsItem.name
         if let value = adDetailsItem.value {
             valueLabel.text = adDetailsItem.spinnerDataArray.filter({ (item) -> Bool in

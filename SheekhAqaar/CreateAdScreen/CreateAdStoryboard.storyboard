@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
     <scenes>
         <!--Create AdVC-->
         <scene sceneID="L3c-Tc-MlG">
             <objects>
-                <viewController storyboardIdentifier="CreateAdVC" id="Jpb-va-BdJ" customClass="CreateAdVC" customModule="SheekhAqaar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateAdVC" id="Jpb-va-BdJ" customClass="CreateAdVC" customModule="sheikh_alaqar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d8g-TF-Rme">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,20 +24,20 @@
                                 <rect key="frame" x="0.0" y="101" width="414" height="1165"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreateAdCell" rowHeight="1140" id="gdr-Mh-2Cj" customClass="CreateAdCell" customModule="SheekhAqaar" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreateAdCell" rowHeight="1140" id="gdr-Mh-2Cj" customClass="CreateAdCell" customModule="sheikh_alaqar" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="1140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gdr-Mh-2Cj" id="Kzr-Q2-71g">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="1140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FtS-kl-BMS" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FtS-kl-BMS" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="0.0" width="398" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWZ-DI-gsF" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWZ-DI-gsF" customClass="LocalizedButton" customModule="sheikh_alaqar" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="124" height="45.5"/>
                                                     <color key="backgroundColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="Button">
@@ -61,7 +60,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdPhotoCell" id="J4G-Co-mPl" customClass="AdPhotoCell" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdPhotoCell" id="J4G-Co-mPl" customClass="AdPhotoCell" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="110"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rds-SU-n4Q">
@@ -102,16 +101,16 @@
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghc-Mw-lyb" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghc-Mw-lyb" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="183.5" width="398" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="systemRedColor"/>
+                                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="adImagesWarning"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-rS-sJA" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-rS-sJA" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="183.5" width="398" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="S8V-f7-Fda"/>
@@ -126,7 +125,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOs-dW-DyG" userLabel="AdTitleView">
                                                     <rect key="frame" x="8" y="211.5" width="398" height="35"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TGV-LL-X7U" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TGV-LL-X7U" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="4" width="382" height="27"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -135,7 +134,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </textField>
                                                     </subviews>
-                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="Zoc-6I-sgk"/>
                                                         <constraint firstItem="TGV-LL-X7U" firstAttribute="leading" secondItem="cOs-dW-DyG" secondAttribute="leading" constant="8" id="aUs-gC-d6N"/>
@@ -155,7 +154,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICc-Ww-Do2">
                                                             <rect key="frame" x="0.0" y="4" width="239" height="31"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7a-Rs-93s" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7a-Rs-93s" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                     <rect key="frame" x="8" y="4" width="223" height="23"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -180,10 +179,10 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEB-8x-9xm">
                                                             <rect key="frame" x="247" y="4" width="151" height="31"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4no-wY-O3J" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4no-wY-O3J" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                     <rect key="frame" x="8" y="6.5" width="111" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="placeholderTextColor"/>
+                                                                    <color key="textColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="currency"/>
@@ -197,7 +196,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstItem="kmP-Yf-TcK" firstAttribute="centerY" secondItem="yEB-8x-9xm" secondAttribute="centerY" id="Dbh-By-HRJ"/>
                                                                 <constraint firstItem="4no-wY-O3J" firstAttribute="leading" secondItem="yEB-8x-9xm" secondAttribute="leading" constant="8" id="STq-Lh-t6c"/>
@@ -227,18 +226,18 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5MW-eT-HfZ" userLabel="AdDetailsView">
                                                     <rect key="frame" x="8" y="383.5" width="398" height="105"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="wW3-0v-UZJ" customClass="LocalizedTextView" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="wW3-0v-UZJ" customClass="LocalizedTextView" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="4" width="382" height="97"/>
-                                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="details"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="otherDetails"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </textView>
                                                     </subviews>
-                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="wW3-0v-UZJ" secondAttribute="trailing" constant="8" id="JRR-bX-PJo"/>
                                                         <constraint firstItem="wW3-0v-UZJ" firstAttribute="top" secondItem="5MW-eT-HfZ" secondAttribute="top" constant="4" id="RzW-XG-tIP"/>
@@ -254,10 +253,10 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccb-7Y-fyp">
                                                     <rect key="frame" x="8" y="254.5" width="398" height="35"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Z7-Cp-gKW" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Z7-Cp-gKW" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="7.5" width="358" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="placeholderTextColor"/>
+                                                            <color key="textColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="category"/>
@@ -271,7 +270,7 @@
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="ynF-DY-ug6" secondAttribute="trailing" constant="8" id="70r-g0-Owv"/>
                                                         <constraint firstItem="8Z7-Cp-gKW" firstAttribute="centerY" secondItem="Ccb-7Y-fyp" secondAttribute="centerY" id="GEj-3K-693"/>
@@ -288,10 +287,10 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4p-fN-hpP">
                                                     <rect key="frame" x="8" y="297.5" width="398" height="35"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oM-JH-7oo" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oM-JH-7oo" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="4" width="358" height="27"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="placeholderTextColor"/>
+                                                            <color key="textColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="adType"/>
@@ -305,7 +304,7 @@
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstItem="6oM-JH-7oo" firstAttribute="trailing" secondItem="zev-l2-OCs" secondAttribute="leading" constant="-4" id="ODJ-6c-toF"/>
                                                         <constraint firstItem="zev-l2-OCs" firstAttribute="centerY" secondItem="e4p-fN-hpP" secondAttribute="centerY" id="QMW-cF-FxB"/>
@@ -323,16 +322,16 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4di-J1-wpU" userLabel="AreaView">
                                                     <rect key="frame" x="8" y="496.5" width="398" height="35"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4W-hn-exO" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4W-hn-exO" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="4" width="382" height="27"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="aream2"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="totalArea"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </textField>
                                                     </subviews>
-                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstItem="Y4W-hn-exO" firstAttribute="leading" secondItem="4di-J1-wpU" secondAttribute="leading" constant="8" id="7jO-gT-WQe"/>
                                                         <constraint firstItem="Y4W-hn-exO" firstAttribute="top" secondItem="4di-J1-wpU" secondAttribute="top" constant="4" id="IE1-AN-6UO"/>
@@ -351,10 +350,10 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHK-SI-C0a">
                                                             <rect key="frame" x="0.0" y="0.0" width="195" height="35"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vc3-eo-6VI" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vc3-eo-6VI" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                     <rect key="frame" x="8" y="4" width="155" height="27"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="placeholderTextColor"/>
+                                                                    <color key="textColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="country"/>
@@ -368,7 +367,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="IbD-3f-7GV" secondAttribute="trailing" constant="8" id="1jk-7C-bWG"/>
                                                                 <constraint firstItem="IbD-3f-7GV" firstAttribute="centerY" secondItem="CHK-SI-C0a" secondAttribute="centerY" id="Aqs-8b-asB"/>
@@ -386,10 +385,10 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3f0-ek-jnq">
                                                             <rect key="frame" x="203" y="0.0" width="195" height="35"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXQ-s6-YNQ" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXQ-s6-YNQ" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                     <rect key="frame" x="8" y="4" width="155" height="27"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="placeholderTextColor"/>
+                                                                    <color key="textColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="city"/>
@@ -403,7 +402,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="uXQ-s6-YNQ" secondAttribute="bottom" constant="4" id="0m8-zm-pll"/>
                                                                 <constraint firstItem="uXQ-s6-YNQ" firstAttribute="trailing" secondItem="0ci-hV-zWX" secondAttribute="leading" constant="-4" id="E4B-Lc-5uf"/>
@@ -423,17 +422,17 @@
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIX-XT-F7y">
                                                     <rect key="frame" x="8" y="539.5" width="398" height="35"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Uf-ZA-7eT" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Uf-ZA-7eT" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="4" width="382" height="27"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="placeholderTextColor"/>
+                                                            <color key="textColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="detectAddressOnGoogleMaps"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="3Uf-ZA-7eT" secondAttribute="trailing" constant="8" id="1dq-av-54m"/>
                                                         <constraint firstAttribute="bottom" secondItem="3Uf-ZA-7eT" secondAttribute="bottom" constant="4" id="c17-cR-GC1"/>
@@ -449,10 +448,10 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfS-FD-jid">
                                                     <rect key="frame" x="8" y="539.5" width="398" height="35"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1T-tO-S5P" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1T-tO-S5P" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="4" width="358" height="27"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="placeholderTextColor"/>
+                                                            <color key="textColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="detectAddressOnGoogleMaps"/>
@@ -466,7 +465,7 @@
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstItem="B1T-tO-S5P" firstAttribute="leading" secondItem="NfS-FD-jid" secondAttribute="leading" constant="8" id="HTN-Fj-Ezu"/>
                                                         <constraint firstAttribute="bottom" secondItem="B1T-tO-S5P" secondAttribute="bottom" constant="4" id="Wtu-gh-a4h"/>
@@ -485,32 +484,39 @@
                                                     <rect key="frame" x="8" y="582.5" width="398" height="465.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdDetailsWithoutSpinnerCell" rowHeight="43" id="ufU-uM-TaV" customClass="AdDetailsWithoutSpinnerCell" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdDetailsWithoutSpinnerCell" rowHeight="43" id="ufU-uM-TaV" customClass="AdDetailsWithoutSpinnerCell" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="398" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ufU-uM-TaV" id="HCh-gS-Czc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="43"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="7g8-B5-P7f">
+                                                                        <rect key="frame" x="8" y="6.5" width="30" height="30"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="30" id="7xc-9U-kuv"/>
+                                                                            <constraint firstAttribute="width" constant="30" id="WDk-Fd-oHp"/>
+                                                                        </constraints>
+                                                                    </imageView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d8h-4q-s0i">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="39"/>
+                                                                        <rect key="frame" x="46" y="0.0" width="352" height="39"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-29-otg">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="195" height="39"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="172" height="39"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8iK-21-wbD">
-                                                                                <rect key="frame" x="203" y="0.0" width="195" height="39"/>
+                                                                                <rect key="frame" x="180" y="0.0" width="172" height="39"/>
                                                                                 <subviews>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uEh-Fj-pwr">
-                                                                                        <rect key="frame" x="4" y="4" width="187" height="31"/>
+                                                                                        <rect key="frame" x="4" y="4" width="164" height="31"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                     </textField>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="trailing" secondItem="uEh-Fj-pwr" secondAttribute="trailing" constant="4" id="H7w-4f-w6U"/>
                                                                                     <constraint firstItem="uEh-Fj-pwr" firstAttribute="leading" secondItem="8iK-21-wbD" secondAttribute="leading" constant="4" id="N5E-KQ-Jjj"/>
@@ -530,50 +536,60 @@
                                                                 <constraints>
                                                                     <constraint firstItem="d8h-4q-s0i" firstAttribute="top" secondItem="HCh-gS-Czc" secondAttribute="top" id="1AA-kC-rnV"/>
                                                                     <constraint firstAttribute="bottom" secondItem="d8h-4q-s0i" secondAttribute="bottom" constant="4" id="3lf-Tr-Wzt"/>
-                                                                    <constraint firstItem="d8h-4q-s0i" firstAttribute="leading" secondItem="HCh-gS-Czc" secondAttribute="leading" id="PuZ-Na-mP0"/>
+                                                                    <constraint firstItem="7g8-B5-P7f" firstAttribute="leading" secondItem="HCh-gS-Czc" secondAttribute="leading" constant="8" id="ES7-Hd-xqt"/>
+                                                                    <constraint firstItem="d8h-4q-s0i" firstAttribute="leading" secondItem="7g8-B5-P7f" secondAttribute="trailing" constant="8" id="Nhn-19-xp7"/>
                                                                     <constraint firstAttribute="trailing" secondItem="d8h-4q-s0i" secondAttribute="trailing" id="Vcn-Q2-4m0"/>
+                                                                    <constraint firstItem="7g8-B5-P7f" firstAttribute="centerY" secondItem="HCh-gS-Czc" secondAttribute="centerY" id="jng-Ea-z7F"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <connections>
+                                                                <outlet property="detailsImageView" destination="7g8-B5-P7f" id="I2H-uk-bwI"/>
                                                                 <outlet property="titleLabel" destination="N9W-29-otg" id="uAh-JK-thr"/>
                                                                 <outlet property="valueTextField" destination="uEh-Fj-pwr" id="1XB-2V-ZwX"/>
                                                             </connections>
                                                         </tableViewCell>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdDetailsWithSpinnerCell" id="vbw-cS-AhY" customClass="AdDetailsWithSpinnerCell" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdDetailsWithSpinnerCell" id="vbw-cS-AhY" customClass="AdDetailsWithSpinnerCell" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="71" width="398" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vbw-cS-AhY" id="Xea-34-BU2">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="pul-T7-dFf">
+                                                                        <rect key="frame" x="8" y="7" width="30" height="30"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="30" id="9tr-xj-Eys"/>
+                                                                            <constraint firstAttribute="width" constant="30" id="VbQ-15-tU7"/>
+                                                                        </constraints>
+                                                                    </imageView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WJD-r8-qqi">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
+                                                                        <rect key="frame" x="46" y="0.0" width="352" height="40"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXa-94-PwC">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="195" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="172" height="40"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Bl-wD-ey9">
-                                                                                <rect key="frame" x="203" y="0.0" width="195" height="40"/>
+                                                                                <rect key="frame" x="180" y="0.0" width="172" height="40"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjU-rf-lyH">
-                                                                                        <rect key="frame" x="4" y="4" width="159" height="32"/>
+                                                                                        <rect key="frame" x="4" y="4" width="136" height="32"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-QR-iBO">
-                                                                                        <rect key="frame" x="167" y="10" width="20" height="20"/>
+                                                                                        <rect key="frame" x="144" y="10" width="20" height="20"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="20" id="W70-pZ-hdM"/>
                                                                                             <constraint firstAttribute="height" constant="20" id="hqW-2t-8sy"/>
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="yjU-rf-lyH" firstAttribute="top" secondItem="6Bl-wD-ey9" secondAttribute="top" constant="4" id="1cU-Ns-nkk"/>
                                                                                     <constraint firstItem="y2b-QR-iBO" firstAttribute="centerY" secondItem="6Bl-wD-ey9" secondAttribute="centerY" id="LOE-Z2-Tn0"/>
@@ -594,13 +610,16 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="WJD-r8-qqi" secondAttribute="trailing" id="63t-uw-7GY"/>
+                                                                    <constraint firstItem="pul-T7-dFf" firstAttribute="centerY" secondItem="Xea-34-BU2" secondAttribute="centerY" id="J8y-Bp-6Kn"/>
                                                                     <constraint firstAttribute="bottom" secondItem="WJD-r8-qqi" secondAttribute="bottom" constant="4" id="N1z-hT-3T3"/>
-                                                                    <constraint firstItem="WJD-r8-qqi" firstAttribute="leading" secondItem="Xea-34-BU2" secondAttribute="leading" id="gx9-X7-av3"/>
+                                                                    <constraint firstItem="WJD-r8-qqi" firstAttribute="leading" secondItem="pul-T7-dFf" secondAttribute="trailing" constant="8" id="Vg1-uq-nbZ"/>
+                                                                    <constraint firstItem="pul-T7-dFf" firstAttribute="leading" secondItem="Xea-34-BU2" secondAttribute="leading" constant="8" id="r3Q-ab-OQW"/>
                                                                     <constraint firstItem="WJD-r8-qqi" firstAttribute="top" secondItem="Xea-34-BU2" secondAttribute="top" id="xCb-as-veM"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <connections>
+                                                                <outlet property="detailsImageView" destination="pul-T7-dFf" id="7mq-qd-sYe"/>
                                                                 <outlet property="titleLabel" destination="WXa-94-PwC" id="FRv-Fc-lzS"/>
                                                                 <outlet property="valueLabel" destination="yjU-rf-lyH" id="S1t-wb-vXO"/>
                                                                 <outlet property="valueView" destination="6Bl-wD-ey9" id="VW4-Ug-lb3"/>
@@ -608,7 +627,7 @@
                                                         </tableViewCell>
                                                     </prototypes>
                                                 </tableView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4P-VN-mjv" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4P-VN-mjv" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="1056" width="398" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="aCj-N5-pGd"/>
@@ -624,7 +643,7 @@
                                                     <rect key="frame" x="8" y="847.5" width="398" height="228.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChooseAdditionalFacilityCell" rowHeight="44" id="Jef-RJ-rSm" customClass="ChooseAdditionalFacilityCell" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChooseAdditionalFacilityCell" rowHeight="44" id="Jef-RJ-rSm" customClass="ChooseAdditionalFacilityCell" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="398" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jef-RJ-rSm" id="yrq-bv-Vzi">
@@ -800,6 +819,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ad_placeholder" width="678" height="452"/>
         <image name="down_arrow" width="12" height="10"/>
         <image name="maps" width="34" height="35"/>
         <image name="remove_ic" width="48" height="48"/>
