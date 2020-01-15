@@ -110,7 +110,7 @@ class AdVC: BaseVC {
         additionalFacilitiesTableView.delegate = self
         additionalFacilitiesTableView.reloadData()
         
-        adPriceLabel.text = String(ad.price) + " " + ad.currency.name!
+        adPriceLabel.text = String(ad.price.formattedWithSeparator) + " " + ad.currency.name!
         
     }
     

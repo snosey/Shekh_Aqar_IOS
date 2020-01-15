@@ -246,10 +246,10 @@ class HomeVC: BaseVC, UISideMenuNavigationControllerDelegate {
         self.appleMapView.removeAnnotations(self.appleMapView.annotations)
         if ads.count > 0 {
             for ad in ads {
-                let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, secondLabelTitle: "\("price:".localized()) \(ad.price!) \(ad.currency.name!)", mapView: googleMapView, companyMarkerColor:  "#eede71")
+                let marker = UiHelpers.addCompanyMarker(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, secondLabelTitle: "\("price:".localized()) \(ad.price.formattedWithSeparator) \(ad.currency.name!)", mapView: googleMapView, companyMarkerColor:  "#eede71")
                 marker.userData = ad
                 
-                UiHelpers.addMarkerToAppleMaps(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, secondLabelTitle: "\("price:".localized()) \(ad.price!) \(ad.currency.name!)", mapView: self.appleMapView, companyMarkerColor: ad.subCategory.hexCode ?? "#eede71", company: nil, ad: ad)
+                UiHelpers.addMarkerToAppleMaps(sourceView: self.view, latitude: Double(ad.latitude)!, longitude: Double(ad.longitude)!, title: ad.name, secondLabelTitle: "\("price:".localized()) \(ad.price.formattedWithSeparator) \(ad.currency.name!)", mapView: self.appleMapView, companyMarkerColor: ad.subCategory.hexCode ?? "#eede71", company: nil, ad: ad)
             }
         } else {
              self.view.makeToast("noAdsInThisArea".localized())

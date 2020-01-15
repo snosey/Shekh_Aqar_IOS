@@ -272,114 +272,289 @@ extension RegisterCompanyVC: RegisterCompanyCellDelegate {
     }
     
     func registerClicked() {
+        
+        weakSelf?.cell.userNameErrorImageView.isHidden = true
+        weakSelf?.cell.userPhoneNumberErrorImageView.isHidden = true
+        weakSelf?.cell.companyNameErrorImageView.isHidden = true
+        weakSelf?.cell.traditionalNumberErrorImageView.isHidden = true
+        weakSelf?.cell.companyPhoneNumberErrorImageView.isHidden = true
+        weakSelf?.cell.companyEmailErrorImageView.isHidden = true
+        weakSelf?.cell.companyDetailedAddresErrorImageView.isHidden = true
+        
         if let userJson = Defaults[.user], let user = User(json: userJson)  {
-            if weakSelf?.cell.companyImageChoosen ?? false {
-                if let companyName = weakSelf?.cell.companyNameTextField.text, !companyName.isEmpty {
-                    if let companyPhoneNumber = weakSelf?.cell.companyPhoneNumberTextField.text, !companyPhoneNumber.isEmpty {
-                        if companyPhoneNumber.isNumber() {
-                            if let email = weakSelf?.cell.companyEmail.text, !email.isEmpty {
-                                if email.isEmail {
-                                    if let _ = weakSelf?.selectedCountry {
-                                        if let _ = weakSelf?.selectedRegion {
-                                            if let detailedAddress = weakSelf?.cell.detailedAddressTextField.text, !detailedAddress.isEmpty {
-                                                if let traditionalNumber = weakSelf?.cell.traditionalNumberTextField.text, !traditionalNumber.isEmpty {
-                                                    if let _ = weakSelf?.selectedLatitude, let _ = weakSelf?.selectedLongitude {
-                                                        weakSelf?.presenter.registerCompany(userPhoneNumber: user.phoneNumber, userName: user.name, userImage: (weakSelf?.cell.userAvatarImageView.image?.jpegData(compressionQuality: 0.5))!, companyImage: (weakSelf?.cell.companyAvatar.image?.jpegData(compressionQuality: 0.5))!, companyServices: weakSelf!.selectedServices, companyName: companyName, companyTraditionalNumber: traditionalNumber, companyPhoneNumber: companyPhoneNumber, companyEmail: email, companyCountry: self.selectedCountry!, companyRegion: self.selectedRegion!, detailedAddress: detailedAddress, companyLatitude: self.selectedLatitude, companyLongitude: self.selectedLongitude, userSelectedCountry: self.userSelectedCountry!, companySelectedCountry: self.companySelectedCountry!)
-                                                    } else {
-                                                        weakSelf?.view.makeToast("selectCompanyPlace".localized())
-                                                    }
-                                                } else {
-                                                    weakSelf?.view.makeToast("enterTraditionalnumber".localized())
-                                                }
-                                            } else {
-                                                weakSelf?.view.makeToast("enterDetailedAddress".localized())
-                                            }
-                                        } else {
-                                            weakSelf?.view.makeToast("enterSelectedRegion".localized())
-                                        }
-                                    } else {
-                                        weakSelf?.view.makeToast("enterSelectedCountry".localized())
-                                    }
-                                } else {
-                                    weakSelf?.view.makeToast("enterValidEmail".localized())
-                                }
-                            } else {
-                                weakSelf?.view.makeToast("enterEmail".localized())
-                            }
-                        } else {
-                            weakSelf?.view.makeToast("enterValidPhoneNumber".localized())
-                        }
-                    } else {
-                        weakSelf?.view.makeToast("enterCompanyPhoneNumber".localized())
-                    }
-                } else {
-                    weakSelf?.view.makeToast("enterCompanyName".localized())
-                }
-            } else {
+            var errorDetected = false
+            var taostViewed = false
+             
+            var companyName = ""
+            var companyPhoneNumber = ""
+            var email = ""
+            var detailedAddress = ""
+            var traditionalNumber = ""
+            
+            if let companyImageChoosen = weakSelf?.cell.companyImageChoosen, !companyImageChoosen {
                 weakSelf?.view.makeToast("enterCompanyAvatar".localized())
+                errorDetected = true
+                taostViewed = true
             }
-        } else {
-            if weakSelf?.cell.userImageChoosen ?? false {
-                if let fullName = weakSelf?.cell.fullNameTextField.text, !fullName.isEmpty {
-                    if let userPhoneNumber = weakSelf?.cell.phoneNumberTextField.text, !userPhoneNumber.isEmpty {
-                        if userPhoneNumber.isNumber() {
-                            if weakSelf?.cell.companyImageChoosen ?? false {
-                                if let companyName = weakSelf?.cell.companyNameTextField.text, !companyName.isEmpty {
-                                    if let companyPhoneNumber = weakSelf?.cell.companyPhoneNumberTextField.text, !companyPhoneNumber.isEmpty {
-                                        if companyPhoneNumber.isNumber() {
-                                            if let email = weakSelf?.cell.companyEmail.text, !email.isEmpty {
-                                                if email.isEmail {
-                                                    if let _ = weakSelf?.selectedCountry {
-                                                        if let _ = weakSelf?.selectedRegion {
-                                                            if let detailedAddress = weakSelf?.cell.detailedAddressTextField.text, !detailedAddress.isEmpty {
-                                                                if let traditionalNumber = weakSelf?.cell.traditionalNumberTextField.text, !traditionalNumber.isEmpty {
-                                                                    if let _ = weakSelf?.selectedLatitude, let _ = weakSelf?.selectedLongitude {
-                                                                        weakSelf?.presenter.registerCompany(userPhoneNumber: userPhoneNumber, userName: fullName, userImage: (weakSelf?.cell.userAvatarImageView.image?.jpegData(compressionQuality: 0.5))!, companyImage: (weakSelf?.cell.companyAvatar.image?.jpegData(compressionQuality: 0.5))!, companyServices: weakSelf!.selectedServices, companyName: companyName, companyTraditionalNumber: traditionalNumber, companyPhoneNumber: companyPhoneNumber, companyEmail: email, companyCountry: self.selectedCountry!, companyRegion: self.selectedRegion!, detailedAddress: detailedAddress, companyLatitude: self.selectedLatitude, companyLongitude: self.selectedLongitude, userSelectedCountry: self.userSelectedCountry!, companySelectedCountry: self.companySelectedCountry!)
-                                                                    } else {
-                                                                        weakSelf?.view.makeToast("selectCompanyPlace".localized())
-                                                                    }
-                                                                } else {
-                                                                    weakSelf?.view.makeToast("enterTraditionalnumber".localized())
-                                                                }
-                                                            } else {
-                                                                weakSelf?.view.makeToast("enterDetailedAddress".localized())
-                                                            }
-                                                        } else {
-                                                            weakSelf?.view.makeToast("enterSelectedRegion".localized())
-                                                        }
-                                                    } else {
-                                                        weakSelf?.view.makeToast("enterSelectedCountry".localized())
-                                                    }
-                                                } else {
-                                                    weakSelf?.view.makeToast("enterValidEmail".localized())
-                                                }
-                                            } else {
-                                                weakSelf?.view.makeToast("enterEmail".localized())
-                                            }
-                                        } else {
-                                            weakSelf?.view.makeToast("enterValidPhoneNumber".localized())
-                                        }
-                                    } else {
-                                        weakSelf?.view.makeToast("enterCompanyPhoneNumber".localized())
-                                    }
-                                } else {
-                                    weakSelf?.view.makeToast("enterCompanyName".localized())
-                                }
-                            } else {
-                                weakSelf?.view.makeToast("enterCompanyAvatar".localized())
-                            }
-                        } else {
-                            weakSelf?.view.makeToast("enterValidPhoneNumber".localized())
-                        }
-                    } else {
-                        weakSelf?.view.makeToast("enterPhoneField".localized())
-                    }
-                } else {
-                    weakSelf?.view.makeToast("enterFullName".localized())
+            
+            if let companyName = weakSelf?.cell.companyNameTextField.text, companyName.isEmpty {
+                weakSelf?.cell.companyNameErrorImageView.isHidden = false
+                errorDetected = true
+            } else {
+                companyName = (weakSelf?.cell.companyNameTextField.text)!
+            }
+            
+            if let companyPhoneNumber = weakSelf?.cell.companyPhoneNumberTextField.text, companyPhoneNumber.isEmpty {
+                weakSelf?.cell.companyPhoneNumberErrorImageView.isHidden = false
+                errorDetected = true
+            } else if let companyPhoneNumber = weakSelf?.cell.companyPhoneNumberTextField.text, !companyPhoneNumber.isNumber() {
+                weakSelf?.view.makeToast("enterValidPhoneNumber".localized())
+                taostViewed = true
+                errorDetected = true
+            } else {
+                companyPhoneNumber = (weakSelf?.cell.companyPhoneNumberTextField.text)!
+            }
+            
+            if let email = weakSelf?.cell.companyEmail.text, email.isEmpty {
+                weakSelf?.cell.companyEmailErrorImageView.isHidden = false
+                errorDetected = true
+            } else if let email = weakSelf?.cell.companyEmail.text, email.isEmail {
+                weakSelf?.view.makeToast("enterValidEmail".localized())
+                taostViewed = true
+                errorDetected = true
+            } else {
+                email = (weakSelf?.cell.companyEmail.text)!
+            }
+            
+            if weakSelf?.selectedCountry == nil || weakSelf?.selectedRegion == nil || weakSelf?.selectedLatitude == nil || weakSelf?.selectedLongitude == nil {
+                errorDetected = true
+            }
+            
+            if let detailedAddress = weakSelf?.cell.detailedAddressTextField.text, detailedAddress.isEmpty {
+                weakSelf?.cell.companyDetailedAddresErrorImageView.isHidden = false
+                errorDetected = true
+            } else {
+                detailedAddress = (weakSelf?.cell.detailedAddressTextField.text)!
+            }
+            
+            if let traditionalNumber = weakSelf?.cell.traditionalNumberTextField.text, traditionalNumber.isEmpty {
+                weakSelf?.cell.traditionalNumberErrorImageView.isHidden = false
+                errorDetected = true
+            } else {
+                traditionalNumber = (weakSelf?.cell.traditionalNumberTextField.text)!
+            }
+            
+            if errorDetected {
+                if !taostViewed {
+                    weakSelf?.view.makeToast("emptyFieldsError".localized())
                 }
             } else {
-                weakSelf?.view.makeToast("enterAvatar".localized())
+                weakSelf?.presenter.registerCompany(userPhoneNumber: user.phoneNumber, userName: user.name, userImage: (weakSelf?.cell.userAvatarImageView.image?.jpegData(compressionQuality: 0.5))!, companyImage: (weakSelf?.cell.companyAvatar.image?.jpegData(compressionQuality: 0.5))!, companyServices: weakSelf!.selectedServices, companyName: companyName, companyTraditionalNumber: traditionalNumber, companyPhoneNumber: companyPhoneNumber, companyEmail: email, companyCountry: self.selectedCountry!, companyRegion: self.selectedRegion!, detailedAddress: detailedAddress, companyLatitude: self.selectedLatitude, companyLongitude: self.selectedLongitude, userSelectedCountry: self.userSelectedCountry!, companySelectedCountry: self.companySelectedCountry!)
             }
+//            if weakSelf?.cell.companyImageChoosen ?? false {
+//                if let companyName = weakSelf?.cell.companyNameTextField.text, !companyName.isEmpty {
+//                    if let companyPhoneNumber = weakSelf?.cell.companyPhoneNumberTextField.text, !companyPhoneNumber.isEmpty {
+//                        if companyPhoneNumber.isNumber() {
+//                            if let email = weakSelf?.cell.companyEmail.text, !email.isEmpty {
+//                                if email.isEmail {
+//                                    if let _ = weakSelf?.selectedCountry {
+//                                        if let _ = weakSelf?.selectedRegion {
+//                                            if let detailedAddress = weakSelf?.cell.detailedAddressTextField.text, !detailedAddress.isEmpty {
+//                                                if let traditionalNumber = weakSelf?.cell.traditionalNumberTextField.text, !traditionalNumber.isEmpty {
+//                                                    if let _ = weakSelf?.selectedLatitude, let _ = weakSelf?.selectedLongitude {
+//                                                        weakSelf?.presenter.registerCompany(userPhoneNumber: user.phoneNumber, userName: user.name, userImage: (weakSelf?.cell.userAvatarImageView.image?.jpegData(compressionQuality: 0.5))!, companyImage: (weakSelf?.cell.companyAvatar.image?.jpegData(compressionQuality: 0.5))!, companyServices: weakSelf!.selectedServices, companyName: companyName, companyTraditionalNumber: traditionalNumber, companyPhoneNumber: companyPhoneNumber, companyEmail: email, companyCountry: self.selectedCountry!, companyRegion: self.selectedRegion!, detailedAddress: detailedAddress, companyLatitude: self.selectedLatitude, companyLongitude: self.selectedLongitude, userSelectedCountry: self.userSelectedCountry!, companySelectedCountry: self.companySelectedCountry!)
+//                                                    } else {
+//                                                        weakSelf?.view.makeToast("selectCompanyPlace".localized())
+//                                                    }
+//                                                } else {
+//                                                    weakSelf?.view.makeToast("enterTraditionalnumber".localized())
+//                                                }
+//                                            } else {
+//                                                weakSelf?.view.makeToast("enterDetailedAddress".localized())
+//                                            }
+//                                        } else {
+//                                            weakSelf?.view.makeToast("enterSelectedRegion".localized())
+//                                        }
+//                                    } else {
+//                                        weakSelf?.view.makeToast("enterSelectedCountry".localized())
+//                                    }
+//                                } else {
+//                                    weakSelf?.view.makeToast("enterValidEmail".localized())
+//                                }
+//                            } else {
+//                                weakSelf?.view.makeToast("enterEmail".localized())
+//                            }
+//                        } else {
+//                            weakSelf?.view.makeToast("enterValidPhoneNumber".localized())
+//                        }
+//                    } else {
+//                        weakSelf?.view.makeToast("enterCompanyPhoneNumber".localized())
+//                    }
+//                } else {
+//                    weakSelf?.view.makeToast("enterCompanyName".localized())
+//                }
+//            } else {
+//                weakSelf?.view.makeToast("enterCompanyAvatar".localized())
+//            }
+        } else {
+            
+            var errorDetected = false
+            var taostViewed = false
+             
+            var fullName = ""
+            var userPhoneNumber = ""
+            var companyName = ""
+            var companyPhoneNumber = ""
+            var email = ""
+            var detailedAddress = ""
+            var traditionalNumber = ""
+            
+            if let userImageChoosen = weakSelf?.cell.userImageChoosen, !userImageChoosen {
+                weakSelf?.view.makeToast("enterAvatar".localized())
+                errorDetected = true
+                taostViewed = true
+            }
+            
+            if let fullName = weakSelf?.cell.fullNameTextField.text, fullName.isEmpty {
+                weakSelf?.cell.userNameErrorImageView.isHidden = false
+                errorDetected = true
+            } else {
+                fullName = (weakSelf?.cell.fullNameTextField.text)!
+            }
+            
+            if let userPhoneNumber = weakSelf?.cell.phoneNumberTextField.text, userPhoneNumber.isEmpty {
+                weakSelf?.cell.userPhoneNumberErrorImageView.isHidden = false
+                errorDetected = true
+            } else if let userPhoneNumber = weakSelf?.cell.phoneNumberTextField.text, userPhoneNumber.isNumber() {
+                weakSelf?.view.makeToast("enterValidPhoneNumber".localized())
+                taostViewed = true
+                errorDetected = true
+            } else {
+                userPhoneNumber = (weakSelf?.cell.phoneNumberTextField.text)!
+            }
+            
+            if let companyImageChoosen = weakSelf?.cell.companyImageChoosen, !companyImageChoosen {
+                weakSelf?.view.makeToast("enterCompanyAvatar".localized())
+                errorDetected = true
+                taostViewed = true
+            }
+            
+            if let companyName = weakSelf?.cell.companyNameTextField.text, companyName.isEmpty {
+                weakSelf?.cell.companyNameErrorImageView.isHidden = false
+                errorDetected = true
+            } else {
+                companyName = (weakSelf?.cell.companyNameTextField.text)!
+            }
+            
+            if let companyPhoneNumber = weakSelf?.cell.companyPhoneNumberTextField.text, companyPhoneNumber.isEmpty {
+                weakSelf?.cell.companyPhoneNumberErrorImageView.isHidden = false
+                errorDetected = true
+            } else if let companyPhoneNumber = weakSelf?.cell.companyPhoneNumberTextField.text, !companyPhoneNumber.isNumber() {
+                weakSelf?.view.makeToast("enterValidPhoneNumber".localized())
+                taostViewed = true
+                errorDetected = true
+            } else {
+                companyPhoneNumber = (weakSelf?.cell.companyPhoneNumberTextField.text)!
+            }
+            
+            if let email = weakSelf?.cell.companyEmail.text, email.isEmpty {
+                weakSelf?.cell.companyEmailErrorImageView.isHidden = true
+                errorDetected = true
+            } else if let email = weakSelf?.cell.companyEmail.text, email.isEmail {
+                weakSelf?.view.makeToast("enterValidEmail".localized())
+                taostViewed = true
+                errorDetected = true
+            } else {
+                email = (weakSelf?.cell.companyEmail.text)!
+            }
+            
+            if weakSelf?.selectedCountry == nil || weakSelf?.selectedRegion == nil || weakSelf?.selectedLatitude == nil || weakSelf?.selectedLongitude == nil {
+                errorDetected = true
+            }
+            
+            if let detailedAddress = weakSelf?.cell.detailedAddressTextField.text, detailedAddress.isEmpty {
+                weakSelf?.cell.companyDetailedAddresErrorImageView.isHidden = false
+                errorDetected = true
+            } else {
+                detailedAddress = (weakSelf?.cell.detailedAddressTextField.text)!
+            }
+            
+            if let traditionalNumber = weakSelf?.cell.traditionalNumberTextField.text, traditionalNumber.isEmpty {
+                weakSelf?.cell.traditionalNumberErrorImageView.isHidden = false
+                errorDetected = true
+            } else {
+                traditionalNumber = (weakSelf?.cell.traditionalNumberTextField.text)!
+            }
+            
+            if errorDetected {
+                if !taostViewed {
+                    weakSelf?.view.makeToast("emptyFieldsError".localized())
+                }
+            } else {
+                weakSelf?.presenter.registerCompany(userPhoneNumber: userPhoneNumber, userName: fullName, userImage: (weakSelf?.cell.userAvatarImageView.image?.jpegData(compressionQuality: 0.5))!, companyImage: (weakSelf?.cell.companyAvatar.image?.jpegData(compressionQuality: 0.5))!, companyServices: weakSelf!.selectedServices, companyName: companyName, companyTraditionalNumber: traditionalNumber, companyPhoneNumber: companyPhoneNumber, companyEmail: email, companyCountry: self.selectedCountry!, companyRegion: self.selectedRegion!, detailedAddress: detailedAddress, companyLatitude: self.selectedLatitude, companyLongitude: self.selectedLongitude, userSelectedCountry: self.userSelectedCountry!, companySelectedCountry: self.companySelectedCountry!)
+            }
+            
+//            if weakSelf?.cell.userImageChoosen ?? false {
+//                if let fullName = weakSelf?.cell.fullNameTextField.text, !fullName.isEmpty {
+//                    if let userPhoneNumber = weakSelf?.cell.phoneNumberTextField.text, !userPhoneNumber.isEmpty {
+//                        if userPhoneNumber.isNumber() {
+//                            if weakSelf?.cell.companyImageChoosen ?? false {
+//                                if let companyName = weakSelf?.cell.companyNameTextField.text, !companyName.isEmpty {
+//                                    if let companyPhoneNumber = weakSelf?.cell.companyPhoneNumberTextField.text, !companyPhoneNumber.isEmpty {
+//                                        if companyPhoneNumber.isNumber() {
+//                                            if let email = weakSelf?.cell.companyEmail.text, !email.isEmpty {
+//                                                if email.isEmail {
+//                                                    if let _ = weakSelf?.selectedCountry {
+//                                                        if let _ = weakSelf?.selectedRegion {
+//                                                            if let detailedAddress = weakSelf?.cell.detailedAddressTextField.text, !detailedAddress.isEmpty {
+//                                                                if let traditionalNumber = weakSelf?.cell.traditionalNumberTextField.text, !traditionalNumber.isEmpty {
+//                                                                    if let _ = weakSelf?.selectedLatitude, let _ = weakSelf?.selectedLongitude {
+//                                                                        weakSelf?.presenter.registerCompany(userPhoneNumber: userPhoneNumber, userName: fullName, userImage: (weakSelf?.cell.userAvatarImageView.image?.jpegData(compressionQuality: 0.5))!, companyImage: (weakSelf?.cell.companyAvatar.image?.jpegData(compressionQuality: 0.5))!, companyServices: weakSelf!.selectedServices, companyName: companyName, companyTraditionalNumber: traditionalNumber, companyPhoneNumber: companyPhoneNumber, companyEmail: email, companyCountry: self.selectedCountry!, companyRegion: self.selectedRegion!, detailedAddress: detailedAddress, companyLatitude: self.selectedLatitude, companyLongitude: self.selectedLongitude, userSelectedCountry: self.userSelectedCountry!, companySelectedCountry: self.companySelectedCountry!)
+//                                                                    } else {
+//                                                                        weakSelf?.view.makeToast("selectCompanyPlace".localized())
+//                                                                    }
+//                                                                } else {
+//                                                                    weakSelf?.view.makeToast("enterTraditionalnumber".localized())
+//                                                                }
+//                                                            } else {
+//                                                                weakSelf?.view.makeToast("enterDetailedAddress".localized())
+//                                                            }
+//                                                        } else {
+//                                                            weakSelf?.view.makeToast("enterSelectedRegion".localized())
+//                                                        }
+//                                                    } else {
+//                                                        weakSelf?.view.makeToast("enterSelectedCountry".localized())
+//                                                    }
+//                                                } else {
+//                                                    weakSelf?.view.makeToast("enterValidEmail".localized())
+//                                                }
+//                                            } else {
+//                                                weakSelf?.view.makeToast("enterEmail".localized())
+//                                            }
+//                                        } else {
+//                                            weakSelf?.view.makeToast("enterValidPhoneNumber".localized())
+//                                        }
+//                                    } else {
+//                                        weakSelf?.view.makeToast("enterCompanyPhoneNumber".localized())
+//                                    }
+//                                } else {
+//                                    weakSelf?.view.makeToast("enterCompanyName".localized())
+//                                }
+//                            } else {
+//                                weakSelf?.view.makeToast("enterCompanyAvatar".localized())
+//                            }
+//                        } else {
+//                            weakSelf?.view.makeToast("enterValidPhoneNumber".localized())
+//                        }
+//                    } else {
+//                        weakSelf?.view.makeToast("enterPhoneField".localized())
+//                    }
+//                } else {
+//                    weakSelf?.view.makeToast("enterFullName".localized())
+//                }
+//            } else {
+//                weakSelf?.view.makeToast("enterAvatar".localized())
+//            }
         }
     }
     

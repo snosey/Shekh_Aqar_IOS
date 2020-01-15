@@ -19,9 +19,12 @@ class AdDetailsWithoutSpinnerCell: UITableViewCell {
     var adDetailsItem: AdDetailsItem!
     
     public func populateData() {
-        if let imageUrl = adDetailsItem.imageUrl, let url = URL(string: imageUrl) {
-            detailsImageView.af_setImage(withURL: url)
+        if let _ = detailsImageView {
+            if let imageUrl = adDetailsItem.imageUrl, let url = URL(string: imageUrl) {
+                detailsImageView.af_setImage(withURL: url)
+            }
         }
+        
         titleLabel.text = adDetailsItem.name
         if let value = adDetailsItem.value {
             valueTextField.text = "\(value)"

@@ -38,8 +38,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWZ-DI-gsF" customClass="LocalizedButton" customModule="sheikh_alaqar" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="124" height="45.5"/>
+                                                    <rect key="frame" x="8" y="8" width="124" height="40"/>
                                                     <color key="backgroundColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="Pd4-cZ-AsZ"/>
+                                                    </constraints>
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -51,7 +54,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qg3-tN-BUy">
-                                                    <rect key="frame" x="8" y="61.5" width="398" height="114"/>
+                                                    <rect key="frame" x="8" y="56" width="398" height="114"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8tC-uC-Vl9">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -102,7 +105,7 @@
                                                     </cells>
                                                 </collectionView>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghc-Mw-lyb" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="183.5" width="398" height="14.5"/>
+                                                    <rect key="frame" x="8" y="178" width="398" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -111,7 +114,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-rS-sJA" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="183.5" width="398" height="20"/>
+                                                    <rect key="frame" x="8" y="178" width="398" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="S8V-f7-Fda"/>
                                                     </constraints>
@@ -123,7 +126,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOs-dW-DyG" userLabel="AdTitleView">
-                                                    <rect key="frame" x="8" y="211.5" width="398" height="35"/>
+                                                    <rect key="frame" x="8" y="206" width="398" height="35"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TGV-LL-X7U" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="4" width="382" height="27"/>
@@ -149,7 +152,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LuM-Zz-Jfr" userLabel="CurrencyPriceView">
-                                                    <rect key="frame" x="8" y="340.5" width="398" height="35"/>
+                                                    <rect key="frame" x="8" y="335" width="398" height="35"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICc-Ww-Do2">
                                                             <rect key="frame" x="0.0" y="4" width="239" height="31"/>
@@ -223,35 +226,8 @@
                                                         <constraint firstItem="yEB-8x-9xm" firstAttribute="leading" secondItem="ICc-Ww-Do2" secondAttribute="trailing" constant="8" id="zAW-jV-2pb"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5MW-eT-HfZ" userLabel="AdDetailsView">
-                                                    <rect key="frame" x="8" y="383.5" width="398" height="105"/>
-                                                    <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="wW3-0v-UZJ" customClass="LocalizedTextView" customModule="sheikh_alaqar" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="4" width="382" height="97"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="otherDetails"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </textView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="wW3-0v-UZJ" secondAttribute="trailing" constant="8" id="JRR-bX-PJo"/>
-                                                        <constraint firstItem="wW3-0v-UZJ" firstAttribute="top" secondItem="5MW-eT-HfZ" secondAttribute="top" constant="4" id="RzW-XG-tIP"/>
-                                                        <constraint firstAttribute="bottom" secondItem="wW3-0v-UZJ" secondAttribute="bottom" constant="4" id="d50-Wk-ANo"/>
-                                                        <constraint firstItem="wW3-0v-UZJ" firstAttribute="leading" secondItem="5MW-eT-HfZ" secondAttribute="leading" constant="8" id="vaa-P3-Th6"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccb-7Y-fyp">
-                                                    <rect key="frame" x="8" y="254.5" width="398" height="35"/>
+                                                    <rect key="frame" x="8" y="249" width="398" height="35"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Z7-Cp-gKW" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="7.5" width="358" height="20.5"/>
@@ -285,7 +261,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4p-fN-hpP">
-                                                    <rect key="frame" x="8" y="297.5" width="398" height="35"/>
+                                                    <rect key="frame" x="8" y="292" width="398" height="35"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oM-JH-7oo" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="4" width="358" height="27"/>
@@ -320,7 +296,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4di-J1-wpU" userLabel="AreaView">
-                                                    <rect key="frame" x="8" y="496.5" width="398" height="35"/>
+                                                    <rect key="frame" x="8" y="378" width="398" height="35"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4W-hn-exO" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="4" width="382" height="27"/>
@@ -345,7 +321,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Ax-n8-0MG">
-                                                    <rect key="frame" x="8" y="539.5" width="398" height="35"/>
+                                                    <rect key="frame" x="8" y="421" width="398" height="35"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHK-SI-C0a">
                                                             <rect key="frame" x="0.0" y="0.0" width="195" height="35"/>
@@ -420,7 +396,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIX-XT-F7y">
-                                                    <rect key="frame" x="8" y="539.5" width="398" height="35"/>
+                                                    <rect key="frame" x="8" y="421" width="398" height="35"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Uf-ZA-7eT" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="4" width="382" height="27"/>
@@ -446,7 +422,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfS-FD-jid">
-                                                    <rect key="frame" x="8" y="539.5" width="398" height="35"/>
+                                                    <rect key="frame" x="8" y="421" width="398" height="35"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1T-tO-S5P" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="4" width="358" height="27"/>
@@ -481,7 +457,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NOO-En-BjA">
-                                                    <rect key="frame" x="8" y="582.5" width="398" height="465.5"/>
+                                                    <rect key="frame" x="8" y="464" width="398" height="113"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <prototypes>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdDetailsWithoutSpinnerCell" rowHeight="43" id="ufU-uM-TaV" customClass="AdDetailsWithoutSpinnerCell" customModule="sheikh_alaqar" customModuleProvider="target">
@@ -501,7 +477,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d8h-4q-s0i">
                                                                         <rect key="frame" x="46" y="0.0" width="352" height="39"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-29-otg">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-29-otg">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="172" height="39"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -566,7 +542,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WJD-r8-qqi">
                                                                         <rect key="frame" x="46" y="0.0" width="352" height="40"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXa-94-PwC">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WXa-94-PwC">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="172" height="40"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -627,8 +603,35 @@
                                                         </tableViewCell>
                                                     </prototypes>
                                                 </tableView>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5MW-eT-HfZ" userLabel="AdDetailsView">
+                                                    <rect key="frame" x="8" y="472" width="398" height="105"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="wW3-0v-UZJ" customClass="LocalizedTextView" customModule="sheikh_alaqar" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="4" width="382" height="97"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="otherDetails"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="wW3-0v-UZJ" secondAttribute="trailing" constant="8" id="JRR-bX-PJo"/>
+                                                        <constraint firstItem="wW3-0v-UZJ" firstAttribute="top" secondItem="5MW-eT-HfZ" secondAttribute="top" constant="4" id="RzW-XG-tIP"/>
+                                                        <constraint firstAttribute="bottom" secondItem="wW3-0v-UZJ" secondAttribute="bottom" constant="4" id="d50-Wk-ANo"/>
+                                                        <constraint firstItem="wW3-0v-UZJ" firstAttribute="leading" secondItem="5MW-eT-HfZ" secondAttribute="leading" constant="8" id="vaa-P3-Th6"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4P-VN-mjv" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="1056" width="398" height="20"/>
+                                                    <rect key="frame" x="8" y="585" width="398" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="aCj-N5-pGd"/>
                                                     </constraints>
@@ -716,7 +719,6 @@
                                                 <constraint firstItem="OYo-cF-Hd4" firstAttribute="leading" secondItem="s4P-VN-mjv" secondAttribute="leading" id="Fud-GN-gk9"/>
                                                 <constraint firstItem="4di-J1-wpU" firstAttribute="height" secondItem="e4p-fN-hpP" secondAttribute="height" id="Ga0-iy-QPi"/>
                                                 <constraint firstItem="zcX-V4-kLv" firstAttribute="width" secondItem="Kzr-Q2-71g" secondAttribute="width" multiplier="0.5" id="Gi0-t4-PPC"/>
-                                                <constraint firstItem="s4P-VN-mjv" firstAttribute="top" secondItem="NOO-En-BjA" secondAttribute="bottom" constant="8" id="Gs4-hL-IMv"/>
                                                 <constraint firstAttribute="trailing" secondItem="FtS-kl-BMS" secondAttribute="trailing" constant="8" id="IP4-Ps-3zQ"/>
                                                 <constraint firstItem="6Ax-n8-0MG" firstAttribute="top" secondItem="4di-J1-wpU" secondAttribute="bottom" constant="8" id="J2V-20-29d"/>
                                                 <constraint firstItem="NOO-En-BjA" firstAttribute="trailing" secondItem="s4P-VN-mjv" secondAttribute="trailing" id="JCf-FR-q8t"/>
@@ -724,6 +726,7 @@
                                                 <constraint firstItem="4di-J1-wpU" firstAttribute="leading" secondItem="e4p-fN-hpP" secondAttribute="leading" id="KBE-cR-Bdm"/>
                                                 <constraint firstItem="FtS-kl-BMS" firstAttribute="top" secondItem="Kzr-Q2-71g" secondAttribute="top" id="Kks-4G-Jye"/>
                                                 <constraint firstItem="NfS-FD-jid" firstAttribute="height" secondItem="aIX-XT-F7y" secondAttribute="height" id="OHP-tc-aOR"/>
+                                                <constraint firstItem="4di-J1-wpU" firstAttribute="top" secondItem="LuM-Zz-Jfr" secondAttribute="bottom" constant="8" id="OXW-qd-nob"/>
                                                 <constraint firstItem="qg3-tN-BUy" firstAttribute="top" secondItem="DWZ-DI-gsF" secondAttribute="bottom" constant="8" id="OiT-wH-0vF"/>
                                                 <constraint firstItem="Ccb-7Y-fyp" firstAttribute="top" secondItem="cOs-dW-DyG" secondAttribute="bottom" constant="8" id="P8K-bz-XHb"/>
                                                 <constraint firstItem="DWZ-DI-gsF" firstAttribute="leading" secondItem="Kzr-Q2-71g" secondAttribute="leading" constant="8" id="Pf4-Nd-nUc"/>
@@ -738,7 +741,7 @@
                                                 <constraint firstItem="aIX-XT-F7y" firstAttribute="trailing" secondItem="6Ax-n8-0MG" secondAttribute="trailing" id="VYL-BN-z4f"/>
                                                 <constraint firstItem="5MW-eT-HfZ" firstAttribute="leading" secondItem="LuM-Zz-Jfr" secondAttribute="leading" id="VfT-FB-COS"/>
                                                 <constraint firstItem="qg3-tN-BUy" firstAttribute="leading" secondItem="FtS-kl-BMS" secondAttribute="leading" id="YBW-7w-9Eg"/>
-                                                <constraint firstItem="4di-J1-wpU" firstAttribute="top" secondItem="5MW-eT-HfZ" secondAttribute="bottom" constant="8" id="Ywz-5K-SOs"/>
+                                                <constraint firstItem="s4P-VN-mjv" firstAttribute="top" secondItem="5MW-eT-HfZ" secondAttribute="bottom" constant="8" id="Z5E-90-e5E"/>
                                                 <constraint firstItem="e4p-fN-hpP" firstAttribute="top" secondItem="Ccb-7Y-fyp" secondAttribute="bottom" constant="8" id="aN7-QQ-zbi"/>
                                                 <constraint firstItem="e4p-fN-hpP" firstAttribute="trailing" secondItem="Ccb-7Y-fyp" secondAttribute="trailing" id="aQL-YQ-G7T"/>
                                                 <constraint firstItem="LuM-Zz-Jfr" firstAttribute="height" secondItem="cOs-dW-DyG" secondAttribute="height" id="bMW-n9-kzw"/>
@@ -749,7 +752,7 @@
                                                 <constraint firstItem="qg3-tN-BUy" firstAttribute="trailing" secondItem="FtS-kl-BMS" secondAttribute="trailing" id="gAa-jG-jXT"/>
                                                 <constraint firstItem="Ccb-7Y-fyp" firstAttribute="trailing" secondItem="5MW-eT-HfZ" secondAttribute="trailing" id="gB8-Gc-jXA"/>
                                                 <constraint firstItem="NOO-En-BjA" firstAttribute="leading" secondItem="NfS-FD-jid" secondAttribute="leading" id="hcR-He-Q9Y"/>
-                                                <constraint firstItem="DWZ-DI-gsF" firstAttribute="height" secondItem="Kzr-Q2-71g" secondAttribute="height" multiplier="0.04" id="joU-iM-vjT"/>
+                                                <constraint firstItem="5MW-eT-HfZ" firstAttribute="top" secondItem="NOO-En-BjA" secondAttribute="bottom" constant="8" id="iWQ-R1-M3M"/>
                                                 <constraint firstItem="zcX-V4-kLv" firstAttribute="centerX" secondItem="Kzr-Q2-71g" secondAttribute="centerX" id="k5b-o7-ALd"/>
                                                 <constraint firstItem="FtS-kl-BMS" firstAttribute="leading" secondItem="Kzr-Q2-71g" secondAttribute="leading" constant="8" id="lff-us-WZl"/>
                                                 <constraint firstItem="cOs-dW-DyG" firstAttribute="trailing" secondItem="zy8-rS-sJA" secondAttribute="trailing" id="m8p-X6-Z9w"/>
@@ -758,10 +761,8 @@
                                                 <constraint firstItem="aIX-XT-F7y" firstAttribute="leading" secondItem="6Ax-n8-0MG" secondAttribute="leading" id="nQi-Ur-wae"/>
                                                 <constraint firstItem="6Ax-n8-0MG" firstAttribute="leading" secondItem="4di-J1-wpU" secondAttribute="leading" id="paC-V4-yCu"/>
                                                 <constraint firstItem="NOO-En-BjA" firstAttribute="trailing" secondItem="NfS-FD-jid" secondAttribute="trailing" id="ra1-NW-9LO"/>
-                                                <constraint firstItem="NOO-En-BjA" firstAttribute="bottom" secondItem="s4P-VN-mjv" secondAttribute="top" constant="-8" id="s8Z-Wi-2la"/>
                                                 <constraint firstItem="aIX-XT-F7y" firstAttribute="height" secondItem="6Ax-n8-0MG" secondAttribute="height" id="vbR-9x-ndH"/>
                                                 <constraint firstItem="aIX-XT-F7y" firstAttribute="top" secondItem="6Ax-n8-0MG" secondAttribute="top" id="xAI-sp-v6M"/>
-                                                <constraint firstItem="5MW-eT-HfZ" firstAttribute="top" secondItem="LuM-Zz-Jfr" secondAttribute="bottom" constant="8" id="xrR-jl-1Ko"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
