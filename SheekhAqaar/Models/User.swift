@@ -21,6 +21,7 @@ public class User: DataType {
     var countryId: Int!
     var userState: Int!
     var userType: Int!
+    var country: Country!
     var companies: [Company]!
     var appVersion: String!
     var mobileOS: String!
@@ -39,6 +40,7 @@ public class User: DataType {
         userState = "Fk_UserState" <~~ json
         userType = "Fk_UserType" <~~ json
         fcmToken = "OneSiganlToken" <~~ json
+        country = "CountryModel" <~~ json
         companies = "CompaniesModel" <~~ json
         appVersion = "AppVersion" <~~ json
         mobileOS = "MobileOS" <~~ json
@@ -63,6 +65,7 @@ public class User: DataType {
             "Fk_UserState" ~~> userState,
             "Fk_UserType" ~~> userType,
             "OneSiganlToken" ~~> fcmToken,
+            "CountryModel" ~~> country,
             "CompaniesModel" ~~> companies,
             "AppVersion" ~~> appVersion,
             "MobileOS" ~~> mobileOS,
