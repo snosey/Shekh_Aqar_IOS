@@ -67,7 +67,7 @@ class CreateAdCell: UITableViewCell {
     public func showSelectedData(ad: Ad, selectedCountry: Country, selectedRegion: Region, mainCategoryName: String) {
         self.adId = ad.id
         adTitleTextField.text = ad.name
-        priceTextField.text = "\(ad.price!)"
+        priceTextField.text = "\(ad.price.formattedWithSeparator)"
         currencyLabel.text = ad.currency.name
         adDetailsTextView.text = ad.details
         categoryLabel.text = mainCategoryName

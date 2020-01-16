@@ -81,7 +81,7 @@
 "makeCall" = "اتصل";
 "adType" = "نوع العقار";
 "location" = "الموقع";
-"area" = "المساحة";
+"area" = "المساحه الاجماليه";
 "roomsCount" = "عدد الغرف";
 "bathroomsCount" = "عدد الحمامات";
 "farsh" = "الفرش";
@@ -104,7 +104,7 @@
 "noCities" = "لا يوجد مدن لهذه الدولة";
 "whatsApp" = "واتساب";
 "adTitle" = "عنوان الاعلان";
-"details" = "التفاصيل";
+"details" = "تفاصيل أخري";
 "noCategories" = "لا يوجد تصنيفات";
 "noCountries" = "لا يوجد دول";
 "noCurrencies" = "لا يوجد عملات";
@@ -154,3 +154,5 @@
 "appleMaps" = "خرائط ابل";
 "mapChooseTitle" = "اختر نوع الخريطة";
 "mapChooseMessage" = "من فضلك اختر نوع الخريطه لعرض المكان";
+"otherDetails" = "تفاصيل أخري";
+"totalArea" = "المساحه الاجماليه";

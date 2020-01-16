@@ -24,6 +24,7 @@ public class Company: DataType {
     var phoneNumber: String!
     var numberOfAds: Int!
     var companyTypes: [CompanyType]!
+    var country: Country!
     
     //MARK: Decodable
     required public init?(json: JSON){
@@ -35,6 +36,7 @@ public class Company: DataType {
         regionId = "Fk_Location" <~~ json
         address = "Address" <~~ json
         numberOfAds = "AdsCount" <~~ json
+        country = "CountryModel" <~~ json
         latitude = "Latitude" <~~ json
         longitude = "Longitude" <~~ json
         phoneNumber = "Phone" <~~ json
@@ -67,6 +69,7 @@ public class Company: DataType {
             "Latitude" ~~> latitude,
             "Longitude" ~~> longitude,
             "Phone" ~~> phoneNumber,
+            "CountryModel" ~~> country,
             "Email" ~~> email,
             "CompanyTypesModel" ~~> companyTypes,
             ])

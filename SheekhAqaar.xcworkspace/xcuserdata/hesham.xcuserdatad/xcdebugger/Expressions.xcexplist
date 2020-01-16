@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "HomeVC.showAdsOnMap():HomeVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ad.subCategory.hexCode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "HomeVC.mapView(_:viewFor:):HomeVC.swift">
          <PersistentStrings>
             <PersistentString

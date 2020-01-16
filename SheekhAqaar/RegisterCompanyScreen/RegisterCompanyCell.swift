@@ -62,6 +62,15 @@ class RegisterCompanyCell: UITableViewCell {
     @IBOutlet weak var companyServicesTableView: UITableView!
     
     @IBOutlet weak var companyServicesTitleLabel: LocalizedLabel!
+    
+    @IBOutlet weak var userNameErrorImageView: UIImageView!
+    @IBOutlet weak var userPhoneNumberErrorImageView: UIImageView!
+    @IBOutlet weak var companyNameErrorImageView: UIImageView!
+    @IBOutlet weak var traditionalNumberErrorImageView: UIImageView!
+    @IBOutlet weak var companyPhoneNumberErrorImageView: UIImageView!
+    @IBOutlet weak var companyEmailErrorImageView: UIImageView!
+    @IBOutlet weak var companyDetailedAddresErrorImageView: UIImageView!
+    
     var userImageChoosen: Bool = false
     var companyImageChoosen: Bool = false
     

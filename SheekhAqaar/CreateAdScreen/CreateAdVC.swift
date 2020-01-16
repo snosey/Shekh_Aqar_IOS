@@ -119,14 +119,14 @@ extension CreateAdVC: CreateAdView {
         
         createAdTableView.reloadData()
         
-        if UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 100) >= CGFloat(896) {
-            cell.publishAddButton.snp.remakeConstraints { (maker) in
-                maker.centerX.equalTo(cell.contentView)
-                maker.bottom.equalTo(cell.contentView).offset(-16)
-                maker.top.equalTo(cell.additionalFacilitiesTableView.snp.bottom).offset(8)
-                maker.width.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH, relativeView: nil, percentage: 50))
-            }
-        }
+//        if UiHelpers.getLengthAccordingTo(relation: .SCREEN_HEIGHT, relativeView: nil, percentage: 100) >= CGFloat(896) {
+//            cell.publishAddButton.snp.remakeConstraints { (maker) in
+//                maker.centerX.equalTo(cell.contentView)
+//                maker.bottom.equalTo(cell.contentView).offset(-16)
+//                maker.top.equalTo(cell.additionalFacilitiesTableView.snp.bottom).offset(8)
+//                maker.width.equalTo(UiHelpers.getLengthAccordingTo(relation: .SCREEN_WIDTH, relativeView: nil, percentage: 50))
+//            }
+//        }
         
     }
     

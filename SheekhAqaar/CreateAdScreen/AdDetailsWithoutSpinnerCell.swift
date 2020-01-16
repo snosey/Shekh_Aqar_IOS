@@ -12,12 +12,19 @@ class AdDetailsWithoutSpinnerCell: UITableViewCell {
 
     public static let identifier = "AdDetailsWithoutSpinnerCell"
     
+    @IBOutlet weak var detailsImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueTextField: UITextField!
     
     var adDetailsItem: AdDetailsItem!
     
     public func populateData() {
+        if let _ = detailsImageView {
+            if let imageUrl = adDetailsItem.imageUrl, let url = URL(string: imageUrl) {
+                detailsImageView.af_setImage(withURL: url)
+            }
+        }
+        
         titleLabel.text = adDetailsItem.name
         if let value = adDetailsItem.value {
             valueTextField.text = "\(value)"

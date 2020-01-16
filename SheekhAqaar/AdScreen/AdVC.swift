@@ -110,7 +110,7 @@ class AdVC: BaseVC {
         additionalFacilitiesTableView.delegate = self
         additionalFacilitiesTableView.reloadData()
         
-        adPriceLabel.text = String(ad.price) + " " + ad.currency.name!
+        adPriceLabel.text = String(ad.price.formattedWithSeparator) + " " + ad.currency.name!
         
     }
     
@@ -136,9 +136,9 @@ class AdVC: BaseVC {
     
     @IBAction func makeCallClicked(_ sender: Any) {
         if let phoneNumber = ad.user.phoneNumber {
-            UiHelpers.makeCall(phoneNumber: phoneNumber)
+            UiHelpers.makeCall(phoneNumber: ad.user.country.code + phoneNumber)
         } else if let phoneNumber = ad.company.phoneNumber {
-             UiHelpers.makeCall(phoneNumber: phoneNumber)
+            UiHelpers.makeCall(phoneNumber: ad.company.country.code + phoneNumber)
         } else {
             self.view.makeToast("phoneNotAvailable".localized())
         }
@@ -146,9 +146,9 @@ class AdVC: BaseVC {
 
     @IBAction func openWhatsAppClicked(_ sender: Any) {
         if let phoneNumber = ad.user.phoneNumber {
-            UiHelpers.openWahtsApp(view: self.view, phoneNumber: phoneNumber)
+            UiHelpers.openWahtsApp(view: self.view, phoneNumber: ad.user.country.code + phoneNumber)
         } else if let phoneNumber = ad.company.phoneNumber {
-            UiHelpers.openWahtsApp(view: self.view, phoneNumber: phoneNumber)
+            UiHelpers.openWahtsApp(view: self.view, phoneNumber: ad.company.country.code + phoneNumber)
         } else {
             self.view.makeToast("phoneNotAvailable".localized())
         }

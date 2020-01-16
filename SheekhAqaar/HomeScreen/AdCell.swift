@@ -31,7 +31,7 @@ class AdCell: UITableViewCell {
         if let urls = ad.adImages, urls.count > 0, let photoUrl = URL(string: urls[0].imageUrl) {
             adPhotoImageView.af_setImage(withURL: photoUrl)
         }
-        priceLabel.text = "\(ad.price!) \(ad.currency.name!)"
+        priceLabel.text = "\(ad.price.formattedWithSeparator) \(ad.currency.name!)"
         titleLabel.text = ad.name
         addressLabel.text = ad.detailedAddress
         areaLabel.text = "\(ad.placeArea ?? 0)"

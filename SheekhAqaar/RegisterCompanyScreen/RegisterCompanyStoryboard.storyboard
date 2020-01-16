@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +11,7 @@
         <!--Register CompanyVC-->
         <scene sceneID="wSe-Mu-7Xb">
             <objects>
-                <viewController storyboardIdentifier="RegisterCompanyVC" id="rSX-fP-4cG" customClass="RegisterCompanyVC" customModule="SheekhAqaar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterCompanyVC" id="rSX-fP-4cG" customClass="RegisterCompanyVC" customModule="sheikh_alaqar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JyW-O7-NC9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,14 +26,14 @@
                                 <rect key="frame" x="0.0" y="180" width="414" height="1148"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RegisterCompanyCell" rowHeight="1134" id="z8T-NW-wjQ" customClass="RegisterCompanyCell" customModule="SheekhAqaar" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RegisterCompanyCell" rowHeight="1134" id="z8T-NW-wjQ" customClass="RegisterCompanyCell" customModule="sheikh_alaqar" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="1134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z8T-NW-wjQ" id="O4z-ZY-yaq">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="1134"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpu-ll-pJI" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpu-ll-pJI" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="0.0" width="398" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,7 +74,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1Z-SU-odX">
                                                             <rect key="frame" x="16" y="132" width="341" height="34"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="9NQ-aB-jgY" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="9NQ-aB-jgY" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="4" width="309" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
@@ -83,13 +82,22 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="fullName"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </textField>
+                                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="8Yf-Cq-z4l">
+                                                                    <rect key="frame" x="308" y="4.5" width="25" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="25" id="7Bg-t8-1mY"/>
+                                                                        <constraint firstAttribute="height" constant="25" id="EeE-yc-TOD"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
+                                                                <constraint firstItem="8Yf-Cq-z4l" firstAttribute="centerY" secondItem="S1Z-SU-odX" secondAttribute="centerY" id="DsR-Aj-0ch"/>
                                                                 <constraint firstItem="9NQ-aB-jgY" firstAttribute="leading" secondItem="S1Z-SU-odX" secondAttribute="leading" constant="16" id="TbV-Kw-bn3"/>
                                                                 <constraint firstItem="9NQ-aB-jgY" firstAttribute="top" secondItem="S1Z-SU-odX" secondAttribute="top" constant="4" id="WtM-bF-A8a"/>
                                                                 <constraint firstAttribute="bottom" secondItem="9NQ-aB-jgY" secondAttribute="bottom" constant="4" id="cdT-JD-Wy7"/>
                                                                 <constraint firstAttribute="trailing" secondItem="9NQ-aB-jgY" secondAttribute="trailing" constant="16" id="dB2-si-RGb"/>
+                                                                <constraint firstAttribute="trailing" secondItem="8Yf-Cq-z4l" secondAttribute="trailing" constant="8" id="tcA-4W-clD"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -98,16 +106,23 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Cc-tG-yPu">
-                                                            <rect key="frame" x="16" y="182" width="242.5" height="34"/>
+                                                            <rect key="frame" x="16" y="182" width="224" height="34"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="nag-B1-EQQ" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
-                                                                    <rect key="frame" x="16" y="4" width="210.5" height="26"/>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="nag-B1-EQQ" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
+                                                                    <rect key="frame" x="16" y="4" width="192" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="phoneNumber"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </textField>
+                                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="pyI-tC-TMg">
+                                                                    <rect key="frame" x="99.5" y="4" width="25" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="25" id="aWN-vy-KtQ"/>
+                                                                        <constraint firstAttribute="width" constant="25" id="eWe-te-U0L"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
@@ -123,16 +138,16 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JM3-b4-1ty">
-                                                            <rect key="frame" x="266.5" y="182" width="90.5" height="34"/>
+                                                            <rect key="frame" x="248" y="182" width="109" height="34"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qY-D9-WQo">
-                                                                    <rect key="frame" x="8" y="6" width="36" height="20"/>
+                                                                    <rect key="frame" x="8" y="6" width="43.5" height="20"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="moa-XZ-klM">
-                                                                    <rect key="frame" x="52" y="8" width="30.5" height="18"/>
+                                                                    <rect key="frame" x="59.5" y="8" width="41.5" height="18"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -168,7 +183,7 @@
                                                         <constraint firstItem="JM3-b4-1ty" firstAttribute="bottom" secondItem="8Cc-tG-yPu" secondAttribute="bottom" id="V4q-cq-Tm5"/>
                                                         <constraint firstItem="JM3-b4-1ty" firstAttribute="leading" secondItem="8Cc-tG-yPu" secondAttribute="trailing" constant="8" id="exR-pR-kIR"/>
                                                         <constraint firstAttribute="trailing" secondItem="S1Z-SU-odX" secondAttribute="trailing" constant="16" id="onk-jQ-eOq"/>
-                                                        <constraint firstItem="8Cc-tG-yPu" firstAttribute="width" secondItem="UjO-OQ-SbG" secondAttribute="width" multiplier="0.65" id="opr-pq-wvY"/>
+                                                        <constraint firstItem="8Cc-tG-yPu" firstAttribute="width" secondItem="UjO-OQ-SbG" secondAttribute="width" multiplier="0.6" id="opr-pq-wvY"/>
                                                         <constraint firstItem="HdQ-2J-DJP" firstAttribute="centerY" secondItem="fO7-Vz-oGI" secondAttribute="centerY" constant="-2" id="wTq-tE-IYf"/>
                                                         <constraint firstItem="fO7-Vz-oGI" firstAttribute="leading" secondItem="UK0-Hp-77F" secondAttribute="leading" id="wwF-Sc-8hk"/>
                                                         <constraint firstItem="8Cc-tG-yPu" firstAttribute="leading" secondItem="S1Z-SU-odX" secondAttribute="leading" id="xDC-7h-xWh"/>
@@ -180,7 +195,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sP-T6-9BA" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sP-T6-9BA" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="269" width="398" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -221,7 +236,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2m2-dR-Aq3">
                                                             <rect key="frame" x="9.5" y="116" width="354" height="78"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fgw-ha-Y7K" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fgw-ha-Y7K" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="8" width="322" height="62"/>
                                                                     <color key="textColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -230,11 +245,20 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="companyName"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </textField>
+                                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="cGt-je-csJ">
+                                                                    <rect key="frame" x="321" y="26.5" width="25" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="25" id="Gr2-Y4-9ST"/>
+                                                                        <constraint firstAttribute="height" constant="25" id="aT9-dc-1Iy"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="Fgw-ha-Y7K" secondAttribute="bottom" constant="8" id="0i3-52-PG4"/>
+                                                                <constraint firstAttribute="trailing" secondItem="cGt-je-csJ" secondAttribute="trailing" constant="8" id="15a-cC-RBC"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Fgw-ha-Y7K" secondAttribute="trailing" constant="16" id="1zt-8f-iym"/>
+                                                                <constraint firstItem="cGt-je-csJ" firstAttribute="centerY" secondItem="2m2-dR-Aq3" secondAttribute="centerY" id="A7g-5M-nF2"/>
                                                                 <constraint firstItem="Fgw-ha-Y7K" firstAttribute="leading" secondItem="2m2-dR-Aq3" secondAttribute="leading" constant="16" id="CSB-QN-EQI"/>
                                                                 <constraint firstItem="Fgw-ha-Y7K" firstAttribute="top" secondItem="2m2-dR-Aq3" secondAttribute="top" constant="8" id="tIk-Dr-jSg"/>
                                                             </constraints>
@@ -247,7 +271,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78u-bk-Q9W">
                                                             <rect key="frame" x="9.5" y="202" width="354" height="78"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-Dw-4jv" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-Dw-4jv" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="8" width="322" height="62"/>
                                                                     <color key="textColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -256,12 +280,21 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="traditionalNumber"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </textField>
+                                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="WU7-0p-HT4">
+                                                                    <rect key="frame" x="321" y="26.5" width="25" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="25" id="2WC-nl-wPw"/>
+                                                                        <constraint firstAttribute="height" constant="25" id="QgO-wJ-ziI"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="D2a-Dw-4jv" secondAttribute="bottom" constant="8" id="Dcv-KB-bbo"/>
+                                                                <constraint firstAttribute="trailing" secondItem="WU7-0p-HT4" secondAttribute="trailing" constant="8" id="d0g-zr-4ZL"/>
                                                                 <constraint firstAttribute="trailing" secondItem="D2a-Dw-4jv" secondAttribute="trailing" constant="16" id="lf5-Qr-JmH"/>
                                                                 <constraint firstItem="D2a-Dw-4jv" firstAttribute="top" secondItem="78u-bk-Q9W" secondAttribute="top" constant="8" id="vIJ-CW-XBu"/>
+                                                                <constraint firstItem="WU7-0p-HT4" firstAttribute="centerY" secondItem="78u-bk-Q9W" secondAttribute="centerY" id="yrm-gq-kdb"/>
                                                                 <constraint firstItem="D2a-Dw-4jv" firstAttribute="leading" secondItem="78u-bk-Q9W" secondAttribute="leading" constant="16" id="z75-Th-mBk"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
@@ -270,7 +303,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ub-6q-I0P" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ub-6q-I0P" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                             <rect key="frame" x="9.5" y="288" width="354" height="78"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -283,7 +316,7 @@
                                                             <rect key="frame" x="9.5" y="262.5" width="354" height="326.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <prototypes>
-                                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompanyServicesCell" rowHeight="44" id="NcW-jv-LnS" customClass="CompanyServicesCell" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompanyServicesCell" rowHeight="44" id="NcW-jv-LnS" customClass="CompanyServicesCell" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="28" width="354" height="44"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NcW-jv-LnS" id="dEf-eN-BBW">
@@ -320,10 +353,10 @@
                                                             </prototypes>
                                                         </tableView>
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="paZ-Xa-fxm">
-                                                            <rect key="frame" x="9.5" y="597" width="248" height="40.5"/>
+                                                            <rect key="frame" x="9.5" y="597" width="230" height="40.5"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nxE-uT-BsR" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
-                                                                    <rect key="frame" x="16" y="8" width="216" height="62"/>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nxE-uT-BsR" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
+                                                                    <rect key="frame" x="16" y="8" width="198" height="62"/>
                                                                     <color key="textColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -331,13 +364,22 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="phoneNumber"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </textField>
+                                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="eSt-1S-9ut">
+                                                                    <rect key="frame" x="197" y="26.5" width="25" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="25" id="Oek-F3-vhS"/>
+                                                                        <constraint firstAttribute="width" constant="25" id="nuE-WR-caZ"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
+                                                                <constraint firstItem="eSt-1S-9ut" firstAttribute="centerY" secondItem="paZ-Xa-fxm" secondAttribute="centerY" id="IKz-Sl-256"/>
                                                                 <constraint firstAttribute="trailing" secondItem="nxE-uT-BsR" secondAttribute="trailing" constant="16" id="QuR-wT-EU3"/>
                                                                 <constraint firstAttribute="bottom" secondItem="nxE-uT-BsR" secondAttribute="bottom" constant="8" id="V5D-gp-m3F"/>
                                                                 <constraint firstItem="nxE-uT-BsR" firstAttribute="leading" secondItem="paZ-Xa-fxm" secondAttribute="leading" constant="16" id="VK3-Wq-WIg"/>
                                                                 <constraint firstItem="nxE-uT-BsR" firstAttribute="top" secondItem="paZ-Xa-fxm" secondAttribute="top" constant="8" id="Zl9-sV-Wfb"/>
+                                                                <constraint firstAttribute="trailing" secondItem="eSt-1S-9ut" secondAttribute="trailing" constant="8" id="vJu-ZD-v92"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -346,16 +388,16 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ns-1V-P69">
-                                                            <rect key="frame" x="275" y="597" width="88.5" height="40.5"/>
+                                                            <rect key="frame" x="257.5" y="597" width="106" height="40.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSE-6w-ZEe">
-                                                                    <rect key="frame" x="8" y="8" width="35.5" height="62"/>
+                                                                    <rect key="frame" x="8" y="8" width="42.5" height="62"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OAT-R1-DqC">
-                                                                    <rect key="frame" x="51.5" y="8" width="29" height="62"/>
+                                                                    <rect key="frame" x="58.5" y="8" width="39.5" height="62"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -378,7 +420,7 @@
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oJS-OX-A6Q">
                                                             <rect key="frame" x="9.5" y="645.5" width="354" height="41"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KLC-lW-YGi" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KLC-lW-YGi" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="8" width="322" height="62"/>
                                                                     <color key="textColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -387,11 +429,20 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="email"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </textField>
+                                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="r7I-zu-Qgw">
+                                                                    <rect key="frame" x="321" y="26.5" width="25" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="25" id="oGa-ZE-lCf"/>
+                                                                        <constraint firstAttribute="height" constant="25" id="u3g-fV-WZX"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="KLC-lW-YGi" secondAttribute="trailing" constant="16" id="0wW-R4-hz8"/>
                                                                 <constraint firstItem="KLC-lW-YGi" firstAttribute="top" secondItem="oJS-OX-A6Q" secondAttribute="top" constant="8" id="G5t-4d-aaA"/>
+                                                                <constraint firstItem="r7I-zu-Qgw" firstAttribute="centerY" secondItem="oJS-OX-A6Q" secondAttribute="centerY" id="KZV-od-eBe"/>
+                                                                <constraint firstAttribute="trailing" secondItem="r7I-zu-Qgw" secondAttribute="trailing" constant="8" id="LLx-4s-VLI"/>
                                                                 <constraint firstItem="KLC-lW-YGi" firstAttribute="leading" secondItem="oJS-OX-A6Q" secondAttribute="leading" constant="16" id="UBQ-xF-xXX"/>
                                                                 <constraint firstAttribute="bottom" secondItem="KLC-lW-YGi" secondAttribute="bottom" constant="8" id="fsy-Lk-qwa"/>
                                                             </constraints>
@@ -407,7 +458,7 @@
                                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAu-v3-xI3">
                                                                     <rect key="frame" x="0.0" y="0.0" width="0.0" height="78"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTj-5C-DFv" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTj-5C-DFv" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                             <rect key="frame" x="8" y="8" width="0.0" height="62"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
@@ -442,7 +493,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIK-gf-c8J">
                                                                     <rect key="frame" x="0.0" y="0.0" width="354" height="78"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyZ-gN-YFj" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyZ-gN-YFj" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                             <rect key="frame" x="8" y="8" width="248" height="62"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
@@ -479,7 +530,7 @@
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kt7-G0-RZh">
                                                             <rect key="frame" x="9.5" y="743.5" width="354" height="40.5"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LuH-rp-LJf" customClass="LocalizedTextField" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LuH-rp-LJf" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="8" width="322" height="62"/>
                                                                     <color key="textColor" red="0.11764705882352941" green="0.10980392156862745" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -488,12 +539,21 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizeKey" value="detailedAddress"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </textField>
+                                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="gpG-Rr-YGj">
+                                                                    <rect key="frame" x="321" y="26.5" width="25" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="25" id="Wrb-h4-2ip"/>
+                                                                        <constraint firstAttribute="width" constant="25" id="qQI-Oi-ia3"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="LuH-rp-LJf" secondAttribute="bottom" constant="8" id="Nph-dw-XJ4"/>
                                                                 <constraint firstItem="LuH-rp-LJf" firstAttribute="top" secondItem="Kt7-G0-RZh" secondAttribute="top" constant="8" id="ReF-UV-e0K"/>
                                                                 <constraint firstItem="LuH-rp-LJf" firstAttribute="leading" secondItem="Kt7-G0-RZh" secondAttribute="leading" constant="16" id="bvj-Bl-2V9"/>
+                                                                <constraint firstAttribute="trailing" secondItem="gpG-Rr-YGj" secondAttribute="trailing" constant="8" id="hJj-iK-8iz"/>
+                                                                <constraint firstItem="gpG-Rr-YGj" firstAttribute="centerY" secondItem="Kt7-G0-RZh" secondAttribute="centerY" id="rDT-8p-Z5S"/>
                                                                 <constraint firstAttribute="trailing" secondItem="LuH-rp-LJf" secondAttribute="trailing" constant="16" id="v3W-f4-0k7"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
@@ -505,7 +565,7 @@
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T6a-dJ-9S6">
                                                             <rect key="frame" x="9.5" y="792" width="354" height="41"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nED-vA-dry" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nED-vA-dry" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="8" width="269" height="62"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
@@ -551,7 +611,7 @@
                                                         <constraint firstItem="oJS-OX-A6Q" firstAttribute="height" secondItem="paZ-Xa-fxm" secondAttribute="height" id="A6r-SM-deo"/>
                                                         <constraint firstItem="2m2-dR-Aq3" firstAttribute="width" secondItem="ClS-zy-WC5" secondAttribute="width" multiplier="0.95" id="BhV-LC-ai4"/>
                                                         <constraint firstItem="ifR-lb-h5u" firstAttribute="leading" secondItem="78u-bk-Q9W" secondAttribute="leading" id="C39-We-d6x"/>
-                                                        <constraint firstItem="paZ-Xa-fxm" firstAttribute="width" secondItem="78u-bk-Q9W" secondAttribute="width" multiplier="0.7" id="CFl-rX-Ify"/>
+                                                        <constraint firstItem="paZ-Xa-fxm" firstAttribute="width" secondItem="78u-bk-Q9W" secondAttribute="width" multiplier="0.65" id="CFl-rX-Ify"/>
                                                         <constraint firstItem="78u-bk-Q9W" firstAttribute="trailing" secondItem="2m2-dR-Aq3" secondAttribute="trailing" id="Cqd-eD-idn"/>
                                                         <constraint firstItem="9yR-6e-2im" firstAttribute="centerX" secondItem="xTN-sD-5Zr" secondAttribute="centerX" id="DN4-6n-36Y"/>
                                                         <constraint firstItem="Kt7-G0-RZh" firstAttribute="trailing" secondItem="IhW-18-98a" secondAttribute="trailing" id="DfB-Iy-xdB"/>
@@ -581,7 +641,7 @@
                                                         <constraint firstItem="T6a-dJ-9S6" firstAttribute="top" secondItem="Kt7-G0-RZh" secondAttribute="bottom" constant="8" id="iTG-1y-vjc"/>
                                                         <constraint firstItem="ifR-lb-h5u" firstAttribute="top" secondItem="0ub-6q-I0P" secondAttribute="bottom" constant="8" id="kk9-3c-8u2"/>
                                                         <constraint firstItem="1Ns-1V-P69" firstAttribute="top" secondItem="ifR-lb-h5u" secondAttribute="bottom" constant="8" id="oSB-7p-9Qu"/>
-                                                        <constraint firstItem="1Ns-1V-P69" firstAttribute="width" secondItem="78u-bk-Q9W" secondAttribute="width" multiplier="0.25" id="qol-pb-SnZ"/>
+                                                        <constraint firstItem="1Ns-1V-P69" firstAttribute="width" secondItem="78u-bk-Q9W" secondAttribute="width" multiplier="0.3" id="qol-pb-SnZ"/>
                                                         <constraint firstItem="oJS-OX-A6Q" firstAttribute="leading" secondItem="78u-bk-Q9W" secondAttribute="leading" id="suh-Wb-cFI"/>
                                                         <constraint firstItem="0ub-6q-I0P" firstAttribute="leading" secondItem="78u-bk-Q9W" secondAttribute="leading" id="tvu-L7-PlZ"/>
                                                         <constraint firstItem="78u-bk-Q9W" firstAttribute="leading" secondItem="2m2-dR-Aq3" secondAttribute="leading" id="w3h-Jt-mlh"/>
@@ -597,7 +657,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-eZ-a8r" customClass="LocalizedButton" customModule="SheekhAqaar" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-eZ-a8r" customClass="LocalizedButton" customModule="sheikh_alaqar" customModuleProvider="target">
                                                     <rect key="frame" x="145" y="2036" width="124" height="30"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -639,8 +699,12 @@
                                             <outlet property="companyCountryCodeLabel" destination="iSE-6w-ZEe" id="v6W-ch-t2w"/>
                                             <outlet property="companyCountryCodeView" destination="1Ns-1V-P69" id="qId-O9-5gn"/>
                                             <outlet property="companyDataTitleLabel" destination="7sP-T6-9BA" id="Kaz-vV-onE"/>
+                                            <outlet property="companyDetailedAddresErrorImageView" destination="gpG-Rr-YGj" id="GMm-2K-FOv"/>
                                             <outlet property="companyEmail" destination="KLC-lW-YGi" id="RDv-6E-bQf"/>
+                                            <outlet property="companyEmailErrorImageView" destination="r7I-zu-Qgw" id="CUd-cJ-Fpt"/>
+                                            <outlet property="companyNameErrorImageView" destination="cGt-je-csJ" id="GXe-0U-LSn"/>
                                             <outlet property="companyNameTextField" destination="Fgw-ha-Y7K" id="tcD-Q7-IwU"/>
+                                            <outlet property="companyPhoneNumberErrorImageView" destination="eSt-1S-9ut" id="zno-hD-MdR"/>
                                             <outlet property="companyPhoneNumberTextField" destination="nxE-uT-BsR" id="KF3-hl-nXN"/>
                                             <outlet property="companyServicesTableView" destination="ifR-lb-h5u" id="otf-mq-XlH"/>
                                             <outlet property="companyServicesTitleLabel" destination="0ub-6q-I0P" id="9up-cd-fPP"/>
@@ -658,14 +722,17 @@
                                             <outlet property="regionView" destination="hIK-gf-c8J" id="M23-9v-CLN"/>
                                             <outlet property="registerButton" destination="YcE-eZ-a8r" id="bge-t8-T1U"/>
                                             <outlet property="topView" destination="UjO-OQ-SbG" id="18R-M6-h4h"/>
+                                            <outlet property="traditionalNumberErrorImageView" destination="WU7-0p-HT4" id="ERi-M5-h2d"/>
                                             <outlet property="traditionalNumberTextField" destination="D2a-Dw-4jv" id="Quy-js-ece"/>
                                             <outlet property="userAvatarImageView" destination="UK0-Hp-77F" id="R7E-nw-GzJ"/>
                                             <outlet property="userDataTitleLabel" destination="Mpu-ll-pJI" id="Wrm-7G-ixY"/>
+                                            <outlet property="userNameErrorImageView" destination="8Yf-Cq-z4l" id="30K-NR-a6G"/>
+                                            <outlet property="userPhoneNumberErrorImageView" destination="pyI-tC-TMg" id="XwY-zu-VP5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBt-ff-Rfk" customClass="LocalizedLabel" customModule="SheekhAqaar" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBt-ff-Rfk" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
                                 <rect key="frame" x="145" y="1336" width="124" height="56"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.93333333330000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -710,6 +777,7 @@
         <image name="add_ic" width="24" height="24"/>
         <image name="company_avatar" width="240" height="240"/>
         <image name="down_arrow" width="12" height="10"/>
+        <image name="error" width="24" height="24"/>
         <image name="main_bg" width="450" height="800"/>
         <image name="maps" width="34" height="35"/>
         <image name="splash_icon" width="596" height="468"/>
