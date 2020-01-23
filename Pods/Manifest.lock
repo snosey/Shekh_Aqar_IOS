@@ -4,13 +4,30 @@ PODS:
     - Alamofire (~> 4.8)
   - AlamofireNetworkActivityIndicator (2.3.0):
     - Alamofire (~> 4.7)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
   - DeviceKit (2.0.0)
   - DropDown (2.3.2)
+  - Fabric (1.10.2)
+  - Firebase/Analytics (6.13.0):
+    - Firebase/Core
   - Firebase/Auth (6.13.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.4.0)
+  - Firebase/Core (6.13.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 6.1.6)
   - Firebase/CoreOnly (6.13.0):
     - FirebaseCore (= 6.4.0)
+  - FirebaseAnalytics (6.1.6):
+    - FirebaseCore (~> 6.4)
+    - FirebaseInstanceID (~> 4.2)
+    - GoogleAppMeasurement (= 6.1.6)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (= 0.3.9011)
   - FirebaseAuth (6.4.0):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.2)
@@ -30,7 +47,17 @@ PODS:
     - GoogleUtilities/Logger (~> 6.2)
     - nanopb (~> 0.3.901)
   - FirebaseCoreDiagnosticsInterop (1.1.0)
+  - FirebaseInstanceID (4.2.7):
+    - FirebaseCore (~> 6.0)
+    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/UserDefaults (~> 6.0)
   - Gloss (2.0.1)
+  - GoogleAppMeasurement (6.1.6):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (= 0.3.9011)
   - GoogleDataTransport (3.1.0)
   - GoogleDataTransportCCTSupport (1.2.1):
     - GoogleDataTransport (~> 3.0)
@@ -52,12 +79,16 @@ PODS:
   - GoogleUtilities/Environment (6.3.2)
   - GoogleUtilities/Logger (6.3.2):
     - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.3.2):
+    - GoogleUtilities/Logger
   - GoogleUtilities/Network (6.3.2):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (6.3.2)"
   - GoogleUtilities/Reachability (6.3.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (6.3.2):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.3.0)
   - IQKeyboardManagerSwift (6.2.0)
@@ -101,8 +132,11 @@ PODS:
 DEPENDENCIES:
   - AlamofireImage (= 3.5.0)
   - AlamofireNetworkActivityIndicator (= 2.3.0)
+  - Crashlytics (~> 3.14.0)
   - DeviceKit (= 2.0.0)
   - DropDown (= 2.3.2)
+  - Fabric (~> 1.10.2)
+  - Firebase/Analytics
   - Firebase/Auth
   - GoogleMaps (= 3.0.2)
   - GooglePlacePicker (= 3.0.2)
@@ -123,19 +157,24 @@ DEPENDENCIES:
   - UICircularProgressRing (= 4.1.0)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
     - AlamofireNetworkActivityIndicator
+    - Crashlytics
     - DeviceKit
     - DropDown
+    - Fabric
     - Firebase
+    - FirebaseAnalytics
     - FirebaseAuth
     - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
+    - FirebaseInstanceID
     - Gloss
+    - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleMaps
@@ -175,15 +214,20 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
   AlamofireNetworkActivityIndicator: 18346ff6d770d9513d0ac6f2d99706f40f93dbaa
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   DeviceKit: 72d36709552d4b3582abd76a53949148acad9811
   DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
+  FirebaseAnalytics: 45f36d9c429fc91d206283900ab75390cd05ee8a
   FirebaseAuth: 7d0f84873926f6648bbd1391a318dfb1a26b5e4f
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: 307ea2508df730c5865334e41965bd9ea344b0e5
   FirebaseCoreDiagnostics: af29e43048607588c050889d19204f4d7b758c9f
   FirebaseCoreDiagnosticsInterop: e9b1b023157e3a2fc6418b5cb601e79b9af7b3a0
+  FirebaseInstanceID: ebd2ea79ee38db0cb5f5167b17a0d387e1cc7b6e
   Gloss: 1e8743f8de1fbe14a97f220ff901cba91ae5f8f8
+  GoogleAppMeasurement: dfe55efa543e899d906309eaaac6ca26d249862f
   GoogleDataTransport: 67cc56f6280d1bc9d470285e851ec49ee9013dba
   GoogleDataTransportCCTSupport: f6ab1962e9dc05ab1fb938b795e5b310209edeec
   GoogleMaps: 941cd655e009b4d8e42df19a3d749bc3fccec973
@@ -210,6 +254,6 @@ SPEC CHECKSUMS:
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   UICircularProgressRing: 5a32c01f54474571b1e66e8fa050c0f83d6d981b
 
-PODFILE CHECKSUM: 768791cdb4d8b05c5fd951d9c3afe213c353a896
+PODFILE CHECKSUM: 237bdcc804a96bb5e2280f868986aa8ebaa2b0b9
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.5

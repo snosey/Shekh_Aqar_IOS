@@ -30,6 +30,12 @@ target 'SheekhAqaar' do
   pod 'Firebase/Auth'
   pod 'OneSignal', '>= 2.6.2', '< 3.0'
   
+  pod 'Fabric', '~> 1.10.2'
+  pod 'Crashlytics', '~> 3.14.0'
+
+  # (Recommended) Pod for Google Analytics
+  pod 'Firebase/Analytics'
+  
   target 'SheekhAqaarTests' do
     inherit! :search_paths
     # Pods for testing
