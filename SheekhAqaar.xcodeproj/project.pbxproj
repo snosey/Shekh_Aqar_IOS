@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048F124623D9BDBF00ABDEB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 048F124523D9BDBF00ABDEB4 /* GoogleService-Info.plist */; };
 		10E844414DD1D0A7CEAE65CF /* Pods_SheekhAqaarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6640FC832881CD0F38375636 /* Pods_SheekhAqaarUITests.framework */; };
 		32192BEF3BB943C265619792 /* Pods_SheekhAqaar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF27972B0AF3AF205B163EA /* Pods_SheekhAqaar.framework */; };
 		542D3FEE239D27BB009C192C /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542D3FED239D27BB009C192C /* CustomAnnotation.swift */; };
-		545FAA2023D5F91D00C7A590 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 545FAA1F23D5F91C00C7A590 /* GoogleService-Info.plist */; };
 		54F3B7D1237AADE400BA798E /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B79E237AADE300BA798E /* NSAttributedStringExtensions.swift */; };
 		54F3B7D2237AADE400BA798E /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B79F237AADE300BA798E /* FloatingPointExtensions.swift */; };
 		54F3B7D3237AADE400BA798E /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B7A0237AADE300BA798E /* DateExtensions.swift */; };
@@ -231,13 +231,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		048F123B23D96ED800ABDEB4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		048F123D23D96EF400ABDEB4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		048F123F23D9703000ABDEB4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		048F124323D9773800ABDEB4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		048F124523D9BDBF00ABDEB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0CF27972B0AF3AF205B163EA /* Pods_SheekhAqaar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SheekhAqaar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		138518A0550E08450653B950 /* Pods-SheekhAqaarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheekhAqaarTests.debug.xcconfig"; path = "Target Support Files/Pods-SheekhAqaarTests/Pods-SheekhAqaarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		29D3FF93FC181FB8AE12BF23 /* Pods-SheekhAqaar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheekhAqaar.release.xcconfig"; path = "Target Support Files/Pods-SheekhAqaar/Pods-SheekhAqaar.release.xcconfig"; sourceTree = "<group>"; };
 		39BA49812D61B240022F5EF7 /* Pods-SheekhAqaarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheekhAqaarUITests.debug.xcconfig"; path = "Target Support Files/Pods-SheekhAqaarUITests/Pods-SheekhAqaarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C76A5E707ACFA4789F4B5A0 /* Pods_SheekhAqaarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SheekhAqaarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		542D3FED239D27BB009C192C /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
-		545FAA1F23D5F91C00C7A590 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		54F3B79E237AADE300BA798E /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		54F3B79F237AADE300BA798E /* FloatingPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointExtensions.swift; sourceTree = "<group>"; };
 		54F3B7A0237AADE300BA798E /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
@@ -535,6 +539,10 @@
 		D952F20D739201FEC57A73BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				048F124323D9773800ABDEB4 /* StoreKit.framework */,
+				048F123F23D9703000ABDEB4 /* libc++.tbd */,
+				048F123D23D96EF400ABDEB4 /* libz.tbd */,
+				048F123B23D96ED800ABDEB4 /* libsqlite3.tbd */,
 				0CF27972B0AF3AF205B163EA /* Pods_SheekhAqaar.framework */,
 				4C76A5E707ACFA4789F4B5A0 /* Pods_SheekhAqaarTests.framework */,
 				6640FC832881CD0F38375636 /* Pods_SheekhAqaarUITests.framework */,
@@ -755,9 +763,9 @@
 				E89CBB0023097F30000B6BB7 /* Fonts */,
 				E89340EA2308265F00F37DCE /* Main.storyboard */,
 				E89340ED2308265F00F37DCE /* Assets.xcassets */,
+				048F124523D9BDBF00ABDEB4 /* GoogleService-Info.plist */,
 				E89340EF2308265F00F37DCE /* LaunchScreen.storyboard */,
 				E89340F22308265F00F37DCE /* Info.plist */,
-				545FAA1F23D5F91C00C7A590 /* GoogleService-Info.plist */,
 				E89CBB0C2309821B000B6BB7 /* Localizable.strings */,
 			);
 			path = SheekhAqaar;
@@ -922,14 +930,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E893410B2308265F00F37DCE /* Build configuration list for PBXNativeTarget "SheekhAqaar" */;
 			buildPhases = (
-				E75AA1E5751E828A99F6FD3C /* [CP] Check Pods Manifest.lock */,
+				B5CA7463E0CA403A256F7052 /* [CP] Check Pods Manifest.lock */,
 				E89340DF2308265E00F37DCE /* Sources */,
 				E89340E02308265E00F37DCE /* Frameworks */,
 				E89340E12308265E00F37DCE /* Resources */,
 				04E332FD2329D7F600A5D327 /* Embed Frameworks */,
-				5AF7B28BA3C68B4F094F8C00 /* [CP] Embed Pods Frameworks */,
-				2FB9F332C47740C4A92F9F97 /* [CP] Copy Pods Resources */,
 				545FAA1E23D5EF8700C7A590 /* ShellScript */,
+				88FB82999688FB61C8F2F38C /* [CP] Embed Pods Frameworks */,
+				755D5C0008023C6797D1F90E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1044,7 +1052,7 @@
 				E8E469352346A37600C02FD7 /* EditProfileStoryboard.storyboard in Resources */,
 				E89CBAF523097B09000B6BB7 /* SignUpStoryboard.storyboard in Resources */,
 				E8245C492318BD8F0021729B /* CreateAdStoryboard.storyboard in Resources */,
-				545FAA2023D5F91D00C7A590 /* GoogleService-Info.plist in Resources */,
+				048F124623D9BDBF00ABDEB4 /* GoogleService-Info.plist in Resources */,
 				E89CBB162309B89C000B6BB7 /* SignUp1Storyboard.storyboard in Resources */,
 				E89CBB1E2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard in Resources */,
 				E848315C231850A4009C7BE9 /* AdStoryboard.storyboard in Resources */,
@@ -1071,24 +1079,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01DF5BF67B6259185D76C2D6 /* [CP] Embed Pods Frameworks */ = {
+		545FAA1E23D5EF8700C7A590 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SheekhAqaar/Pods-SheekhAqaar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SheekhAqaar/Pods-SheekhAqaar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SheekhAqaar/Pods-SheekhAqaar-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		8258161CF9E41E2D433F8DBD /* [CP] Copy Pods Resources */ = {
+		755D5C0008023C6797D1F90E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1127,26 +1136,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-
-		545FAA1E23D5EF8700C7A590 /* ShellScript */ = {
+		88FB82999688FB61C8F2F38C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SheekhAqaar/Pods-SheekhAqaar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SheekhAqaar/Pods-SheekhAqaar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SheekhAqaar/Pods-SheekhAqaar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
-		5881D71B1CC929C7FED589D2 /* [CP] Check Pods Manifest.lock */ = {
+		B5CA7463E0CA403A256F7052 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1546,8 +1553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8F876M528R;
 				INFOPLIST_FILE = SheekhAqaar/Info.plist;
@@ -1556,7 +1562,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.16;
+				MARKETING_VERSION = 1.17;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dinnova.shekhaqar;
 				PRODUCT_NAME = "شيخ العقار";
 				SWIFT_VERSION = 5.0;
@@ -1570,7 +1576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = F9JW8PZ3XS;
 				INFOPLIST_FILE = SheekhAqaar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -1578,7 +1584,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.16;
+				MARKETING_VERSION = 1.17;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dinnova.shekhaqar;
 				PRODUCT_NAME = "شيخ العقار";
 				SWIFT_VERSION = 5.0;

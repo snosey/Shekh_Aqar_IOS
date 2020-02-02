@@ -34,8 +34,9 @@ target 'SheekhAqaar' do
   pod 'Crashlytics', '~> 3.14.0'
 
   # (Recommended) Pod for Google Analytics
-  pod 'Firebase/Analytics'
+  #  pod 'Firebase/Analytics'
   
+
   target 'SheekhAqaarTests' do
     inherit! :search_paths
     # Pods for testing
