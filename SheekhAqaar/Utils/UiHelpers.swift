@@ -353,10 +353,10 @@ class UiHelpers {
         return formatter.string(from: date)
     }
     
-    public class func convertStringToDate(string: String, dateFormat: String) -> Date {
+    public class func convertStringToDate(string: String, dateFormat: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
-        let date = dateFormatter.date(from:string)!
+        let date = dateFormatter.date(from:string)
         return date
     }
     

@@ -31,11 +31,26 @@ class AdCell: UITableViewCell {
         if let urls = ad.adImages, urls.count > 0, let photoUrl = URL(string: urls[0].imageUrl) {
             adPhotoImageView.af_setImage(withURL: photoUrl)
         }
-        priceLabel.text = "\(ad.price.formattedWithSeparator) \(ad.currency.name!)"
-        titleLabel.text = ad.name
-        addressLabel.text = ad.detailedAddress
-        areaLabel.text = "\(ad.placeArea ?? 0)"
-        adTypeLabel.text = ad.subCategory.name
-        creationTimeLabel.text = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/yyyy hh:mm a").timeAgoDisplay()
+        if let price = ad.price, let currency = ad.currency, let currencyName = currency.name {
+            priceLabel.text = "\(price.formattedWithSeparator) \(currencyName)"
+        }
+        
+        if let name = ad.name {
+            titleLabel.text = name
+        }
+        
+        if let detailedAddress = ad.detailedAddress {
+            addressLabel.text = detailedAddress
+        }
+        
+        if let placeArea = ad.placeArea {
+            areaLabel.text = String(placeArea)
+        }
+        
+        if let subCategory = ad.subCategory, let name = subCategory.name {
+            adTypeLabel.text = name
+        }
+        
+        creationTimeLabel.text = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/yyyy hh:mm a")?.timeAgoDisplay()
     }
 }
