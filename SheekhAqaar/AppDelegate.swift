@@ -14,6 +14,7 @@ import Material
 import SwiftyUserDefaults
 import DropDown
 import OneSignal
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let appStarter = ApplicationStarter()
         appStarter.startApplication(window: window)
-        
         handlePushNotification(launchOptions: launchOptions)
         return true
     }
