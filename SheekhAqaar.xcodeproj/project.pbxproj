@@ -1553,7 +1553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8F876M528R;
 				INFOPLIST_FILE = SheekhAqaar/Info.plist;
@@ -1562,7 +1562,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.17;
+				MARKETING_VERSION = 1.18;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dinnova.shekhaqar;
 				PRODUCT_NAME = "شيخ العقار";
 				SWIFT_VERSION = 5.0;
@@ -1576,7 +1576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = F9JW8PZ3XS;
 				INFOPLIST_FILE = SheekhAqaar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -1584,7 +1584,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.17;
+				MARKETING_VERSION = 1.18;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dinnova.shekhaqar;
 				PRODUCT_NAME = "شيخ العقار";
 				SWIFT_VERSION = 5.0;

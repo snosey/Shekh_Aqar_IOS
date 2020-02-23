@@ -87,7 +87,7 @@ class AdVC: BaseVC {
         adNameLabel.text = ad.name
         adAboutLabel.text = ad.details
         let date = UiHelpers.convertStringToDate(string: ad.creationTime, dateFormat: "dd/MM/yyyy hh:mm a")
-        companyAndTimeLabel.text = " | " + date.timeAgoDisplay()
+        companyAndTimeLabel.text = " | " + date!.timeAgoDisplay()
         if let _ = ad.company.name {
             ownerNameLabel.text = ad.company.name
             ownerNameLabel.addTapGesture { (_) in
