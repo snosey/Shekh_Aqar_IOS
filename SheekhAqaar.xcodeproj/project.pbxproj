@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		44C8872ED56168421941451A /* Pods_SheekhAqaarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8E23C36455B3A6876DFFFC /* Pods_SheekhAqaarTests.framework */; };
+		5417634F2402764E00697CEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5417634E2402764E00697CEE /* GoogleService-Info.plist */; };
 		542D3FEE239D27BB009C192C /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542D3FED239D27BB009C192C /* CustomAnnotation.swift */; };
-		545FAA2023D5F91D00C7A590 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 545FAA1F23D5F91C00C7A590 /* GoogleService-Info.plist */; };
 		54F3B7D1237AADE400BA798E /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B79E237AADE300BA798E /* NSAttributedStringExtensions.swift */; };
 		54F3B7D2237AADE400BA798E /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B79F237AADE300BA798E /* FloatingPointExtensions.swift */; };
 		54F3B7D3237AADE400BA798E /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B7A0237AADE300BA798E /* DateExtensions.swift */; };
@@ -233,8 +233,8 @@
 /* Begin PBXFileReference section */
 		168FA21D35A8BEE5F932A07F /* Pods_SheekhAqaar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SheekhAqaar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31C428658298834381E0A576 /* Pods-SheekhAqaar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheekhAqaar.release.xcconfig"; path = "Target Support Files/Pods-SheekhAqaar/Pods-SheekhAqaar.release.xcconfig"; sourceTree = "<group>"; };
+		5417634E2402764E00697CEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		542D3FED239D27BB009C192C /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
-		545FAA1F23D5F91C00C7A590 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		54F3B79E237AADE300BA798E /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		54F3B79F237AADE300BA798E /* FloatingPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointExtensions.swift; sourceTree = "<group>"; };
 		54F3B7A0237AADE300BA798E /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
@@ -757,7 +757,7 @@
 				E89340ED2308265F00F37DCE /* Assets.xcassets */,
 				E89340EF2308265F00F37DCE /* LaunchScreen.storyboard */,
 				E89340F22308265F00F37DCE /* Info.plist */,
-				545FAA1F23D5F91C00C7A590 /* GoogleService-Info.plist */,
+				5417634E2402764E00697CEE /* GoogleService-Info.plist */,
 				E89CBB0C2309821B000B6BB7 /* Localizable.strings */,
 			);
 			path = SheekhAqaar;
@@ -1044,7 +1044,7 @@
 				E8E469352346A37600C02FD7 /* EditProfileStoryboard.storyboard in Resources */,
 				E89CBAF523097B09000B6BB7 /* SignUpStoryboard.storyboard in Resources */,
 				E8245C492318BD8F0021729B /* CreateAdStoryboard.storyboard in Resources */,
-				545FAA2023D5F91D00C7A590 /* GoogleService-Info.plist in Resources */,
+				5417634F2402764E00697CEE /* GoogleService-Info.plist in Resources */,
 				E89CBB162309B89C000B6BB7 /* SignUp1Storyboard.storyboard in Resources */,
 				E89CBB1E2309B900000B6BB7 /* RegisterCompanyStoryboard.storyboard in Resources */,
 				E848315C231850A4009C7BE9 /* AdStoryboard.storyboard in Resources */,
