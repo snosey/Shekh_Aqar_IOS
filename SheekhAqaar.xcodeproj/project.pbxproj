@@ -1559,6 +1559,7 @@
 				PRODUCT_NAME = "sheikh alaqar";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
 			};
 			name = Debug;
 		};
@@ -1581,6 +1582,7 @@
 				PRODUCT_NAME = "sheikh alaqar";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
 			};
 			name = Release;
 		};
