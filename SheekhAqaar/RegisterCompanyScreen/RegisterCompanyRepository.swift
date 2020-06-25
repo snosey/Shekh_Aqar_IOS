@@ -45,7 +45,7 @@ public class RegisterCompanyRepository {
         let company = Company()
         company.regionId = companyRegion.id
         company.name = companyName
-        company.commercialNumber = Int(companyTraditionalNumber)!
+        company.commercialNumber = Int(companyTraditionalNumber) ?? 0
         company.phoneNumber =  "+" + companySelectedCountry.code + companyPhoneNumber
         company.email = companyEmail
         company.address = detailedAddress

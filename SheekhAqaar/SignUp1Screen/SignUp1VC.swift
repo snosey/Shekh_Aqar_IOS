@@ -66,12 +66,13 @@ class SignUp1VC: BaseVC {
 
     @IBAction func continueClicked(_ sender: Any) {
         if let username = usernameTextfield.text, !username.isEmpty {
-            if imageChoosen {
-                presenter.registerUser(phoneNumber: phoneNumber, userName: username, image: self.userAvatarImageView.image!.jpegData(compressionQuality: 0.5)!, countryId: self.country.id)
-                
-            } else {
-                self.view.makeToast("enterAvatar".localized())
-            }
+            presenter.registerUser(phoneNumber: phoneNumber, userName: username, image: self.userAvatarImageView.image!.jpegData(compressionQuality: 0.5)!, countryId: self.country.id)
+//            if imageChoosen {
+//                presenter.registerUser(phoneNumber: phoneNumber, userName: username, image: self.userAvatarImageView.image!.jpegData(compressionQuality: 0.5)!, countryId: self.country.id)
+//
+//            } else {
+//                self.view.makeToast("enterAvatar".localized())
+//            }
         } else {
             self.view.makeToast("enterUsernameField".localized())
         }
