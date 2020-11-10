@@ -268,7 +268,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78u-bk-Q9W">
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78u-bk-Q9W">
                                                             <rect key="frame" x="9.5" y="202" width="354" height="78"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-Dw-4jv" customClass="LocalizedTextField" customModule="sheikh_alaqar" customModuleProvider="target">
@@ -304,7 +304,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ub-6q-I0P" customClass="LocalizedLabel" customModule="sheikh_alaqar" customModuleProvider="target">
-                                                            <rect key="frame" x="9.5" y="288" width="354" height="78"/>
+                                                            <rect key="frame" x="9.5" y="202" width="354" height="78"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
@@ -631,7 +631,7 @@
                                                         <constraint firstItem="1Ns-1V-P69" firstAttribute="height" secondItem="paZ-Xa-fxm" secondAttribute="height" id="WUU-yt-xYb"/>
                                                         <constraint firstItem="78u-bk-Q9W" firstAttribute="height" secondItem="2m2-dR-Aq3" secondAttribute="height" id="X1H-vK-OLd"/>
                                                         <constraint firstItem="IhW-18-98a" firstAttribute="leading" secondItem="oJS-OX-A6Q" secondAttribute="leading" id="YtM-Z2-4CF"/>
-                                                        <constraint firstItem="0ub-6q-I0P" firstAttribute="top" secondItem="78u-bk-Q9W" secondAttribute="bottom" constant="8" id="YvX-qx-p1t"/>
+                                                        <constraint firstItem="0ub-6q-I0P" firstAttribute="top" secondItem="78u-bk-Q9W" secondAttribute="top" id="YvX-qx-p1t"/>
                                                         <constraint firstItem="oJS-OX-A6Q" firstAttribute="trailing" secondItem="78u-bk-Q9W" secondAttribute="trailing" id="ZhI-1r-2zB"/>
                                                         <constraint firstItem="T6a-dJ-9S6" firstAttribute="trailing" secondItem="Kt7-G0-RZh" secondAttribute="trailing" id="d0U-eV-jrd"/>
                                                         <constraint firstItem="0ub-6q-I0P" firstAttribute="trailing" secondItem="78u-bk-Q9W" secondAttribute="trailing" id="d2a-hW-qgE"/>
